@@ -2,6 +2,10 @@
 angular.module('com.module.users')
   .config(function($stateProvider) {
     $stateProvider
+      .state('intro',{
+        url:'/intro',
+        template: '<intro></intro>'
+      })
       .state('login', {
         url: '/login',
         template: '<login></login>',
