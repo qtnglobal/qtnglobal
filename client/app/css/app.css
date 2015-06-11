@@ -1635,12 +1635,12 @@ span.badge-dark {
 }
 
 .social-icons li:hover a {
-   background-position: 0 -49px;
+   background-position: 0 -48px;
 }
 
 .social-icons-color li a {
   opacity: 0.7;
-  background-position: 0 -49px !important;
+  background-position: 0 -48px !important;
   -webkit-backface-visibility: hidden; /*For Chrome*/
 }
 
@@ -1649,10 +1649,10 @@ span.badge-dark {
 }
 
 
-.social_facebook {background: url(../../../../loopback-angular-admin/client/app/images/facebook.png) no-repeat;  background-size: cover;  }
-.social_google-plus {background: url(../../../../loopback-angular-admin/client/app/images/googleplus.png) no-repeat;  background-size: cover;}
-.social_linkedin {background: url(../../../../loopback-angular-admin/client/app/images/linkedin.png) no-repeat; background-size: cover;}
-.social_twitter {background: url(../../../../loopback-angular-admin/client/app/images/twitter.png) no-repeat; background-size: cover;}
+.social_facebook {background: url(../images/facebook.png) no-repeat;  background-size: cover;  }
+.social_google-plus {background: url(../images/googleplus.png) no-repeat;  background-size: cover;}
+.social_linkedin {background: url(../images/linkedin.png) no-repeat; background-size: cover;}
+.social_twitter {background: url(../images/twitter.png) no-repeat; background-size: cover;}
 
 /*Font Awesome Icon Styles*/
 i.icon-custom {
