@@ -95,10 +95,11 @@ angular.module('com.module.users')
           AppAuth.currentUser = $scope.loginResult.user;
           CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
             gettextCatalog.getString('You are logged in!'));
-          if (next === '/login') {
-            next = '/';
-          }
-          $location.path(next);
+          /*next='/app';
+           if (next === '/login') {
+           next = '/';
+           }*/
+          $location.path('/app')
 
         },
         function(res) {
@@ -107,6 +108,8 @@ angular.module('com.module.users')
 
 
     };
-
+    $scope.goToLogin = function(){
+      $location.path('/login');
+    }
 
   });

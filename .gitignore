@@ -11,7 +11,6 @@ client/app/index.html
 storage/
 .strong-pm
 .sass-cache
-providers.json
 bower_components
 docs
 client/coverage
