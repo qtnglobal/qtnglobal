@@ -19,6 +19,5 @@ client/coverage
 .cache
 .config
 .npm
-.iml
-.DS_Store
 qtnglobal.iml
+.DS_Store
