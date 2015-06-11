@@ -13,7 +13,7 @@
   overflow: hidden;
   padding: 10px 0 6px;
   border-bottom: solid 1px #eee;
-  background: url(../img/patterns/breadcrumbs.png) repeat;
+  background: url(../images/breadcrumbs.png) repeat;
 }
 
 .breadcrumbs h1 {
@@ -2018,14 +2018,14 @@
 /*Parallax Counter
 ------------------------------------*/
 .parallax-bg {
-  background: url(../img/patterns/5.png) repeat fixed;
+  background: url(../images/5.png) repeat fixed;
 }
 
 /*Parallax Counter
 ------------------------------------*/
 .parallax-counter {
   padding: 30px 0;
-  background: url(../img/patterns/5.png) repeat fixed;
+  background: url(../images/5.png) repeat fixed;
 }
 
 .parallax-counter .counters {
@@ -2047,7 +2047,7 @@
 ------------------------------------*/
 .parallax-counter-v1 {
   padding: 60px 0;
-  background: url(../img/patterns/5.png) repeat fixed;
+  background: url(../images/5.png) repeat fixed;
 }
 
 .parallax-counter-v1 .counters {

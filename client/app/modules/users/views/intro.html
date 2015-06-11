@@ -290,36 +290,45 @@
     </div>
   </div>
 
-  <div class="parallax-counter parallaxBg">
+  <div class="parallax-counter parallaxBg" style="background-position: 50% -254px;">
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter">10629</span>
+            <span class="counter Users"></span>
             <h4>Users</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter">277</span>
+            <span class="counter Projects"></span>
             <h4>Projects</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter">78</span>
+            <span class="counter Team_Members"></span>
             <h4>Team Members</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter">109</span>
+            <span class="counter Awards"></span>
             <h4>Awards</h4>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    /**
+     * Created by sanghuynh on 10/06/2015.
+     */
+    $('.Users').animateNumber({number:10629 },5000);
+    $('.Projects').animateNumber({number: 277},5000);
+    $('.Team_Members').animateNumber({number: 78},5000);
+    $('.Awards').animateNumber({number: 109},5000);
+  </script>
 </section>
 <!--  About Section -->
 
