@@ -12,8 +12,10 @@
 angular.module('com.module.core')
   .controller('RouteCtrl', function($q, $scope, $state, $location, AppAuth) {
     if (!AppAuth.currentUser) {
-      console.log('Redirect to login');
-      $location.path('/login');
+      //console.log('Redirect to login');
+      //$location.path('/login');
+      $location.path('/intro');
+
     } else {
       console.log('Redirect to app');
       $location.path('/app');
