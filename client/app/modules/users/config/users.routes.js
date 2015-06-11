@@ -4,7 +4,8 @@ angular.module('com.module.users')
     $stateProvider
       .state('intro',{
         url:'/intro',
-        template: '<intro></intro>'
+        template: '<intro></intro>',
+        controller: 'LoginCtrl'
       })
       .state('login', {
         url: '/login',

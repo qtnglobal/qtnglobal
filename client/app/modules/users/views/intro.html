@@ -1,8 +1,8 @@
-<div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+<div class="pace  pace-inactive">
+  <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
   <div class="pace-progress-inner"></div>
 </div>
   <div class="pace-activity"></div></div>
-
 <!--=== Header ===-->
 <nav class="one-page-header navbar navbar-default navbar-fixed-top top-nav-collapse" role="navigation">
   <div class="container">
@@ -15,7 +15,7 @@
       </button>
 
       <a class="navbar-brand" href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#intro">
-        <span>Q</span>TN Global
+        <span>U</span>nify
         <!-- <img src="assets/img/logo1.png" alt="Logo"> -->
       </a>
     </div>
@@ -43,7 +43,7 @@
             <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#contact">Contact</a>
           </li>
           <li class="page-scroll">
-            <a href="http://htmlstream.com/preview/unify-v1.7/index.html">Main</a>
+            <a ng-click="goToLogin()">Login</a>
           </li>
         </ul>
       </div>
@@ -55,85 +55,105 @@
 <!--=== End Header ===-->
 
 <!-- Intro Section -->
-<!-- Intro Section -->
-<section id="intro" class="intro-section">
-  <div class="fullscreenbanner-container" style="max-height: none; overflow: visible; height: 635px;">
-    <div class="fullscreenbanner revslider-initialised tp-simpleresponsive" id="revslider-505" style="height: 100%; max-height: none;">
-      <ul class="tp-revslider-mainul" style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
-        <!-- SLIDE 1 -->
-        <li data-transition="curtain-1" data-slotamount="5" data-masterspeed="700" data-title="Slide 1" class="tp-revslider-slidesli active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-          <!-- MAIN IMAGE -->
-          <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="center center" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="assets/img/sliders/revolution/bg1.jpg" data-src="assets/img/sliders/revolution/bg1.jpg" style="width: 100%; height: 100%; opacity: 0; visibility: hidden; background-image: url(http://htmlstream.com/preview/unify-v1.7/One-Page/assets/img/sliders/revolution/bg1.jpg); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"></div><div class="tp-dottedoverlay twoxtwo"></div></div>
+<div class="container">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators" >
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-          <!-- LAYERS -->
-          <div class="tp-caption rs-caption-1 sft start" data-x="center" data-hoffset="0" data-y="100" data-speed="800" data-start="2000" data-easing="Back.easeInOut" data-endspeed="300" style="-webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 51px; border-width: 1px 0px; margin: 0px; padding: 6px 75px; letter-spacing: 0px; font-size: 32px; left: 165px; top: 190.5px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-            WE ARE UNIFY CREATIVE TECHNOLOGY COMPANY
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <section class="ir-banner">
+        <div class="ratio-46">
+        <img alt="Ảnh bìa" src="images/bg1.jpg" />
+        <div class="bg-black7"></div>
+          <div class="home_top_banner">
+              <div>
+                  <h3 >WE ARE UNIFY CREATIVE TECHNOLOGY COMPANY</h3>
+                  <h2></h2>
+                  <p>Creative freedom matters user experience.<br></br>
+                     We minimize the gap between technology and its audience.
+                  </p>
+                  <h1></h1>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">LEARN MORE</a>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light" style="margin-left: 10px;">OUR WORK</a>
+              </div>
+
           </div>
+        <!-- # Home top banner -->
+         </div>
+        <!-- # ratio-46 -->
+        </section>
+      </div>
 
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-2 sft start" data-x="center" data-hoffset="0" data-y="200" data-speed="1000" data-start="3000" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 40px; border-width: 0px; margin: 0px; padding: 10px 50px; letter-spacing: 0px; font-size: 26px; left: 249.5px; top: 290.5px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-            Creative freedom matters user experience.<br>
-            We minimize the gap between technology and its audience.
+      <div class="item">
+        <section class="ir-banner">
+        <div class="ratio-46">
+        <img alt="Ảnh bìa" src="images/bg2.jpg" />
+        <div class="bg-black7"></div>
+          <div class="home_top_banner">
+              <div>
+                  <h3 >DEDICATED ADVANCED TEAM</h3>
+                  <h2></h2>
+                  <p>We are creative technology company providing<br></br>
+                            key digital services on web and mobile.
+                  </p>
+                  <h1></h1>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">LEARN MORE</a>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light" style="margin-left: 10px;">OUR WORK</a>
+              </div>
           </div>
+        <!-- # Home top banner -->
+         </div>
+        <!-- # ratio-46 -->
+        </section>
+      </div>
 
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-3 sft start" data-x="center" data-hoffset="0" data-y="360" data-speed="800" data-start="3500" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 13px; left: 516.5px; top: 450.5px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a></span>
+      <div class="item">
+        <section class="ir-banner">
+        <div class="ratio-46">
+        <img alt="Ảnh bìa" src="images/bg3.jpg" />
+        <div class="bg-black7"></div>
+          <div class="home_top_banner">
+              <div>
+                  <h3 >WE DO THINGS DIFFERENTLY</h3>
+                  <h2></h2>
+                  <p>Creative freedom matters user experience.</br></br>
+                     We minimize the gap between technology and its audience.
+                  </p>
+                  <h1></h1>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">LEARN MORE</a>
+                  <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light" style="margin-left: 10px;">OUR WORK</a>
+              </div>
           </div>
-        </li>
+        <!-- # Home top banner -->
+         </div>
+        <!-- # ratio-46 -->
+        </section>
+      </div>
 
-        <!-- SLIDE 2 -->
-        <li data-transition="slideup" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2" class="tp-revslider-slidesli active-revslide current-sr-slide-visible" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1;">
-          <!-- MAIN IMAGE -->
-          <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="center center" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="assets/img/sliders/revolution/bg2.jpg" data-src="assets/img/sliders/revolution/bg2.jpg" style="width: 100%; height: 100%; opacity: 1; visibility: inherit; background-image: url(http://htmlstream.com/preview/unify-v1.7/One-Page/assets/img/sliders/revolution/bg2.jpg); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"></div><div class="tp-dottedoverlay twoxtwo"></div></div>
 
-          <!-- LAYERS -->
-          <div class="tp-caption rs-caption-1 sft start" data-x="center" data-hoffset="0" data-y="100" data-speed="800" data-start="1500" data-easing="Back.easeInOut" data-endspeed="300" style="-webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 51px; border-width: 1px 0px; margin: 0px; padding: 6px 75px; letter-spacing: 0px; font-size: 32px; left: 332.5px; top: 167.5px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
-            DEDICATED ADVANCED TEAM
-          </div>
-
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-2 sft start" data-x="center" data-hoffset="0" data-y="200" data-speed="1000" data-start="2500" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 40px; border-width: 0px; margin: 0px; padding: 10px 50px; letter-spacing: 0px; font-size: 26px; left: 322px; top: 267.5px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
-            We are creative technology company providing<br>
-            key digital services on web and mobile.
-          </div>
-
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-3 sft start" data-x="center" data-hoffset="0" data-y="360" data-speed="800" data-start="3500" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 13px; left: 517px; top: 427.5px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a></span>
-          </div>
-        </li>
-
-        <!-- SLIDE 3 -->
-        <li data-transition="slideup" data-slotamount="5" data-masterspeed="700" data-title="Slide 3" class="tp-revslider-slidesli" style="width: 100%; height: 100%; overflow: hidden; visibility: hidden; opacity: 0; z-index: 18;">
-          <!-- MAIN IMAGE -->
-          <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="center center" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="assets/img/sliders/revolution/bg3.jpg" data-src="assets/img/sliders/revolution/bg3.jpg" style="width: 100%; height: 100%; opacity: 0; background-image: url(http://htmlstream.com/preview/unify-v1.7/One-Page/assets/img/sliders/revolution/bg3.jpg); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"></div><div class="tp-dottedoverlay twoxtwo"></div></div>
-
-          <!-- LAYERS -->
-          <div class="tp-caption rs-caption-1 sft start" data-x="center" data-hoffset="0" data-y="110" data-speed="800" data-start="1500" data-easing="Back.easeInOut" data-endspeed="300">
-            WE DO THINGS DIFFERENTLY
-          </div>
-
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-2 sfb start" data-x="center" data-hoffset="0" data-y="210" data-speed="800" data-start="2500" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6">
-            Creative freedom matters user experience.<br>
-            We minimize the gap between technology and its audience.
-          </div>
-
-          <!-- LAYER -->
-          <div class="tp-caption rs-caption-3 sfb start" data-x="center" data-hoffset="0" data-y="370" data-speed="800" data-start="3500" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6">
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
-            <span class="page-scroll"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a></span>
-          </div>
-        </li>
-      </ul>
     </div>
-  </div>
-</section>
-<!-- End Intro Section -->
 
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- End Intro Section -->
 
 <!--  About Section -->
 <section id="about" class="about-section section-first">
@@ -173,7 +193,7 @@
           Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
       </div>
       <div class="img-center">
-        <img class="img-responsive" src="images/mockup.png" alt="">
+        <img class="img-responsive" src="/images/mockup.png" alt="">
       </div>
     </div>
   </div>
@@ -211,7 +231,7 @@
       </div>
 
       <div class="col-md-6">
-        <img class="img-responsive" src="images/mockup1.png" alt="">
+        <img class="img-responsive" src="/images/mockup1.png" alt="">
       </div>
     </div>
   </div>
@@ -236,7 +256,7 @@
       <ul class="list-unstyled row">
         <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
           <div class="team-img">
-            <img class="img-responsive" src="images/img1-md.jpg" alt="">
+            <img class="img-responsive" src="/images/img1-md.jpg" alt="">
             <ul>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
@@ -249,11 +269,11 @@
         </li>
         <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
           <div class="team-img">
-            <img class="img-responsive" src="images/img2-md.jpg" alt="">
+            <img class="img-responsive" src="/images/img2-md.jpg" alt="">
             <ul>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-              <li><a href="http://htmlstream.com/preview/uimagesnify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
+              <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
             </ul>
           </div>
           <h3>Tina Krueger</h3>
@@ -262,7 +282,7 @@
         </li>
         <li class="col-sm-3 col-xs-6">
           <div class="team-img">
-            <img class="img-responsive" src="images/img3-md.jpg" alt="">
+            <img class="img-responsive" src="/images/img3-md.jpg" alt="">
             <ul>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
@@ -275,7 +295,7 @@
         </li>
         <li class="col-sm-3 col-xs-6">
           <div class="team-img">
-            <img class="img-responsive" src="images/img5-md.jpg" alt="">
+            <img class="img-responsive" src="/images/img5-md.jpg" alt="">
             <ul>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
               <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
@@ -290,45 +310,36 @@
     </div>
   </div>
 
-  <div class="parallax-counter parallaxBg" style="background-position: 50% -254px;">
+  <div class="parallax-counter parallaxBg">
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter Users"></span>
+            <span class="counter">10629</span>
             <h4>Users</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter Projects"></span>
+            <span class="counter">277</span>
             <h4>Projects</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter Team_Members"></span>
+            <span class="counter">78</span>
             <h4>Team Members</h4>
           </div>
         </div>
         <div class="col-sm-3 col-xs-6">
           <div class="counters">
-            <span class="counter Awards"></span>
+            <span class="counter">109</span>
             <h4>Awards</h4>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script>
-    /**
-     * Created by sanghuynh on 10/06/2015.
-     */
-    $('.Users').animateNumber({number:10629 },5000);
-    $('.Projects').animateNumber({number: 277},5000);
-    $('.Team_Members').animateNumber({number: 78},5000);
-    $('.Awards').animateNumber({number: 109},5000);
-  </script>
 </section>
 <!--  About Section -->
 
@@ -390,7 +401,7 @@
 
   <ul class="list-unstyled row portfolio-box-v1">
     <li class="col-sm-4">
-      <img class="img-responsive" src="images/img1.jpg" alt="">
+      <img class="img-responsive" src="/images/img1.jpg" alt="">
       <div class="portfolio-box-v1-in">
         <h3>Collective Package</h3>
         <p>Web Design, Mock-up</p>
@@ -398,7 +409,7 @@
       </div>
     </li>
     <li class="col-sm-4">
-      <img class="img-responsive" src="images/img2.jpg" alt="">
+      <img class="img-responsive" src="/images/img2.jpg" alt="">
       <div class="portfolio-box-v1-in">
         <h3>Ahola Company</h3>
         <p>Brand Design, UI</p>
@@ -406,7 +417,7 @@
       </div>
     </li>
     <li class="col-sm-4">
-      <img class="img-responsive" src="images/img4.jpg" alt="">
+      <img class="img-responsive" src="/images/img4.jpg" alt="">
       <div class="portfolio-box-v1-in">
         <h3>Allan Project</h3>
         <p>Web Development, HTML5</p>
@@ -442,7 +453,7 @@
     <div class="row news-v1">
       <div class="col-md-4 md-margin-bottom-40">
         <div class="news-v1-in">
-          <img class="img-responsive" src="images/img1(1).jpg" alt="">
+          <img class="img-responsive" src="/images/img1(1).jpg" alt="">
           <h3><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#">Focused on helping our clients to build a successful business</a></h3>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
           <ul class="list-inline news-v1-info">
@@ -455,7 +466,7 @@
       </div>
       <div class="col-md-4 md-margin-bottom-40">
         <div class="news-v1-in">
-          <img class="img-responsive" src="images/img4(1).jpg" alt="">
+          <img class="img-responsive" src="/images/img4(1).jpg" alt="">
           <h3><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#">We build your website to realise your vision and best product</a></h3>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
           <ul class="list-inline news-v1-info">
@@ -468,7 +479,7 @@
       </div>
       <div class="col-md-4">
         <div class="news-v1-in">
-          <img class="img-responsive" src="images/img3.jpg" alt="">
+          <img class="img-responsive" src="/images/img3.jpg" alt="">
           <h3><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#">Focused on helping our clients to build a successful business</a></h3>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
           <ul class="list-inline news-v1-info">
@@ -510,6 +521,358 @@
   </div>
 </section>
 <!-- End News Section -->
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="about-section">
+  <div class="container content-lg">
+    <div class="title-v1">
+      <h2>Our Portfolio</h2>
+      <p>We do <strong>things</strong> differently company providing key digital services. <br>
+        Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
+    </div>
+
+
+    <div class="cube-portfolio">
+      <div id="filters-container" class="cbp-l-filters-button">
+        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div>
+        <div data-filter=".print" class="cbp-filter-item"> Print </div>
+        <div data-filter=".web-design" class="cbp-filter-item"> Web Design </div>
+        <div data-filter=".motion" class="cbp-filter-item"> Motion </div>
+      </div><!--/end Filters Container-->
+
+      <div id="grid-container" class="cbp-l-grid-gallery cbp cbp-chrome cbp-caption-overlayBottomPush cbp-animation-rotateSides cbp-cols-3 cbp-ready" style="height: 860px;"><div class="cbp-wrapper cbp-wrapper-front">
+        <div class="cbp-item print motion" style="width: 373px; transform: translate3d(0px, 0px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project1.html" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget&lt;br&gt;by Paul Flavius Nechita">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/1.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">World Clock Widget</div>
+                  <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design" style="width: 373px; transform: translate3d(383px, 0px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project2.html" class="cbp-caption cbp-singlePageInline" data-title="Bolt UI&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/2.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Bolt UI</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print motion" style="width: 373px; transform: translate3d(766px, 0px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project3.html" class="cbp-caption cbp-singlePageInline" data-title="WhereTO App&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/3.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">WhereTO App</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design print" style="width: 373px; transform: translate3d(0px, 290px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project4.html" class="cbp-caption cbp-singlePageInline" data-title="iDevices&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/11.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">iDevices</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item motion" style="width: 373px; transform: translate3d(383px, 290px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project5.html" class="cbp-caption cbp-singlePageInline" data-title="Seemple* Music for iPad&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/5.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print motion" style="width: 373px; transform: translate3d(766px, 290px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project6.html" class="cbp-caption cbp-singlePageInline" data-title="Remind~Me Widget&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/6.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Remind~Me Widget</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design print" style="width: 373px; transform: translate3d(0px, 580px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project7.html" class="cbp-caption cbp-singlePageInline" data-title="Workout Buddy&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/7.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Workout Buddy</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print" style="width: 373px; transform: translate3d(383px, 580px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project8.html" class="cbp-caption cbp-singlePageInline" data-title="Digital Menu&lt;br&gt;by Cosmin Capitanu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/8.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Digital Menu</div>
+                  <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item motion" style="width: 373px; transform: translate3d(766px, 580px, 0px); opacity: 1;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project9.html" class="cbp-caption cbp-singlePageInline" data-title="Holiday Selector&lt;br&gt;by Cosmin Capitanu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/4.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Holiday Selector</div>
+                  <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+      </div><div class="cbp-wrapper" style="opacity: 0;">
+        <div class="cbp-item print motion" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project1.html" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget&lt;br&gt;by Paul Flavius Nechita">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/1.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">World Clock Widget</div>
+                  <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project2.html" class="cbp-caption cbp-singlePageInline" data-title="Bolt UI&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/2.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Bolt UI</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print motion" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project3.html" class="cbp-caption cbp-singlePageInline" data-title="WhereTO App&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/3.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">WhereTO App</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design print" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project4.html" class="cbp-caption cbp-singlePageInline" data-title="iDevices&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/11.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">iDevices</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item motion" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project5.html" class="cbp-caption cbp-singlePageInline" data-title="Seemple* Music for iPad&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/5.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print motion" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project6.html" class="cbp-caption cbp-singlePageInline" data-title="Remind~Me Widget&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/6.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Remind~Me Widget</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item web-design print" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project7.html" class="cbp-caption cbp-singlePageInline" data-title="Workout Buddy&lt;br&gt;by Tiberiu Neamu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/7.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Workout Buddy</div>
+                  <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item print" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project8.html" class="cbp-caption cbp-singlePageInline" data-title="Digital Menu&lt;br&gt;by Cosmin Capitanu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/8.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Digital Menu</div>
+                  <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+        <div class="cbp-item motion" style="width: 373px;"><div class="cbp-item-wrapper">
+          <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/project9.html" class="cbp-caption cbp-singlePageInline" data-title="Holiday Selector&lt;br&gt;by Cosmin Capitanu">
+            <div class="cbp-caption-defaultWrap">
+              <img src="/images/4.jpg" alt="">
+            </div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignLeft">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">Holiday Selector</div>
+                  <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div></div>
+      </div></div>
+
+      <div class="cbp-l-loadMore-button">
+        <a href="http://htmlstream.com/preview/unify-v1.7/One-Page/assets/ajax/loadMore.html" class="cbp-l-loadMore-button-link">LOAD MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="clients-section parallaxBg">
+    <div class="container">
+      <div class="title-v1">
+        <h2>Our Clients</h2>
+      </div>
+      <ul class="owl-clients-v2 owl-carousel owl-theme" style="opacity: 1; display: block;">
+        <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 2736px; left: -172.697175px; display: block;"><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/national-geographic.png" alt=""></a></li></div><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/inspiring.png" alt=""></a></li></div><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/fred-perry.png" alt=""></a></li></div><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/emirates.png" alt=""></a></li></div><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/baderbrau.png" alt=""></a></li></div><div class="owl-item" style="width: 228px;"><li class="item"><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#"><img src="/images/inspiring.png" alt=""></a></li></div></div></div>
+
+
+
+
+
+        <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div></div></div></ul>
+    </div>
+  </div>
+
+  <div class="testimonials-v3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <ul class="list-unstyled owl-ts-v1 owl-carousel owl-theme" style="opacity: 1; display: block;">
+            <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 4500px; left: 0px; display: block;"><div class="owl-item" style="width: 750px;"><li class="item">
+              <img class="rounded-x img-bordered" src="/images/img3-sm.jpg" alt="">
+              <div class="testimonials-v3-title">
+                <p>David Case</p>
+                <span>Web Developer, Google</span>
+              </div>
+              <p>I just wanted to tell you how much I like to use Unify - <strong>it's so sleek and elegant!</strong> <br>
+                The customisation options you implemented are countless, and I feel sorry I can't use them all. Good job, and keep going!</p><p>
+            </p></li></div><div class="owl-item" style="width: 750px;"><li class="item">
+              <img class="rounded-x img-bordered" src="/images/img2-sm.jpg" alt="">
+              <div class="testimonials-v3-title">
+                <p>Tina Krueger</p>
+                <span>UI Designer, Apple</span>
+              </div>
+              <p>Keep up the great work. Your template is by far the best on the market in terms of features, quality and value or money.</p>
+            </li></div><div class="owl-item" style="width: 750px;"><li class="item">
+              <img class="rounded-x img-bordered" src="/images/img1-sm.jpg" alt="">
+              <div class="testimonials-v3-title">
+                <p>John Clarck</p>
+                <span>Marketing &amp; Cunsulting, IBM</span>
+              </div>
+              <p>So far I really like the theme. I am looking forward to exploring more of your themes. Thank you!</p>
+            </li></div></div></div>
+
+
+            <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div></div></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Portfolio Section -->
 
 <!-- Contact Section -->
 <section id="contact" class="contacts-section">
@@ -571,5 +934,119 @@
       </div>
     </div>
   </div>
+
+  <div class="copyright-section">
+    <p>2014 © All Rights Reserved. Unify Theme by <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a></p>
+    <ul class="social-icons">
+      <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#" data-original-title="Facebook" class="social_facebook rounded-x"></a></li>
+      <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#" data-original-title="Twitter" class="social_twitter rounded-x"></a></li>
+      <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#" data-original-title="Goole Plus" class="social_googleplus rounded-x"></a></li>
+      <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#" data-original-title="Pinterest" class="social_pintrest rounded-x"></a></li>
+      <li><a href="http://htmlstream.com/preview/unify-v1.7/One-Page/index.html#" data-original-title="Linkedin" class="social_linkedin rounded-x"></a></li>
+    </ul>
+  </div>
 </section>
 
+
+
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+  }
+
+  /* Banner top */
+  .ratio-46 {
+    position: relative; width: 100%;
+    padding-bottom: 60%;
+  }
+  .ratio-46 > img {
+    position: absolute; width: 100%;
+    height: 100%; top: 0; left: 0;
+    right: 0; bottom: 0; margin: auto;
+  }
+  .bg-black7 {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%; height: 100%;
+  }
+  .ir-banner { position: relative;}
+  .ir-banner:after {
+    /*  content: "";
+      width: 100%;    height: 10px;
+      position: absolute;
+      bottom: 0;    left: 0;
+      background: linear-gradient(-60deg,#fff 25%,transparent 25%) center top repeat-x,
+                  linear-gradient(-120deg,transparent 75%,#fff 75%) center top repeat-x;
+      background-size: 9px 10px;*/
+  }
+  .home_top_banner {
+    position: absolute;
+    width: 100%; height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .home_top_banner div {
+    position: relative;
+    top: 45%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
+  .home_top_banner div h3 {
+    color: white;
+    font-size: 33px;
+    width: 100%;
+    margin: 40px auto 20px auto;
+    line-height: 49px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    visibility: visible;
+  }
+
+  .home_top_banner div h1 {
+    color: white;
+    font-size: 33px;
+    width: 400px;
+    margin: 40px auto 20px auto;
+    line-height: 49px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    visibility: visible;
+    border-bottom: 1px solid #FFF;
+  }
+
+  .home_top_banner div h2 {
+    color: white;
+    font-size: 33px;
+    width: 200px;
+    margin: 40px auto 20px auto;
+    line-height: 49px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    visibility: visible;
+    border-bottom: 1px solid #FFF;
+  }
+
+  .home_top_banner div p {
+    color: white;
+    line-height: 23px;
+    font-size: 28px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-bottom: 25px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .ratio-46 {   padding-bottom: 345px;     }
+    .home_top_banner div h3 {
+      font-size: 4vw; width: 100%;
+    }
+  }
+
+  @media only screen and (max-width:  380px) {
+    .home_top_banner div h3 {
+      font-size: 15px;
+    }
+  }
+
+</style>
