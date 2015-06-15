@@ -19,7 +19,7 @@ angular.module('com.module.users')
                 $location.path('/intro');
               }
               CoreService.toastWarning('Error 401 received',
-                'We received a 401 error from the API! Redirecting to login'
+                'We received a 401 error from the API! Redirecting to intro'
               );
             }
           }
