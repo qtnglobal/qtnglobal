@@ -1647,35 +1647,10 @@ span.badge-dark {
   opacity: 1;
 }
 
-.social_amazon {background: url(../images/amazon.png) no-repeat;}
-.social_behance {background: url(../images/behance.png) no-repeat;}
-.social_blogger {background: url(../images/blogger.png) no-repeat;}
-.social_deviantart {background: url(../images/deviantart.png) no-repeat;}
-.social_dribbble {background: url(../images/dribbble.png) no-repeat;}
-.social_dropbox {background: url(../images/dropbox.png) no-repeat;}
-.social_evernote {background: url(../images/evernote.png) no-repeat;}
 .social_facebook {background: url(../images/facebook.png) no-repeat;}
-.social_forrst {background: url(../images/forrst.png) no-repeat;}
-.social_github {background: url(../images/github.png) no-repeat;}
-.social_googleplus {background: url(../images/googleplus.png) no-repeat;}
-.social_jolicloud {background: url(../images/jolicloud.png) no-repeat;}
-.social_last-fm {background: url(../images/last-fm.png) no-repeat;}
+.social_google-plus {background: url(../images/googleplus.png) no-repeat;}
 .social_linkedin {background: url(../images/linkedin.png) no-repeat;}
-.social_picasa {background: url(../images/picasa.png) no-repeat;}
-.social_pintrest {background: url(../images/pintrest.png) no-repeat;}
-.social_rss {background: url(../images/rss.png) no-repeat;}
-.social_skype {background: url(../images/skype.png) no-repeat;}
-.social_spotify {background: url(../images/spotify.png) no-repeat;}
-.social_stumbleupon {background: url(../images/stumbleupon.png) no-repeat;}
-.social_tumblr {background: url(../images/tumblr.png) no-repeat;}
 .social_twitter {background: url(../images/twitter.png) no-repeat;}
-.social_vimeo {background: url(../images/vimeo.png) no-repeat;}
-.social_wordpress {background: url(../images/wordpress.png) no-repeat;}
-.social_xing {background: url(../images/xing.png) no-repeat;}
-.social_yahoo {background: url(../images/yahoo.png) no-repeat;}
-.social_youtube {background: url(../images/youtube.png) no-repeat;}
-.social_vk {background: url(..//images/vk.png) no-repeat;}
-.social_instagram {background: url(../images/instagram.png) no-repeat;}
 
 /*Font Awesome Icon Styles*/
 i.icon-custom {
