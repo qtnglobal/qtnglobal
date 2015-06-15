@@ -25,6 +25,11 @@
       "model": "Role",
       "foreignKey": "principalId",
       "through": "RoleMapping"
+    },
+    "news": {
+      "type": "hasMany",
+      "model": "New",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [
