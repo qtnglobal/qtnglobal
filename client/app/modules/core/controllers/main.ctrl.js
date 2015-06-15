@@ -20,7 +20,7 @@ angular.module('com.module.core')
       $scope.currentUser = user;
     });
 
-    //$scope.currentUser = User.getCurrent();
+    $scope.currentUser = User.getCurrent();
 
     $scope.menuoptions = $rootScope.menu;
 

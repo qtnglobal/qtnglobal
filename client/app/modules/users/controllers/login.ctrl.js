@@ -10,7 +10,7 @@
  **/
 angular.module('com.module.users')
   .controller('LoginCtrl', function($scope, $routeParams, $location,
-    CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
+                                    CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 
@@ -99,7 +99,7 @@ angular.module('com.module.users')
            if (next === '/login') {
            next = '/';
            }*/
-          $location.path('/app')
+          $location.path('/app');
 
         },
         function(res) {
@@ -111,5 +111,4 @@ angular.module('com.module.users')
     $scope.goToLogin = function(){
       $location.path('/login');
     }
-
   });

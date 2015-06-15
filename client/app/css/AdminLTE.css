@@ -2547,9 +2547,9 @@ Component: timeline
     ---------
 */
 /* skin-blue navbar */
-/*.skin-blue .navbar {
+.skin-blue .navbar {
   background-color: #3c8dbc;
-}*/
+}
 .skin-blue .navbar .nav a {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -3681,8 +3681,8 @@ a:hover {
 
 /*Navbar*/
 .one-page-header {
-  border-bottom: none;
-  background: rgba(0,0,0,0.4);
+  border-bottom: none !important;
+  background: rgba(0,0,0,0.4) !important;
 }
 
 .one-page-header .navbar-nav > li > a {
