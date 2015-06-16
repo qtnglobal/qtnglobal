@@ -32,13 +32,13 @@ app.config(function($stateProvider) {
     url: '/:id',
     templateUrl: 'modules/news/views/view.html',
     resolve: {
-      new: ['$stateParams', 'NewsService', function($stateParams,
+      news: ['$stateParams', 'NewsService', function($stateParams,
         NewsService) {
         return NewsService.getNew($stateParams.id);
       }]
     },
-    controller: function($scope, post) {
-      $scope.new = post;
+    controller: function($scope, news) {
+      $scope.new = news;
     }
   });
 });

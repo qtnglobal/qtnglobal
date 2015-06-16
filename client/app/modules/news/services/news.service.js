@@ -1,11 +1,11 @@
 'use strict';
 var app = angular.module('com.module.news');
 
-app.service('NewsService', ['CoreService', 'gettextCatalog', 'New', function(
-  CoreService, gettextCatalog, New) {
+app.service('NewsService', ['CoreService', 'gettextCatalog', 'News', function(
+  CoreService, gettextCatalog, News, User) {
 
   this.getNews = function() {
-    return New.find({
+    return News.find({
       filter: {
         order: 'created DESC'
       }
@@ -13,16 +13,16 @@ app.service('NewsService', ['CoreService', 'gettextCatalog', 'New', function(
   };
 
   this.getNew = function(id) {
-    return New.findById({
+    return News.findById({
       id: id
     }).$promise;
   };
 
-  this.deleteNew = function(id, cb) {
+  this.deleteNews = function(id, cb) {
     CoreService.confirm(gettextCatalog.getString('Are you sure?'),
       gettextCatalog.getString('Deleting this cannot be undone'),
       function() {
-        New.deleteById(id, function() {
+        News.deleteById(id, function() {
           CoreService.toastSuccess(gettextCatalog.getString(
             'Item deleted'), gettextCatalog.getString(
             'Your item has been deleted!'));

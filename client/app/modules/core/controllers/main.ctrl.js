@@ -24,16 +24,6 @@ angular.module('com.module.core')
 
     $scope.menuoptions = $rootScope.menu;
 
-    var user = User.getCurrent(function(user) {
-      if (user.username !== 'admin') {
-        console.log(user.username);
-        $scope.menuoptions.pop();
-        $scope.menuoptions.pop();
-      }
-    }, function(err) {
-      console.log(err);
-    });
-
 
     $scope.logout = function() {
       User.logout(function() {

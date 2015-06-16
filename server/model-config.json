@@ -74,11 +74,11 @@
     "dataSource": "db",
     "public": true
   },
-  "New": {
+  "Project": {
     "dataSource": "db",
     "public": true
   },
-  "Project": {
+  "News": {
     "dataSource": "db",
     "public": true
   }

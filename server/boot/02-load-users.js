@@ -38,6 +38,15 @@ module.exports = function(app) {
         username: 'user',
         password: 'user'
       }]
+    },{
+      name: 'users',
+      users: [{
+        firstName: 'Le',
+        lastName: 'Duy',
+        email: 'duy@duy.com',
+        username: 'duy',
+        password: 'duy'
+      }]
     }];
 
     roles.forEach(function(role) {

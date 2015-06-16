@@ -75,7 +75,6 @@ angular.module('com.module.users')
         });
       }
     });
-
     $scope.login = function() {
 
 
