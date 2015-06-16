@@ -10,7 +10,7 @@
  **/
 angular.module('com.module.users')
   .controller('LoginCtrl', function($scope, $routeParams, $location,
-    CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
+                                    CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 
@@ -90,16 +90,16 @@ angular.module('com.module.users')
           console.log(user.created); // => 2013-12-20T21:10:20.377Z
           console.log(user.userId); // => 1
 
-          var next = $location.nextAfterLogin || '/';
+          /*var next = $location.nextAfterLogin || '/';*/
           $location.nextAfterLogin = null;
           AppAuth.currentUser = $scope.loginResult.user;
           CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
             gettextCatalog.getString('You are logged in!'));
-          /*next='/app';
-           if (next === '/login') {
+
+           /*if (next === '/login') {
            next = '/';
            }*/
-          $location.path('/app')
+          $location.path('/app');
 
         },
         function(res) {
@@ -110,6 +110,5 @@ angular.module('com.module.users')
     };
     $scope.goToLogin = function(){
       $location.path('/login');
-    }
-
+    };
   });

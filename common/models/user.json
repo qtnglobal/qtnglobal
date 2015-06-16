@@ -23,8 +23,13 @@
     "roles": {
       "type": "hasMany",
       "model": "Role",
-      "through": "RoleMapping",
-      "foreignKey": "principalId"
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    },
+    "news": {
+      "type": "hasMany",
+      "model": "New",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [
