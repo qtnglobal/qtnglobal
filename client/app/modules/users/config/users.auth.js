@@ -22,7 +22,7 @@ angular.module('com.module.users')
                 'We received a 401 error from the API! Redirecting to intro'
               );
             }*/
-            CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+            /*CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');*/
 
             if ($location.path() === '/router' || $location.path() ===
               '/login') {

@@ -24,6 +24,12 @@ angular.module('com.module.core')
 
     $scope.menuoptions = $rootScope.menu;
 
+    /*var user = User.getCurrent();
+    console.log(user);
+    if(user.username!='admin'){
+      console.log('true');
+      $scope.menuoptions.splice($rootScope.menu.length-1,1);
+    }*/
 
     $scope.logout = function() {
       User.logout(function() {

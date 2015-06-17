@@ -100,6 +100,7 @@ angular.module('com.module.users')
            }*/
           next = '/app';
           $location.path(next);
+          /*location.reload(true);*/
           /*$location.path('/app');*/
 
         },
