@@ -633,10 +633,10 @@ header.header .logo .icon {
   background-color: #32404e;
   color: #adb3b8;
 }
-.sidebar .sidebar-menu > li {
-  margin: 0;
-  /*padding: 0;*/
-}
+/*.sidebar .sidebar-menu > li {*/
+  /*margin: 0;*/
+  /*/!*padding: 0;*!/*/
+/*}*/
 .sidebar .sidebar-menu > li > a {
   padding: 12px 5px 12px 15px;
   display: block;
@@ -3945,8 +3945,21 @@ a:hover {
 .parallax-counter span.counter {
   font-size: 48px;
  }
+  .media-body {
+    width: 0px;
+  }
+  .media-left > img{
+    width: 25px;
+    height: 25px;
+  }
+  .pad-hor{
+    padding-left: 15px;
+  }
 /*edit*/
   @media (min-width: 768px) {
+    .collapse-left  .header {
+      display: none;
+    }
     .fixed.sidebar-collapse .header .logo> .logo-mini{
       display: block;
       margin-left: -15px;
@@ -4019,8 +4032,10 @@ a:hover {
     text-overflow: clip;
   }
   li.header{
-    font-size: 14px;
+    margin-left: 10px;
+    font-size: 12px;
     padding: 5px;
+    font-family: "Open sans";
   }
   form.sidebar-form:hover{
     border: 1px solid #54abd9;
@@ -4102,6 +4117,7 @@ a:hover {
     padding: 20px 0;
   }
   .list-group > .list-group-item{
+    border:  none;
     background-color: #364554;
   }
   .content > .list-group > .list-group-item{
