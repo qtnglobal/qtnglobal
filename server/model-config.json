@@ -73,9 +73,5 @@
   "user": {
     "dataSource": "db",
     "public": true
-  },
-  "New": {
-    "dataSource": "db",
-    "public": true
   }
 }

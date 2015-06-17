@@ -32,6 +32,7 @@ msgid "Actions"
 msgstr ""
 
 #: client/app/modules/events/views/main.html:2
+#: client/app/modules/news/views/main.html:2
 #: client/app/modules/notes/views/main.html:2
 #: client/app/modules/pages/views/main.html:2
 #: client/app/modules/posts/views/main.html:2
@@ -50,6 +51,10 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:5
 msgid "Add a new event"
+msgstr ""
+
+#: client/app/modules/news/views/form.html:4
+msgid "Add a new new"
 msgstr ""
 
 #: client/app/modules/notes/views/form.html:4
@@ -79,6 +84,7 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:23
 #: client/app/modules/events/controllers/events.ctrl.js:50
 #: client/app/modules/files/controllers/files.ctrl.js:14
+#: client/app/modules/news/services/news.service.js:22
 #: client/app/modules/notes/services/notes.service.js:31
 #: client/app/modules/pages/controllers/pages.ctrl.js:33
 #: client/app/modules/posts/services/posts.service.js:22
@@ -124,6 +130,12 @@ msgstr ""
 msgid "Change it here!"
 msgstr ""
 
+#: client/app/modules/news/views/list.html:59
+msgid ""
+"Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
+"      to add a new!"
+msgstr ""
+
 #: client/app/modules/posts/views/list.html:59
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
@@ -158,6 +170,7 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
+#: client/app/modules/news/controllers/news.ctrl.js:39
 #: client/app/modules/posts/controllers/posts.ctrl.js:39
 msgid "Content"
 msgstr ""
@@ -168,6 +181,10 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:13
 msgid "Could not add event!"
+msgstr ""
+
+#: client/app/modules/news/views/form.html:12
+msgid "Could not add new!"
 msgstr ""
 
 #: client/app/modules/notes/views/form.html:12
@@ -214,6 +231,7 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:24
 #: client/app/modules/events/controllers/events.ctrl.js:51
 #: client/app/modules/files/controllers/files.ctrl.js:15
+#: client/app/modules/news/services/news.service.js:23
 #: client/app/modules/notes/services/notes.service.js:32
 #: client/app/modules/pages/controllers/pages.ctrl.js:34
 #: client/app/modules/posts/services/posts.service.js:23
@@ -244,6 +262,10 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:6
 msgid "Edit event"
+msgstr ""
+
+#: client/app/modules/news/views/form.html:5
+msgid "Edit new"
 msgstr ""
 
 #: client/app/modules/notes/views/form.html:5
@@ -293,6 +315,7 @@ msgid "Error deleting event"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:33
+#: client/app/modules/news/services/news.service.js:32
 #: client/app/modules/posts/services/posts.service.js:32
 msgid "Error deleting item:"
 msgstr ""
@@ -383,6 +406,7 @@ msgid "Home"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:27
+#: client/app/modules/news/services/news.service.js:26
 #: client/app/modules/posts/services/posts.service.js:26
 msgid "Item deleted"
 msgstr ""
@@ -414,6 +438,10 @@ msgstr ""
 
 #: client/app/modules/files/views/main.html:1
 msgid "Manage your files here!"
+msgstr ""
+
+#: client/app/modules/news/views/main.html:1
+msgid "Manage your news here!"
 msgstr ""
 
 #: client/app/modules/notes/views/main.html:1
@@ -458,6 +486,15 @@ msgstr ""
 msgid "New page"
 msgstr ""
 
+#: client/app/modules/news/controllers/news.ctrl.js:56
+msgid "New saved"
+msgstr ""
+
+#: client/app/modules/news/config/news.config.js:4
+#: client/app/modules/news/views/main.html:1
+msgid "News"
+msgstr ""
+
 #: client/app/modules/users/controllers/login.ctrl.js:39
 #: client/app/modules/users/controllers/register.ctrl.js:62
 msgid "Nice email address!"
@@ -478,6 +515,7 @@ msgid "Notes"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:32
+#: client/app/modules/news/services/news.service.js:31
 #: client/app/modules/posts/services/posts.service.js:31
 msgid "Oops"
 msgstr ""
@@ -580,6 +618,7 @@ msgid "Roles"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:126
+#: client/app/modules/news/controllers/news.ctrl.js:51
 #: client/app/modules/posts/controllers/posts.ctrl.js:51
 #: client/app/modules/products/controllers/categories.ctrl.js:30
 #: client/app/modules/products/controllers/products.ctrl.js:106
@@ -636,6 +675,7 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:20
 #: client/app/modules/events/views/form.html:28
+#: client/app/modules/news/views/form.html:17
 #: client/app/modules/notes/views/form.html:17
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
@@ -681,6 +721,7 @@ msgstr ""
 msgid "This user is save!"
 msgstr ""
 
+#: client/app/modules/news/controllers/news.ctrl.js:34
 #: client/app/modules/notes/controllers/notes.ctrl.js:10
 #: client/app/modules/posts/controllers/posts.ctrl.js:34
 msgid "Title"
@@ -794,8 +835,13 @@ msgid "Your file is deleted!"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:28
+#: client/app/modules/news/services/news.service.js:27
 #: client/app/modules/posts/services/posts.service.js:27
 msgid "Your item has been deleted!"
+msgstr ""
+
+#: client/app/modules/news/controllers/news.ctrl.js:57
+msgid "Your new is safe with us!"
 msgstr ""
 
 #: client/app/modules/notes/services/notes.service.js:36
@@ -879,6 +925,7 @@ msgstr ""
 msgid "here"
 msgstr ""
 
+#: client/app/modules/news/controllers/news.ctrl.js:44
 #: client/app/modules/posts/controllers/posts.ctrl.js:44
 msgid "image"
 msgstr ""
