@@ -36,6 +36,7 @@ msgstr ""
 #: client/app/modules/notes/views/main.html:2
 #: client/app/modules/pages/views/main.html:2
 #: client/app/modules/posts/views/main.html:2
+#: client/app/modules/projects/views/main.html:2
 #: client/app/modules/settings/views/main.html:2
 #: client/app/modules/users/views/main.html:3
 msgid "Add"
@@ -69,6 +70,10 @@ msgstr ""
 msgid "Add a new product"
 msgstr ""
 
+#: client/app/modules/projects/views/form.html:5
+msgid "Add a new project"
+msgstr ""
+
 #: client/app/modules/settings/views/form.html:4
 msgid "Add a new setting"
 msgstr ""
@@ -89,6 +94,7 @@ msgstr ""
 #: client/app/modules/pages/controllers/pages.ctrl.js:33
 #: client/app/modules/posts/services/posts.service.js:22
 #: client/app/modules/products/controllers/products.ctrl.js:42
+#: client/app/modules/projects/controllers/projects.ctrl.js:50
 #: client/app/modules/settings/controllers/settings.ctrl.js:28
 #: client/app/modules/users/controllers/users.ctrl.js:26
 msgid "Are you sure?"
@@ -103,6 +109,7 @@ msgid "Browse"
 msgstr ""
 
 #: client/app/modules/events/views/form.html:21
+#: client/app/modules/projects/views/form.html:21
 msgid "Cancel"
 msgstr ""
 
@@ -154,6 +161,10 @@ msgstr ""
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a page!"
 msgstr ""
 
+#: client/app/modules/projects/views/list.html:27
+msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a project!"
+msgstr ""
+
 #: client/app/modules/settings/views/list.html:20
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a setting!"
 msgstr ""
@@ -203,6 +214,10 @@ msgstr ""
 msgid "Could not add product!"
 msgstr ""
 
+#: client/app/modules/projects/views/form.html:13
+msgid "Could not add project!"
+msgstr ""
+
 #: client/app/modules/settings/views/form.html:12
 msgid "Could not add setting!"
 msgstr ""
@@ -236,6 +251,7 @@ msgstr ""
 #: client/app/modules/pages/controllers/pages.ctrl.js:34
 #: client/app/modules/posts/services/posts.service.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:43
+#: client/app/modules/projects/controllers/projects.ctrl.js:51
 #: client/app/modules/settings/controllers/settings.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:27
 msgid "Deleting this cannot be undone"
@@ -243,6 +259,7 @@ msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:86
 #: client/app/modules/products/controllers/products.ctrl.js:92
+#: client/app/modules/projects/controllers/projects.ctrl.js:86
 msgid "Description"
 msgstr ""
 
@@ -280,6 +297,10 @@ msgstr ""
 msgid "Edit product"
 msgstr ""
 
+#: client/app/modules/projects/views/form.html:6
+msgid "Edit project"
+msgstr ""
+
 #: client/app/modules/settings/views/form.html:5
 msgid "Edit setting"
 msgstr ""
@@ -295,6 +316,7 @@ msgid "Email address needs to be valid"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:106
+#: client/app/modules/projects/controllers/projects.ctrl.js:98
 msgid "End"
 msgstr ""
 
@@ -330,6 +352,10 @@ msgstr ""
 
 #: client/app/modules/products/controllers/products.ctrl.js:52
 msgid "Error deleting product"
+msgstr ""
+
+#: client/app/modules/projects/controllers/projects.ctrl.js:61
+msgid "Error deleting project"
 msgstr ""
 
 #: client/app/modules/settings/controllers/settings.ctrl.js:38
@@ -456,6 +482,10 @@ msgstr ""
 msgid "Manage your products here!"
 msgstr ""
 
+#: client/app/modules/projects/views/main.html:1
+msgid "Manage your projects here!"
+msgstr ""
+
 #: client/app/modules/settings/views/main.html:1
 msgid "Manage your settings here!"
 msgstr ""
@@ -472,6 +502,7 @@ msgstr ""
 #: client/app/modules/files/views/upload.html:56
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
+#: client/app/modules/projects/controllers/projects.ctrl.js:80
 msgid "Name"
 msgstr ""
 
@@ -491,6 +522,16 @@ msgid "New saved"
 msgstr ""
 
 #: client/app/modules/news/config/news.config.js:4
+#: client/app/modules/news/views/main.html:1
+msgid "News"
+msgstr ""
+
+#: client/app/modules/news/controllers/news.ctrl.js:56
+msgid "New saved"
+msgstr ""
+
+#: client/app/modules/news/config/news.config.js:4
+#: client/app/modules/news/config/news.config.js:8
 #: client/app/modules/news/views/main.html:1
 msgid "News"
 msgstr ""
@@ -596,6 +637,23 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
+#: client/app/modules/projects/controllers/projects.ctrl.js:54
+msgid "Project deleted"
+msgstr ""
+
+#: client/app/modules/projects/controllers/projects.ctrl.js:133
+msgid "Project not added"
+msgstr ""
+
+#: client/app/modules/projects/controllers/projects.ctrl.js:125
+msgid "Project saved"
+msgstr ""
+
+#: client/app/modules/projects/config/projects.config.js:4
+#: client/app/modules/projects/views/main.html:1
+msgid "Projects"
+msgstr ""
+
 #: client/app/modules/users/views/view.html:17
 msgid "Raw"
 msgstr ""
@@ -622,6 +680,7 @@ msgstr ""
 #: client/app/modules/posts/controllers/posts.ctrl.js:51
 #: client/app/modules/products/controllers/categories.ctrl.js:30
 #: client/app/modules/products/controllers/products.ctrl.js:106
+#: client/app/modules/projects/controllers/projects.ctrl.js:109
 #: client/app/modules/users/controllers/profile.ctrl.js:36
 #: client/app/modules/users/controllers/users.ctrl.js:91
 msgid "Save"
@@ -658,6 +717,7 @@ msgid "Size"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:91
+#: client/app/modules/projects/controllers/projects.ctrl.js:91
 msgid "Start Date"
 msgstr ""
 
@@ -680,6 +740,7 @@ msgstr ""
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
 #: client/app/modules/products/views/form.html:17
+#: client/app/modules/projects/views/form.html:20
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
 msgstr ""
@@ -707,6 +768,10 @@ msgstr ""
 
 #: client/app/modules/products/views/list.html:33
 msgid "There are no products in this category!"
+msgstr ""
+
+#: client/app/modules/projects/views/list.html:23
+msgid "There are no projects"
 msgstr ""
 
 #: client/app/modules/settings/views/list.html:17
@@ -896,6 +961,18 @@ msgstr ""
 msgid "Your profile is not saved:"
 msgstr ""
 
+#: client/app/modules/projects/controllers/projects.ctrl.js:55
+msgid "Your project is deleted!"
+msgstr ""
+
+#: client/app/modules/projects/controllers/projects.ctrl.js:62
+msgid "Your project is not deleted:"
+msgstr ""
+
+#: client/app/modules/projects/controllers/projects.ctrl.js:126
+msgid "Your project is safe with us!"
+msgstr ""
+
 #: client/app/modules/settings/controllers/settings.ctrl.js:33
 msgid "Your setting is deleted!"
 msgstr ""
@@ -918,6 +995,8 @@ msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:108
 #: client/app/modules/events/controllers/events.ctrl.js:93
+#: client/app/modules/projects/controllers/projects.ctrl.js:100
+#: client/app/modules/projects/controllers/projects.ctrl.js:93
 msgid "dd/MM/yyyy"
 msgstr ""
 

@@ -3553,3 +3553,123 @@ img.img-center,
    -ms-transform: scale(2) rotate(5deg);
    transform: scale(2) rotate(5deg);
 }
+
+/*Create button*/
+
+.post-tab-switching{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:90120;
+  background-size:100% 100%;
+  opacity:1
+}
+
+.tab-post-types{
+  top:50%;
+  left:50%;
+  margin-top:200px
+}
+
+.tab-post-types.count-4{
+  margin-left:60px;
+  width:500px
+}
+
+.tab-post-types .tab-post-type:nth-child(1) .post-type-icon{
+  background-position:0 0
+}
+
+.tab-post-types .tab-post-type:nth-child(2) .post-type-icon{
+  background-position:0 -100px
+}
+
+.tab-post-types .tab-post-type:nth-child(3) .post-type-icon{
+  background-position:0 -200px
+}
+
+.tab-post-types .tab-post-type:nth-child(4) .post-type-icon{
+  background-position:0 -300px
+}
+
+
+.tab-post-type{
+  position:relative;
+  width:100px;
+  height:100px;
+  float:left;
+  cursor:pointer;
+  margin-right:30px
+}
+
+.tab-post-type:last-child{
+  margin-right:0
+}
+
+.tab-post-type .post-type-icon,.tab-post-type .post-type-name{
+  position:relative;
+  display:block;
+  opacity:0
+}
+
+.tab-post-type .post-type-icon{
+  height:100%;
+  width:100%;
+  z-index:2;
+  background-image:url('../images/quick_compose_sprite.png')
+}
+
+.tab-post-type .post-type-name{
+  text-decoration:none;
+  font-size:18px;
+  color:#fff;
+  font-weight:200;
+  text-align:center;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  width:100%;
+  text-shadow:none;
+  overflow:hidden;
+  padding:0 10px 10px;
+  z-index:1
+}
+
+.tab-post-type .post-type-name .post-type-name-span{
+  width:200px;
+  text-align:center
+}
+
+.post-tab-switching.finish-animating .tab-post-type:hover .post-type-icon{
+  -webkit-transition:-webkit-transform .1s linear;
+  -moz-transition:-moz-transform .1s linear;
+  transition:transform .1s linear;
+  -webkit-transform:scale(1.07)!important;
+  -moz-transform:scale(1.07)!important;
+  -ms-transform:scale(1.07)!important;
+  -o-transform:scale(1.07)!important;
+  transform:scale(1.07)!important
+}
+
+.post-tab-switching.finish-animating .tab-post-type:active .post-type-icon{
+  -webkit-transition:-webkit-transform .1s linear;
+  -moz-transition:-moz-transform .1s linear;
+  transition:transform .1s linear;
+  -webkit-transform:scale(1)!important;
+  -moz-transform:scale(1)!important;
+  -ms-transform:scale(1)!important;
+  -o-transform:scale(1)!important;
+  transform:scale(1)!important
+}
+
+.post-tab-switching.finish-animating .tab-post-type.selected .post-type-icon{
+  -webkit-transition:-webkit-transform .1s linear;
+  -moz-transition:-moz-transform .1s linear;
+  transition:transform .1s linear;
+  -webkit-transform:scale(1.07)!important;
+  -moz-transform:scale(1.07)!important;
+  -ms-transform:scale(1.07)!important;
+  -o-transform:scale(1.07)!important;
+  transform:scale(1.07)!important
+}

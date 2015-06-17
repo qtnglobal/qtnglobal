@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('com.module.core');
-app.run(function($rootScope, Setting, gettextCatalog) {
+app.run(function($rootScope, Setting, gettextCatalog, User) {
 
   // Left Sidemenu
   $rootScope.menu = [];
@@ -13,6 +13,16 @@ app.run(function($rootScope, Setting, gettextCatalog) {
       icon: icon
     });
   };
+
+
+  User.getCurrent(function(user) {
+    if (user.username !== 'admin') {
+      $rootScope.menu.pop();
+      $rootScope.menu.pop();
+      console.log(user.username);
+      return true;
+    }
+  });
 
   // Add Menu Dashboard
   $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',

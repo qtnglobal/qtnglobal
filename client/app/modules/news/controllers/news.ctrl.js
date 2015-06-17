@@ -1,15 +1,15 @@
 'use strict';
 angular.module('com.module.news')
   .controller('NewsCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, New, NewsService) {
+    FormHelper, gettextCatalog, News, NewsService) {
 
     $scope.delete = function(id) {
-      NewsService.deleteNew(id, function() {
+      NewsService.deleteNews(id, function() {
         $state.reload();
       });
     };
 
-    this.formHelper = new FormHelper(New);
+    this.formHelper = new FormHelper(News);
     $scope.cancel = function() {
       console.log('Cancel');
       console.log(this.formHelper);
@@ -19,7 +19,7 @@ angular.module('com.module.news')
     var newId = $stateParams.id;
 
     if (newId) {
-      $scope.new = New.findById({
+      $scope.new = News.findById({
         id: newId
       }, function() {}, function(err) {
         console.log(err);
@@ -38,12 +38,12 @@ angular.module('com.module.news')
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
       required: true
-    }, {
+    }/*, {
       key: 'image',
       type: 'text',
       label: gettextCatalog.getString('image'),
       required: true
-    }];
+    }*/];
 
     $scope.formOptions = {
       uniqueFormId: true,
@@ -52,8 +52,8 @@ angular.module('com.module.news')
     };
 
     $scope.onSubmit = function() {
-      New.upsert($scope.new, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('New saved'),
+      News.upsert($scope.new, function() {
+        CoreService.toastSuccess(gettextCatalog.getString('News saved'),
           gettextCatalog.getString('Your new is safe with us!'));
         $state.go('^.list');
       }, function(err) {
