@@ -77,9 +77,5 @@
   "Project": {
     "dataSource": "db",
     "public": true
-  },
-  "News": {
-    "dataSource": "db",
-    "public": true
   }
 }
