@@ -22,7 +22,7 @@
   <h1>
     {{ 'Home' | translate }}
     <small translate>Welcome!</small>
-    <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" title="Make a post">
+    <button type="button" style="margin-right: 290px; margin-top: -8px;" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" title="Make a post">
       Create
     </button>
   </h1>
@@ -100,7 +100,7 @@
   <div class="modal-dialog">
     <div class="post-tab-switching finish-animating ">
       <div class="tab-post-types count-4">
-        <div class="tab-post-type item" data-index="0" data-post-type="news" ui-sref="app.news.add"  data-dismiss="modal">
+        <div class="tab-post-type item" data-index="0" data-post-type="news" data-toggle="modal" data-target="#addNews" >
           <div class="post-type-icon icon-text" style="opacity: 1; transform: translateY(0px);">
             <i class="post-type-icon-overlay"></i>
           </div>
@@ -108,13 +108,14 @@
             <span class="post-type-name-span">News</span>
           </div>
         </div>
-        <div class="tab-post-type item" data-index="1" data-post-type="event" ui-sref="app.events.add"  data-dismiss="modal" >
-          <div class="post-type-icon icon-photo" style="opacity: 1; transform: translateY(0px);">
-            <i class="post-type-icon-overlay"></i>
-          </div>
-          <div class="post-type-name" style="opacity: 1; transform: translateY(0px);">
-            <span class="post-type-name-span">Event</span>
-          </div></div><div class="tab-post-type item" data-index="2" data-post-type="projects" ui-sref="app.projects.add" data-dismiss="modal">
+        <!--<div class="tab-post-type item" data-index="1" data-post-type="event" data-toggle="modal" data-target="#addEvent" >-->
+          <!--<div class="post-type-icon icon-photo" style="opacity: 1; transform: translateY(0px);">-->
+            <!--<i class="post-type-icon-overlay"></i>-->
+          <!--</div>-->
+          <!--<div class="post-type-name" style="opacity: 1; transform: translateY(0px);">-->
+            <!--<span class="post-type-name-span">Event</span>-->
+          <!--</div></div>-->
+          <div class="tab-post-type item" data-index="2" data-post-type="projects" data-toggle="modal" data-target="#addProject" >
         <div class="post-type-icon icon-quote" style="opacity: 1; transform: translateY(0px);">
           <i class="post-type-icon-overlay"></i>
         </div>
@@ -122,13 +123,13 @@
           <span class="post-type-name-span">Project</span>
         </div>
       </div>
-        <div class="tab-post-type item" data-index="3" data-post-type="course" ui-sref="app.course.add"  data-dismiss="modal">
-          <div class="post-type-icon icon-link" style="opacity: 1; transform: translateY(0px);">
-            <i class="post-type-icon-overlay"></i>
-          </div><div class="post-type-name" style="opacity: 1; transform: translateY(0px);">
-          <span class="post-type-name-span">Course</span>
-        </div>
-        </div>
+        <!--<div class="tab-post-type item" data-index="3" data-post-type="course" data-toggle="modal" data-target="#addCourse" >-->
+          <!--<div class="post-type-icon icon-link" style="opacity: 1; transform: translateY(0px);">-->
+            <!--<i class="post-type-icon-overlay"></i>-->
+          <!--</div><div class="post-type-name" style="opacity: 1; transform: translateY(0px);">-->
+          <!--<span class="post-type-name-span">Course</span>-->
+        <!--</div>-->
+        <!--</div>-->
       </div>
     </div>
 
@@ -136,3 +137,119 @@
   </div>
 </div>
 </section>
+
+<div class="modal fade" id="addProject" ng-controller="ProjectsCtrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">
+            <span  translate>Add a new project</span>
+          </h3>
+          <div class="box-tools pull-right">
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div class="alert alert-danger" ng-if="addError" translate>Could not add project!</div>
+          </div>
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+          <formly-form result="project" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        </div>
+        <div class="box-footer">
+          <div class="controls">
+            <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+            <button class="btn btn-default" ng-click="reset()" translate>Cancel</button>
+          </div>
+        </div>
+        <div ng-if="loading" class="overlay"></div>
+        <div ng-if="loading" class="loading-img"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addNews" ng-controller="NewsCtrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+          <h3 class="box-title" translate>
+             Add news
+          </h3>
+       </div>
+          <div class="modal-body">
+           <div class="row">
+              <div class="col-md-4">
+             <div class="alert alert-danger" ng-if="addError" translate>Could not add news!</div>
+              <formly-form result="new" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+            </div>
+               </div>
+            </div>
+           <div class="modal-footer">
+           <div class="controls">
+              <button class="btn btn-primary btn-success" ng-click="onSubmit()" data-dismiss="modal" translate>Submit</button>
+               <button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>
+            </div>
+           </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="modal fade" id="addEvent" ng-controller="EventsCtrl">-->
+  <!--<div class="modal-dialog">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<h3 class="box-title" translate>-->
+          <!--Add a new event-->
+        <!--</h3>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<div class="row">-->
+          <!--<div class="alert alert-danger" ng-if="addError" translate>Could not add event!</div>-->
+        <!--</div>-->
+        <!--<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>-->
+        <!--<formly-form result="event" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<div class="controls">-->
+          <!--<button class="btn btn-primary btn-success" ng-click="onSubmit()" data-dismiss="modal" translate>Submit</button>-->
+          <!--<button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div ng-if="loading" class="overlay"></div>-->
+      <!--<div ng-if="loading" class="loading-img"></div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--<div class="modal fade" id="addCourse" ng-controller="EventsCtrl">-->
+  <!--<div class="modal-dialog">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<h3 class="box-title" translate>-->
+          <!--Add a new event-->
+        <!--</h3>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<div class="row">-->
+          <!--<div class="alert alert-danger" ng-if="addError" translate>Could not add event!</div>-->
+        <!--</div>-->
+        <!--<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>-->
+        <!--<formly-form result="event" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<div class="controls">-->
+          <!--<button class="btn btn-primary btn-success" ng-click="onSubmit()" data-dismiss="modal" translate>Submit</button>-->
+          <!--<button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div ng-if="loading" class="overlay"></div>-->
+      <!--<div ng-if="loading" class="loading-img"></div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--</div>-->
