@@ -31,7 +31,12 @@ angular.module('com.module.users')
         url: '',
         templateUrl: 'modules/users/views/list.html',
         controller: 'UsersCtrl',
-        authenticate: true
+        authenticate: true,
+        data:{
+          permissions:{
+            except:['admin']
+          }
+        }
       })
       .state('app.users.add', {
         url: '/add',
@@ -56,4 +61,22 @@ angular.module('com.module.users')
         controller: 'UsersCtrl',
         authenticate: true
       });
+  }).run(function(Permission, User, $location, CoreService){
+    Permission.defineRole('admin',function(stateParams){
+      var user = User.getCurrent(function(user) {
+        if (user.username == 'admin') {
+          console.log(user.username);
+          return true;
+        }
+        else {
+          console.log('Do not have permission');
+          CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+          $location.path('/app')
+          return false;
+        }
+      }, function(err) {
+        console.log(err);
+      });
+    })
   });
+

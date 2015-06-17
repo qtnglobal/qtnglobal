@@ -2,10 +2,10 @@
 angular.module('com.module.settings')
   .config(function($stateProvider) {
     $stateProvider.state('app.settings', {
-        abstract: true,
-        url: '/settings',
-        templateUrl: 'modules/settings/views/main.html'
-      })
+      abstract: true,
+      url: '/settings',
+      templateUrl: 'modules/settings/views/main.html'
+    })
       .state('app.settings.list', {
         url: '',
         templateUrl: 'modules/settings/views/list.html',
@@ -27,3 +27,4 @@ angular.module('com.module.settings')
         controller: 'SettingsCtrl'
       });
   });
+
