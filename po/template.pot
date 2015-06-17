@@ -522,6 +522,15 @@ msgid "New saved"
 msgstr ""
 
 #: client/app/modules/news/config/news.config.js:4
+#: client/app/modules/news/views/main.html:1
+msgid "News"
+msgstr ""
+
+#: client/app/modules/news/controllers/news.ctrl.js:56
+msgid "New saved"
+msgstr ""
+
+#: client/app/modules/news/config/news.config.js:4
 #: client/app/modules/news/config/news.config.js:8
 #: client/app/modules/news/views/main.html:1
 msgid "News"
