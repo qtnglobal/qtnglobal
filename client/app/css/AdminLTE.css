@@ -631,6 +631,7 @@ header.header .logo .icon {
   margin: 0;
   padding: 0;
   background-color: #32404e;
+  color: #adb3b8;
 }
 .sidebar .sidebar-menu > li {
   margin: 0;
@@ -639,6 +640,7 @@ header.header .logo .icon {
 .sidebar .sidebar-menu > li > a {
   padding: 12px 5px 12px 15px;
   display: block;
+  color: #adb3b8;
 }
 .sidebar .sidebar-menu > li > a > .fa,
 .sidebar .sidebar-menu > li > a > .glyphicon,
@@ -2071,9 +2073,9 @@ Component: timeline
     Component: alert
 ------------------------
 */
-.alert {
+.alert-wrap .alert {
   padding-left: 30px;
-  margin-left: 15px;
+  margin-bottom: 0;
   position: relative;
 }
 .alert > .fa,
@@ -3547,12 +3549,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #555;
 }
 
-/*p,*/
-/*li,*/
-/*li a {*/
-  /*color: #fff;*/
-/*}*/
-
 a {
   color: #72c02c;
   text-decoration: none;
@@ -4033,6 +4029,7 @@ a:hover {
   .sidebar-form:focus{
     border: 1px solid #54abd9;
   }
+
   /*nut additional*/
   #aside-container {
     background-color: #32404e;
@@ -4107,6 +4104,9 @@ a:hover {
   .list-group > .list-group-item{
     background-color: #364554;
   }
+  .content > .list-group > .list-group-item{
+    background-color: #fff;
+  }
   .right-side .breadcrumb {
     background-color: #E7EBEE;
     padding: 0px 25px;
@@ -4147,4 +4147,18 @@ a:hover {
       color: #E5E7E9;
       visibility: visible;
     }
+  }
+/*nut3 alert*/
+  .alert-wrap {
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    -webkit-transition: max-height .7s linear;
+    transition: max-height .7s linear;
+  }
+  .alert-wrap.in {
+    max-height: 500px;
+    -webkit-transition: max-height 1s linear;
+    transition: max-height 1s linear;
   }

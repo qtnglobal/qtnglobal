@@ -9,7 +9,7 @@ angular.module('com.module.core')
    * @requires CoreService
    * @requires gettextCatalog
    **/
-  .controller('LayoutCtrl', function($scope, $rootScope, $cookies, CoreService,
+  .controller('LayoutCtrl', function($scope, $rootScope, $timeout, $cookies, CoreService,
     gettextCatalog) {
 
     // angular translate
@@ -73,21 +73,20 @@ angular.module('com.module.core')
     }
     $scope.addAlerts =[];
     var i=-1;
-    var j=0;
     $scope.notification = function() {
       i++;
-      $scope.num = Math.floor(9 * Math.random());
-      $scope.namepage = ["alert-warning","alert-info","alert-mint","alert-pink","alert-dark","alert-danger","alert-primary","alert-purple","alert-success"];
-      $scope.addAlerts[i] = ($scope.namepage[i]);
-      setTimeout($('.alert-wrap').removeClass('in'),3000);
-      setTimeout($removeNum(i),3000);
-      $scope.removeNum = function(index){
-        j++
-        $scope.addAlerts[i]=j;
-      }
       var $ = angular.element;
-      $('right-side').toggleClass('notification');
+      //$scope.num = Math.floor(9 * Math.random());
+      $scope.namepage = ["alert-warning","alert-info","alert-mint","alert-pink","alert-dark","alert-danger","alert-primary","alert-purple","alert-success"];
+      $scope.addAlerts.push($scope.namepage[i]);
+      $timeout($scope.removeAdd(addAlerts[i]), 3000);
+      $timeout($('.alert-wrap').removeClass('in'),5000);
     }
+
+    $scope.removeAdd = function(index){
+      $scope.addAlerts.splice(index, 1);
+      $('.alert-wrap').removeClass('in');
+    };
     $scope.settings = $rootScope.settings;
 
     $rootScope.loadSettings();
