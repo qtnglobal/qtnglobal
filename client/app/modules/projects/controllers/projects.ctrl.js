@@ -38,6 +38,12 @@ angular.module('com.module.projects')
       });
     } else {
       $scope.project = {};
+      User.getCurrent(function(user) {
+        currentUser = user;
+        $scope.project.ownerId=user.id;
+      }, function(err) {
+        console.log(err);
+      });
     }
 
     function loadItems() {
@@ -110,8 +116,10 @@ angular.module('com.module.projects')
     };
     $scope.alerts = [];
 
+    var currentUser;
+
     User.getCurrent(function(user) {
-      $scope.project.ownerId=user.id;
+      currentUser = user;
     }, function(err) {
       console.log(err);
     });
@@ -119,27 +127,33 @@ angular.module('com.module.projects')
     $scope.onSubmit = function() {
       var project = $scope.project;
 
-      project['start_time'] = createDate(project.sDate, project.sTime);
-      project.sDate = null;
-      project.sTime = null;
+      if($scope.project.ownerId === currentUser.id){
+        project['start_time'] = createDate(project.sDate, project.sTime);
+        project.sDate = null;
+        project.sTime = null;
 
-      project['end_time'] = createDate(project.eDate, project.eTime);
-      project.eDate = null;
-      project.eTime = null;
+        project['end_time'] = createDate(project.eDate, project.eTime);
+        project.eDate = null;
+        project.eTime = null;
 
-      Project.upsert($scope.project, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Project saved'),
-          gettextCatalog.getString('Your project is safe with us!'));
-        $state.go('^.list');
-      }, function(err) {
-        $scope.alerts.push({
-          type: 'danger',
-          msg: err.data.error.message
+        Project.upsert($scope.project, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Project saved'),
+            gettextCatalog.getString('Your project is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          $scope.alerts.push({
+            type: 'danger',
+            msg: err.data.error.message
+          });
+          CoreService.toastError(gettextCatalog.getString(
+            'Project not added'), err.data.error.message);
+          console.log(err);
         });
-        CoreService.toastError(gettextCatalog.getString(
-          'Project not added'), err.data.error.message);
-        console.log(err);
-      });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
     };
 
 

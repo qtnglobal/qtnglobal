@@ -26,6 +26,12 @@ angular.module('com.module.news')
       });
     } else {
       $scope.new = {};
+      User.getCurrent(function(user) {
+        currentUser = user;
+        $scope.new.ownerId=user.id;
+      }, function(err) {
+        console.log(err);
+      });
     }
 
     $scope.formFields = [{
@@ -52,20 +58,30 @@ angular.module('com.module.news')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+
+    var currentUser;
+
     User.getCurrent(function(user) {
-      $scope.new.ownerId=user.id;
+      currentUser = user;
     }, function(err) {
       console.log(err);
     });
 
-    $scope.onSubmit = function() {
-      News.upsert($scope.new, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('News saved'),
-          gettextCatalog.getString('Your new is safe with us!'));
-        $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
-    };
 
+    $scope.onSubmit = function() {
+      if($scope.new.ownerId === currentUser.id){
+        News.upsert($scope.new, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('News saved'),
+            gettextCatalog.getString('Your new is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
+
+    };
   });

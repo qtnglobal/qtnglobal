@@ -42,3 +42,26 @@ app.config(function($stateProvider) {
     }
   });
 });
+
+
+  /*.run(function(Permission, User, $location, CoreService, $stateParams){
+  Permission.defineRole('owner',function(stateParams){
+    var user = User.getCurrent(function(user) {
+      if (user.username == 'admin') {
+        console.log(user.username);
+        return true;
+      }
+      else {
+        console.log('Do not have permission');
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $location.path('/app')
+        return false;
+      }
+    }, function(err) {
+      console.log(err);
+    });
+  })
+});
+
+
+*/
