@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.news')
   .controller('NewsCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, News, NewsService) {
+    FormHelper, gettextCatalog, News, NewsService, User) {
 
     $scope.delete = function(id) {
       NewsService.deleteNews(id, function() {
@@ -45,11 +45,18 @@ angular.module('com.module.news')
       required: true
     }*/];
 
+
     $scope.formOptions = {
       uniqueFormId: true,
       hideSubmit: false,
       submitCopy: gettextCatalog.getString('Save')
     };
+
+    User.getCurrent(function(user) {
+      $scope.new.ownerId=user.id;
+    }, function(err) {
+      console.log(err);
+    });
 
     $scope.onSubmit = function() {
       News.upsert($scope.new, function() {

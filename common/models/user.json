@@ -25,6 +25,16 @@
       "model": "Role",
       "foreignKey": "principalId",
       "through": "RoleMapping"
+    },
+    "projects": {
+      "type": "hasMany",
+      "model": "Project",
+      "foreignKey": "ownerId"
+    },
+    "news": {
+      "type": "hasMany",
+      "model": "News",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [

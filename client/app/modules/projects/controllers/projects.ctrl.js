@@ -2,7 +2,7 @@
 'use strict';
 angular.module('com.module.projects')
   .controller('ProjectsCtrl', function($scope, $state, $stateParams, CoreService,
-    Project, gettextCatalog) {
+    Project, gettextCatalog, User) {
 
     var projectId = $stateParams.id;
 
@@ -109,6 +109,12 @@ angular.module('com.module.projects')
       submitCopy: gettextCatalog.getString('Save')
     };
     $scope.alerts = [];
+
+    User.getCurrent(function(user) {
+      $scope.project.ownerId=user.id;
+    }, function(err) {
+      console.log(err);
+    });
 
     $scope.onSubmit = function() {
       var project = $scope.project;
