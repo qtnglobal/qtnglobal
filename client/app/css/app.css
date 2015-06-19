@@ -90,7 +90,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
   margin: 0 0 -2px 0;
   padding-bottom: 5px;
   display: inline-block;
-  border-bottom: 2px solid #72c02c;
+  border-bottom: 2px solid #CB2BA7;
 }
 
 .headline-md {
@@ -184,19 +184,22 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
   top: 17px;
   border-bottom-style: dotted;
 }
-
+.call-action-v1{
+  margin-bottom: -40px;
+}
 /*Heading Titles v1*/
 .title-v1 {
   z-index: 1;
   position: relative;
   text-align: center;
   margin-bottom: 60px;
+  margin-top: -20px;
 }
 
 .title-v1 h1,
 .title-v1 h2 {
-  color: #444;
-  font-size: 28px;
+  color: #ffff;
+  font-size: 35px;
   position: relative;
   margin-bottom: 15px;
   padding-bottom: 20px;
@@ -211,13 +214,13 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
   height: 1px;
   width: 70px;
   content: " ";
-  margin-left: -35px;
+  margin-left: -39px;
   position: absolute;
-  background: #72c02c;
+  background: #CB2BA7;
 }
 
 .title-v1 p {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 200;
 }
 
@@ -335,7 +338,7 @@ h3.title-v3-xs {
   margin-left: -15px;
   text-align: center;
   position: absolute;
-  background: #72c02c;
+  background: #CB2BA7;
 }
 
 .headline-center p {
@@ -439,7 +442,7 @@ h3.title-v3-xs {
   content: " ";
   bottom: -5px;
   position: absolute;
-  background: #72c02c;
+  background: #CB2BA7;
 }
 
 /*Headline v2
@@ -461,13 +464,13 @@ h3.title-v3-xs {
 /*Heading Sizes
 ------------------------------------*/
 h2.heading-md {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 h2.heading-sm,
 h3.heading-md {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
 }
 
@@ -659,7 +662,7 @@ h3.heading-xs {
 .tab-v1 .nav-tabs {
   border: none;
   background: none;
-  border-bottom: solid 2px #72c02c;
+  border-bottom: solid 2px #CB2BA7;
 }
 
 .tab-v1 .nav-tabs a {
@@ -672,7 +675,7 @@ h3.heading-xs {
 .tab-v1 .nav-tabs > .active > a:focus {
   color: #fff;
   border: none;
-  background: #72c02c;
+  background: #CB2BA7;
 }
 
 .tab-v1 .nav-tabs > li > a {
@@ -680,7 +683,7 @@ h3.heading-xs {
 }
 .tab-v1 .nav-tabs > li > a:hover {
   color: #fff;
-  background: #72c02c;
+  background: #CB2BA7;
 }
 
 .tab-v1 .tab-content {
@@ -711,7 +714,7 @@ h3.heading-xs {
   background: #fff;
   padding: 7px 15px 9px;
   border: solid 1px #eee;
-  border-top: solid 2px #72c02c;
+  border-top: solid 2px #CB2BA7;
   border-bottom: none !important;
 }
 
@@ -733,8 +736,8 @@ h3.heading-xs {
 .tab-v3 .nav-pills li a:hover,
 .tab-v3 .nav-pills li.active a {
   color: #fff;
-  background: #72c02c;
-  border: solid 1px #68af28;
+  background: #CB2BA7;
+  border: solid 1px #CB2BA7;
 }
 
 .tab-v3 .nav-pills li i {
@@ -783,8 +786,8 @@ h3.heading-xs {
 
 .pagination li a:hover {
    color: #fff;
-   background: #5fb611;
-   border-color: #5fb611;
+   background: #CB2BA7;
+   border-color: #CB2BA7;
 }
 
 .pagination > .active > a,
@@ -793,8 +796,8 @@ h3.heading-xs {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-   border-color: #72c02c;
-   background-color: #72c02c;
+   border-color: #CB2BA7;
+   background-color: #CB2BA7;
 }
 
 /*Pagination Without Space*/
@@ -806,8 +809,8 @@ h3.heading-xs {
 .pager li > a:hover,
 .pager li > a:focus {
    color: #fff;
-   background: #5fb611;
-   border-color: #5fb611;
+   background: #CB2BA7;
+   border-color: #CB2BA7;
 }
 
 /*Pager v2 and v3
@@ -829,7 +832,7 @@ h3.heading-xs {
 .pager.pager-v3 li > a:hover,
 .pager.pager-v3 li > a:focus {
    color: #fff;
-   background: #72c02c;
+   background: #CB2BA7;
 }
 
 /*Pager Amount*/
@@ -908,7 +911,7 @@ h3.heading-xs {
 
 .sidebar-nav-v1 ul li:hover a,
 .sidebar-nav-v1 ul li.active a {
-  color: #72c02c;
+  color: #CB2BA7;
 }
 
 /*Sidebar Badges*/
@@ -964,7 +967,7 @@ h3.heading-xs {
    font-weight: 400;
    padding: 6px 13px;
    position: relative;
-   background: #72c02c;
+   background: #CB2BA7;
    white-space: nowrap;
    display: inline-block;
    text-decoration: none;
@@ -1040,10 +1043,10 @@ a.btn-u-xs {
 .btn-u:active,
 .btn-u.active,
 .open .dropdown-toggle.btn-u {
-   background: #5fb611;
+   background: #CB2BA7;
 }
 .btn-u-split.dropdown-toggle {
-   border-left: solid 1px #5fb611;
+   border-left: solid 1px #CB2BA7;
 }
 
 .btn-u.btn-u-blue {
@@ -1266,14 +1269,14 @@ a.btn-u-xs {
 }
 
 .btn-u.btn-brd {
-  border-color: #72c02c;
+  border-color: #CB2BA7;
 }
 .btn-u.btn-brd:hover {
-  color: #5fb611;
-  border-color: #5fb611;
+  color: #CB2BA7;
+  border-color: #CB2BA7;
 }
 .btn-u.btn-brd.btn-brd-hover:hover {
-   background: #5fb611;
+   background: #CB2BA7;
 }
 
 .btn-u.btn-brd.btn-u-blue {
@@ -1845,7 +1848,7 @@ i.icon-bg-light-green {
 }
 
 i.icon-bg-u {
-   background: #72c02c;
+   background: #CB2BA7;
 }
 i.icon-bg-blue {
    background: #3498db;
@@ -2111,7 +2114,7 @@ i.icon-bg-light-grey {
 .service-block-light h2,
 .service-block-default p,
 .service-block-default h2 {
-  color: #555;
+  color: rgb(38, 37, 37);
 }
 
 .service-block-u {
@@ -3293,8 +3296,8 @@ img.image-md {
 }
 
 .content-lg {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .space-lg-hor {
@@ -3670,3 +3673,17 @@ img.img-center,
   -o-transform:scale(1.07)!important;
   transform:scale(1.07)!important
 }
+.parallax-quote {
+  color: #FFF;
+  padding: 100px 0px;
+  position: relative;
+  text-align: center;
+  background: #333 url("../images/mockup.jpg") repeat fixed center center / cover;
+}
+.carousel-indicators {
+  padding-bottom: 20px;
+}
+.row {
+  margin-bottom: 35px;
+}
+

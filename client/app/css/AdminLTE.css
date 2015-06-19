@@ -3547,7 +3547,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #72c02c;
+  color: #CB2BA7;
   text-decoration: none;
 }
 
@@ -3615,7 +3615,7 @@ a:hover {
 }
 
 .one-page-header .navbar-brand span {
-  color: #72c02c !important;
+  color: #CB2BA7 !important;
 }
 
 @media (max-width: 768px) {
@@ -3884,7 +3884,7 @@ a:hover {
 ------------------------------------*/
 /*About Section*/
 .about-section {
-  padding-top: 40px;
+  padding-top: 0px;
   padding-bottom: 0;
 }
 
@@ -3914,8 +3914,8 @@ a:hover {
 }
 
 .cube-portfolio #filters-container .cbp-filter-item-active {
-  background: #72c02c;
-  border-color: #72c02c;
+  background: #CB2BA7;
+  border-color: #CB2BA7;
 }
 
 .cube-portfolio .cbp-l-filters-button .cbp-filter-counter {
@@ -4174,4 +4174,8 @@ a:hover {
     max-height: 500px;
     -webkit-transition: max-height 1s linear;
     transition: max-height 1s linear;
+  }
+  .one-page-header.navbar {
+
+    transition: #F2F1F0 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
   }
