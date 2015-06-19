@@ -110,7 +110,7 @@ angular.module('com.module.users')
 
 
     };
-    $scope.goToLogin = function(){
+    /*$scope.goToLogin = function(){
       $location.path('/login');
-    };
+    };*/
   });

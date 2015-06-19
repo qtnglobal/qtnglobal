@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 angular.module('com.module.users')
@@ -7,3 +8,4 @@ angular.module('com.module.users')
       restrict: 'E'
     };
   });
+*/
