@@ -38,7 +38,7 @@ angular.module('loopbackApp', [
     'com.module.settings',
     'com.module.users',
     'com.module.intro',
-    'com.module.explorer',
+    'com.module.explore',
     'permission'
   ])
   .run(function($rootScope, $cookies, gettextCatalog) {

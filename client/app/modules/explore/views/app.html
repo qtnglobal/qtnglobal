@@ -3,13 +3,13 @@
       <span class="logo-mini">
         <b>QTN</b>
       </span>
-      <span class="logo-lg">{{ getSetting('appName') }}</span>
+      <span class="logo-lg">QTN Global</span>
     </a>
     <navbar1></navbar1>
 </header>
 <div>
     <div class="wrapper row-offcanvas row-offcanvas-left">
-        <aside class="left-side sidebar-offcanvas">
+        <!--<aside class="left-side sidebar-offcanvas">
             <section class="sidebar">
                 <div class="user-panel">
                   <div id="mainnav-shortcut">
@@ -32,23 +32,42 @@
                     </ul>
                   </div>
                 </div>
-                <!--<ul class="sidebar-menu">
+                &lt;!&ndash;<ul class="sidebar-menu">
                     <li class="header">Main Navigation</li>
                     <li ng-repeat="item in menuoptions" ui-sref-active="active">
                         <a class=" hideT" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> <span>{{item.name | translate}}</span></a>
                     </li>
-                </ul>-->
+                </ul>&ndash;&gt;
 
                 <ul class="sidebar-menu">
                   <li class="header">Main Navigation</li>
                   <li ui-sref-active="active">
-                    <a class=" hideT" href="" ui-sref="{{explorer.home}}"><i class="fa fa-fw {{menuoptions[0].icon}}"></i> <span>Explorer</span></a>
+                    <a class=" hideT" href="" ui-sref="{{explorer.home}}"><i class="fa fa-fw {{menuoptions[0].icon}}"></i> <span>Explore</span></a>
                   </li>
                 </ul>
             </section>
-        </aside>
-        <aside ui-view class="right-side at-view-fade-in at-view-fade-out">
+        </aside>-->
+        <aside ui-view class="at-view-fade-in at-view-fade-out">
 
         </aside>
     </div>
 </div>
+
+<!--
+
+<style>
+  .logo{
+    background-color: transparent !important;
+    border-bottom: none !important;
+  }
+  .logo-lg{
+    color: #CB2BA7 !important;
+  }
+  .logo-mini{
+    color: #CB2BA7 !important;
+  }
+  .header{
+    background-color: #E7EBEE !important;
+  }
+</style>
+-->

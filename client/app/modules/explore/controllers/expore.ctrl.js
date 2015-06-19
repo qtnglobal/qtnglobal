@@ -8,22 +8,30 @@
  * @requires $location
  * Contrller for Login Page
  **/
-angular.module('com.module.explorer')
-  .controller('ExplorerCtrl', function($scope, $routeParams, $location) {
+angular.module('com.module.explore')
+  .controller('ExploreCtrl', function($scope, $routeParams, $location) {
     $scope.goToNews = function(){
       $location.path('/news');
     };
 
-    $scope.goToExlorer = function(){
-      $location.path('/explorer');
+    $scope.goToExlore = function(){
+      $location.path('/explore');
     };
+
+    $scope.goToLogin = function(){
+      $location.path('/login');
+    };
+
+    $scope.goToRegister = function(){
+      $location.path('/register');
+    }
 
     $scope.items = [{
       name: 'Trending',
       sref: '.trending'
     }, {
-      name: 'Staffpick',
-      sref: '.staffpick'
+      name: 'Staff picks',
+      sref: '.staff-picks'
     }, {
       name: 'News',
       sref: '.news'

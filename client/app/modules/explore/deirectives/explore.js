@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('com.module.explorer')
+angular.module('com.module.explore')
   .directive('explorer', function() {
     return {
-      templateUrl:'modules/explorer/views/explorer.html',
+      templateUrl:'modulers/explore/views/explore.html',
       restrict: 'E'
     };
   });

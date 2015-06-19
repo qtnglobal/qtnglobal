@@ -6,10 +6,10 @@
  * @description
  * # navbar
  */
-angular.module('com.module.explorer')
+angular.module('com.module.explore')
   .directive('navbar1', function() {
     return {
-      templateUrl: 'modules/explorer/views/elements/navbar.html',
+      templateUrl: 'modules/explore/views/elements/navbar.html',
       restrict: 'E'
     };
   });

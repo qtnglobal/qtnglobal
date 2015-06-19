@@ -1,0 +1,91 @@
+
+<div class="grid" id="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item grid-item--height3"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item grid-item--height3"></div>
+  <div class="grid-item"></div>
+  <!--  <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item "></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>-->
+</div>
+<style>
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body { font-family: sans-serif; }
+
+  /* ---- grid ---- */
+  .gutter-sizer{
+    width:30px;
+  }
+  .grid {
+    position: relative;
+    background: #EEE;
+    margin:0 auto;
+    background-color:transparent;
+  }
+
+  /* clearfix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .grid-sizer { width: 200px; }
+
+  @media screen and (width: 768px) {
+    /* 5 columns for larger screens */
+    .grid-sizer { width: 20%; }
+  }
+  .grid-item {
+    width: 200px;
+    height: 190px;
+    margin-bottom:10px;
+    float: left;
+    background: #fff;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+  }
+  .grid-item--height2 { height: 260px; }
+  .grid-item--height3 { height: 300px; }
+
+</style>
+<script>
+  var elem = document.querySelector('.grid');
+  var msnry = new Masonry( elem, {
+    // options
+    itemSelector: '.grid-item',
+    columnWidth:'.grid-sizer',
+    gutter: '.gutter-sizer',
+    isFitWidth: true
+  });
+</script>
+<script>
+  new AnimOnScroll( document.getElementById( 'grid' ), {
+    minDuration : 0.4,
+    maxDuration : 0.7,
+    viewportFactor : 0.2
+  } );
+</script>
+
