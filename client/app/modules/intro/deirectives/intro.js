@@ -1,11 +1,9 @@
-/*
 'use strict';
 
-angular.module('com.module.users')
+angular.module('com.module.intro')
   .directive('intro', function() {
     return {
-      templateUrl:'modules/users/views/intro.html',
+      templateUrl:'modules/intro/views/intro.html',
       restrict: 'E'
     };
   });
-*/

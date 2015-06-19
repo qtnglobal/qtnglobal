@@ -2,11 +2,11 @@
 angular.module('com.module.users')
   .config(function($stateProvider) {
     $stateProvider
-      .state('intro',{
+      /*.state('intro',{
         url:'/intro',
         template: '<intro></intro>',
         controller: 'LoginCtrl'
-      })
+      })*/
       .state('login', {
         url: '/login',
         template: '<login></login>',
