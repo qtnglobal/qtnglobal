@@ -2114,7 +2114,7 @@ i.icon-bg-light-grey {
 .service-block-light h2,
 .service-block-default p,
 .service-block-default h2 {
-  color: #555;
+  color: rgb(38, 37, 37);
 }
 
 .service-block-u {
