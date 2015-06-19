@@ -1,0 +1,54 @@
+<header class="header">
+    <a class="logo" href="/">
+      <span class="logo-mini">
+        <b>QTN</b>
+      </span>
+      <span class="logo-lg">{{ getSetting('appName') }}</span>
+    </a>
+    <navbar1></navbar1>
+</header>
+<div>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <aside class="left-side sidebar-offcanvas">
+            <section class="sidebar">
+                <div class="user-panel">
+                  <div id="mainnav-shortcut">
+                    <ul class="list-unstyled">
+                      <li data-content="Additional Sidebar" class="col-xs-4" role="button" data-original-title="" title="">
+                        <a href="#" data-toggle="control-sidebar" ng-click="additional()" class="shortcut-grid" id="demo-toggle-aside">
+                          <i class="fa fa-magic"></i>
+                        </a>
+                      </li>
+                      <li data-content="Notification" class="col-xs-4 Notific" ng-click="notification()" role="button" data-original-title="" title="">
+                        <a href="#" class="shortcut-grid" id="demo-alert">
+                          <i class="fa fa-bullhorn"></i>
+                        </a>
+                      </li>
+                      <li data-content="Page Alerts" class="col-xs-4 pAlert" role="button" data-original-title="" title="">
+                        <a href="#"  class="shortcut-grid" id="demo-page-alert">
+                          <i class="fa fa-bell"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--<ul class="sidebar-menu">
+                    <li class="header">Main Navigation</li>
+                    <li ng-repeat="item in menuoptions" ui-sref-active="active">
+                        <a class=" hideT" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> <span>{{item.name | translate}}</span></a>
+                    </li>
+                </ul>-->
+
+                <ul class="sidebar-menu">
+                  <li class="header">Main Navigation</li>
+                  <li ui-sref-active="active">
+                    <a class=" hideT" href="" ui-sref="{{explorer.home}}"><i class="fa fa-fw {{menuoptions[0].icon}}"></i> <span>Explorer</span></a>
+                  </li>
+                </ul>
+            </section>
+        </aside>
+        <aside ui-view class="right-side at-view-fade-in at-view-fade-out">
+
+        </aside>
+    </div>
+</div>
