@@ -789,8 +789,9 @@
 
 .parallax-twitter-in li p {
   color: #fff;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 200;
+  text-transform: uppercase;
 }
 
 .parallax-twitter-in li a {
