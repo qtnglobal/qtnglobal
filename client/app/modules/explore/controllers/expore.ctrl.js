@@ -9,7 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.explore')
-  .controller('ExploreCtrl', function($scope, $routeParams, $location) {
+  .controller('ExploreCtrl', function($scope, $routeParams, $location, NewsService) {
     $scope.goToNews = function(){
       $location.path('/news');
     };
@@ -39,5 +39,6 @@ angular.module('com.module.explore')
       name: 'Project',
       sref: '.project'
     }];
+
 
   });

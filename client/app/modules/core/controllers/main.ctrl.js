@@ -24,12 +24,19 @@ angular.module('com.module.core')
 
     $scope.menuoptions = $rootScope.menu;
 
-    /*var user = User.getCurrent();
-    console.log(user);
-    if(user.username!='admin'){
-      console.log('true');
-      $scope.menuoptions.splice($rootScope.menu.length-1,1);
-    }*/
+    var userModule;
+    var settingModule;
+
+    User.getCurrent(function(user) {
+      if (user.username !== 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name == 'Users') {
+        $scope.menuoptions.pop();
+        $scope.menuoptions.pop();
+      }
+      if(user.username == 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name != 'Users'){
+        $scope.menuoptions.push({ name: "Settings", sref: "app.settings.list", icon: "fa-cog", $$hashKey: "object:57" });
+        $scope.menuoptions.push({ name: "Users", sref: "app.users.list", icon: "fa-user", $$hashKey: "object:58" });
+      }
+    });
 
     $scope.logout = function() {
       User.logout(function() {

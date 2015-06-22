@@ -13,17 +13,7 @@ app.run(function($rootScope, Setting, gettextCatalog, User) {
       icon: icon
     });
   };
-
-
-  User.getCurrent(function(user) {
-    if (user.username !== 'admin') {
-      $rootScope.menu.pop();
-      $rootScope.menu.pop();
-      console.log(user.username);
-      return true;
-    }
-  });
-
+  
   // Add Menu Dashboard
   $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
     'fa-dashboard');

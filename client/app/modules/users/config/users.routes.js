@@ -2,11 +2,6 @@
 angular.module('com.module.users')
   .config(function($stateProvider) {
     $stateProvider
-      /*.state('intro',{
-        url:'/intro',
-        template: '<intro></intro>',
-        controller: 'LoginCtrl'
-      })*/
       .state('login', {
         url: '/login',
         template: '<login></login>',
@@ -23,7 +18,7 @@ angular.module('com.module.users')
         templateUrl: 'modules/users/views/main.html'
       })
       .state('app.users.profile', {
-        url: '/profile',
+        url: '/profile/:username',
         templateUrl: 'modules/users/views/profile.html',
         controller: 'ProfileCtrl'
       })

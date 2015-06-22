@@ -14,7 +14,7 @@ angular.module('com.module.core')
     if (!AppAuth.currentUser) {
       //console.log('Redirect to login');
       //$location.path('/login');
-      $location.path('/intro');
+      $location.path('/explore');
 
     } else {
       console.log('Redirect to app');

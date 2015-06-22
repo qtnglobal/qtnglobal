@@ -10,26 +10,20 @@ angular.module('com.module.explore')
       })
       .state('explore.home', {
         url: '',
-        templateUrl: 'modules/explore/views/home.html',
         controller: function($state) {
-          $state.go('explore.home.news');
-          $state.go('explore.home.trending');
+          $state.go('explore.trending');
         }
-      }).state('explore.home.news', {
+      }).state('explore.news', {
         url: '/news',
-        templateUrl: 'modules/explore/views/elements/news.html',
-        controller: ''
-      }).state('explore.home.project', {
+        templateUrl: 'modules/explore/views/elements/news.html'
+      }).state('explore.project', {
         url: '/project',
-        templateUrl: 'modules/explore/views/elements/project.html',
-        controller: ''
-      }).state('explore.home.trending', {
+        templateUrl: 'modules/explore/views/elements/project.html'
+      }).state('explore.trending', {
         url: '/trending',
-        templateUrl: 'modules/explore/views/elements/trending.html',
-        controller: ''
-      }).state('explore.home.staff-picks', {
+        templateUrl: 'modules/explore/views/elements/trending.html'
+      }).state('explore.staff-picks', {
         url: '/staff-picks',
-        templateUrl: 'modules/explore/views/elements/staff-picks.html',
-        controller: ''
+        templateUrl: 'modules/explore/views/elements/staff-picks.html'
       });
   });
