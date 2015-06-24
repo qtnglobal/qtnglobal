@@ -71,10 +71,10 @@ header.header {
 }
 @media screen and (min-width: 992px) {
   /*Right side strech mode*/
-  .right-side.strech {
+  .sidebar-collapse .right-side {
     margin-left: 50px;
   }
-  .right-side.strech > .content-header {
+  .sidebar-collapse .right-side > .content-header {
     margin-top: 0;
   }
   /* Left side collapse */
@@ -4175,7 +4175,4 @@ a:hover {
     -webkit-transition: max-height 1s linear;
     transition: max-height 1s linear;
   }
-  .one-page-header.navbar {
 
-    transition: #F2F1F0 0.3s ease-in-out 0s, padding 0.3s ease-in-out 0s;
-  }

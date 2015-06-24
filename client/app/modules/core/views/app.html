@@ -34,7 +34,7 @@
                 </div>
                 <ul class="sidebar-menu">
                     <li class="header">Main Navigation</li>
-                    <li ng-repeat="item in menuoptions" ui-sref-active="active">
+                    <li ng-repeat="item in menuoptions" ng-click="toggleSidebar1()" ui-sref-active="active">
                         <a class=" hideT" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> <span>{{item.name | translate}}</span></a>
                     </li>
                 </ul>
