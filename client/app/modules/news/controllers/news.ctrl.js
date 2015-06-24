@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.news')
   .controller('NewsCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, News, NewsService, User) {
+    FormHelper, gettextCatalog, News, NewsService, User, $location) {
 
     $scope.delete = function(id) {
       NewsService.deleteNews(id, function() {
@@ -84,4 +84,8 @@ angular.module('com.module.news')
       }
 
     };
+
+    $scope.goToProject = function(){
+      $location.path('/app/projects');
+    }
   });
