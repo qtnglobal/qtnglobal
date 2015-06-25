@@ -1,0 +1,25 @@
+
+<h4>
+  <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
+  {{link.url}}
+
+  <span class="pull-right btn-group" style="margin-top: 7px;">
+    <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: link.id})">
+      <i class="fa fa-pencil"></i>
+    </a>
+    <a href="" class="btn btn-sm btn-default" ng-click="delete({id: link.id})">
+      <i class="fa fa-trash-o"></i>
+    </a>
+  </span>
+
+</h4>
+<div>{{link.description}}</div>
+<!--<div ng-controller="LinksCtrl">
+  <iframe style="width: 100%; height: 300px;" ng-src="{{currentUrl}}"> </iframe>
+</div>-->
+
+<hr>
+<pre>{{link}}</pre>
+
+
+

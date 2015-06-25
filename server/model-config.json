@@ -81,5 +81,9 @@
   "News": {
     "dataSource": "db",
     "public": true
+  },
+  "Link": {
+    "dataSource": "db",
+    "public": true
   }
 }
