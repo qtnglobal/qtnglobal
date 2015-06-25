@@ -88,4 +88,8 @@ angular.module('com.module.news')
     $scope.goToProject = function(){
       $location.path('/app/projects');
     }
+
+    $scope.goToLink = function(){
+      $location.path('/app/links');
+    }
   });
