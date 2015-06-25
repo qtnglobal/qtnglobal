@@ -57,16 +57,20 @@ angular.module('com.module.core')
       if ($(window).width() <= 992) {
         $('.row-offcanvas').toggleClass('active');
         $('.left-side').removeClass('collapse-left');
-        $('.right-side').removeClass('strech');
         $('body').toggleClass('sidebar-collapse');
         $('.row-offcanvas').toggleClass('relative');
       } else {
         // Else, enable content streching
         $('.left-side').toggleClass('collapse-left');
-        $('.right-side').toggleClass('strech');
         $('body').toggleClass('sidebar-collapse');
       }
     };
+    $scope.toggleSidebar1 = function() {
+      var $ = angular.element;
+      $('body').removeClass('sidebar-collapse');
+      $('.left-side').removeClass('collapse-left');
+    }
+
     $scope.additional = function() {
       var $ = angular.element;
       $('.wrapper').toggleClass('additional');

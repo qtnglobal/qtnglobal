@@ -70,12 +70,17 @@ msgstr ""
 msgid "Add a new product"
 msgstr ""
 
+#: client/app/modules/core/views/home.html:145
 #: client/app/modules/projects/views/form.html:5
 msgid "Add a new project"
 msgstr ""
 
 #: client/app/modules/settings/views/form.html:4
 msgid "Add a new setting"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:175
+msgid "Add news"
 msgstr ""
 
 #: client/app/modules/products/views/list.html:5
