@@ -100,4 +100,8 @@ angular.module('com.module.news')
     $scope.goToPhoto = function(){
       $location.path('/app/photos');
     }
+
+    $scope.goToAudio = function(){
+      $location.path('/app/audios');
+    }
   });

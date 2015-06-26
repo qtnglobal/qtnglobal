@@ -38,6 +38,7 @@ angular.module('loopbackApp', [
     'com.module.links',
     'com.module.videos',
     'com.module.photos',
+    'com.module.audios',
     'com.module.files',
     'com.module.settings',
     'com.module.users',

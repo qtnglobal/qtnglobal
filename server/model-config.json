@@ -93,5 +93,9 @@
   "Photo": {
     "dataSource": "db",
     "public": true
+  },
+  "Audio": {
+    "dataSource": "db",
+    "public": true
   }
 }
