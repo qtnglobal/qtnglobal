@@ -92,4 +92,12 @@ angular.module('com.module.news')
     $scope.goToLink = function(){
       $location.path('/app/links');
     }
+
+    $scope.goToVideo = function(){
+      $location.path('/app/videos');
+    }
+
+    $scope.goToPhoto = function(){
+      $location.path('/app/photos');
+    }
   });

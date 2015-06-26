@@ -85,5 +85,13 @@
   "Link": {
     "dataSource": "db",
     "public": true
+  },
+  "Video": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Photo": {
+    "dataSource": "db",
+    "public": true
   }
 }
