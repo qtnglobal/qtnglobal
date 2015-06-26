@@ -1,7 +1,7 @@
-<div class="box" ng-repeat="item in photos">
+<div class="box" ng-repeat="item in articles">
   <div class="box-header">
     <h3 class="box-title">
-      <a href="" >{{item.title}}</a>
+      <a href="{{item.url}}" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 25px" >{{item.title}}</a>
       <br/>
       <!--<small>
         Created:
@@ -30,9 +30,11 @@
   </div>
   <div class="box-body">
     <div class="row" style="margin-bottom: 0 !important;">
-      <div class="col-sm-9" style="white-space: pre;">{{item.content}}</div>
+      <div class="col-sm-9" style="white-space: pre;">{{item.content}}
+      </div>
+
       <div class="col-sm-3">
-        <img ng-src="{{item.url}}"/>
+        <img  ng-show="item.flag=='a'" ng-src="{{item.url}}"/>
       </div>
     </div>
   </div>
@@ -49,19 +51,14 @@
 </div>
 
 
-<div class="box" ng-show="!photos.length">
+<div class="box" ng-show="!articles.length">
   <div class="box-header">
     <h3 class="box-title">
-      There are no photos
+      There are no articles
     </h3>
   </div>
   <div class="box-body">
     <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a>
-      to add a photo!</p>
+      to add a article!</p>
   </div>
 </div>
-<style>
-  .box > .box-body > .row > .col-sm-3 {
-    margin: 2px;
-  }
-</style>

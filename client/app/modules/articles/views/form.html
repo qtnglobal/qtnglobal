@@ -4,14 +4,14 @@
       <h4 style="margin-left: 15px">
         <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
 
-        <span ng-show="!photo.id" translate>Add a new photo</span>
-        <span ng-show="photo.id" translate>Edit photo</span>
+        <span ng-show="!article.id" translate>Add a new article</span>
+        <span ng-show="article.id" translate>Edit article</span>
 
       </h4>
-      <div id="info-photo" class="row" style="margin-bottom: 0 !important;">
+      <div class="row" style="margin-bottom: 0 !important;">
         <div class="col-md-12">
-          <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
-          <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+          <div class="alert alert-danger" ng-if="addError" translate>Could not add article!</div>
+          <formly-form result="article" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
         </div>
       </div>
       <div class="controls" style="margin-left: 15px; padding-bottom: 15px;">
