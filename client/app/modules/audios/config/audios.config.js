@@ -6,7 +6,7 @@ angular.module('com.module.audios')
 
     Audio.find(function(audios) {
       $rootScope.addDashboardBox(gettextCatalog.getString('Audios'),
-        'bg-red', 'ion-document-text', audios.length, 'app.audios.list');
+        'bg-purple', 'ion-document-text', audios.length, 'app.audios.list');
     });
 
   });

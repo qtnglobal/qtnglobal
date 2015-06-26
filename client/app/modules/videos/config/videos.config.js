@@ -6,7 +6,7 @@ angular.module('com.module.videos')
 
     Video.find(function(videos) {
       $rootScope.addDashboardBox(gettextCatalog.getString('Videos'),
-        'bg-red', 'ion-document-text', videos.length, 'app.videos.list');
+        'bg-yellow', 'ion-document-text', videos.length, 'app.videos.list');
     });
 
   });

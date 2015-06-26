@@ -6,7 +6,7 @@ angular.module('com.module.links')
 
     Link.find(function(links) {
       $rootScope.addDashboardBox(gettextCatalog.getString('Links'),
-        'bg-red', 'ion-document-text', links.length, 'app.links.list');
+        'bg-green', 'ion-document-text', links.length, 'app.links.list');
     });
 
   });
