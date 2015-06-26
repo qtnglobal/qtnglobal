@@ -97,5 +97,9 @@
   "Audio": {
     "dataSource": "db",
     "public": true
+  },
+  "Article": {
+    "dataSource": "db",
+    "public": true
   }
 }

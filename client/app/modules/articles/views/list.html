@@ -1,0 +1,64 @@
+<div class="box" ng-repeat="item in articles">
+  <div class="box-header">
+    <h3 class="box-title">
+      <a href="{{item.url}}" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 25px" >{{item.title}}</a>
+      <br/>
+      <!--<small>
+        Created:
+        {{item.created | date:'medium'}}
+        <span ng-if="item.created !== item.modified">
+          &middot; modified:
+          {{item.modified | date:'medium'}}
+        </span>
+      </small>-->
+    </h3>
+
+    <div class="box-tools pull-right">
+
+      <span class="pull-right btn-group" style="margin-top: 7px;">
+        <a href="" class="btn btn-xs btn-default"
+           ui-sref="^.edit({id: item.id})">
+          <i class="fa fa-pencil"></i>
+        </a>
+        <a href="" class="btn btn-xs btn-default"
+           ng-click="delete({id: item.id})">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </span>
+
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="row" style="margin-bottom: 0 !important;">
+      <div class="col-sm-9" style="white-space: pre;">{{item.content}}
+      </div>
+
+      <div class="col-sm-3">
+        <img  ng-show="item.flag=='a'" ng-src="{{item.url}}"/>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="box-footer">
+    <span class="text-muted">
+      {{item.created | date:'medium'}}
+      &middot;
+      0 comments
+      &middot;
+      0 likes
+    </span>
+  </div>-->
+</div>
+
+
+<div class="box" ng-show="!articles.length">
+  <div class="box-header">
+    <h3 class="box-title">
+      There are no articles
+    </h3>
+  </div>
+  <div class="box-body">
+    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a>
+      to add a article!</p>
+  </div>
+</div>
