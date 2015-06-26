@@ -14,7 +14,7 @@ angular.module('com.module.intro')
       $location.path('/login');
     };
 
-    $scope.goToExlore = function(){
+    $scope.goToExplorer = function(){
       $location.path('/explore');
     };
 

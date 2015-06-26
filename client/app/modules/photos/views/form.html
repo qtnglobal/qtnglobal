@@ -8,7 +8,7 @@
         <span ng-show="photo.id" translate>Edit photo</span>
 
       </h4>
-      <div class="row" style="margin-bottom: 0 !important;">
+      <div id="info-photo" class="row" style="margin-bottom: 0 !important;">
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
           <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
@@ -27,8 +27,11 @@
           <div class="box-tools">
             <div class="input-group pull-right" style="margin-top: 5px;">
                     <span class="file-input btn btn-block btn-default btn-file">
-                        {{ 'Browse' | translate }}&hellip; <input nv-file-select type="file" uploader="uploader" multiple/>
+                        {{ 'Browse' | translate }}&hellip;
+                      <input nv-file-select type="file" uploader="uploader" multiple/>
                     </span>
+              <br>
+              <img id="myImg" src="#" alt="" />
             </div>
           </div>
         </div>
@@ -171,4 +174,38 @@
   </div>
 
 </div>
+<script>
+  $(function () {
+    $(":file").change(function () {
+      if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = imageIsLoaded;
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+  });
 
+  function imageIsLoaded(e) {
+    $('#myImg').attr('src', e.target.result);
+  };
+</script>
+<style>
+  .col-sm-3{
+
+  }
+  .col-md-5 {
+    margin-left: 0px !important;
+    width: 50% !important;
+  }
+  .col-md-7 {
+    margin-left: 0px !important;
+    width: 50% !important;
+  }
+  #info-photo {
+    margin: 5px;
+
+  }
+  #myImg {
+    width: 40%;
+  }
+</style>
