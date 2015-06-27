@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.articles')
     .controller('ArticlesCtrl', function($scope, $state, $stateParams, CoreService,
-                                       FormHelper, gettextCatalog, Article, ArticlesService) {
+                                       FormHelper, gettextCatalog, Article, ArticlesService,User) {
 
       $scope.delete = function(id) {
         ArticlesService.deleteArticle(id, function() {
@@ -26,6 +26,12 @@ angular.module('com.module.articles')
         });
       } else {
         $scope.article = {};
+        User.getCurrent(function(user) {
+          currentUser = user;
+          $scope.article.ownerId=user.id;
+        }, function(err) {
+          console.log(err);
+        });
       }
 
       $scope.formFields = [{
@@ -51,31 +57,53 @@ angular.module('com.module.articles')
         submitCopy: gettextCatalog.getString('Save')
       };
 
+      var currentUser;
+
+      User.getCurrent(function(user) {
+        currentUser = user;
+      }, function(err) {
+        console.log(err);
+      });
+
       $scope.onSubmit = function() {
-        Article.upsert($scope.article, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
+        if($scope.article.ownerId === currentUser.id){
+          Article.upsert($scope.article, function() {
+            CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
               gettextCatalog.getString('Your article is safe with us!'));
-          $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
-      };
-      $scope.upload = function(item){
-        $scope.article.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-        console.log(item.file.name);
-        var b = item.file.name;
-        var values = b.split(".");
-        if(values[1]=='png'||values[1]=='jpg'){
-          $scope.article.flag = 'a';
+            $state.go('^.list');
+          }, function(err) {
+            console.log(err);
+          });
         }
-        Article.upsert($scope.article, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
-              gettextCatalog.getString('Your article is safe with us!'));
+        else{
+          CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
           $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
-        item.upload();
+        }
+      };
+
+      $scope.upload = function(item){
+        if($scope.article.ownerId === currentUser.id){
+          $scope.article.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+          console.log(item.file.name);
+          var b = item.file.name;
+          var values = b.split(".");
+          if(values[1]=='png'||values[1]=='jpg'){
+            $scope.article.flag = 'a';
+          }
+          Article.upsert($scope.article, function() {
+            CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
+              gettextCatalog.getString('Your article is safe with us!'));
+            $state.go('^.list');
+          }, function(err) {
+            console.log(err);
+          });
+          item.upload();
+
+        }
+        else{
+          CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+          $state.go('^.list');
+        }
       }
 
     });

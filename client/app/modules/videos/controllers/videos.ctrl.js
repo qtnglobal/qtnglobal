@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Video, VideosService) {
+    FormHelper, gettextCatalog, Video, VideosService, User) {
 
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
@@ -26,6 +26,12 @@ angular.module('com.module.videos')
       });
     } else {
       $scope.video = {};
+      User.getCurrent(function(user) {
+        currentUser = user;
+        $scope.video.ownerId=user.id;
+      }, function(err) {
+        console.log(err);
+      });
     }
 
     $scope.formFields = [{
@@ -51,27 +57,47 @@ angular.module('com.module.videos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+    }, function(err) {
+      console.log(err);
+    });
+
     $scope.onSubmit = function() {
-      Video.upsert($scope.video, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
-          gettextCatalog.getString('Your video is safe with us!'));
+      if($scope.video.ownerId === currentUser.id){
+        Video.upsert($scope.video, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
+            gettextCatalog.getString('Your video is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
+      }
     };
 
     $scope.upload = function(item){
-      $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log(item.file.name);
-      Video.upsert($scope.video, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
-          gettextCatalog.getString('Your video is safe with us!'));
+      if($scope.video.ownerId === currentUser.id){
+        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        console.log(item.file.name);
+        Video.upsert($scope.video, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
+            gettextCatalog.getString('Your video is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+        item.upload();
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
-      item.upload();
-    }
+      }
+    };
 
   });

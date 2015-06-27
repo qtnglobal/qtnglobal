@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.photos')
   .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Photo, PhotosService) {
+    FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
     $scope.delete = function(id) {
       PhotosService.deletePhoto(id, function() {
@@ -26,6 +26,12 @@ angular.module('com.module.photos')
       });
     } else {
       $scope.photo = {};
+      User.getCurrent(function(user) {
+        currentUser = user;
+        $scope.photo.ownerId=user.id;
+      }, function(err) {
+        console.log(err);
+      });
     }
 
     $scope.formFields = [{
@@ -51,27 +57,48 @@ angular.module('com.module.photos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+    }, function(err) {
+      console.log(err);
+    });
+
     $scope.onSubmit = function() {
-      Photo.upsert($scope.photo, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
-          gettextCatalog.getString('Your photo is safe with us!'));
+      if($scope.photo.ownerId === currentUser.id){
+        Photo.upsert($scope.photo, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
+            gettextCatalog.getString('Your photo is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
+      }
     };
 
     $scope.upload = function(item){
-      $scope.photo.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log(item.file.name);
-      Photo.upsert($scope.photo, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
-          gettextCatalog.getString('Your photo is safe with us!'));
+
+      if($scope.photo.ownerId === currentUser.id){
+        $scope.photo.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        console.log(item.file.name);
+        Photo.upsert($scope.photo, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
+            gettextCatalog.getString('Your photo is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+        item.upload();
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
-      item.upload();
+      }
     }
 
   });
