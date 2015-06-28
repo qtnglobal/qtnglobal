@@ -16,8 +16,7 @@
       "required": true
     },
     "url": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "flag":{
       "type": "string",
@@ -26,7 +25,13 @@
     "tag": {
       "type": "string"
     },
-    "images": {
+    "image": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "video": {
       "type": "string"
     },
     "files": {

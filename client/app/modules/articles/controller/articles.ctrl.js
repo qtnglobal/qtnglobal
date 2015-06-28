@@ -42,7 +42,7 @@ angular.module('com.module.articles')
         key: 'url',
         type: 'text',
         label: gettextCatalog.getString('Url'),
-        required: true
+        required: false
       }];
 
       $scope.formOptions = {
@@ -60,8 +60,8 @@ angular.module('com.module.articles')
           console.log(err);
         });
       };
-      $scope.upload = function(item){
-        $scope.article.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+      $scope.uploadimage = function(item){
+        $scope.article.image = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
         var b = item.file.name;
         var values = b.split(".");
@@ -69,13 +69,34 @@ angular.module('com.module.articles')
           $scope.article.flag = 'a';
         }
         Article.upsert($scope.article, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
-              gettextCatalog.getString('Your article is safe with us!'));
-          $state.go('^.list');
+          CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
+              gettextCatalog.getString('Your photo is safe with us!'));
         }, function(err) {
           console.log(err);
         });
         item.upload();
-      }
+      };
+    $scope.uploadvideo = function(item){
+      $scope.article.video = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+      console.log(item.file.name);
+      Article.upsert($scope.article, function() {
+        CoreService.toastSuccess(gettextCatalog.getString('video saved'),
+          gettextCatalog.getString('Your video is safe with us!'));
+      }, function(err) {
+        console.log(err);
+      });
+      item.upload();
+    };
+    $scope.uploadaudio = function(item){
+      $scope.article.audio = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+      console.log(item.file.name);
+      Article.upsert($scope.article, function() {
+        CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+          gettextCatalog.getString('Your audio is safe with us!'));
+      }, function(err) {
+        console.log(err);
+      });
+      item.upload();
+    }
 
     });
