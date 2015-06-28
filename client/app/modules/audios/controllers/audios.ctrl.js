@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Audio, AudiosService) {
+    FormHelper, gettextCatalog, Audio, AudiosService,User) {
 
     $scope.delete = function(id) {
       AudiosService.deleteAudio(id, function() {
@@ -26,6 +26,12 @@ angular.module('com.module.audios')
       });
     } else {
       $scope.audio = {};
+      User.getCurrent(function(user) {
+        currentUser = user;
+        $scope.audio.ownerId=user.id;
+      }, function(err) {
+        console.log(err);
+      });
     }
 
     $scope.formFields = [{
@@ -51,27 +57,48 @@ angular.module('com.module.audios')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+    }, function(err) {
+      console.log(err);
+    });
+
     $scope.onSubmit = function() {
-      Audio.upsert($scope.audio, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
-          gettextCatalog.getString('Your audio is safe with us!'));
+      if($scope.audio.ownerId === currentUser.id){
+        Audio.upsert($scope.audio, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+            gettextCatalog.getString('Your audio is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
+      }
     };
 
     $scope.upload = function(item){
-      $scope.audio.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log(item.file.name);
-      Audio.upsert($scope.audio, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
-          gettextCatalog.getString('Your audio is safe with us!'));
+
+      if($scope.audio.ownerId === currentUser.id){
+        $scope.audio.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        console.log(item.file.name);
+        Audio.upsert($scope.audio, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+            gettextCatalog.getString('Your audio is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+        item.upload();
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
-      item.upload();
+      }
     }
 
   });

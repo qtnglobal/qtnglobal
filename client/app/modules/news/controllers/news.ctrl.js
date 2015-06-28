@@ -104,4 +104,8 @@ angular.module('com.module.news')
     $scope.goToAudio = function(){
       $location.path('/app/audios');
     }
+
+    $scope.goToArticle = function(){
+      $location.path('/app/articles');
+    }
   });
