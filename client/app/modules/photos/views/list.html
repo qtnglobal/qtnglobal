@@ -3,14 +3,14 @@
     <h3 class="box-title">
       <a href="" >{{item.title}}</a>
       <br/>
-      <!--<small>
+      <small>
         Created:
         {{item.created | date:'medium'}}
         <span ng-if="item.created !== item.modified">
           &middot; modified:
           {{item.modified | date:'medium'}}
         </span>
-      </small>-->
+      </small>
     </h3>
 
     <div class="box-tools pull-right">
@@ -33,11 +33,13 @@
       <div class="col-sm-9" style="white-space: pre;">{{item.content}}</div>
       <div class="col-sm-3">
         <img ng-src="{{item.url}}"/>
+
+        <img ng-src="{{item.url1}}"/>
       </div>
     </div>
   </div>
 
-  <!--<div class="box-footer">
+  <div class="box-footer">
     <span class="text-muted">
       {{item.created | date:'medium'}}
       &middot;
@@ -45,7 +47,7 @@
       &middot;
       0 likes
     </span>
-  </div>-->
+  </div>
 </div>
 
 
@@ -61,7 +63,7 @@
   </div>
 </div>
 <style>
-  .box > .box-body > .row > .col-sm-3 {
-    margin: 2px;
+  .col-sm-3 img {
+    margin-bottom: 10px;
   }
 </style>
