@@ -44,11 +44,11 @@ angular.module('com.module.photos')
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
       required: true
-    }, {
-      key: 'url',
+    },{
+      key: 'url1',
       type: 'text',
-      label: gettextCatalog.getString('Url'),
-      required: true
+      label: gettextCatalog.getString('Add photo from web'),
+      required: false
     }];
 
     $scope.formOptions = {
