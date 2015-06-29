@@ -1,90 +1,46 @@
-<div class="grid" id="grid">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item"></div>
-  <!--  <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item "></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height3"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>-->
+<div class="father">
+  <div class="mother">
+    <div class="wrapper">
+      <div class="box" ng-repeat="item in videos" style="float:left;">
+        <div class="box-header">
+          <h3 class="box-title">
+            <a href="{{item.url}}" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 25px" >{{item.title}}</a>
+            <br/>
+            <!--<small>
+              Created:
+              {{item.created | date:'medium'}}
+              <span ng-if="item.created !== item.modified">
+                &middot; modified:
+                {{item.modified | date:'medium'}}
+              </span>
+            </small>-->
+          </h3>
+
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div style="white-space: pre;">{{item.content}}</div>
+            <!--<div class="col-sm-3">
+              &lt;!&ndash;<img ng-if="item.image" ng-src="{{item.image}}?id={{item.id}}"/>&ndash;&gt;
+              <img ng-src="{{item.url}}"/>
+            </div>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
+
 <style>
-  * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  .mother{
+    width: 1140px;
+    padding: 0 50px 4%;
+    margin: 0 auto;
   }
-
-  body { font-family: sans-serif; }
-
-  /* ---- grid ---- */
-  .gutter-sizer{
-    width:30px;
+  .box{
+    width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  .grid {
-    position: relative;
-    background: #EEE;
-    margin:0 auto;
-    background-color:transparent;
-  }
-
-  /* clearfix */
-  .grid:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
-  .grid-sizer { width: 200px; }
-
-  @media screen and (width: 768px) {
-    /* 5 columns for larger screens */
-    .grid-sizer { width: 20%; }
-  }
-  .grid-item {
-    width: 200px;
-    height: 190px;
-    margin-bottom:10px;
-    float: left;
-    background: #fff;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.5);
-    border-radius: 5px;
-  }
-  .grid-item--height2 { height: 260px; }
-  .grid-item--height3 { height: 300px; }
-
 </style>
-<script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-    // options
-    itemSelector: '.grid-item',
-    columnWidth:'.grid-sizer',
-    gutter: '.gutter-sizer',
-    isFitWidth: true
-  });
-</script>
-<script>
-  new AnimOnScroll( document.getElementById( 'grid' ), {
-    minDuration : 0.4,
-    maxDuration : 0.7,
-    viewportFactor : 0.2
-  } );
-</script>
-

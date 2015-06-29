@@ -34,7 +34,15 @@ angular.module('com.module.explore')
         templateUrl: 'modules/explore/views/elements/audio.html'
       }).state('explore.videos', {
         url: '/videos',
-        templateUrl: 'modules/explore/views/elements/video.html'
+        templateUrl: 'modules/explore/views/elements/video.html',
+        resolve: {
+          videos: ['VideosService', function(VideosService) {
+            return VideosService.getVideos();
+          }]
+        },
+        controller: function($scope, videos) {
+          $scope.videos = videos;
+        }
       }).state('explore.project', {
         url: '/project',
         templateUrl: 'modules/explore/views/elements/project.html'
