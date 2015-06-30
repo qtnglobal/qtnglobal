@@ -24,7 +24,15 @@ angular.module('com.module.explore')
         templateUrl: 'modules/explore/views/elements/article.html'
       }).state('explore.photos', {
         url: '/photos',
-        templateUrl: 'modules/explore/views/elements/photo.html'
+        templateUrl: 'modules/explore/views/elements/photo.html',
+        resolve: {
+          photos: ['PhotosService', function(PhotosService) {
+            return PhotosService.getPhotos();
+          }]
+        },
+        controller: function($scope, photos) {
+          $scope.photos = photos;
+        }
       }).state('explore.links', {
         url: '/links',
         templateUrl: 'modules/explore/views/elements/links.html',
