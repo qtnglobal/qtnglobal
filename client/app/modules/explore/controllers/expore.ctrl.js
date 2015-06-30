@@ -11,7 +11,7 @@
 angular.module('com.module.explore')
   .controller('ExploreCtrl', function($scope, $routeParams, $location, NewsService) {
     $scope.goToNews = function(){
-      $location.path('/news');
+      $location.path('/links');
     };
 
     $scope.goToExlore = function(){
@@ -33,12 +33,23 @@ angular.module('com.module.explore')
       name: 'Staff picks',
       sref: '.staff-picks'
     }, {
-      name: 'News',
-      sref: '.news'
-    }, {
+      name: 'Article',
+      sref: '.article'
+    },{
+      name: 'Photos',
+      sref: '.photos'
+    },{
+      name: 'Links',
+      sref: '.links'
+    },{
+      name: 'Audios',
+      sref: '.audios'
+    },{
+      name: 'Videos',
+      sref: '.videos'
+    },{
       name: 'Project',
       sref: '.project'
     }];
-
 
   });

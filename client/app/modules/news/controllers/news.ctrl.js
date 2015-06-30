@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.news')
   .controller('NewsCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, News, NewsService, User) {
+    FormHelper, gettextCatalog, News, NewsService, User, $location) {
 
     $scope.delete = function(id) {
       NewsService.deleteNews(id, function() {
@@ -84,4 +84,28 @@ angular.module('com.module.news')
       }
 
     };
+
+    $scope.goToProject = function(){
+      $location.path('/app/projects');
+    }
+
+    $scope.goToLink = function(){
+      $location.path('/app/links');
+    }
+
+    $scope.goToVideo = function(){
+      $location.path('/app/videos');
+    }
+
+    $scope.goToPhoto = function(){
+      $location.path('/app/photos');
+    }
+
+    $scope.goToAudio = function(){
+      $location.path('/app/audios');
+    }
+
+    $scope.goToArticle = function(){
+      $location.path('/app/articles');
+    }
   });

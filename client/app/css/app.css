@@ -3571,7 +3571,7 @@ img.img-center,
 .tab-post-types{
   top:50%;
   left:50%;
-  margin-top:200px
+  margin-top:100px
 }
 
 .tab-post-types.count-4{
@@ -3579,15 +3579,15 @@ img.img-center,
   width:500px
 }
 
-.tab-post-types .tab-post-type:nth-child(1) .post-type-icon{
+.tab-post-types .tab-post-type:nth-child(7) .post-type-icon{
   background-position:0 0
 }
 
-.tab-post-types .tab-post-type:nth-child(2) .post-type-icon{
+.tab-post-types .tab-post-type:nth-child(3) .post-type-icon{
   background-position:0 -100px
 }
 
-.tab-post-types .tab-post-type:nth-child(3) .post-type-icon{
+.tab-post-types .tab-post-type:nth-child(2) .post-type-icon{
   background-position:0 -200px
 }
 
@@ -3595,6 +3595,15 @@ img.img-center,
   background-position:0 -300px
 }
 
+/*.tab-post-types .tab-post-type:nth-child(1) .post-type-icon{
+  background-position:0 -400px
+}*/
+.tab-post-types .tab-post-type:nth-child(5) .post-type-icon{
+  background-position:0 -500px
+}
+.tab-post-types .tab-post-type:nth-child(6) .post-type-icon{
+  background-position:0 -600px
+}
 
 .tab-post-type{
   position:relative;

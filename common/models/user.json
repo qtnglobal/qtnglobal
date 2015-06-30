@@ -40,6 +40,31 @@
       "type": "hasMany",
       "model": "News",
       "foreignKey": "ownerId"
+    },
+    "videos": {
+      "type": "hasMany",
+      "model": "Video",
+      "foreignKey": "ownerId"
+    },
+    "articles": {
+      "type": "hasMany",
+      "model": "Article",
+      "foreignKey": "ownerId"
+    },
+    "audios": {
+      "type": "hasMany",
+      "model": "Audio",
+      "foreignKey": "ownerId"
+    },
+    "links": {
+      "type": "hasMany",
+      "model": "Link",
+      "foreignKey": "ownerId"
+    },
+    "photos": {
+      "type": "hasMany",
+      "model": "Photo",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [

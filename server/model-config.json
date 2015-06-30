@@ -81,5 +81,25 @@
   "News": {
     "dataSource": "db",
     "public": true
+  },
+  "Link": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Video": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Photo": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Audio": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Article": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -35,10 +35,16 @@ angular.module('loopbackApp', [
     'com.module.core',
     'com.module.news',
     'com.module.projects',
+    'com.module.links',
+    'com.module.videos',
+    'com.module.photos',
+    'com.module.audios',
+    'com.module.files',
     'com.module.settings',
     'com.module.users',
     'com.module.intro',
     'com.module.explore',
+    'com.module.articles',
     'permission'
   ])
   .run(function($rootScope, $cookies, gettextCatalog) {
