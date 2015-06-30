@@ -5,7 +5,8 @@ angular.module('com.module.explore')
       .state('explore', {
         abstract: true,
         url: '/explore',
-        templateUrl: 'modules/explore/views/app.html',
+        /*templateUrl: 'modules/explore/views/app.html',*/
+        template: '<explore></explore>',
         controller: 'ExploreCtrl'
       })
       .state('explore.home', {

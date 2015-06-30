@@ -1,0 +1,85 @@
+<header class="header">
+  <a class="logo" href="/">
+      <span class="logo-mini">
+        <b>QTN</b>
+      </span>
+    <span class="logo-lg">QTN Global</span>
+  </a>
+  <navbar></navbar>
+</header>
+<div>
+  <div class="wrapper row-offcanvas row-offcanvas-left">
+    <!--<aside class="left-side sidebar-offcanvas">
+        <section class="sidebar">
+            <div class="user-panel">
+              <div id="mainnav-shortcut">
+                <ul class="list-unstyled">
+                  <li data-content="Additional Sidebar" class="col-xs-4" role="button" data-original-title="" title="">
+                    <a href="#" data-toggle="control-sidebar" ng-click="additional()" class="shortcut-grid" id="demo-toggle-aside">
+                      <i class="fa fa-magic"></i>
+                    </a>
+                  </li>
+                  <li data-content="Notification" class="col-xs-4 Notific" ng-click="notification()" role="button" data-original-title="" title="">
+                    <a href="#" class="shortcut-grid" id="demo-alert">
+                      <i class="fa fa-bullhorn"></i>
+                    </a>
+                  </li>
+                  <li data-content="Page Alerts" class="col-xs-4 pAlert" role="button" data-original-title="" title="">
+                    <a href="#"  class="shortcut-grid" id="demo-page-alert">
+                      <i class="fa fa-bell"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            &lt;!&ndash;<ul class="sidebar-menu">
+                <li class="header">Main Navigation</li>
+                <li ng-repeat="item in menuoptions" ui-sref-active="active">
+                    <a class=" hideT" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> <span>{{item.name | translate}}</span></a>
+                </li>
+            </ul>&ndash;&gt;
+
+            <ul class="sidebar-menu">
+              <li class="header">Main Navigation</li>
+              <li ui-sref-active="active">
+                <a class=" hideT" href="" ui-sref="{{explorer.home}}"><i class="fa fa-fw {{menuoptions[0].icon}}"></i> <span>Explore</span></a>
+              </li>
+            </ul>
+        </section>
+    </aside>-->
+    <!--<aside ui-view class="at-view-fade-in at-view-fade-out">
+
+    </aside>-->
+    <section class="content">
+      <div class="row">
+        <!--<div class="col-md-2">-->
+        <ul class="nav nav-pills nav-stacked" style="display:inline">
+          <li ng-repeat="item in items" ui-sref-active="active" style="float:left">
+            <a href="" ui-sref="{{item.sref}}">{{item.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div ui-view></div>
+    </section>
+
+  </div>
+</div>
+
+<!--
+
+<style>
+  .logo{
+    background-color: transparent !important;
+    border-bottom: none !important;
+  }
+  .logo-lg{
+    color: #CB2BA7 !important;
+  }
+  .logo-mini{
+    color: #CB2BA7 !important;
+  }
+  .header{
+    background-color: #E7EBEE !important;
+  }
+</style>
+-->

@@ -2,7 +2,6 @@
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Video, VideosService, User) {
-
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
         $state.reload();
@@ -44,12 +43,12 @@ angular.module('com.module.videos')
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
       required: true
-    }, {
+    }/*, {
       key: 'url',
       type: 'text',
       label: gettextCatalog.getString('Url'),
       required: true
-    }];
+    }*/];
 
     $scope.formOptions = {
       uniqueFormId: true,

@@ -1,20 +1,10 @@
 <div class="box" ng-repeat="item in audios">
   <div class="box-header">
     <h3 class="box-title">
-      <a href="{{item.url}}" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 25px" >{{item.title}}</a>
-      <br/>
-      <!--<small>
-        Created:
-        {{item.created | date:'medium'}}
-        <span ng-if="item.created !== item.modified">
-          &middot; modified:
-          {{item.modified | date:'medium'}}
-        </span>
-      </small>-->
+      <t href="" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 30px" >{{item.title}}</t >
     </h3>
 
     <div class="box-tools pull-right">
-
       <span class="pull-right btn-group" style="margin-top: 7px;">
         <a href="" class="btn btn-xs btn-default"
            ui-sref="^.edit({id: item.id})">
@@ -25,16 +15,15 @@
           <i class="fa fa-trash-o"></i>
         </a>
       </span>
-
     </div>
   </div>
+
   <div class="box-body">
     <div class="row">
-      <div style="white-space: pre;">{{item.content}}</div>
-      <!--<div class="col-sm-3">
-        &lt;!&ndash;<img ng-if="item.image" ng-src="{{item.image}}?id={{item.id}}"/>&ndash;&gt;
-        <img ng-src="{{item.url}}"/>
-      </div>-->
+      <div class="col-md-7" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
+      <div class="col-md-5">
+        <audio controls src="{{item.url}}"></audio>
+      </div>
     </div>
   </div>
 
@@ -61,3 +50,4 @@
       to add a audio!</p>
   </div>
 </div>
+
