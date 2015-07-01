@@ -31,7 +31,7 @@ a:focus {
 /* Layouts */
 .wrapper {
   overflow: hidden!important;
-  min-height: 1100px;
+  min-height: 100%;
   position: relative;
 }
 .wrapper:before,

@@ -3,7 +3,14 @@ angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Link, LinksService, User) {
 
-    //$scope.currentUrl = $sce.trustAsResourceUrl("https://docs.angularjs.org");
+
+    $scope.Links = [];
+    $scope.myLimit = 4;
+
+    $scope.loadMore = function() {
+      $scope.myLimit += 4;
+    };
+
 
     function loadItems() {
       $scope.links = Link.find();

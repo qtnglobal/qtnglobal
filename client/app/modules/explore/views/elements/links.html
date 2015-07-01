@@ -1,75 +1,186 @@
-
-<div class="grid" id="grid">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item"></div>
+<div class="container">
+  <div class="box" ng-repeat="item in links | limitTo: myLimit" style="float: left; border-radius: 5px;">
+    <div class="col-sm-3a">
+      <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
+        <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
+          <img ng-src="http://khohinhanhdep.net/wp-content/uploads/2013/08/1023.jpg"/>
+        </div>
+        <div class="post_info_qtnglobal" style="font-size: 15px">
+          <a href="#">Username</a>
+        </div>
+      </div>
+    </div>
+    <div class="box-header">
+      <h3 class="box-title">
+        <a href="{{item.url}}" target="_blank" style="color: #32404E; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 16px; word-wrap: break-word;" >{{item.url}}</a>        <br/>
+      </h3>
+    </div>
+    <div class="box-body">
+      <div style="">{{item.description}}>
+        <!--<div class="col-sm-3">
+          &lt;!&ndash;<img ng-if="item.image" ng-src="{{item.image}}?id={{item.id}}"/>&ndash;&gt;
+          <img ng-src="{{item.url}}"/>
+        </div>-->
+      </div>
+    </div>
+    <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
+      <span class="text-muted" style="float: right">
+        {{item.created | date:'medium'}}
+        &middot;
+        <a href="#">  <i class="fa fa-thumbs-o-up"></i> </a>
+        <a href="#">   <i class="fa fa-comments-o"></i></a>
+        <a href="#">  <i class="fa fa-share"></i> </a>
+      </span>
+    </div>
+  </div>
+  <div style="clear: both"></div>
+  <div ng-if="loading" class="overlay"></div>
+  <div ng-if="loading" class="loading-img"></div>
+  <button class=" btn btn-default" data-ng-click="loadMore()" style="bottom: 0; position: absolute; margin-left: 40%;">More</button>
 </div>
 
-
 <style>
-
-  * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  .col-sm-3a img {
+    width: 100% !important;
+    text-align: center;
+    margin: 0;
   }
-
-  body { font-family: sans-serif; }
-
-  /* ---- grid ---- */
-  .gutter-sizer{
-    width:30px;
+  .post_info_qtnglobal{
+    display: inline-block;
+    font-size: 13px;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    color: cornsilk !important;
+    position: absolute;
+    margin-left: 5px ;
   }
-  .grid {
-    position: relative;
-    background: #EEE;
-    margin:0 auto;
-    background-color:transparent;
+  .mother{
+    width: 1140px;
+    padding: 0 50px 4%;
+    margin: 0 auto;
   }
-
-  /* clearfix */
-  .grid:after {
-    content: '';
-    display: block;
-    clear: both;
+  .mother a,h3,p {
+    text-decoration: none;
+    font-size: 14px;
   }
-
-  .grid-sizer { width: 200px; }
-
-  @media screen and (width: 768px) {
-    /* 5 columns for larger screens */
-    .grid-sizer { width: 20%; }
+  .box{
+    width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  .grid-item {
-    width: 200px;
-    height: 190px;
-    margin-bottom:10px;
+  .box-title {
+
+  }
+  .text-muted a {
+    margin-left: 6px;
     float: left;
-    background: #fff;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.5);
-    border-radius: 5px;
   }
-  .grid-item--height2 { height: 260px; }
-  .grid-item--height3 { height: 300px; }
+  .box {
+    border-top: none !important;
+  }
 
 </style>
-<script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-    // options
-    itemSelector: '.grid-item',
-    columnWidth:'.grid-sizer',
-    gutter: '.gutter-sizer',
-    isFitWidth: true
-  });
-</script>
+<style type="text/css">
+  .hovergallery img{ -webkit-transform:scale(0.8);
+    /*Webkit: Scale down image to 0.8x original size*/
+    /*-moz-transform:scale(0.8);*/
+    /*Mozilla scale version*/
+    -o-transform:scale(0.8);
+    /*Opera scale version*/
+    -webkit-transition-duration: 0.5s;
+    /*Webkit: Animation duration*/
+    -moz-transition-duration: 0.5s;
+    /*Mozilla duration version*/
+    -o-transition-duration: 0.5s;
+    /*Opera duration version*/
+    opacity: 0.7;
+    /*initial opacity of images*/
+    margin: 0 10px 5px 0;
+    /*margin between images*/ }
+  .hovergallery img:hover{
+    -webkit-transform:scale(1.1);
+    /*Webkit: Scale up image to 1.2x original size*/
+    -moz-transform:scale(1.5);
+    /*Mozilla scale version*/
+    -o-transform:scale(1.1);
+    /*Opera scale version*/
+    box-shadow:0 0 30px gray;
+    /*CSS3 shadow: 30px blurred shadow all around image*/
+    -webkit-box-shadow:0 0 30px gray;
+    /*Safari shadow version*/
+    -moz-box-shadow:0 0 30px gray;
+    /*Mozilla shadow version*/ opacity: 1;
+  } </style>
 
+
+
+
+<!--<body data-ng-app="demo">
+<div id="widget" class="panel panel-default" data-ng-controller="MyCtrl">
+  <div class="panel-heading">Widget Title <span class="badge">{{count}}</span></div>
+  <div class="content panel-body">
+    <div id="item-{{item.ID}}" class="item" data-ng-repeat="item in list">
+  &lt;!&ndash;    <img class="thumbnail pull-left" src="{{item.post_img}}"/>&ndash;&gt;
+      <a href="#">
+        <h4 style="margin: 5px 0;">{{item.post_title}}</h4>
+      </a>
+      <p>{{item.post_content}}</p>
+      <div class="well well-sm">{{item.post_date}}</div>
+    </div>
+  </div>
+  <button class="more btn btn-primary btn-block" data-ng-click="loadMore($event)">More</button>
+</div>
+</body>
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+  angular.module('', ['demoFactory']);
+
+  angular.module('demoFactory', ['ngResource']).factory('ResourceFactory', function($resource) {
+    return $resource('?desiredPosts=:desiredPosts&start=:start', {}, {
+      // Declaration of custom action that should extend the default set of resource actions
+      query: {
+        isArray: true,
+        cache: false
+      }
+    });
+  });
+  function MyCtrl($scope, ResourceFactory) {
+    $scope.list = [
+      {
+        "post_title":"How to automatically checkout the latest tag of a Git repository",
+        "post_content":"Now that you know how to automatically tag a Git repository an interesting command to know about is \"How to automatically checkout the latest tag of a Git repository\". Let's imagine that you want to a...",
+        "post_name":"how-to-automatically-checkout-the-latest-tag-of-a-git-repository",
+        "post_date":"2013-10-04 18:31:00",
+//        "post_img":"path/to/your/img.png",
+        "ID":"1292"
+      },
+      {
+        "post_title":"Sidr",
+        "post_content":"\r\n \r\n Sidr is a jQuery plugin for creating side menus. It is the library that I use to create \"Previous\" and \"Next\" post button on my Open Sourced WordPress theme (the one you are using righ...",
+        "post_name":"sidr",
+        "post_date":"2013-09-24 20:16:04",
+//        "post_img":"path/to/your/img.png",
+        "ID":"1279"
+      }
+    ];
+    $scope.count = $scope.list.length;
+    $scope.loadMore = function(e) {
+      ResourceFactory.query({
+        start: $scope.count,
+        desiredPosts: 2
+      }, function(data) {
+        if (data.length > 0) {
+          // update list
+          $scope.list = $scope.list.concat(data);
+        }
+      });
+    }
+  }
+  MyCtrl.$inject = ['$scope', 'ResourceFactory'];
+</script>-->
 
