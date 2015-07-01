@@ -2,6 +2,7 @@
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Video, VideosService, User) {
+
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
         $state.reload();

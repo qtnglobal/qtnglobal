@@ -31,7 +31,7 @@
 
 <div class="container">
   <div class="wrapper">
-    <div class="box" ng-repeat="item in videos" style="float: left; border-radius: 5px; height: 350px">
+    <div class="box" ng-repeat="item in videos| limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
         <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
@@ -58,20 +58,22 @@
           </div>
 
           <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
-    <span class="text-muted" style="float: right">
-      {{item.created | date:'medium'}}
-      &middot;
-      <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
-      <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
-      <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+            <span class="text-muted" style="float: right">
+              {{item.created | date:'medium'}}
+              &middot;
 
-    </span>
+              <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
+              <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
+              <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+
+            </span>
           </div>
 
         </div>
       </div>
     </div>
   </div>
+  <button class=" btn btn-default" ng-click="loadMore()" style="bottom: 0; position: absolute; margin-left: 40%;">More</button>
 </div>
 
 <style>
@@ -150,3 +152,4 @@
     -moz-box-shadow:0px 0px 30px gray;
     /*Mozilla shadow version*/ opacity: 1;
   } </style>
+
