@@ -19,8 +19,7 @@
       "type": "string"
     },
     "flag": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "tag": {
       "type": "string"

@@ -1,17 +1,7 @@
 <div class="box" ng-repeat="item in articles">
   <div class="box-header">
     <h3 class="box-title">
-      <a href="" ui-sref="^.view({id: item.id})">{{item.name}}</a>
-      <small href="" ui-sref="^.view({id: item.id})">{{item.location}} , {{item.venue.city}},
-        {{item.venue.country}}
-      </small>      <!--<small>
-        Created:
-        {{item.created | date:'medium'}}
-        <span ng-if="item.created !== item.modified">
-          &middot; modified:
-          {{item.modified | date:'medium'}}
-        </span>
-      </small>-->
+      <a href="" ui-sref="^.view({id: item.id})">{{item.title}}</a>
     </h3>
 
     <div class="box-tools pull-right">
@@ -33,8 +23,8 @@
     <div class="row" style="margin-bottom: 0 !important;">
       <div class="col-sm-9" style="white-space: pre;">{{item.content}}
       </div>
-            <div ng-show="item.audio" class="col-sm-9"  >
-              <a href="{{item.audio}}" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 25px">Audio</a>
+      <div ng-show="item.audio" class="col-sm-9"  >
+              <audio controls ng-src="{{item.audio | trusted}}" ></audio>
       </div>
 
       <div ng-show="item.video " class="col-sm-9">
