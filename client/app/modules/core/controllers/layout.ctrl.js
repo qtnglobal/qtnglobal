@@ -9,8 +9,17 @@ angular.module('com.module.core')
    * @requires CoreService
    * @requires gettextCatalog
    **/
-  .controller('LayoutCtrl', function($scope, $rootScope, $timeout, $cookies, CoreService,
-    gettextCatalog) {
+  .controller('LayoutCtrl', function($state, $scope, $rootScope, $timeout, $cookies, CoreService,
+    gettextCatalog, $location, $window) {
+
+    $scope.goToExplore = function(){
+      $window.location.reload();
+      $location.path('/explore');
+    }
+
+    $scope.goToHome = function(){
+      $location.path('/app');
+    }
 
     // angular translate
     $scope.locale = {

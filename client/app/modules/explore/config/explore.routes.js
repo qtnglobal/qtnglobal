@@ -12,7 +12,7 @@ angular.module('com.module.explore')
       .state('explore.home', {
         url: '',
         controller: function($state) {
-          $state.go('explore.project');
+          $state.go('explore.trending');
         }
       }).state('explore.trending', {
         url: '/trending',

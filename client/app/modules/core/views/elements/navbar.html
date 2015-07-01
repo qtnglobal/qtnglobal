@@ -197,7 +197,30 @@
   </ul>
 
   <div class="navbar-right">
-    <ul class="nav navbar-nav">
+    <ul ng-show="!currentUser.firstName" class="nav navbar-nav">
+      <li class="page-scroll" style="margin-right: 20px; margin-top: -3px">
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search..."/>
+          <span class="input-group-btn">
+             <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+          </span>
+          </div>
+        </form>
+      <li class="page-scroll">
+        <button type="button" class="btn btn-success" ng-click="goToLogin()" style="margin-top: 9px;  margin-right: 5px">Login</button>
+      </li>
+      <li class="page-scroll">
+        <button type="button" class="btn btn-success" ng-click="goToRegister()" style="margin-top: 9px; margin-right: 10px">Sign up</button>
+      </li>
+    </ul>
+    <ul ng-hide="!currentUser.firstName" class="nav navbar-nav">
+      <li class="page-scroll">
+        <button type="button" class="btn btn-success" ng-click="goToHome()" style="margin-top: 9px;  margin-right: 5px">Home</button>
+      </li>
+      <li class="page-scroll">
+        <button type="button" class="btn btn-success" ng-click="goToExplore()" style="margin-top: 9px;  margin-right: 5px">Explore</button>
+      </li>
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-flag flag-icon flag-icon-{{selectLocale.country.toLowerCase() }}"></i>

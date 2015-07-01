@@ -9,7 +9,8 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.explore')
-  .controller('ExploreCtrl', function($scope, $routeParams, $location, NewsService) {
+  .controller('ExploreCtrl', function($scope, $routeParams, $location) {
+
     $scope.goToNews = function(){
       $location.path('/links');
     };

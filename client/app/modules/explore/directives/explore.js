@@ -6,16 +6,4 @@ angular.module('com.module.explore')
       templateUrl:'modules/explore/views/app.html',
       restrict: 'E'
     };
-   /* if(name){
-      return {
-        templateUrl:'modules/explore/views/app_login.html',
-        restrict: 'E'
-      };
-    }
-    else{
-      return {
-        templateUrl:'modules/explore/views/app.html',
-        restrict: 'E'
-      };
-    }*/
   });
