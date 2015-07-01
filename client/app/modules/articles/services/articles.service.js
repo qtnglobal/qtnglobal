@@ -40,3 +40,8 @@ app.service('ArticlesService', ['CoreService', 'gettextCatalog', 'Article', func
   };
 
 }]);
+app.filter('trusted', ['$sce', function ($sce) {
+  return function(url) {
+    return $sce.trustAsResourceUrl(url);
+  };
+}]);
