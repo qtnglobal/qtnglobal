@@ -22,7 +22,7 @@
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
               <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
-              <video controls ng-show="item.video" src="{{item.video}}"></video>
+              <video controls ng-show="item.video" src="{{item.video| trusted}}" style="width:100%"                                                                                     ></video>
             </div>
 
 

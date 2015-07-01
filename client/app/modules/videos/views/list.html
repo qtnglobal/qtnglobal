@@ -32,7 +32,7 @@
     <div class="row" style="margin-bottom: 0 !important;">
       <div class="col-sm-6" style="white-space: pre;">{{item.content}}</div>
       <div class="col-sm-6">
-        <video style="width:380px; height: 200px" ng-src="{{item.url}}" controls></video>
+        <video style="width:380px; height: 200px" ng-src="{{item.url|trusted}}" controls></video>
       </div>
     </div>
   </div>
