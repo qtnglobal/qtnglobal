@@ -29,6 +29,7 @@ angular.module('com.module.videos')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.video.ownerId=user.id;
+        $scope.video.ownerName=user.username;
       }, function(err) {
         console.log(err);
       });
