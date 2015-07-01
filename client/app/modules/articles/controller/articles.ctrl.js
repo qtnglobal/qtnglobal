@@ -68,35 +68,35 @@ angular.module('com.module.articles')
         if(values[1]=='png'||values[1]=='jpg'){
           $scope.article.flag = 'a';
         }
-        Article.upsert($scope.article, function() {
+        //Article.upsert($scope.article, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
               gettextCatalog.getString('Your photo is safe with us!'));
-        }, function(err) {
-          console.log(err);
-        });
+        //}, function(err) {
+        //  console.log(err);
+        //});
         item.upload();
       };
     $scope.uploadvideo = function(item){
       $scope.article.video = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
       console.log(item.file.name);
-      Article.upsert($scope.article, function() {
+      //Article.upsert($scope.article, function() {
         CoreService.toastSuccess(gettextCatalog.getString('video saved'),
           gettextCatalog.getString('Your video is safe with us!'));
-      }, function(err) {
-        console.log(err);
-      });
+      //}, function(err) {
+      //  console.log(err);
+      //});
       item.upload();
     };
     $scope.uploadaudio = function(item){
       $scope.article.audio = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
       console.log(item.file.name);
-      Article.upsert($scope.article, function() {
+      //Article.upsert($scope.article, function() {
         CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
           gettextCatalog.getString('Your audio is safe with us!'));
-      }, function(err) {
-        console.log(err);
-      });
+      //}, function(err) {
+      //  console.log(err);
+      //});
       item.upload();
     }
 
-    });
+    });{}

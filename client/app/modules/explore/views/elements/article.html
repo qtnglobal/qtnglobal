@@ -1,90 +1,123 @@
-<div class="grid" id="grid">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item grid-item--height2"></div>
-  <div class="grid-item grid-item--height3"></div>
-  <div class="grid-item"></div>
-  <!--  <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item "></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height3"></div>
-    <div class="grid-item grid-item--height2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--height2"></div>-->
+<div class="container">
+  <div class="wrapper">
+    <div class="box" ng-repeat="item in articles" style="float: left; border-radius: 5px; height: 350px">
+      <div class="col-sm-3a">
+        <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
+          <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
+            <img ng-src="{{item.image}}"/>
+          </div>
+          <div class="User_name">
+            <a href="#">Username</a>
+          </div>
+        </div>
+        <div class="contentt">
+          <div class="box-header">
+            <h3 class="box-title">
+              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
+            </h3>
+          </div>
+          <div class="box-body">
+
+            <div style="white-space: pre">{{item.content}}</div>
+            <div>
+              <img ng-show="item.image" ng-src="{{item.image}}"/>
+              <audio controls ng-show="item.audio" ng-src="{{item.audio}}" style="width:100%"></audio>
+              <video controls ng-show="item.video" ng-src="{{item.video}}"></video>
+            </div>
+
+
+          </div>
+
+          <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
+    <span class="text-muted" style="float: right">
+      {{item.created | date:'medium'}}
+      &middot;
+      <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
+      <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
+      <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+
+    </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 <style>
-  * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+  .col-sm-3a img {
+    width: 100% !important;
+    text-align: center;
+    margin: 0px;
 
-  body { font-family: sans-serif; }
-
-  /* ---- grid ---- */
-  .gutter-sizer{
-    width:30px;
   }
-  .grid {
-    position: relative;
-    background: #EEE;
-    margin:0 auto;
-    background-color:transparent;
+  .User_name{
+    display: inline-block;
+    font-size: 13px;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    color: cornsilk !important;
+    position: absolute;
+    margin-left: 5px ;
   }
-
-  /* clearfix */
-  .grid:after {
-    content: '';
-    display: block;
-    clear: both;
+  .container{
+    width: 1140px;
+    padding: 0 50px 4%;
+    margin: 0 auto;
   }
-
-  .grid-sizer { width: 200px; }
-
-  @media screen and (width: 768px) {
-    /* 5 columns for larger screens */
-    .grid-sizer { width: 20%; }
+  .container a,h3,p {
+    text-decoration: none;
+    font-size: 14px;
   }
-  .grid-item {
-    width: 200px;
-    height: 190px;
-    margin-bottom:10px;
+  .box{
+    width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .box-title {
+
+  }
+  .text-muted a {
+    margin-left: 6px;
     float: left;
-    background: #fff;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.5);
-    border-radius: 5px;
   }
-  .grid-item--height2 { height: 260px; }
-  .grid-item--height3 { height: 300px; }
+  .box {
+    border-top: none !important;
+  }
 
 </style>
-<script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-    // options
-    itemSelector: '.grid-item',
-    columnWidth:'.grid-sizer',
-    gutter: '.gutter-sizer',
-    isFitWidth: true
-  });
-</script>
-<script>
-  new AnimOnScroll( document.getElementById( 'grid' ), {
-    minDuration : 0.4,
-    maxDuration : 0.7,
-    viewportFactor : 0.2
-  } );
-</script>
-
+<style type="text/css">
+  .hovergallery img{ -webkit-transform:scale(0.8);
+    /*Webkit: Scale down image to 0.8x original size*/
+    /*-moz-transform:scale(0.8);*/
+    /*Mozilla scale version*/
+    -o-transform:scale(0.8);
+    /*Opera scale version*/
+    -webkit-transition-duration: 0.5s;
+    /*Webkit: Animation duration*/
+    -moz-transition-duration: 0.5s;
+    /*Mozilla duration version*/
+    -o-transition-duration: 0.5s;
+    /*Opera duration version*/
+    opacity: 0.7;
+    /*initial opacity of images*/
+    margin: 0 10px 5px 0;
+    /*margin between images*/ }
+  .hovergallery img:hover{
+    -webkit-transform:scale(1.1);
+    /*Webkit: Scale up image to 1.2x original size*/
+    -moz-transform:scale(1.5);
+    /*Mozilla scale version*/
+    -o-transform:scale(1.1);
+    /*Opera scale version*/
+    box-shadow:0px 0px 30px gray;
+    /*CSS3 shadow: 30px blurred shadow all around image*/
+    -webkit-box-shadow:0px 0px 30px gray;
+    /*Safari shadow version*/
+    -moz-box-shadow:0px 0px 30px gray;
+    /*Mozilla shadow version*/ opacity: 1;
+  } </style>

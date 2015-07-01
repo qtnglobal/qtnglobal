@@ -22,8 +22,17 @@ angular.module('com.module.explore')
         templateUrl: 'modules/explore/views/elements/staff-picks.html'
       }).state('explore.article', {
         url: '/article',
-        templateUrl: 'modules/explore/views/elements/article.html'
-      }).state('explore.photos', {
+        templateUrl: 'modules/explore/views/elements/article.html',
+          resolve: {
+            articles: ['ArticlesService', function(ArticlesService) {
+              return ArticlesService.getArticles();
+            }]
+          },
+          controller: function($scope, articles) {
+            $scope.articles = articles;
+          }
+
+        }).state('explore.photos', {
         url: '/photos',
         templateUrl: 'modules/explore/views/elements/photo.html',
         resolve: {
