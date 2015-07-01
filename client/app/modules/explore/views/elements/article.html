@@ -21,8 +21,8 @@
             <div style="white-space: pre">{{item.content}}</div>
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
-              <audio controls ng-show="item.audio" ng-src="{{item.audio}}" style="width:100%"></audio>
-              <video controls ng-show="item.video" ng-src="{{item.video}}"></video>
+              <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
+              <video controls ng-show="item.video" src="{{item.video}}"></video>
             </div>
 
 
