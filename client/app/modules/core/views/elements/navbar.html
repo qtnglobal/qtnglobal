@@ -5,7 +5,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </a>
-  <ul class="nav navbar-nav">
+  <ul ng-hide="!currentUser.firstName" class="nav navbar-nav">
     <!-- Messages: style can be found in dropdown.less-->
     <li class="dropdown messages-menu">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">

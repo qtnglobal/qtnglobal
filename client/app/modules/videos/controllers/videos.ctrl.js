@@ -2,6 +2,7 @@
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Video, VideosService, User) {
+
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
         $state.reload();
@@ -28,6 +29,7 @@ angular.module('com.module.videos')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.video.ownerId=user.id;
+        $scope.video.ownerName=user.username;
       }, function(err) {
         console.log(err);
       });

@@ -29,16 +29,16 @@
 </div>
 -->
 
-<div class="container">
+<div class="container" style="padding-bottom: 0">
   <div class="wrapper">
-    <div class="box" ng-repeat="item in videos" style="float: left; border-radius: 5px; height: 350px">
+    <div class="box" ng-repeat="item in videos| limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
         <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
             <img ng-src="{{item.image}}"/>
           </div>
           <div class="User_name">
-            <a href="#">Username</a>
+            <a>{{item.ownerName}}</a>
           </div>
         </div>
         <div class="contentt">
@@ -50,27 +50,28 @@
           <div class="box-body">
 
             <div style="white-space: pre">{{item.content}}</div>
-            <div>
-              <video controls ng-show="item.url" src="{{item.url| trusted}}" style="width:100%"                                                                                     ></video>
-            </div>
-
+            <video controls ng-src="{{item.url|trusted}}" style="width: 100%"></video>
 
           </div>
 
           <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
-    <span class="text-muted" style="float: right">
-      {{item.created | date:'medium'}}
-      &middot;
-      <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
-      <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
-      <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+            <span class="text-muted" style="float: right">
+              {{item.created | date:'medium'}}
+              &middot;
 
-    </span>
+              <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
+              <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
+              <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+
+            </span>
           </div>
 
         </div>
       </div>
     </div>
+  </div>
+  <div class="footer" style="margin: auto; width: 58px">
+    <button class=" btn btn-default" ng-click="loadMore()">More</button>
   </div>
 </div>
 
@@ -103,9 +104,9 @@
     font-size: 14px;
   }
   .box{
-    width: 250px;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 330px;
+    margin-left: 7px;
+    margin-right: 7px;
   }
   .box-title {
 
@@ -120,6 +121,7 @@
 
 </style>
 <style type="text/css">
+
   .hovergallery img{ -webkit-transform:scale(0.8);
     /*Webkit: Scale down image to 0.8x original size*/
     /*-moz-transform:scale(0.8);*/
@@ -150,3 +152,4 @@
     -moz-box-shadow:0px 0px 30px gray;
     /*Mozilla shadow version*/ opacity: 1;
   } </style>
+
