@@ -4,8 +4,10 @@
       <a href="" >{{item.title}}</a>
       <br/>
       <small>
-        Created: {{item.username}}
+        Created:
+          {{item.created | date:'medium'}}
       </small>
+
     </h3>
 
     <div class="box-tools pull-right">

@@ -40,8 +40,15 @@ angular.module('com.module.explore')
             return PhotosService.getPhotos();
           }]
         },
+
         controller: function($scope, photos) {
           $scope.photos = photos;
+          $scope.myLimit = 4;
+
+          $scope.loadMore = function() {
+            $scope.myLimit += 4;
+
+          };
         }
       }).state('explore.links', {
         url: '/links',
@@ -66,3 +73,4 @@ angular.module('com.module.explore')
         templateUrl: 'modules/explore/views/elements/project.html'
       });
   });
+

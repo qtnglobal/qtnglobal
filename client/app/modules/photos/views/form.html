@@ -12,9 +12,11 @@
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
           <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+          <input name="thumbnail" placeholder="Image URL you want preview" style="width: 250px"/>
+          <img src="http://webspace.webring.com/people/jv/vladilyich/preview.gif" class="preview" />
         </div>
       </div>
-      <div class="controls" style="margin-left: 15px; padding-bottom: 15px;">
+      <div class="controls" style="margin-left: 15px; padding-bottom: 15px; margin-top: 5px">
         <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
       </div>
     </div>
@@ -184,6 +186,10 @@
   function imageIsLoaded(e) {
     $('#myImg').attr('src', e.target.result);
   };
+  $('[name="thumbnail"]').on('change', function() {
+    $('img.preview').prop('src', this.value);
+  });
+
 </script>
 <style>
   #myImg {

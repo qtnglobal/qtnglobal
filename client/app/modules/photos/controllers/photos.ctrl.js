@@ -3,6 +3,10 @@ angular.module('com.module.photos')
   .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
+    $scope.myLimit = 4;
+    $scope.loadMore = function() {
+      $scope.myLimit += 4;
+    };
     $scope.delete = function(id) {
       PhotosService.deletePhoto(id, function() {
         $state.reload();
@@ -29,6 +33,8 @@ angular.module('com.module.photos')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.photo.ownerId=user.id;
+        $scope.photo.ownerName=user.username;
+        $scope.photo.date=user.roles;
       }, function(err) {
         console.log(err);
       });
@@ -61,6 +67,7 @@ angular.module('com.module.photos')
 
     User.getCurrent(function(user) {
       currentUser = user;
+
     }, function(err) {
       console.log(err);
     });
@@ -82,23 +89,21 @@ angular.module('com.module.photos')
     };
 
     $scope.upload = function(item){
-
       if($scope.photo.ownerId === currentUser.id){
         $scope.photo.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
-        Photo.upsert($scope.photo, function() {
+        //Photo.upsert($scope.photo, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
             gettextCatalog.getString('Your photo is safe with us!'));
-          $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
+          //$state.go('^.list');
+        //}, function(err) {
+        //  console.log(err);
+        //});
         item.upload();
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
-    }
-
+    };
   });
