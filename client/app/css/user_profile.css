@@ -16,7 +16,7 @@
 .indash_blog {
   margin: 0 auto;
   min-width: 270px;
-  max-width: 640px;
+  /*max-width: 640px;*/
   position: relative;
   background: #f5f5f5;
 }
@@ -590,5 +590,30 @@
   display: block;
 }
 .customizing .avatar .edit_button{
+  display: block;
+}
+.coverButtonUpload{
+  display: none;
+}
+
+.customizing .coverButtonUpload {
+  display: block;
+}
+
+.show2{
+  display: none;
+}
+.customizing1  .show1 {
+  display: none;
+}
+.customizing1  .show2 {
+  display: block;
+}
+
+.avatarButtonUpload{
+  display: none;
+}
+
+.customizing1 .avatarButtonUpload {
   display: block;
 }
