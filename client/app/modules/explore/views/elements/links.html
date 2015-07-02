@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="box" ng-repeat="item in links | limitTo: myLimit" style="float: left; border-radius: 5px;">
+  <div class="box" ng-repeat="item in links | limitTo: myLimit">
     <div class="col-sm-3a">
-      <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
+      <div class="col-sm-3b hovergallery">
         <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
           <img ng-src="http://khohinhanhdep.net/wp-content/uploads/2013/08/1023.jpg"/>
         </div>
@@ -12,18 +12,18 @@
     </div>
     <div class="box-header">
       <h3 class="box-title">
-        <a href="{{item.url}}" target="_blank" style="color: #32404E; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 16px; word-wrap: break-word;" >{{item.url}}</a>        <br/>
+        <a href="{{item.url}}" target="_blank" >{{item.url}}</a>
       </h3>
     </div>
     <div class="box-body">
-      <div style="">{{item.description}}>
-        <!--<div class="col-sm-3">
-          &lt;!&ndash;<img ng-if="item.image" ng-src="{{item.image}}?id={{item.id}}"/>&ndash;&gt;
-          <img ng-src="{{item.url}}"/>
-        </div>-->
+      <div class="description" >
+        {{ item.description | limitTo: 200 }}{{item.description.length > 200 ? '...' : ''}}
+      </div>
+      <div class="readMore" style="margin: auto; width: 73px">
+        <a href="" ui-sref="app.links.view({id: item.id})" type="button" class="btn btn-link btn-xs" ng-show="item.description.length < 200 ? false:true">Read more</a>
       </div>
     </div>
-    <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
+    <div class="box-footer">
       <span class="text-muted" style="float: right">
         {{item.created | date:'medium'}}
         &middot;
@@ -33,13 +33,26 @@
       </span>
     </div>
   </div>
-  <div style="clear: both"></div>
-  <div ng-if="loading" class="overlay"></div>
-  <div ng-if="loading" class="loading-img"></div>
-  <button class=" btn btn-default" data-ng-click="loadMore()" style="bottom: 0; position: absolute; margin-left: 40%;">More</button>
+  <div class="footer" style="margin: auto; width: 58px">
+    <button class=" btn btn-default" ng-click="loadMore()">More</button>
+  </div>
 </div>
 
+
+
 <style>
+  .box{
+    width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+    border-radius: 5px;
+  }
+  .col-sm-3a .col-sm-3b{
+    margin: 5px;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+  }
   .col-sm-3a img {
     width: 100% !important;
     text-align: center;
@@ -54,35 +67,24 @@
     white-space: nowrap;
     vertical-align: top;
     color: cornsilk !important;
-    position: absolute;
     margin-left: 5px ;
   }
-  .mother{
-    width: 1140px;
-    padding: 0 50px 4%;
-    margin: 0 auto;
+  .box-title a {
+    width: 200px;
+    color: #32404E;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    word-wrap: break-word;
   }
-  .mother a,h3,p {
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .box{
-    width: 250px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  .box-title {
-
-  }
-  .text-muted a {
-    margin-left: 6px;
-    float: left;
-  }
-  .box {
-    border-top: none !important;
+  .box-footer {
+    bottom: 0;
+    width: 100%;
   }
 
 </style>
+
+
 <style type="text/css">
   .hovergallery img{ -webkit-transform:scale(0.8);
     /*Webkit: Scale down image to 0.8x original size*/
@@ -114,73 +116,4 @@
     -moz-box-shadow:0 0 30px gray;
     /*Mozilla shadow version*/ opacity: 1;
   } </style>
-
-
-
-
-<!--<body data-ng-app="demo">
-<div id="widget" class="panel panel-default" data-ng-controller="MyCtrl">
-  <div class="panel-heading">Widget Title <span class="badge">{{count}}</span></div>
-  <div class="content panel-body">
-    <div id="item-{{item.ID}}" class="item" data-ng-repeat="item in list">
-  &lt;!&ndash;    <img class="thumbnail pull-left" src="{{item.post_img}}"/>&ndash;&gt;
-      <a href="#">
-        <h4 style="margin: 5px 0;">{{item.post_title}}</h4>
-      </a>
-      <p>{{item.post_content}}</p>
-      <div class="well well-sm">{{item.post_date}}</div>
-    </div>
-  </div>
-  <button class="more btn btn-primary btn-block" data-ng-click="loadMore($event)">More</button>
-</div>
-</body>
-
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<script type="text/javascript">
-  angular.module('', ['demoFactory']);
-
-  angular.module('demoFactory', ['ngResource']).factory('ResourceFactory', function($resource) {
-    return $resource('?desiredPosts=:desiredPosts&start=:start', {}, {
-      // Declaration of custom action that should extend the default set of resource actions
-      query: {
-        isArray: true,
-        cache: false
-      }
-    });
-  });
-  function MyCtrl($scope, ResourceFactory) {
-    $scope.list = [
-      {
-        "post_title":"How to automatically checkout the latest tag of a Git repository",
-        "post_content":"Now that you know how to automatically tag a Git repository an interesting command to know about is \"How to automatically checkout the latest tag of a Git repository\". Let's imagine that you want to a...",
-        "post_name":"how-to-automatically-checkout-the-latest-tag-of-a-git-repository",
-        "post_date":"2013-10-04 18:31:00",
-//        "post_img":"path/to/your/img.png",
-        "ID":"1292"
-      },
-      {
-        "post_title":"Sidr",
-        "post_content":"\r\n \r\n Sidr is a jQuery plugin for creating side menus. It is the library that I use to create \"Previous\" and \"Next\" post button on my Open Sourced WordPress theme (the one you are using righ...",
-        "post_name":"sidr",
-        "post_date":"2013-09-24 20:16:04",
-//        "post_img":"path/to/your/img.png",
-        "ID":"1279"
-      }
-    ];
-    $scope.count = $scope.list.length;
-    $scope.loadMore = function(e) {
-      ResourceFactory.query({
-        start: $scope.count,
-        desiredPosts: 2
-      }, function(data) {
-        if (data.length > 0) {
-          // update list
-          $scope.list = $scope.list.concat(data);
-        }
-      });
-    }
-  }
-  MyCtrl.$inject = ['$scope', 'ResourceFactory'];
-</script>-->
 

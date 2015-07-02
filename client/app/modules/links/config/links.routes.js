@@ -28,18 +28,11 @@ app.config(function($stateProvider) {
     url: '/:id/edit',
     templateUrl: 'modules/links/views/form.html',
     controller: 'LinksCtrl'
-  })/*.state('app.links.view', {
+  }).state('app.links.view', {
     url: '/:id',
     templateUrl: 'modules/links/views/view.html',
-    resolve: {
-      links: ['$stateParams', 'LinksService', function($stateParams, LinksService) {
-        return LinksService.getLink($stateParams.id);
-      }]
-    },
-    controller: function($scope, links) {
-      $scope.link = links;
-    }
-  })*/;
+    controller: 'LinksCtrl'
+  });
 });
 
 

@@ -49,7 +49,17 @@ angular.module('com.module.explore')
         controller:'LinksCtrl'
       }).state('explore.audios', {
         url: '/audios',
-        templateUrl: 'modules/explore/views/elements/audio.html'
+        templateUrl: 'modules/explore/views/elements/audio.html',
+        resolve: {
+          audios: ['AudiosService', function(AudiosService) {
+            return AudiosService.getAudios();
+          }]
+        },
+        controller: function($scope, audios) {
+          $scope.audios = audios;
+
+
+        }
       }).state('explore.videos', {
         url: '/videos',
         templateUrl: 'modules/explore/views/elements/video.html',
