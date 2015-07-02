@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-md-7" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
       <div class="col-md-5">
-        <audio controls src="{{item.url}}"></audio>
+        <audio controls src="{{item.url | trusted}}" preload="none"></audio>
       </div>
     </div>
   </div>

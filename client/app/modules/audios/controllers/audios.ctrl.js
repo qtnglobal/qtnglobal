@@ -3,6 +3,12 @@ angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Audio, AudiosService,User) {
 
+    $scope.myLimit = 4;
+
+    $scope.loadMore = function() {
+      $scope.myLimit += 4;
+    };
+
     $scope.delete = function(id) {
       AudiosService.deleteAudio(id, function() {
         $state.reload();
@@ -29,6 +35,7 @@ angular.module('com.module.audios')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.audio.ownerId=user.id;
+        $scope.audio.ownerName=user.firstName;
       }, function(err) {
         console.log(err);
       });
@@ -44,12 +51,12 @@ angular.module('com.module.audios')
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
       required: true
-    }, {
+    }/*, {
       key: 'url',
       type: 'text',
       label: gettextCatalog.getString('Url'),
-      required: true
-    }];
+      required: false
+    }*/];
 
     $scope.formOptions = {
       uniqueFormId: true,
