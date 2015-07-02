@@ -3,14 +3,11 @@ angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Link, LinksService, User) {
 
-
-    $scope.Links = [];
-    $scope.myLimit = 4;
+    $scope.myLimit = 8;
 
     $scope.loadMore = function() {
-      $scope.myLimit += 4;
+      $scope.myLimit += 8;
     };
-
 
     function loadItems() {
       $scope.links = Link.find();
@@ -18,6 +15,19 @@ angular.module('com.module.links')
     }
 
     loadItems();
+
+    function getLink(id) {
+      return Link.findById({
+        id: id
+      });
+    };
+
+    if ($stateParams.id) {
+      $scope.link = getLink($stateParams.id);
+    } else {
+      $scope.link = {};
+    }
+
 
     $scope.delete = function(id) {
       LinksService.deleteLink(id, function() {
@@ -101,3 +111,4 @@ angular.module('com.module.links')
 
     };
   });
+
