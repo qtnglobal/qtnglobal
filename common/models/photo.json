@@ -30,7 +30,7 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "ownerId"
-    }
+    },
     "roles": {
       "type": "hasMany",
       "model": "Role",
