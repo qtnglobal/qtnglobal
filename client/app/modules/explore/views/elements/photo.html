@@ -1,5 +1,5 @@
 <section class="box grid-item alert" ng-repeat="item in photos | limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
-  <div class="col-sm-3a" >
+  <div class="col-sm-3a">
     <div class="col-sm-3b" style=" width: 100%; ; border-bottom: 1px solid #F4F4F4">
       <div class="avatar hovergallery" style="display: inline-block; font-size: 14px; width: 30px; height: 30px; margin: 4px">
         <img src="images/avatar_default.png"/>
@@ -33,15 +33,7 @@
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
           <img ng-src="{{item.url}}"/>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-
-</script>
         </div>
       </div>
     </div>
@@ -49,14 +41,6 @@
   <div class="box-header scroll">
     <h3 class="box-title">
       <a href="" style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
-      <!--<small>
-        Created:
-        {{item.created | date:'medium'}}
-        <span ng-if="item.created !== item.modified">
-          &middot; modified:
-          {{item.modified | date:'medium'}}
-        </span>
-      </small>-->
     </h3>
   </div>
   <div class="box-body">
@@ -76,33 +60,33 @@
     </script>
   </div>
 </section>
-<div class="row text-center">
-  <div class="col-lg-12">
-    <ul class="pagination">
-      <li>
-        <a href="#">&laquo;</a>
-      </li>
-      <li class="active">
-        <a href="#">1</a>
-      </li>
-      <li>
-        <a href="#">2</a>
-      </li>
-      <li>
-        <a href="#">3</a>
-      </li>
-      <li>
-        <a href="#">4</a>
-      </li>
-      <li>
-        <a href="#">5</a>
-      </li>
-      <li>
-        <a href="#">&raquo;</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<!--<div class="row text-center">-->
+  <!--<div class="col-lg-12">-->
+    <!--<ul class="pagination">-->
+      <!--<li>-->
+        <!--<a href="#">&laquo;</a>-->
+      <!--</li>-->
+      <!--<li class="active">-->
+        <!--<a href="#">1</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">2</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">3</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">4</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">5</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">&raquo;</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</div>-->
 <!-- /.row -->
 
 <div class="btn text-center">
@@ -127,8 +111,7 @@
     width: 100% !important;
     height: 100%;
     text-align: center;
-    margin: 0px;
-
+    margin: 0px ;
   }
   .post_info_qtnglobal{
     display: inline-block;
@@ -181,13 +164,13 @@
     /*Mozilla scale version*/
     -o-transform:scale(1.1);
     /*Opera scale version*/
-    box-shadow:0px 0px 30px gray;
-    /*CSS3 shadow: 30px blurred shadow all around image*/
-    -webkit-box-shadow:0px 0px 30px gray;
-    /*Safari shadow version*/
-    -moz-box-shadow:0px 0px 30px gray;
-    /*Mozilla shadow version*/ opacity: 1;
-  };
+    /*box-shadow:0px 0px 30px gray;*/
+    /*/!*CSS3 shadow: 30px blurred shadow all around image*!/*/
+    /*-webkit-box-shadow:0px 0px 30px gray;*/
+    /*/!*Safari shadow version*!/*/
+    /*-moz-box-shadow:0px 0px 30px gray;*/
+    /*/!*Mozilla shadow version*!/ opacity: 1;*/
+  }
 </style>
 
 
