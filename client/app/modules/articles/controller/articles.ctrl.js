@@ -1,6 +1,6 @@
 'use strict';
-angular.module('com.module.articles')
-    .controller('ArticlesCtrl', function($scope, $state, $stateParams, CoreService,
+var app=angular.module('com.module.articles');
+    app.controller('ArticlesCtrl', function($scope,$sce, $state, $stateParams, CoreService,
                                        FormHelper, gettextCatalog, Article, ArticlesService) {
 
       $scope.delete = function(id) {
@@ -8,7 +8,12 @@ angular.module('com.module.articles')
           $state.reload();
         });
       };
-
+      $scope.deliberatelyTrustDangerousTitle = function(a) {
+        return $sce.trustAsHtml(a.title);
+      };
+      $scope.deliberatelyTrustDangerousContent = function(a) {
+        return $sce.trustAsHtml(a.content);
+      };
       this.formHelper = new FormHelper(Article);
       $scope.cancel = function() {
         console.log('Cancel');
@@ -30,13 +35,13 @@ angular.module('com.module.articles')
 
       $scope.formFields = [{
         key: 'title',
-        type: 'text',
         label: gettextCatalog.getString('Title'),
+        type: 'editable-text',
         required: true
       }, {
         key: 'content',
-        type: 'textarea',
         label: gettextCatalog.getString('Content'),
+        type: 'editable-text',
         required: true
       }, {
         key: 'url',
@@ -97,6 +102,22 @@ angular.module('com.module.articles')
       //  console.log(err);
       //});
       item.upload();
-    }
+    };
+    });
+//app.controller('ConvertHtml',['$scope', '$sce', function($scope, $sce,$stateParams,Article,id ){
+//  id=1;
+//  if (id==1) {
+//    $scope.content = Article.findById({
+//      id: id
+//    });
+//    alert(typeof $scope.content.title);
+//    $scope.deliberatelyTrustDangerousSnippet = function() {
+//      return $sce.trustAsHtml($scope.content.title);
+//    }
+//    } else {
+//    $scope.content = {};
+//  }
+//
+//
+//}]);
 
-    });{}
