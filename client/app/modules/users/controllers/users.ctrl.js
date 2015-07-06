@@ -52,6 +52,8 @@ app.controller('UsersCtrl', function($scope, $stateParams, $state, CoreService,
     $scope.loading = false;
   });
 
+  console.log($scope.users);
+
   $scope.onSubmit = function() {
     User.upsert($scope.user, function() {
       CoreService.toastSuccess(gettextCatalog.getString('User saved'),

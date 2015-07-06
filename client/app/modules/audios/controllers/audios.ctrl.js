@@ -3,11 +3,37 @@ angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Audio, AudiosService,User) {
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
     $scope.myLimit = 4;
 
     $scope.loadMore = function() {
       $scope.myLimit += 4;
     };
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.audios = Audio.find();
+      }
+      else{
+        $scope.audios = Audio.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              }
+            }
+          }
+        );
+      }
+    }
 
     $scope.delete = function(id) {
       AudiosService.deleteAudio(id, function() {
@@ -64,13 +90,6 @@ angular.module('com.module.audios')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    var currentUser;
-
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
 
     $scope.onSubmit = function() {
       if($scope.audio.ownerId === currentUser.id){

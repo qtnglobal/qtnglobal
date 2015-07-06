@@ -3,6 +3,7 @@ angular.module('com.module.photos')
   .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
+
     $scope.myLimit = 4;
     $scope.loadMore = function() {
       $scope.myLimit += 4;
@@ -12,6 +13,32 @@ angular.module('com.module.photos')
         $state.reload();
       });
     };
+
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.photos = Photo.find();
+      }
+      else{
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              }
+            }
+          }
+        );
+      }
+    }
 
     this.formHelper = new FormHelper(Photo);
     $scope.cancel = function() {
@@ -63,14 +90,7 @@ angular.module('com.module.photos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    var currentUser;
 
-    User.getCurrent(function(user) {
-      currentUser = user;
-
-    }, function(err) {
-      console.log(err);
-    });
 
     $scope.onSubmit = function() {
       if($scope.photo.ownerId === currentUser.id){

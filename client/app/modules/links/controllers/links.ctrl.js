@@ -3,18 +3,37 @@ angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Link, LinksService, User) {
 
+
+    var currentUser;
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
     $scope.myLimit = 8;
 
     $scope.loadMore = function() {
       $scope.myLimit += 8;
     };
 
-    function loadItems() {
-      $scope.links = Link.find();
-      console.log("get link");
+    function loadItems(id) {
+      if(id==1){
+        $scope.links = Link.find();
+      }
+      else{
+        $scope.links = Link.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              }
+            }
+          }
+        );
+      }
     }
-
-    loadItems();
 
     function getLink(id) {
       return Link.findById({
@@ -55,6 +74,7 @@ angular.module('com.module.links')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.link.ownerId=user.id;
+        /*console.log('2');*/
       }, function(err) {
         console.log(err);
       });
@@ -85,16 +105,9 @@ angular.module('com.module.links')
     };
 
 
-    var currentUser;
-
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
-
 
     $scope.onSubmit = function() {
+
       if($scope.link.ownerId === currentUser.id){
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),

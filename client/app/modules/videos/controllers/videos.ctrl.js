@@ -3,6 +3,32 @@ angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Video, VideosService, User) {
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.videos = Video.find();
+      }
+      else{
+        $scope.videos = Video.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              }
+            }
+          }
+        );
+      }
+    }
+
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
         $state.reload();
@@ -58,6 +84,7 @@ angular.module('com.module.videos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+/*
     var currentUser;
 
     User.getCurrent(function(user) {
@@ -65,6 +92,7 @@ angular.module('com.module.videos')
     }, function(err) {
       console.log(err);
     });
+*/
 
     $scope.onSubmit = function() {
       if($scope.video.ownerId === currentUser.id){
