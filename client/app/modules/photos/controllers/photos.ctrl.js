@@ -3,11 +3,6 @@ angular.module('com.module.photos')
   .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
-
-    $scope.myLimit = 4;
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
     $scope.delete = function(id) {
       PhotosService.deletePhoto(id, function() {
         $state.reload();
@@ -25,7 +20,13 @@ angular.module('com.module.photos')
 
     function loadItems(id) {
       if(id==1){
-        $scope.photos = Photo.find();
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              order: 'created DESC'
+            }
+          }
+        );
       }
       else{
         $scope.photos = Photo.find(
@@ -33,7 +34,8 @@ angular.module('com.module.photos')
             filter: {
               where:{
                 ownerId: id
-              }
+              },
+              order: 'created DESC'
             }
           }
         );

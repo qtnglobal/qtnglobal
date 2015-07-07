@@ -12,15 +12,14 @@ angular.module('com.module.links')
       console.log(err);
     });
 
-    $scope.myLimit = 8;
-
-    $scope.loadMore = function() {
-      $scope.myLimit += 8;
-    };
 
     function loadItems(id) {
       if(id==1){
-        $scope.links = Link.find();
+        $scope.links = Link.find({
+          filter: {
+            order: 'created DESC'
+          }
+        });
       }
       else{
         $scope.links = Link.find(
@@ -28,7 +27,8 @@ angular.module('com.module.links')
             filter: {
               where:{
                 ownerId: id
-              }
+              },
+              order: 'created DESC'
             }
           }
         );

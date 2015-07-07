@@ -12,15 +12,16 @@ angular.module('com.module.audios')
       console.log(err);
     });
 
-    $scope.myLimit = 4;
-
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
 
     function loadItems(id) {
       if(id==1){
-        $scope.audios = Audio.find();
+        $scope.audios = Audio.find(
+          {
+            filter: {
+              order: 'created DESC'
+            }
+          }
+        );
       }
       else{
         $scope.audios = Audio.find(
@@ -28,7 +29,8 @@ angular.module('com.module.audios')
             filter: {
               where:{
                 ownerId: id
-              }
+              },
+              order: 'created DESC'
             }
           }
         );

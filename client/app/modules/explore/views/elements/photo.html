@@ -47,12 +47,15 @@
     <div style="white-space: pre">{{item.content}}</div>
   </div>
   <div class="box-footer" style="position: absolute;bottom: 0px; width: 100%">
-          <span class="text-muted" style="float: right">
-      &middot;
-            <a href="#" data-toggle="tooltip" title="Like"><i class="fa fa-thumbs-o-up"></i> </a>
+    <small>
+      Created:
+      {{item.created | date:'medium'}}
+    </small>
+    <span class="text-muted" style="float: right">
+      <a href="#" data-toggle="tooltip" title="Like"><i class="fa fa-thumbs-o-up"></i> </a>
       <a href="#" data-toggle="tooltip" title="Comment"><i class="fa fa-comments-o"></i></a>
       <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
-          </span>
+    </span>
     <script>
       $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();

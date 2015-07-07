@@ -9,14 +9,20 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.explore')
-  .controller('ExploreCtrl', function($scope, $routeParams, $location) {
+  .controller('ExploreCtrl', function($scope, $routeParams, $location,User) {
 
 
-    /*$scope.myLimit = 4;
+    $scope.myLimit = 4;
 
     $scope.loadMore = function() {
       $scope.myLimit += 4;
-    };*/
+    };
+
+    $scope.user = User.getCurrent(function(user) {
+      console.log(user);
+    }, function(err) {
+      console.log(err);
+    });
 
     $scope.goToNews = function(){
       $location.path('/links');
