@@ -1,13 +1,8 @@
 'use strict';
-angular.module('com.module.photos')
-  .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
+var app = angular.module('com.module.photos')
+  app.controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
-
-    $scope.myLimit = 4;
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
     $scope.delete = function(id) {
       PhotosService.deletePhoto(id, function() {
         $state.reload();
@@ -25,7 +20,13 @@ angular.module('com.module.photos')
 
     function loadItems(id) {
       if(id==1){
-        $scope.photos = Photo.find();
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              order: 'created DESC'
+            }
+          }
+        );
       }
       else{
         $scope.photos = Photo.find(
@@ -33,7 +34,8 @@ angular.module('com.module.photos')
             filter: {
               where:{
                 ownerId: id
-              }
+              },
+              order: 'created DESC'
             }
           }
         );
@@ -121,9 +123,17 @@ angular.module('com.module.photos')
         //});
         item.upload();
       }
-      else{
-        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-        $state.go('^.list');
-      }
+      //else{
+      //  CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+      //  $state.go('^.list');
+      //}
     };
   });
+app.controller('MainCtrl', function($scope, $http) {
+  $scope.tags = [
+    { text: 'Tag1' },
+    { text: 'Tag2' },
+    { text: 'Tag3' }
+  ];
+  $scope.tagsString = $scope.tags.map(function(tag) { return tag.text; });
+});

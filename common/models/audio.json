@@ -1,7 +1,7 @@
 {
   "name": "Audio",
   "plural": "audios",
-  "base": "PersistedModel",
+  "base": "AppModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true

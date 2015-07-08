@@ -12,9 +12,13 @@
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
           <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
-          <input name="thumbnail" placeholder="Image URL you want preview" style="width: 250px"/>
+          <input class="form-control" name="thumbnail" placeholder="Image URL you want preview" style="width: 250px"/>
           <img src="http://webspace.webring.com/people/jv/vladilyich/preview.gif" class="preview" />
         </div>
+      </div>
+      <div ng-controller="MainCtrl">
+      <tags-input  ng-model="tags"></tags-input>
+      <p>Model: {{tags}}</p>
       </div>
       <div class="controls" style="margin-left: 15px; padding-bottom: 15px; margin-top: 5px">
         <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
@@ -39,9 +43,6 @@
 
         </div>
       </div>
-
-
-
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">
@@ -85,7 +86,7 @@
               <td ng-show="uploader.isHTML5" nowrap>{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB
               </td>
               <td ng-show="uploader.isHTML5">
-                <div class="progress" style="margin-bottom: 0;">
+                <div class="progress" style="margin-bottom: 0">
                   <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.queue[0].progress + '%' }"></div>
                 </div>
               </td>
@@ -116,7 +117,7 @@
 
   function imageIsLoaded(e) {
     $('#myImg').attr('src', e.target.result);
-  };
+  }
   $('[name="thumbnail"]').on('change', function() {
     $('img.preview').prop('src', this.value);
   });

@@ -14,7 +14,11 @@ angular.module('com.module.videos')
 
     function loadItems(id) {
       if(id==1){
-        $scope.videos = Video.find();
+        $scope.videos = Video.find({
+            filter: {
+              order: 'created DESC'
+            }
+        });
       }
       else{
         $scope.videos = Video.find(
@@ -22,7 +26,8 @@ angular.module('com.module.videos')
             filter: {
               where:{
                 ownerId: id
-              }
+              },
+              order: 'created DESC'
             }
           }
         );

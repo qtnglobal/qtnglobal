@@ -1,91 +1,116 @@
-<section class="box grid-item alert" ng-repeat="item in photos | limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
-  <div class="col-sm-3a">
-    <div class="col-sm-3b" style=" width: 100%; ; border-bottom: 1px solid #F4F4F4">
-      <div class="avatar hovergallery" style="display: inline-block; font-size: 14px; width: 30px; height: 30px; margin: 4px">
-        <img src="images/avatar_default.png"/>
-      </div>
-      <div class="post_info_qtnglobal User_name" style="font-size: 15px; margin-top: 3px">
-        <a>{{item.ownerName}}</a>
-      </div>
-      <div class="dropdown btn-group btn-group-xs" style="float: right;margin: 10px ">
-        <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
-        <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <i class="fa fa-cog"></i>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
-          <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
-          <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
-          <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
-  <div class="user_photo">
-    <a class="col-sm-3c" data-toggle="modal" data-target="#myModal" style="width: 100%">
-      <img ng-src="{{item.url}}" />
-      <img ng-src="{{item.url1}}"/>
-    </a>
-    <!--Modal-->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <img ng-src="{{item.url}}"/>
+<section class="container ">
+  <div class="wrapperr">
+  <div class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+    <div class="col-sm-3a">
+      <div class="col-sm-3b" style=" width: 100%; ; border-bottom: 1px solid #F4F4F4">
+        <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px">
+          <img src="images/avatar_default.png"/>
+        </div>
+        <div class="post_info_qtnglobal User_name">
+          <a href="#">{{item.ownerName}}</a>
+        </div>
+        <div class="dropdown btn-group btn-group-xs animate-show" style="float: right;margin: 10px ">
+          <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
+          <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-cog"></i>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
+            <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
+            <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
+            <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="box-header scroll">
-    <h3 class="box-title">
-      <a href="" style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
-    </h3>
-  </div>
-  <div class="box-body">
-    <div style="white-space: pre">{{item.content}}</div>
-  </div>
-  <div class="box-footer" style="position: absolute;bottom: 0px; width: 100%">
+    <div class="user_photo" style="max-width: 300px">
+      <!--<a class="col-sm-3c" data-toggle="modal" data-target="#myModal" style="width: 100%">-->
+      <!--//  &lt;!&ndash;<img ng-src="{{item.url}}" />&ndash;&gt;-->
+      <!--//  &lt;!&ndash;<img ng-src="{{item.url1}}"/>&ndash;&gt;-->
+      <!--//&lt;!&ndash;</a>&ndash;&gt;-->
+      <!--//&lt;!&ndash;&lt;!&ndash;Modal&ndash;&gt;&ndash;&gt;-->
+      <!--//&lt;!&ndash;<div class="modal fade" id="myModal" role="dialog">&ndash;&gt;-->
+      <!--//  &lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
+      <!--//    &lt;!&ndash;&lt;!&ndash; Modal content&ndash;&gt;&ndash;&gt;-->
+      <!--//    &lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
+      <!--//      &lt;!&ndash;<img ng-src="{{item.url}}"/>&ndash;&gt;-->
+      <!--//    &lt;!&ndash;</div>&ndash;&gt;-->
+      <!--//  &lt;!&ndash;</div>&ndash;&gt;-->
+      <!--//&lt;!&ndash;</div>&ndash;&gt;-->
+      <div ng-controller="ModalDemoCtrl">
+        <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-header">
+            <h3 class="modal-title">By: {{items.ownerName}}</h3>
+          </div>
+          <img ng-src="{{items.url}}"/>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+          </div>
+        </script>
+
+        <img ng-src="{{item.url}}" ng-click="open(item)"/>
+        <!--<button class="btn btn-default" ng-click="open('lg')">Large modal</button>-->
+        <!--<button class="btn btn-default" ng-click="open('sm')">Small modal</button>-->
+        <!--<button class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>-->
+        <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
+      </div>
+    </div>
+    <div class="content-photo" style="min-width: 250px">
+    <div class="box-header scroll">
+      <h3 class="box-title">
+        <a href="" style="color: #000808; font-style: normal; font-size: 18px" >{{item.title}}</a>
+      </h3>
+    </div>
+    <div class="box-body">
+      <div style="white-space: pre">{{item.content}}</div>
+    </div>
+
+    </div>
+    <div class="box-footer" style="bottom: 0px; width: 100%">
           <span class="text-muted" style="float: right">
       &middot;
             <a href="#" data-toggle="tooltip" title="Like"><i class="fa fa-thumbs-o-up"></i> </a>
       <a href="#" data-toggle="tooltip" title="Comment"><i class="fa fa-comments-o"></i></a>
       <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
           </span>
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
+      <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+      </script>
+    </div>
+  </div>
   </div>
 </section>
 <!--<div class="row text-center">-->
-  <!--<div class="col-lg-12">-->
-    <!--<ul class="pagination">-->
-      <!--<li>-->
-        <!--<a href="#">&laquo;</a>-->
-      <!--</li>-->
-      <!--<li class="active">-->
-        <!--<a href="#">1</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="#">2</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="#">3</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="#">4</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="#">5</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="#">&raquo;</a>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+<!--<div class="col-lg-12">-->
+<!--<ul class="pagination">-->
+<!--<li>-->
+<!--<a href="#">&laquo;</a>-->
+<!--</li>-->
+<!--<li class="active">-->
+<!--<a href="#">1</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">2</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">3</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">4</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">5</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="#">&raquo;</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
 <!--</div>-->
 <!-- /.row -->
 
@@ -126,7 +151,7 @@
     margin-left: 5px ;
   }
   .box{
-    width: 24%;
+    width: 260px;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -157,12 +182,12 @@
     /*initial opacity of images*/
     margin: 0 10px 5px 0;
     /*margin between images*/ }
-  .hovergallery img:hover{
-    -webkit-transform:scale(1.1);
+  .hovergallery img:hover {
+    -webkit-transform: scale(1.1);
     /*Webkit: Scale up image to 1.2x original size*/
-    -moz-transform:scale(1.5);
+    -moz-transform: scale(1.5);
     /*Mozilla scale version*/
-    -o-transform:scale(1.1);
+    -o-transform: scale(1.1);
     /*Opera scale version*/
     /*box-shadow:0px 0px 30px gray;*/
     /*/!*CSS3 shadow: 30px blurred shadow all around image*!/*/
@@ -171,7 +196,30 @@
     /*-moz-box-shadow:0px 0px 30px gray;*/
     /*/!*Mozilla shadow version*!/ opacity: 1;*/
   }
-</style>
+  li {
+    list-style-type: none;
+  }
+  .animate-show {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
+  }
 
+  .animate-show.ng-hide-add,
+  .animate-show.ng-hide-remove {
+    display: inline-block !important;
+  }
+  .animate-show.ng-hide {
+    opacity: 0;
+  }
+  }
+</style>
+<script>
+  $('.wrapperr').freetile({
+    selector:'.box',
+    animate: true,
+    elementDelay: 20
+  });
+</script>
 
 
