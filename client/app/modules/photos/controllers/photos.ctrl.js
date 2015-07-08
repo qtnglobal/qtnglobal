@@ -1,6 +1,6 @@
 'use strict';
-angular.module('com.module.photos')
-  .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
+var app = angular.module('com.module.photos')
+  app.controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
     $scope.delete = function(id) {
@@ -129,3 +129,10 @@ angular.module('com.module.photos')
       //}
     };
   });
+//app.controller('MainCtrl', function($scope, $http) {
+//  $scope.tags = [
+//    { text: 'Tag1' },
+//    { text: 'Tag2' },
+//    { text: 'Tag3' }
+//  ];
+//});

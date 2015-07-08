@@ -1,2 +1,2 @@
 'use strict';
-angular.module('com.module.photos', []);
+angular.module('com.module.photos', ['ngTagsInput']);

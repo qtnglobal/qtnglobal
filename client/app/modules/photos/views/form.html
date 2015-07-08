@@ -16,6 +16,10 @@
           <img src="http://webspace.webring.com/people/jv/vladilyich/preview.gif" class="preview" />
         </div>
       </div>
+      <div ng-controller="MainCtrl">
+      <tags-input ng-model="tags"></tags-input>
+      <p>Model: {{tags}}</p>
+      </div>
       <div class="controls" style="margin-left: 15px; padding-bottom: 15px; margin-top: 5px">
         <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
       </div>
