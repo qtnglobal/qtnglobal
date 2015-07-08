@@ -13,12 +13,12 @@
         <div class="contentt">
           <div class="box-header">
             <h3 class="box-title">
-              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
+              <a ng-bind-html="deliberatelyTrustDangerousTitle(item)"></a>
             </h3>
           </div>
           <div class="box-body">
 
-            <div style="white-space: pre">{{item.content}}</div>
+            <div ng-bind-html="deliberatelyTrustDangerousContent(item)"></div>
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
               <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
