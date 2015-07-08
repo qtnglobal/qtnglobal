@@ -12,14 +12,15 @@ app.config(function($stateProvider) {
   }).state('app.audios.list', {
     url: '',
     templateUrl: 'modules/audios/views/list.html',
-    resolve: {
+    /*resolve: {
       audios: ['AudiosService', function(AudiosService) {
         return AudiosService.getAudios();
       }]
     },
     controller: function($scope, audios) {
       $scope.audios = audios;
-    }
+    }*/
+    controller: 'AudiosCtrl'
   }).state('app.audios.add', {
     url: '/add',
     templateUrl: 'modules/audios/views/form.html',

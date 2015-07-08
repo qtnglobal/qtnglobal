@@ -53,7 +53,14 @@ angular.module('com.module.explore')
       }).state('explore.links', {
         url: '/links',
         templateUrl: 'modules/explore/views/elements/links.html',
-        controller:'LinksCtrl'
+        resolve: {
+          links: ['LinksService', function(LinksService) {
+            return LinksService.getLinks();
+          }]
+        },
+        controller: function($scope, links) {
+          $scope.links = links;
+        }
       }).state('explore.audios', {
         url: '/audios',
         templateUrl: 'modules/explore/views/elements/audio.html',
@@ -64,8 +71,6 @@ angular.module('com.module.explore')
         },
         controller: function($scope, audios) {
           $scope.audios = audios;
-
-
         }
       }).state('explore.videos', {
         url: '/videos',

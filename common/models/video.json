@@ -1,7 +1,7 @@
 {
   "name": "Video",
   "plural": "videos",
-  "base": "PersistedModel",
+  "base": "AppModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
