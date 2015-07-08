@@ -24,18 +24,38 @@
     </div>
   </div>
   <div class="user_photo">
-    <a class="col-sm-3c" data-toggle="modal" data-target="#myModal" style="width: 100%">
-      <img ng-src="{{item.url}}" />
-      <img ng-src="{{item.url1}}"/>
-    </a>
-    <!--Modal-->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <img ng-src="{{item.url}}"/>
+    <!--<a class="col-sm-3c" data-toggle="modal" data-target="#myModal" style="width: 100%">-->
+    <!--//  &lt;!&ndash;<img ng-src="{{item.url}}" />&ndash;&gt;-->
+    <!--//  &lt;!&ndash;<img ng-src="{{item.url1}}"/>&ndash;&gt;-->
+    <!--//&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--//&lt;!&ndash;&lt;!&ndash;Modal&ndash;&gt;&ndash;&gt;-->
+    <!--//&lt;!&ndash;<div class="modal fade" id="myModal" role="dialog">&ndash;&gt;-->
+    <!--//  &lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
+    <!--//    &lt;!&ndash;&lt;!&ndash; Modal content&ndash;&gt;&ndash;&gt;-->
+    <!--//    &lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
+    <!--//      &lt;!&ndash;<img ng-src="{{item.url}}"/>&ndash;&gt;-->
+    <!--//    &lt;!&ndash;</div>&ndash;&gt;-->
+    <!--//  &lt;!&ndash;</div>&ndash;&gt;-->
+    <!--//&lt;!&ndash;</div>&ndash;&gt;-->
+    <div ng-controller="ModalDemoCtrl">
+      <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+          <h3 class="modal-title">By: {{items.ownerName}}</h3>
         </div>
-      </div>
+        <img ng-src="{{items.url}}"/>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" ng-click="ok()">OK</button>
+          <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+      </script>
+
+      <img ng-src="{{item.url}}" ng-click="open(item)"/>
+      <!--<button class="btn btn-default" ng-click="open('lg')">Large modal</button>-->
+      <!--<button class="btn btn-default" ng-click="open('sm')">Small modal</button>-->
+      <!--<button class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>-->
+      <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
     </div>
   </div>
   <div class="box-header scroll">
