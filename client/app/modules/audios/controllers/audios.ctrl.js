@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Audio, AudiosService,User) {
+    FormHelper, gettextCatalog, Audio, AudiosService, User, $http) {
 
     $scope.myLimit = 4;
 
@@ -72,8 +72,14 @@ angular.module('com.module.audios')
       console.log(err);
     });
 
-    $scope.onSubmit = function() {
+
+
+    $scope.onSubmit = function(url) {
       if($scope.audio.ownerId === currentUser.id){
+        $scope.audio.url = url;
+        $scope.audio.title= $scope.title;
+        $scope.audio.content = $scope.content;
+        $scope.audio.image = $scope.image;
         Audio.upsert($scope.audio, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
             gettextCatalog.getString('Your audio is safe with us!'));
@@ -89,7 +95,6 @@ angular.module('com.module.audios')
     };
 
     $scope.upload = function(item){
-
       if($scope.audio.ownerId === currentUser.id){
         $scope.audio.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
@@ -107,5 +112,15 @@ angular.module('com.module.audios')
         $state.go('^.list');
       }
     }
-
+    $scope.preview = function(url) {
+      $http.get(url)
+        .success(function (data) {
+          var title = data.match(/<meta name="title" content="(.*?)"/g);
+          var sumary = data.match(/<meta name="description" content="(.*?)"/g);
+          var image = data.match(/<meta property="og:image" content="(.*?)"/g);
+          $scope.title = title[0].slice(28, -1);
+          $scope.content = sumary[0].slice(34, -1);
+          $scope.image = image[0].slice(35, -1);
+        })
+    }
   });

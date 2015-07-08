@@ -11,11 +11,15 @@
       <div class="row" style="margin-bottom: 0 !important;">
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add audio!</div>
-          <formly-form result="audio" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
         </div>
       </div>
 
       <div ng-controller="UploadCtrl" nv-file-drop uploader="uploader">
+        <div ng-show="!uploader.getNotUploadedItems().length" style="padding: 15px">
+          <label class="ng-binding">Type or paste a URL</label>
+          <input type="text" ng-model="link" class="form-control">
+        </div>
+        <div ng-show="!link">
           <div class="box-header">
             <h5 style="padding-left: 17px"><strong>Choose your audio file: </strong></h5>
             <div class="box-tools">
@@ -96,9 +100,9 @@
             </table>
           </div>
 
+          <formly-form ng-hide="!uploader.getNotUploadedItems().length" style="padding: 15px" result="audio" fields="formFields" options="formOptions" ng-submit="upload()"></formly-form>
 
-
-        <div class="controls" style="padding: 20px">
+        <div class="controls" style="padding: 15px">
             <button type="button" class="btn btn-success " ng-click="upload(uploader.queue[0])"
                     ng-disabled="!uploader.getNotUploadedItems().length">
               <span class="icon ion-ios-upload"></span> {{ 'Upload' | translate }}
@@ -109,10 +113,13 @@
               <!--&lt;!&ndash;<span class="glyphicon glyphicon-trash"></span>&ndash;&gt; {{ 'Remove' | translate }}-->
             <!--</button>-->
           </div>
+          </div>
+        <div class="controls" style="padding: 15px">
+          <button ng-hide="!link" type="button" class="btn btn-success" ng-click="preview(link)">Preview</button>
+          <button ng-hide="!link" type="button" class="btn btn-success" ng-click="onSubmit(link)">Submit</button>
+          </button>
+        </div>
         </div>
       </div>
-
-      </div>
   </div>
-
-
+</div>
