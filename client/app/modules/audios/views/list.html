@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-md-7" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
       <div class="col-md-5">
-        <audio controls src="{{item.url}}"></audio>
+        <audio controls src="{{item.url | trusted}}" preload="none"></audio>
       </div>
     </div>
   </div>
@@ -30,10 +30,6 @@
   <div class="box-footer">
     <span class="text-muted">
       {{item.created | date:'medium'}}
-      &middot;
-      0 comments
-      &middot;
-      0 likes
     </span>
   </div>
 </div>

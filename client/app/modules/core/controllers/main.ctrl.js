@@ -24,9 +24,6 @@ angular.module('com.module.core')
 
     $scope.menuoptions = $rootScope.menu;
 
-    var userModule;
-    var settingModule;
-
     User.getCurrent(function(user) {
       if (user.username !== 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name == 'Users') {
         $scope.menuoptions.pop();

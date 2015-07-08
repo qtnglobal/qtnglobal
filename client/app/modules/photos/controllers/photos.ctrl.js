@@ -9,6 +9,39 @@ angular.module('com.module.photos')
       });
     };
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+      else{
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              },
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+    }
+
     this.formHelper = new FormHelper(Photo);
     $scope.cancel = function() {
       console.log('Cancel');
@@ -29,6 +62,8 @@ angular.module('com.module.photos')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.photo.ownerId=user.id;
+        $scope.photo.ownerName=user.username;
+        $scope.photo.date=user.roles;
       }, function(err) {
         console.log(err);
       });
@@ -57,13 +92,7 @@ angular.module('com.module.photos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    var currentUser;
 
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
 
     $scope.onSubmit = function() {
       if($scope.photo.ownerId === currentUser.id){
@@ -82,23 +111,21 @@ angular.module('com.module.photos')
     };
 
     $scope.upload = function(item){
-
       if($scope.photo.ownerId === currentUser.id){
         $scope.photo.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
-        Photo.upsert($scope.photo, function() {
+        //Photo.upsert($scope.photo, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
             gettextCatalog.getString('Your photo is safe with us!'));
-          $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
+          //$state.go('^.list');
+        //}, function(err) {
+        //  console.log(err);
+        //});
         item.upload();
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
-    }
-
+    };
   });

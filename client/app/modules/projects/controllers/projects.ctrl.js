@@ -47,7 +47,11 @@ angular.module('com.module.projects')
     }
 
     function loadItems() {
-      $scope.projects = Project.find();
+      $scope.projects = Project.find({
+        filter: {
+          order: 'id DESC'
+        }
+      });
     }
 
     loadItems();

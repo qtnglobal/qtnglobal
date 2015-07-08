@@ -3,8 +3,12 @@
   "plural": "users",
   "base": "User",
   "properties": {
-    "url": {
-      "type" : "string",
+    "cover": {
+      "type": "string",
+      "required": false
+    },
+    "avatar": {
+      "type": "string",
       "required": false
     }
   },
@@ -71,14 +75,27 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
     },
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "admin",
+      "principalId": "$owner",
       "permission": "ALLOW"
-    }],
+    }
+  ],
   "methods": []
 }

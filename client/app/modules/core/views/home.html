@@ -21,9 +21,10 @@
   </div>
   <h1>
     {{ 'Home' | translate }}
-    <button type="button" style="margin-right: 290px; margin-top: -8px;" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" title="Make a post">
+    <button style="margin-right: 290px; margin-top: -8px;" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create" title="Make a post">
       Create
     </button>
+
   </h1>
   <form action="#" method="get" class="sidebar-form">
     <div class="input-group">
@@ -90,17 +91,14 @@
       </tabset>
     </div>
   </div>
-
-
 </section>
 
-
 <!-- Modal -->
-<!--<div class="modal fade" id="myModal" >
+<div class="modal" id="create" >
   <div class="modal-dialog">
-    <div class="post-tab-switching finish-animating ">
+    <!--<div class="post-tab-switching finish-animating ">-->
       <div class="tab-post-types count-4">
-        <div class="tab-post-type item" data-index="0" data-post-type="news" data-toggle="modal" data-dismiss="modal" data-target="#addNews" >
+        <div class="tab-post-type item" data-index="0" data-post-type="news" data-toggle="modal" ui-sref="app.news.list" data-dismiss="modal">
           <div class="post-type-icon icon-text" style="opacity: 1; transform: translateY(0px);">
             <i class="post-type-icon-overlay"></i>
           </div>
@@ -108,7 +106,7 @@
             <span class="post-type-name-span">News</span>
           </div>
         </div>
-        <div class="tab-post-type item" data-index="2" data-post-type="projects" data-toggle="modal" data-target="#addProject" >
+        <div class="tab-post-type item" data-index="2" data-post-type="projects" data-toggle="modal" data-dismiss="modal" data-target="#addProject" >
           <div class="post-type-icon icon-quote" style="opacity: 1; transform: translateY(0px);">
             <i class="post-type-icon-overlay"></i>
           </div>
@@ -116,15 +114,13 @@
             <span class="post-type-name-span">Project</span>
           </div>
         </div>
-
       </div>
-    </div>
+    <!--</div>-->
   </div>
-</div>-->
+</div>
 
 
-<!--
-<div class="modal fade" id="addProject" ng-controller="ProjectsCtrl">
+<div class="modal" id="addProject" ng-controller="ProjectsCtrl">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="box">
@@ -144,7 +140,7 @@
         </div>
         <div class="box-footer">
           <div class="controls">
-            <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+            <button class="btn btn-primary btn-success" ng-click="onSubmit()" ui-sref="app.projects.list" data-dismiss="modal" translate>Submit</button>
             <button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>
           </div>
         </div>
@@ -155,31 +151,4 @@
   </div>
 </div>
 
-
-<div class="modal fade" id="addNews" ng-controller="NewsCtrl">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="box-title" translate>
-          Add news
-        </h3>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="alert alert-danger" ng-if="addError" translate>Could not add news!</div>
-            <formly-form result="new" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit()" ui-sref="app.news.list" data-dismiss="modal" translate>Submit</button>
-          <button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
--->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">

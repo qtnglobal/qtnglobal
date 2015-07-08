@@ -40,16 +40,38 @@ angular.module('com.module.explore')
             return PhotosService.getPhotos();
           }]
         },
+
         controller: function($scope, photos) {
           $scope.photos = photos;
+          $scope.myLimit = 4;
+
+          $scope.loadMore = function() {
+            $scope.myLimit += 4;
+
+          };
         }
       }).state('explore.links', {
         url: '/links',
         templateUrl: 'modules/explore/views/elements/links.html',
-        controller:'LinksCtrl'
+        resolve: {
+          links: ['LinksService', function(LinksService) {
+            return LinksService.getLinks();
+          }]
+        },
+        controller: function($scope, links) {
+          $scope.links = links;
+        }
       }).state('explore.audios', {
         url: '/audios',
-        templateUrl: 'modules/explore/views/elements/audio.html'
+        templateUrl: 'modules/explore/views/elements/audio.html',
+        resolve: {
+          audios: ['AudiosService', function(AudiosService) {
+            return AudiosService.getAudios();
+          }]
+        },
+        controller: function($scope, audios) {
+          $scope.audios = audios;
+        }
       }).state('explore.videos', {
         url: '/videos',
         templateUrl: 'modules/explore/views/elements/video.html',
@@ -66,3 +88,4 @@ angular.module('com.module.explore')
         templateUrl: 'modules/explore/views/elements/project.html'
       });
   });
+
