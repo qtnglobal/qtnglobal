@@ -129,10 +129,11 @@ var app = angular.module('com.module.photos')
       //}
     };
   });
-//app.controller('MainCtrl', function($scope, $http) {
-//  $scope.tags = [
-//    { text: 'Tag1' },
-//    { text: 'Tag2' },
-//    { text: 'Tag3' }
-//  ];
-//});
+app.controller('MainCtrl', function($scope, $http) {
+  $scope.tags = [
+    { text: 'Tag1' },
+    { text: 'Tag2' },
+    { text: 'Tag3' }
+  ];
+  $scope.tagsString = $scope.tags.map(function(tag) { return tag.text; });
+});

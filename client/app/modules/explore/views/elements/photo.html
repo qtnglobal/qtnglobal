@@ -9,7 +9,7 @@
         <div class="post_info_qtnglobal User_name">
           <a href="#">{{item.ownerName}}</a>
         </div>
-        <div class="dropdown btn-group btn-group-xs" style="float: right;margin: 10px ">
+        <div class="dropdown btn-group btn-group-xs animate-show" style="float: right;margin: 10px ">
           <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
           <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <i class="fa fa-cog"></i>
@@ -21,7 +21,6 @@
             <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
             <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
           </ul>
-
         </div>
       </div>
     </div>
@@ -68,6 +67,7 @@
     <div class="box-body">
       <div style="white-space: pre">{{item.content}}</div>
     </div>
+
     </div>
     <div class="box-footer" style="bottom: 0px; width: 100%">
           <span class="text-muted" style="float: right">
@@ -182,12 +182,12 @@
     /*initial opacity of images*/
     margin: 0 10px 5px 0;
     /*margin between images*/ }
-  .hovergallery img:hover{
-    -webkit-transform:scale(1.1);
+  .hovergallery img:hover {
+    -webkit-transform: scale(1.1);
     /*Webkit: Scale up image to 1.2x original size*/
-    -moz-transform:scale(1.5);
+    -moz-transform: scale(1.5);
     /*Mozilla scale version*/
-    -o-transform:scale(1.1);
+    -o-transform: scale(1.1);
     /*Opera scale version*/
     /*box-shadow:0px 0px 30px gray;*/
     /*/!*CSS3 shadow: 30px blurred shadow all around image*!/*/
@@ -195,6 +195,23 @@
     /*/!*Safari shadow version*!/*/
     /*-moz-box-shadow:0px 0px 30px gray;*/
     /*/!*Mozilla shadow version*!/ opacity: 1;*/
+  }
+  li {
+    list-style-type: none;
+  }
+  .animate-show {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
+  }
+
+  .animate-show.ng-hide-add,
+  .animate-show.ng-hide-remove {
+    display: inline-block !important;
+  }
+  .animate-show.ng-hide {
+    opacity: 0;
+  }
   }
 </style>
 <script>

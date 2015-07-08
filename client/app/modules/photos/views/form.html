@@ -12,12 +12,12 @@
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
           <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
-          <input name="thumbnail" placeholder="Image URL you want preview" style="width: 250px"/>
+          <input class="form-control" name="thumbnail" placeholder="Image URL you want preview" style="width: 250px"/>
           <img src="http://webspace.webring.com/people/jv/vladilyich/preview.gif" class="preview" />
         </div>
       </div>
       <div ng-controller="MainCtrl">
-      <tags-input ng-model="tags"></tags-input>
+      <tags-input  ng-model="tags"></tags-input>
       <p>Model: {{tags}}</p>
       </div>
       <div class="controls" style="margin-left: 15px; padding-bottom: 15px; margin-top: 5px">
@@ -43,9 +43,6 @@
 
         </div>
       </div>
-
-
-
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">

@@ -54,4 +54,14 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+  app.controller('MainCtrl', function($scope) {
+        $scope.hoverIn = function(){
+      this.hoverEdit = true;
+    };
+
+    $scope.hoverOut = function(){
+      this.hoverEdit = false;
+    };
+
+  });
 });
