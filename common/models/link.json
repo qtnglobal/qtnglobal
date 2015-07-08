@@ -1,7 +1,7 @@
 {
   "name": "Link",
   "plural": "links",
-  "base": "PersistedModel",
+  "base": "AppModel",
   "idInjection": true,
   "properties": {
     "url": {

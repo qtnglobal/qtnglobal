@@ -24,9 +24,8 @@
       </div>
     </div>
     <div class="box-footer">
+      {{item.created | date:'medium'}}
       <span class="text-muted" style="float: right">
-        {{item.created | date:'medium'}}
-        &middot;
         <a href="#">  <i class="fa fa-thumbs-o-up"></i> </a>
         <a href="#">   <i class="fa fa-comments-o"></i></a>
         <a href="#">  <i class="fa fa-share"></i> </a>
@@ -116,4 +115,7 @@
     -moz-box-shadow:0 0 30px gray;
     /*Mozilla shadow version*/ opacity: 1;
   } </style>
+
+
+
 

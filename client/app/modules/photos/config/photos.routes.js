@@ -12,14 +12,15 @@ app.config(function($stateProvider) {
   }).state('app.photos.list', {
     url: '',
     templateUrl: 'modules/photos/views/list.html',
-    resolve: {
+    /*resolve: {
       photos: ['PhotosService', function(PhotosService) {
         return PhotosService.getPhotos();
       }]
     },
     controller: function($scope, photos) {
       $scope.photos = photos;
-    }
+    }*/
+    controller: 'PhotosCtrl'
   }).state('app.photos.add', {
     url: '/add',
     templateUrl: 'modules/photos/views/form.html',

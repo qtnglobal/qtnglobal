@@ -1,17 +1,46 @@
 'use strict';
-angular.module('com.module.photos')
-  .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
+var app = angular.module('com.module.photos')
+  app.controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
-    $scope.myLimit = 4;
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
     $scope.delete = function(id) {
       PhotosService.deletePhoto(id, function() {
         $state.reload();
       });
     };
+
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+      else{
+        $scope.photos = Photo.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              },
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+    }
 
     this.formHelper = new FormHelper(Photo);
     $scope.cancel = function() {
@@ -63,14 +92,7 @@ angular.module('com.module.photos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    var currentUser;
 
-    User.getCurrent(function(user) {
-      currentUser = user;
-
-    }, function(err) {
-      console.log(err);
-    });
 
     $scope.onSubmit = function() {
       if($scope.photo.ownerId === currentUser.id){
@@ -101,9 +123,17 @@ angular.module('com.module.photos')
         //});
         item.upload();
       }
-      else{
-        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-        $state.go('^.list');
-      }
+      //else{
+      //  CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+      //  $state.go('^.list');
+      //}
     };
   });
+app.controller('MainCtrl', function($scope, $http) {
+  $scope.tags = [
+    { text: 'Tag1' },
+    { text: 'Tag2' },
+    { text: 'Tag3' }
+  ];
+  $scope.tagsString = $scope.tags.map(function(tag) { return tag.text; });
+});

@@ -3,6 +3,37 @@ angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Video, VideosService, User) {
 
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.videos = Video.find({
+            filter: {
+              order: 'created DESC'
+            }
+        });
+      }
+      else{
+        $scope.videos = Video.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              },
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+    }
+
     $scope.delete = function(id) {
       VideosService.deleteVideo(id, function() {
         $state.reload();
@@ -58,6 +89,7 @@ angular.module('com.module.videos')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+/*
     var currentUser;
 
     User.getCurrent(function(user) {
@@ -65,6 +97,7 @@ angular.module('com.module.videos')
     }, function(err) {
       console.log(err);
     });
+*/
 
     $scope.onSubmit = function() {
       if($scope.video.ownerId === currentUser.id){
@@ -100,5 +133,34 @@ angular.module('com.module.videos')
         $state.go('^.list');
       }
     };
-
+    $scope.uploadVideos = function(){
+      $('.clearfix').toggleClass('fromPC');
+    };
+    $scope.closeUpVideo = function(){
+      $('.clearfix').removeClass('fromPC');
+      $('.clearfix').removeClass('fromWeb');
+    };
+    $scope.upVideosFromWeb = function(){
+      $('.clearfix').toggleClass('fromWeb');
+    };
+    $scope.yt = {
+      width: 300,
+      height: 150,
+      url: "https://www.youtube.com/watch?v=91NeXidzTtk",
+      videoid: "M7lc1UVf-VE",
+    };
+    $scope.posts = function(){
+      var num;
+      num = $scope.yt.url.indexOf("=");
+      $scope.yt.videoid =  $scope.yt.url.slice(num+1,num+12);
+      console.log('https://www.youtube.com/embed/'+$scope.yt.videoid);
+      if($scope.video.ownerId === currentUser.id){
+        $scope.video.url = 'https://www.youtube.com/embed/'+$scope.yt.videoid;
+        gettextCatalog.getString('Your video is safe with us!');
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
+    };
   });

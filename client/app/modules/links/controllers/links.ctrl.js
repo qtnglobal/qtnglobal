@@ -3,18 +3,7 @@ angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Link, LinksService, User) {
 
-    $scope.myLimit = 8;
-
-    $scope.loadMore = function() {
-      $scope.myLimit += 8;
-    };
-
-    function loadItems() {
-      $scope.links = Link.find();
-      console.log("get link");
-    }
-
-    loadItems();
+    $scope.links = Link.find();
 
     function getLink(id) {
       return Link.findById({
@@ -62,7 +51,7 @@ angular.module('com.module.links')
 
     $scope.formFields = [{
       key: 'url',
-      type: 'text',
+      type: 'url',
       label: gettextCatalog.getString('URL'),
       required: true
     }, {
@@ -70,12 +59,7 @@ angular.module('com.module.links')
       type: 'textarea',
       label: gettextCatalog.getString('Description'),
       required: false
-    }/*, {
-      key: 'image',
-      type: 'text',
-      label: gettextCatalog.getString('image'),
-      required: true
-    }*/];
+    }];
 
 
     $scope.formOptions = {

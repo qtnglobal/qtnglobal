@@ -12,14 +12,15 @@ app.config(function($stateProvider) {
   }).state('app.videos.list', {
     url: '',
     templateUrl: 'modules/videos/views/list.html',
-    resolve: {
+    /*resolve: {
       videos: ['VideosService', function(VideosService) {
         return VideosService.getVideos();
       }]
     },
     controller: function($scope, videos) {
       $scope.videos = videos;
-    }
+    }*/
+    controller: 'VideosCtrl'
   }).state('app.videos.add', {
     url: '/add',
     templateUrl: 'modules/videos/views/form.html',

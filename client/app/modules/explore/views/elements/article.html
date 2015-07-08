@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="wrapper">
-    <div class="box" ng-repeat="item in articles" style="float: left; border-radius: 5px; height: 350px">
+  <div class="wrapperr">
+    <div class="box" ng-repeat="item in articles" style="border-radius: 5px">
       <div class="col-sm-3a">
         <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
@@ -13,12 +13,12 @@
         <div class="contentt">
           <div class="box-header">
             <h3 class="box-title">
-              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
+              <a ng-bind-html="deliberatelyTrustDangerousTitle(item)"></a>
             </h3>
           </div>
           <div class="box-body">
 
-            <div style="white-space: pre">{{item.content}}</div>
+            <div ng-bind-html="deliberatelyTrustDangerousContent(item)"></div>
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
               <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
@@ -121,3 +121,10 @@
     -moz-box-shadow:0px 0px 30px gray;
     /*Mozilla shadow version*/ opacity: 1;
   } </style>
+<script>
+  $('.wrapperr').freetile({
+    selector:'.box',
+    animate: true,
+    elementDelay: 20
+  });
+</script>
