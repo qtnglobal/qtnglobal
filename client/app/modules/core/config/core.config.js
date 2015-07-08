@@ -13,7 +13,7 @@ app.run(function($rootScope, Setting, gettextCatalog, User) {
       icon: icon
     });
   };
-  
+
   // Add Menu Dashboard
   $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
     'fa-dashboard');
@@ -82,7 +82,8 @@ app.config(function(formlyConfigProvider) {
     'radio',
     'select',
     'text',
-    'textarea'
+    'textarea',
+    'url'
   ];
 
   angular.forEach(fields, function(val) {
