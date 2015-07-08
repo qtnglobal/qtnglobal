@@ -85,7 +85,7 @@
               <td ng-show="uploader.isHTML5" nowrap>{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB
               </td>
               <td ng-show="uploader.isHTML5">
-                <div class="progress" style="margin-bottom: 0;">
+                <div class="progress" style="margin-bottom: 0">
                   <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.queue[0].progress + '%' }"></div>
                 </div>
               </td>
@@ -116,7 +116,7 @@
 
   function imageIsLoaded(e) {
     $('#myImg').attr('src', e.target.result);
-  };
+  }
   $('[name="thumbnail"]').on('change', function() {
     $('img.preview').prop('src', this.value);
   });

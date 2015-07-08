@@ -30,12 +30,6 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "ownerId"
-    },
-    "roles": {
-      "type": "hasMany",
-      "model": "Role",
-      "foreignKey": "principalId",
-      "through": "RoleMapping"
     }
   },
   "acls": [

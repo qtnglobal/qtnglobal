@@ -10,18 +10,13 @@
  **/
 angular.module('com.module.explore')
   .controller('ExploreCtrl', function($scope, $routeParams, $location) {
-    
-    $scope.myLimit = 4;
-
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
 
     $scope.myLimit = 4;
 
     $scope.loadMore = function() {
       $scope.myLimit += 4;
     };
+
 
     $scope.goToNews = function(){
       $location.path('/links');
@@ -37,7 +32,7 @@ angular.module('com.module.explore')
 
     $scope.goToRegister = function(){
       $location.path('/register');
-    }
+    };
 
     $scope.items = [{
       name: 'Trending',

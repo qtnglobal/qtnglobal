@@ -101,9 +101,9 @@ angular.module('com.module.photos')
         //});
         item.upload();
       }
-      else{
-        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-        $state.go('^.list');
-      }
+      //else{
+      //  CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+      //  $state.go('^.list');
+      //}
     };
   });
