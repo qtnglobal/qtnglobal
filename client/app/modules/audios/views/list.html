@@ -16,12 +16,12 @@
 
   <div class="box-body">
     <div class="row">
-      <div class="col-md-5" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
+      <div class="col-md-4" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
       <div class="col-md-3">
         <img href="{{item.url}}" target="_blank" ng-src="{{item.image}}"/>
       </div>
-      <div class="col-md-4">
-        <audio controls src="{{item.url | trusted}}" preload="none"></audio>
+      <div class="col-md-5">
+        <iframe width="400" height="82" src="{{item.embedUrl|trusted}}" style="border:none"></iframe>
       </div>
     </div>
   </div>
@@ -45,4 +45,5 @@
       to add a audio!</p>
   </div>
 </div>
+
 
