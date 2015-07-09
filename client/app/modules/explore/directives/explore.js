@@ -54,14 +54,29 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-  app.controller('MainCtrl', function($scope) {
-        $scope.hoverIn = function(){
-      this.hoverEdit = true;
-    };
+});
 
-    $scope.hoverOut = function(){
-      this.hoverEdit = false;
-    };
+app.controller('h-dropdown1', function($scope) {
+  $scope.show = false;
+});
+app.controller('h-dropdown2', function($scope) {
+  $scope.show = false;
+});
+app.controller('h-dropdown1', function ($scope) {
+  $scope.rate = 7;
+  $scope.max = 10;
+  $scope.isReadonly = false;
 
-  });
+  $scope.hoveringOver = function(value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+  };
+
+  $scope.ratingStates = [
+    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+    {stateOn: 'glyphicon-heart'},
+    {stateOff: 'glyphicon-off'}
+  ];
 });

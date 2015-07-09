@@ -73,12 +73,12 @@ var app = angular.module('com.module.photos')
       key: 'title',
       type: 'text',
       label: gettextCatalog.getString('Title'),
-      required: true
+      required: false
     }, {
       key: 'content',
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
-      required: true
+      required: false
     },{
       key: 'url1',
       type: 'text',
@@ -129,11 +129,11 @@ var app = angular.module('com.module.photos')
       //}
     };
   });
-app.controller('MainCtrl', function($scope, $http) {
+app.controller('TagCtrl', function($scope) {
   $scope.tags = [
-    { text: 'Tag1' },
-    { text: 'Tag2' },
-    { text: 'Tag3' }
+    { text: 'DuyHung' },
+    { text: 'MinhSang' },
+    { text: 'TriVien' }
   ];
   $scope.tagsString = $scope.tags.map(function(tag) { return tag.text; });
 });

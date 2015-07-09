@@ -3,12 +3,10 @@
     <div class="box box-primary">
       <h4 style="margin-left: 15px">
         <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
-
         <span ng-show="!photo.id" translate>Add a new photo</span>
         <span ng-show="photo.id" translate>Edit photo</span>
-
       </h4>
-      <div id="info-photo" class="row" style="margin-bottom: 0 !important;">
+      <div id="info-photo" class="row" style="margin-bottom: 0 !important">
         <div class="col-md-12">
           <div class="alert alert-danger" ng-if="addError" translate>Could not add photo!</div>
           <formly-form result="photo" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
@@ -16,7 +14,7 @@
           <img src="http://webspace.webring.com/people/jv/vladilyich/preview.gif" class="preview" />
         </div>
       </div>
-      <div ng-controller="MainCtrl">
+      <div ng-controller="TagCtrl">
       <tags-input  ng-model="tags"></tags-input>
       <p>Model: {{tags}}</p>
       </div>
@@ -30,7 +28,7 @@
       <div class="box">
         <div class="box-header">
           <div class="box-tools">
-            <div class="input-group pull-right" style="margin-top: 5px;">
+            <div class="input-group pull-right" style="margin-top: 5px">
                     <span class="file-input btn btn-block btn-default btn-file">
                         {{ 'Browse' | translate }}&hellip; <input nv-file-select type="file" accept="image/*" uploader="uploader" multiple/>
                     </span>
@@ -40,7 +38,6 @@
           </div>
         </div>
         <div class="box-footer">
-
         </div>
       </div>
       <div class="box">
@@ -66,9 +63,7 @@
             </div>
           </div>
         </div>
-
         <div class="box-body no-padding">
-
           <table class="table">
             <thead>
             <tr>
@@ -102,7 +97,6 @@
       </div>
     </div>
   </div>
-
 </div>
 <script>
   $(function () {
