@@ -1,7 +1,7 @@
-<section class="container-photo " ng-controller="h-dropdown1">
-  <div class="masonry">
+<section class="container " id="container">
+  <div class="masonry-photo" id="content">
     <div class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
-      <div ng-mouseenter="show = true" ng-mouseleave="show = false" >
+      <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="col-sm-3b" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
             <img src="images/avatar_default.png"/>
@@ -23,24 +23,28 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-3a " ng-controller="ModalDemoCtrl" style="width: 100%">
+        <div class="col-sm-3a " ng-controller="modal_show_photo" style="width: 100%">
           <img ng-src="{{item.url}}" ng-click="open(item)"  />
           <img ng-src="{{item.url1}}" ng-click="open(item)"  />
         </div>
         <!--<div class="rate-photo" style="margin: 7px">-->
-          <!--<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>-->
-          <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>-->
+        <!--<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>-->
+        <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>-->
         <!--</div>-->
-        <div class="content-photo">
+        <div class="box-header content-photo">
           <div class="box-header scroll">
-            <h3 class="box-title">
-              <a href="" style="color: #000808; font-style: normal; font-size: 18px" >{{item.title}}</a>
+            <h3 class="box-body" >
+
+                {{item.title}}
             </h3>
+            <div class="date_update_photo" style="float: left;width: 100%">
+            <p style="margin: 0 10px 0 10px;font-size: 12px">{{item.created | date:'fullDate'}}</p>
+            </div>
           </div>
           <div class="box-body" >
             <div>
               <p>{{item.content}}</p>
-              </div>
+            </div>
             <!--<p>Model: {{tags}}</p>-->
           </div>
           <div class="TagPhoto">
@@ -54,17 +58,18 @@
             <a href="#" data-toggle="tooltip" title="Comment"><i class="fa fa-comments-o"></i></a>
             <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
           </span>
-          </div>
-      </span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 <style>
+
   .text-muted a {
     color: black;
   }
   /*.box-body :before {*/
-    /*content: '#';*/
+  /*content: '#';*/
   /*}*/
   .post_info_qtnglobal a{
     color: white;
@@ -89,7 +94,7 @@
     background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
     background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
     background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;
+    /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
   }
   .User_name{
     font-size: 14px;
@@ -146,7 +151,7 @@
     /*Mozilla duration version*/
     -o-transition-duration: 0.5s;
     /*Opera duration version*/
-    opacity: 0.7;
+    /*opacity: 0.7;*/
     /*initial opacity of images*/
     margin: 0 10px 5px 0;
     /*margin between images*/ }
@@ -167,9 +172,13 @@
   li {
     list-style-type: none;
   }
+  #myModalContent.html img {
+    position: absolute;
+    width: 100%;
+  }
 </style>
 <script>
-  $('.masonry').freetile({
+  $('.masonry-photo').freetile({
     selector:'.box',
     animate: true,
     elementDelay: 20
@@ -180,7 +189,18 @@
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
-<script type="text/ng-template" id="myModalContent.html">
+<script type="text/ng-template" id="myModalContent.html" >
+
+  <div class="modal-header">
+    <a href="#">{{items.ownerName}}</a>
+  </div>
   <img ng-src="{{items.url}}" />
   <img ng-src="{{items.url1}}" />
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+<script>
+
 </script>

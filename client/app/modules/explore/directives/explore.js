@@ -9,7 +9,7 @@ var app=angular.module('com.module.explore');
   });
 
 
-app.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+app.controller('modal_show_photo', function ($scope, $modal, $log) {
 
   $scope.open = function (photo) {
 
@@ -29,10 +29,6 @@ app.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
 });
@@ -56,27 +52,6 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
   };
 });
 
-app.controller('h-dropdown1', function($scope) {
+app.controller('hideMenu', function($scope) {
   $scope.show = false;
-});
-app.controller('h-dropdown2', function($scope) {
-  $scope.show = false;
-});
-app.controller('h-dropdown1', function ($scope) {
-  $scope.rate = 7;
-  $scope.max = 10;
-  $scope.isReadonly = false;
-
-  $scope.hoveringOver = function(value) {
-    $scope.overStar = value;
-    $scope.percent = 100 * (value / $scope.max);
-  };
-
-  $scope.ratingStates = [
-    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-    {stateOn: 'glyphicon-heart'},
-    {stateOff: 'glyphicon-off'}
-  ];
 });
