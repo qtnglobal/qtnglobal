@@ -1,12 +1,12 @@
 <section class="container " ng-controller="h-dropdown1">
   <div class="masonry">
     <div class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
-      <span ng-mouseenter="show = true" ng-mouseleave="show = false" >
+      <div ng-mouseenter="show = true" ng-mouseleave="show = false" >
         <div class="col-sm-3b" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
             <img src="images/avatar_default.png"/>
           </div>
-          <div class="post_info_qtnglobal User_name" style="z-index: 1">
+          <div class="post_info_qtnglobal User_name " style="z-index: 1">
             <a href="#">{{item.ownerName}}</a>
           </div>
           <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
@@ -24,18 +24,22 @@
           </div>
         </div>
          <!--<div class="bg-top" style="height: 50px;background: black;opacity: 0.7"></div>-->
-        <div class="col-sm-3a" ng-controller="ModalDemoCtrl" style="width: 100%">
+        <div class="col-sm-3a " ng-controller="ModalDemoCtrl" style="width: 100%">
           <img ng-src="{{item.url}}" ng-click="open(item)"  />
           <img ng-src="{{item.url1}}" ng-click="open(item)"  />
-          <script type="text/ng-template" id="myModalContent.html">
-            <!--<div class="modal-header">-->
-            <!--<h3 class="modal-title">By: {{items.ownerName}}</h3>-->
-            <!--</div>-->
-            <img ng-src="{{items.url}}" />
-            <img ng-src="{{items.url1}}" />
-          </script>
-        </div>
 
+        </div>
+        <script type="text/ng-template" id="myModalContent.html">
+          <!--<div class="modal-header">-->
+          <!--<h3 class="modal-title">By: {{items.ownerName}}</h3>-->
+          <!--</div>-->
+          <img ng-src="{{items.url}}" />
+          <img ng-src="{{items.url1}}" />
+        </script>
+        <!--<div class="rate-photo" style="margin: 7px">-->
+          <!--<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>-->
+          <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>-->
+        <!--</div>-->
         <div class="content-photo" style="min-width: 300px" >
           <div class="box-header scroll">
             <h3 class="box-title">
@@ -43,12 +47,9 @@
             </h3>
           </div>
           <div class="box-body" >
-            <style>
-              .box-body :before {
-                content: '#';
-              }
-            </style>
-            <div style="white-space: pre">{{item.content}}</div>
+            <div>
+              <p>{{item.content}}</p>
+              </div>
             <!--<p>Model: {{tags}}</p>-->
           </div>
           <div class="TagPhoto">
@@ -56,11 +57,10 @@
           </div>
         </div>
         <div class="box-footer" style="bottom: 0; width: 100%">
-          <!--<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>-->
-          <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>-->
+
           <span class="text-muted" style="float: right;;margin-bottom: 7px">
-      &middot;
-            <a href="#" data-toggle="tooltip" title="Like"><i class="fa fa-thumbs-o-up"></i> </a>
+            &middot;
+            <a href="#" data-toggle="tooltip" title="Like">{{rate}} <i class="fa fa-thumbs-o-up"></i> </a>
             <a href="#" data-toggle="tooltip" title="Comment"><i class="fa fa-comments-o"></i></a>
             <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
           </span>
@@ -76,8 +76,11 @@
   </div>
 </section>
 <style>
- .container{
- }
+  /*.box-body :before {*/
+    /*content: '#';*/
+  /*}*/
+  .container{
+  }
   .post_info_qtnglobal a{
     color: white;
     font-size: 15px;
@@ -85,23 +88,23 @@
   .text-muted i{
     color: black;
   }
-.col-sm-3a :after{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100px;
-  display: block;
-  width: 100%;
-  border-radius: 3px 3px 0 0;
-  pointer-events: none;
-  background: 0 0;
-  background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
-  background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;
+  .col-sm-3a :after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    pointer-events: none;
+    background: 0 0;
+    background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;
   }
   .User_name{
     font-size: 14px;
@@ -132,7 +135,7 @@
     margin-left: 5px ;
   }
   .box{
-    width: 270px;
+    width: 300px;
     margin-left: 5px;
     margin-right: 5px;
   }
