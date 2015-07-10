@@ -11,14 +11,6 @@ app.config(function($stateProvider) {
   }).state('app.links.list', {
     url: '',
     templateUrl: 'modules/links/views/list.html',
-    /*resolve: {
-      news: ['LinksService', function(LinksService) {
-        return LinksService.getLinks();
-      }]
-    },
-    controller: function($scope, Link) {
-      $scope.news = Link;
-    }*/
     controller: 'LinksCtrl'
   }).state('app.links.add', {
     url: '/add',

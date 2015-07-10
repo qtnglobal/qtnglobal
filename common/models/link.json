@@ -10,6 +10,18 @@
     },
     "description": {
       "type": "string"
+    },
+    "liveurlTitle": {
+      "type": "string"
+    },
+    "liveurlDescription": {
+      "type": "string"
+    },
+    "liveurlUrl": {
+      "type": "string"
+    },
+    "liveurlImg": {
+      "type": "string"
     }
   },
   "validations": [],
