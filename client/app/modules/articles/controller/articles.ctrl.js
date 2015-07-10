@@ -1,12 +1,30 @@
 'use strict';
 var app=angular.module('com.module.articles');
     app.controller('ArticlesCtrl', function($scope,$sce, $state, $stateParams, CoreService,
-                                       FormHelper, gettextCatalog, Article, ArticlesService) {
+                                       FormHelper, gettextCatalog, Article, ArticlesService,User) {
+
+      function loadItem(id){
+        if(id===1){
+          $scope.articles = Article.find({
+            filter: {
+              order: 'created DESC'
+            }
+          })}
+        else {
+          $scope.articles = Article.find({
+            filter: {
+              where: {
+                ownerId: id
+              },
+              order: 'created DESC'
+            }
+          })
+        }}
 
       $scope.delete = function(id) {
-        ArticlesService.deleteArticle(id, function() {
+          ArticlesService.deleteArticle(id, function() {
           $state.reload();
-        });
+          });
       };
       $scope.deliberatelyTrustDangerousTitle = function(a) {
         return $sce.trustAsHtml(a.title);
@@ -22,6 +40,7 @@ var app=angular.module('com.module.articles');
       };
 
       var articleId = $stateParams.id;
+      var currentUser;
 
       if (articleId) {
         $scope.article = Article.findById({
@@ -31,6 +50,10 @@ var app=angular.module('com.module.articles');
         });
       } else {
         $scope.article = {};
+        User.getCurrent(function(user){
+          $scope.article.ownerId = user.id;
+          $scope.article.ownerName = user.username;
+        });
       }
 
       $scope.formFields = [{
@@ -55,53 +78,85 @@ var app=angular.module('com.module.articles');
         hideSubmit: false,
         submitCopy: gettextCatalog.getString('Save')
       };
-
+      User.getCurrent(function(user){
+        currentUser = user;
+        loadItem(currentUser.id);
+      });
       $scope.onSubmit = function() {
-        Article.upsert($scope.article, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
-              gettextCatalog.getString('Your article is safe with us!'));
-          $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
+        if($scope.article.ownerId === currentUser.id){
+          Article.upsert($scope.article, function() {
+            CoreService.toastSuccess(gettextCatalog.getString('Article saved'),
+                gettextCatalog.getString('Your article is safe with us!'));
+            $state.go('^.list');
+          }, function(err) {
+            console.log(err);
+          });
+        }
+        else{
+          CoreService.toastError(gettextCatalog.getString('You do not have permission to do this !'));
+        }
+        alert($scope.article.user.avatar);
       };
       $scope.uploadimage = function(item){
-        $scope.article.image = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-        console.log(item.file.name);
-        var b = item.file.name;
-        var values = b.split(".");
-        if(values[1]=='png'||values[1]=='jpg'){
-          $scope.article.flag = 'a';
+        if($scope.article.ownerId === currentUser.id){
+          $scope.article.image = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+          console.log(item.file.name);
+          var b = item.file.name;
+          var values = b.split(".");
+          if(values[1]=='png'||values[1]=='jpg'){
+            $scope.article.flag = 'a';
+          }
+          //Article.upsert($scope.article, function() {
+            CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
+                gettextCatalog.getString('Your photo is safe with us!'));
+          //}, function(err) {
+          //  console.log(err);
+          //});
+          item.upload();
         }
+        else{
+          CoreService.toastError(gettextCatalog.getString('You do not have permission to do this !'));
+        }
+      };
+    $scope.uploadvideo = function(item){
+      if($scope.article.ownerId === currentUser.id){
+        $scope.article.video = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        console.log(item.file.name);
         //Article.upsert($scope.article, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Photo saved'),
-              gettextCatalog.getString('Your photo is safe with us!'));
+          CoreService.toastSuccess(gettextCatalog.getString('video saved'),
+            gettextCatalog.getString('Your video is safe with us!'));
+        //}, function(err) {
+        //  console.log(err);
+        //});
+      item.upload();
+      }else{
+        CoreService.toastError(gettextCatalog.getString('You do not have permission to do this !'));
+      }
+    };
+    $scope.uploadaudio = function(item){
+      if($scope.article.ownerId === currentUser.id){
+        $scope.article.audio = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        console.log(item.file.name);
+        //Article.upsert($scope.article, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+            gettextCatalog.getString('Your audio is safe with us!'));
         //}, function(err) {
         //  console.log(err);
         //});
         item.upload();
-      };
-    $scope.uploadvideo = function(item){
-      $scope.article.video = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log(item.file.name);
-      //Article.upsert($scope.article, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('video saved'),
-          gettextCatalog.getString('Your video is safe with us!'));
-      //}, function(err) {
-      //  console.log(err);
-      //});
-      item.upload();
+      }else{
+        CoreService.toastError(gettextCatalog.getString('You do not have permission to do this !'));
+      }
     };
-    $scope.uploadaudio = function(item){
-      $scope.article.audio = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log(item.file.name);
-      //Article.upsert($scope.article, function() {
-        CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
-          gettextCatalog.getString('Your audio is safe with us!'));
-      //}, function(err) {
-      //  console.log(err);
-      //});
-      item.upload();
+    $scope.UserImage = function(item){
+      var user = User.findOne({
+      filter: {
+        where: {
+          id: item.ownerId
+        },
+        include: ['roles', 'identities', 'credentials', 'accessTokens']
+      }
+    });
     };
     });
 //app.controller('ConvertHtml',['$scope', '$sce', function($scope, $sce,$stateParams,Article,id ){
