@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Video, VideosService, User) {
+                                     FormHelper, gettextCatalog, Video, VideosService, User) {
 
     var currentUser;
 
@@ -15,9 +15,9 @@ angular.module('com.module.videos')
     function loadItems(id) {
       if(id==1){
         $scope.videos = Video.find({
-            filter: {
-              order: 'created DESC'
-            }
+          filter: {
+            order: 'created DESC'
+          }
         });
       }
       else{
@@ -70,35 +70,48 @@ angular.module('com.module.videos')
       key: 'title',
       type: 'text',
       label: gettextCatalog.getString('Title'),
-      required: true
+      required: false
     }, {
       key: 'content',
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
-      required: true
-    }/*, {
-      key: 'url',
-      type: 'text',
-      label: gettextCatalog.getString('Url'),
-      required: true
-    }*/];
+      required: false
+    }];
+
+    //{
+    //  key: 'url',
+    //  type: 'text',
+    //  label: gettextCatalog.getString('Url'),
+    //  required: true
+    //}
 
     $scope.formOptions = {
       uniqueFormId: true,
       hideSubmit: false,
       submitCopy: gettextCatalog.getString('Save')
     };
+    $scope.formFieldsUrl = [{
+      key: 'url',
+      type: 'url',
+      label: gettextCatalog.getString('URL'),
+      required: true
+    }];
 
-/*
-    var currentUser;
+    $scope.formFieldsDescription = [{
+      key: 'description',
+      type: 'textarea',
+      label: gettextCatalog.getString('Description'),
+      required: false
+    }];
+    /*
+     var currentUser;
 
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
-*/
-
+     User.getCurrent(function(user) {
+     currentUser = user;
+     }, function(err) {
+     console.log(err);
+     });
+     */
     $scope.onSubmit = function() {
       if($scope.video.ownerId === currentUser.id){
         Video.upsert($scope.video, function() {
@@ -117,6 +130,7 @@ angular.module('com.module.videos')
 
     $scope.upload = function(item){
       if($scope.video.ownerId === currentUser.id){
+        $scope.video.upFrom = false;
         $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
         Video.upsert($scope.video, function() {
@@ -143,6 +157,9 @@ angular.module('com.module.videos')
     $scope.upVideosFromWeb = function(){
       $('.clearfix').toggleClass('fromWeb');
     };
+    $scope.upVideoFromWeb = function(){
+      $('.hidePCpost').toggleClass('fromWeb');
+    };
     $scope.yt = {
       width: 300,
       height: 150,
@@ -157,6 +174,34 @@ angular.module('com.module.videos')
       if($scope.video.ownerId === currentUser.id){
         $scope.video.url = 'https://www.youtube.com/embed/'+$scope.yt.videoid;
         gettextCatalog.getString('Your video is safe with us!');
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
+    };
+    $scope.title123 = angular.element("title");
+    $scope.upPost = function() {
+      if($scope.video.ownerId === currentUser.id){
+        $scope.video.upFrom = true;
+        $scope.video.title = document.getElementById('liveurl-title').innerHTML;
+        $scope.video.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
+        $scope.video.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(39,-2);
+        if(document.getElementById("liveurl-url").innerHTML.indexOf("youtube")>=0){
+          $scope.video.url =  document.getElementById('liveurl-url').innerHTML.replace("watch?v=","embed/");
+          //}else if(document.getElementById("liveurl-url").innerHTML.indexOf("vimeo")>=0){
+          //  var numb = document.getElementById("liveurl-url").innerHTML.indexOf("v");
+          //  $scope.video.url = document.getElementById("liveurl-url").innerHTML.slice(numb,0,"player.")
+        }else{
+          $scope.video.url = document.getElementById('liveurl-url').innerHTML;
+        }
+        Video.upsert($scope.video, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
+            gettextCatalog.getString('Your link is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');

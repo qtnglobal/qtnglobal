@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-5">
+    <div class="box box-primary">
+      <h4 style="margin-left: 15px">
+        <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
+
+        <span ng-show="!video.id" translate>Add a new video</span>
+        <span ng-show="video.id" translate>Edit video</span>
+
+      </h4>
+      <div class="row" style="margin-bottom: 0 !important;">
+        <div class="col-md-12">
+          <div class="alert alert-danger" ng-if="addError" translate>Could not add video!</div>
+          <formly-form result="video" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        </div>
+      </div>
+      <div class="controls" style="margin-left: 15px; padding-bottom: 15px;">
+        <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7" ng-controller="UploadCtrl" nv-file-drop uploader="uploader">
+    Url:<input type="text" ng-model="yt.url" uploader="uploader">
+    <br><br>
+    <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
+    <button class="btn btn-success btn-xs" ng-click="previewVideo()">Preview</button>
+  </div>
+  <button ng-click="reloadPage()">reload</button>
+  <button ng-click="posts(yl)">post</button>
+
+
+
+
+  <formly-form result="link" fields="formFieldsUrl" options="formOptions" ng-submit="upPost()"></formly-form>
+  <div style="clear: both"></div>
+  <div class="col-md-4">
+    <div class="alert alert-danger" ng-if="addError" translate>Could not add link!</div>
+    <formly-form result="link" fields="formFieldsDescription" options="formOptions" ng-submit="upPost()"></formly-form>
+  </div>
+  <div style="clear: both"></div>
+  <div class="controls">
+    <button class="btn btn-primary btn-success" ng-click="upPost()" style="margin-left: 15px" translate>Submit</button>
+    <!--<button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>-->
+  </div>
+
+</div>
+
+
+

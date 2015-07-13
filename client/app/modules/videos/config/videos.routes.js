@@ -13,17 +13,21 @@ app.config(function($stateProvider) {
     url: '',
     templateUrl: 'modules/videos/views/list.html',
     /*resolve: {
-      videos: ['VideosService', function(VideosService) {
-        return VideosService.getVideos();
-      }]
-    },
-    controller: function($scope, videos) {
-      $scope.videos = videos;
-    }*/
+     videos: ['VideosService', function(VideosService) {
+     return VideosService.getVideos();
+     }]
+     },
+     controller: function($scope, videos) {
+     $scope.videos = videos;
+     }*/
     controller: 'VideosCtrl'
-  }).state('app.videos.add', {
-    url: '/add',
+  }).state('app.videos.frompc', {
+    url:'/frompc',
     templateUrl: 'modules/videos/views/form.html',
+    controller: 'VideosCtrl'
+  }).state('app.videos.fromweb', {
+    url: '/fromweb',
+    templateUrl: 'modules/videos/views/fromweb.html',
     controller: 'VideosCtrl'
   }).state('app.videos.edit', {
     url: '/:id/edit',
@@ -34,7 +38,7 @@ app.config(function($stateProvider) {
     templateUrl: 'modules/videos/views/view.html',
     resolve: {
       video: ['$stateParams', 'VideosService', function($stateParams,
-        VideosService) {
+                                                        VideosService) {
         return VideosService.getVideo($stateParams.id);
       }]
     },

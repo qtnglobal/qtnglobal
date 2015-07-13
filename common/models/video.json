@@ -18,6 +18,12 @@
     "url": {
       "type": "string",
       "required": true
+    },
+    "liveurlDescription": {
+      "type": "string"
+    },
+    "liveurlImg": {
+      "type": "string"
     }
   },
   "validations": [],
