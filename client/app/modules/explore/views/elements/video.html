@@ -1,14 +1,38 @@
-<div class="container" style="padding-bottom: 0">
-  <div class="wrapper">
-    <div class="box" ng-repeat="item in videos| limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
+<div class="father" style="padding-bottom: 0">
+  <div isotope-container class="wrapper">
+    <div isotope-item class="box" ng-repeat="item in videos| limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
         <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
             <img ng-src="{{item.image}}"/>
           </div>
-          <div class="User_name" data-toggle="modal" data-target="#create">
-            <a>{{item.ownerName}}</a>
+
+          <div>
+            <script type="text/ng-template" id="myModalContent.html">
+              <div class="modal-body">
+                <div class="header">
+                  <div class="indash_header_wrapper has_info tumblelog_name_solidblackdn" style="background-color:#FAFAFA; color:#444444">
+                    <div class="header_image_wrapper has_avatar" style="height: 380px">
+                      <div class="header_image" style="height: 380px;">
+                        <a href="" target="_blank">
+                          <img id="coverImage" ng-src="{{user.cover}}" alt="cover_image"/>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="avatar square show1" style="color: rgb(250, 250, 250); text-align: center; background-color: rgb(250, 250, 250);">
+                      <a href="" target="_blank">
+                        <img id="avatarImage" ng-src="{{user.avatar}}" target="_blank" alt="avatar_image">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </script>
+
+            <div ng-click="getUserData(item)"><a>{{item.ownerName}}</a></div>
           </div>
+
         </div>
         <div class="contentt">
           <div class="box-header">
@@ -99,22 +123,18 @@
     position: absolute;
     margin-left: 5px ;
   }
-  .container{
-    width: 1140px;
+  .father{
     padding: 0 50px 4%;
     margin: 0 auto;
   }
-  .container a,h3,p {
+  .father a,h3,p {
     text-decoration: none;
     font-size: 14px;
   }
   .box{
-    width: 330px;
-    margin-left: 7px;
-    margin-right: 7px;
-  }
-  .box-title {
-
+    width: 250px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .text-muted a {
     margin-left: 6px;
