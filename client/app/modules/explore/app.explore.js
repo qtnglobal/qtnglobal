@@ -1,2 +1,2 @@
 'use strict';
-angular.module('com.module.explore', ['ui.bootstrap']);
+angular.module('com.module.explore', ['iso.directives']);

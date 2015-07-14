@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="wrapper">
-    <div class="box" ng-repeat="item in articles" style="float: left; border-radius: 5px; height: 350px">
+<div class="father">
+  <div isotope-container class="wrapper">
+    <div isotope-item class="box" ng-repeat="item in articles" style="float: left; border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
         <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
@@ -64,19 +64,18 @@
     position: absolute;
     margin-left: 5px ;
   }
-  .container{
-    width: 1140px;
+  .father{
     padding: 0 50px 4%;
     margin: 0 auto;
   }
-  .container a,h3,p {
+  .father a,h3,p {
     text-decoration: none;
     font-size: 14px;
   }
   .box{
     width: 250px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .box-title {
 
