@@ -83,7 +83,8 @@ app.config(function(formlyConfigProvider) {
     'select',
     'text',
     'textarea',
-    'editable-text'
+    'editable-text',
+    'url'
   ];
 
   angular.forEach(fields, function(val) {

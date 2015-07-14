@@ -5,17 +5,17 @@
  * @author        Stephan Fischer
  * @copyright     (c) 2012 Stephan Fischer (www.ainetworks.de)
  * @version 1.2.2
- * 
+ *
  * UriParser is a function from my addon "Superswitch" for Mozilla FireFox.
  */
 
 (function( $ )
 {
     $.fn.extend(
-    { 
-        liveUrl : function( options) 
+    {
+        liveUrl : function( options)
         {
-            var defaults = 
+            var defaults =
             {
                 meta: [
                     ['description','name',     'description'],
@@ -46,16 +46,16 @@
             }
 
             var options =  $.extend(defaults, options);
-            
-            this.each(function() 
+
+            this.each(function()
             {
-                
+
                 var o       = options,
                     core    = {already : []},
                     url     = {},
                     preview = {};
-                
-                core.init = function () 
+
+                core.init = function ()
                 {
                     core.preview = false;
                     core.processedImg = 0;
@@ -65,15 +65,15 @@
                         image : '',
                         title: '' ,
                         description: ''
-                    };  
+                    };
                 };
-                
-                core.textUpdate = function(self) 
-                {                
-                    // read all links   
+
+                core.textUpdate = function(self)
+                {
+                    // read all links
                     var links = $.urlHelper.getLinks($(self).val());
                     core.cleanDuplicates(links);
-                    
+
                     if (links != null) {
                         if (!core.preview) {
                             core.current = $(self);
@@ -81,10 +81,10 @@
                         }
                     }
                 };
-                
-                core.process = function(urlArray) 
+
+                core.process = function(urlArray)
                 {
-        
+
                     for (var index in urlArray) {
 
                         var strUrl      = urlArray[index] ;
@@ -386,7 +386,7 @@
                     var concat  =  $.urlHelper.hasParam(src) ? "&" : "?";
                     src        +=  concat + 'random=' + (new Date()).getTime();
 
-                    $('<img />').attr({'src': src}).load(function()
+                    $('<img />').attr({'src': src, 'id': 'imgLiveurl'}).load(function()
                     {
                         var img = this;
                         var tmrLoaded = window.setInterval(function()

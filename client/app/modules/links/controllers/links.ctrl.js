@@ -3,13 +3,42 @@ angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Link, LinksService, User) {
 
-    $scope.links = Link.find();
+    var currentUser;
+
+    User.getCurrent(function(user) {
+      currentUser = user;
+      loadItems(currentUser.id);
+    }, function(err) {
+      console.log(err);
+    });
+
+    function loadItems(id) {
+      if(id==1){
+        $scope.links = Link.find({
+          filter: {
+            order: 'created DESC'
+          }
+        });
+      }
+      else{
+        $scope.links = Link.find(
+          {
+            filter: {
+              where:{
+                ownerId: id
+              },
+              order: 'created DESC'
+            }
+          }
+        );
+      }
+    }
 
     function getLink(id) {
       return Link.findById({
         id: id
       });
-    };
+    }
 
     if ($stateParams.id) {
       $scope.link = getLink($stateParams.id);
@@ -44,23 +73,26 @@ angular.module('com.module.links')
       User.getCurrent(function(user) {
         currentUser = user;
         $scope.link.ownerId=user.id;
+        $scope.link.ownerName=user.username;
+        $scope.link.date=user.roles;
       }, function(err) {
         console.log(err);
       });
     }
 
-    $scope.formFields = [{
+    $scope.formFieldsUrl = [{
       key: 'url',
       type: 'url',
       label: gettextCatalog.getString('URL'),
       required: true
-    }, {
+    }];
+
+    $scope.formFieldsDescription = [{
       key: 'description',
       type: 'textarea',
       label: gettextCatalog.getString('Description'),
       required: false
     }];
-
 
     $scope.formOptions = {
       uniqueFormId: true,
@@ -76,10 +108,15 @@ angular.module('com.module.links')
     }, function(err) {
       console.log(err);
     });
-
-
+    $scope.title123 = angular.element("title");
     $scope.onSubmit = function() {
       if($scope.link.ownerId === currentUser.id){
+        if(document.getElementById('liveurl-title').innerHTML.length != 0){
+          $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
+          $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
+          $scope.link.liveurlUrl = document.getElementById('liveurl-url').innerHTML;
+          $scope.link.liveurlImg = document.getElementById('imgLiveurl').getAttribute('src');
+        }
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
             gettextCatalog.getString('Your link is safe with us!'));
@@ -92,7 +129,6 @@ angular.module('com.module.links')
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
-
     };
   });
 
