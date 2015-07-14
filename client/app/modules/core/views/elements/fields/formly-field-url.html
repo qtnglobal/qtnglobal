@@ -1,9 +1,9 @@
-<div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group col-md-4" ng-class="{'has-error': options.formField.$invalid}">
   <label for="{{id}}">
     {{options.label || 'Text'}}
     {{options.required ? '*' : ''}}
   </label>
-	<textarea type="text"
+  <textarea type="text"
             class="form-control msd-elastic previewUrl"
             id="{{id}}"
             formly-dynamic-name="options.key"
@@ -14,17 +14,21 @@
             ng-required="options.required"
             ng-disabled="options.disabled"
             ng-model="result[options.key || index]">
-	</textarea>
+  </textarea>
+  <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
+</div>
+
+<div class="col-md-12" style="">
   <div class="liveurl-loader"></div>
   <div class="liveurl">
     <div class="close" title="Entfernen"></div>
     <div class="inner">
-      <div class="image"> </div>
+      <div class="image" id="liveurl-img"> </div>
       <div class="details">
         <div class="info">
-          <div class="title"> </div>
-          <div class="description"> </div>
-          <div class="url"> </div>
+          <div class="title" id="liveurl-title"> </div>
+          <div class="description" id="liveurl-description"> </div>
+          <a href="#" class="url" id="liveurl-url" target="_blank"> </a>
         </div>
         <div class="thumbnail">
           <div class="pictures">
@@ -41,7 +45,6 @@
       </div>
     </div>
   </div>
-  <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>
 <script>
 
@@ -60,6 +63,7 @@
       output.find('.title').text(data.title);
       output.find('.description').text(data.description);
       output.find('.url').text(data.url);
+      $(".url").attr('href',data.url);
       output.find('.image').empty();
 
       output.find('.close').one('click', function()

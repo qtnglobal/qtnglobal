@@ -1,3 +1,14 @@
+<div class="box" style="width: 50%; margin: auto; text-align: center">
+  <div class="box-body" style="height: 100px">
+    <div class="pcPost col-md-6">
+      <button ui-sref="^.frompc" style="height: 50px;margin-top: 15px;">Upload a video</button>
+    </div>
+    <div class="webPost col-md-6">
+      <button ui-sref="^.fromweb" style="height:50px;margin-top: 15px;">Upload a video<br> from web</button>
+    </div>
+  </div>
+</div>
+
 <div class="box" ng-repeat="item in videos">
   <div class="box-header">
     <h3 class="box-title">
@@ -23,7 +34,17 @@
     <div class="row" style="margin-bottom: 0 !important;">
       <div class="col-sm-6" style="white-space: pre;">{{item.content}}</div>
       <div class="col-sm-6">
-        <video style="width:380px; height: 200px" ng-src="{{item.url|trusted}}" controls></video>
+        <div ng-hide="!item.upChoose" ng-disabled="!item.upChoose">
+          <video ng-hide="item.upFrom" ng-disabled="item.upFrom" style="width:380px; height: 200px" ng-src="{{item.url|trusted}}" controls></video>
+          <iframe ng-hide="!item.upFrom" ng-disabled="!item.upFrom" width="380px" height="200px" src="{{item.url|trusted}}" controls></iframe>
+        </div>
+        <div ng-hide="item.upChoose" ng-disabled="item.upChoose">
+          <a href="{{item.url|trusted}}" target="_blank">
+            <img src="{{item.liveurlImg|trusted}}" width="380px" height="200px">
+            <p>{{item.liveurlDescription|trusted}}</p>
+            <!--<p>{{item.liveurlImg|trusted}}</p>-->
+          </a>
+        </div>
       </div>
     </div>
   </div>
