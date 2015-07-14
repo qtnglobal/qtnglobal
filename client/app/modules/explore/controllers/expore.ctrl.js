@@ -9,8 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.explore')
-  .controller('ExploreCtrl', function($scope, $routeParams, $location,User) {
-
+  .controller('ExploreCtrl', function($scope, $routeParams, $location, User, $modal) {
 
     $scope.myLimit = 4;
 
@@ -18,11 +17,27 @@ angular.module('com.module.explore')
       $scope.myLimit += 4;
     };
 
-    $scope.user = User.getCurrent(function(user) {
-      console.log(user);
-    }, function(err) {
-      console.log(err);
-    });
+    $scope.getUserData = function (item) {
+      $modal.open({
+        templateUrl: 'myModalContent.html',
+        resolve: {
+          user:  [function() {
+            return  User.findOne({
+              filter: {
+                where: {
+                  id: item.ownerId
+                },
+                include: ['roles', 'identities', 'credentials', 'accessTokens']
+              }
+            });
+          }]
+        },
+        controller: function($scope, user) {
+          $scope.user = user;
+        }
+      });
+    };
+
 
     $scope.goToNews = function(){
       $location.path('/links');
