@@ -1,11 +1,15 @@
 <div class="box" ng-repeat="item in audios">
   <div class="box-header">
     <h3 class="box-title">
-      <a href="{{item.url}}" target="_blank" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 30px" >{{item.title}}</a >
+      <t href="" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 30px" >{{item.title}}</t >
     </h3>
 
     <div class="box-tools pull-right">
       <span class="pull-right btn-group" style="margin-top: 7px;">
+        <a href="" class="btn btn-xs btn-default"
+           ui-sref="^.edit({id: item.id})">
+          <i class="fa fa-pencil"></i>
+        </a>
         <a href="" class="btn btn-xs btn-default"
            ng-click="delete({id: item.id})">
           <i class="fa fa-trash-o"></i>
@@ -16,12 +20,9 @@
 
   <div class="box-body">
     <div class="row">
-      <div class="col-md-4" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
-      <div class="col-md-3">
-        <img href="{{item.url}}" target="_blank" ng-src="{{item.image}}"/>
-      </div>
+      <div class="col-md-7" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
       <div class="col-md-5">
-        <iframe width="400" height="82" src="{{item.embedUrl|trusted}}" style="border:none"></iframe>
+        <audio controls src="{{item.url | trusted}}" preload="none"></audio>
       </div>
     </div>
   </div>
@@ -45,5 +46,4 @@
       to add a audio!</p>
   </div>
 </div>
-
 

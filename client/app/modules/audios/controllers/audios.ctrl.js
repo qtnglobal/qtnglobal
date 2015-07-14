@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Audio, AudiosService, User, $http) {
+    FormHelper, gettextCatalog, Audio, AudiosService,User) {
 
     var currentUser;
 
@@ -93,7 +93,24 @@ angular.module('com.module.audios')
     };
 
 
+    $scope.onSubmit = function() {
+      if($scope.audio.ownerId === currentUser.id){
+        Audio.upsert($scope.audio, function() {
+          CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+            gettextCatalog.getString('Your audio is safe with us!'));
+          $state.go('^.list');
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
+    };
+
     $scope.upload = function(item){
+
       if($scope.audio.ownerId === currentUser.id){
         $scope.audio.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
@@ -110,40 +127,6 @@ angular.module('com.module.audios')
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
-    }
-
-
-    $scope.onSubmit = function(url) {
-      $http.get(url)
-        .success(function (data) {
-          var title = data.match(/<meta name="title" content="(.*?)"/g);
-          var sumary = data.match(/<meta name="description" content="(.*?)"/g);
-          var image = data.match(/<meta property="og:image" content="(.*?)"/g);
-          var embedUrl = data.match(/<link rel="video_src" href="(.*?)"/);
-          var innerTitle = title[0].slice(28, -1);
-          var innerContent = sumary[0].slice(34, -1);
-          var innerImage = image[0].slice(35, -1);
-          var innerEmbedUrl = embedUrl[0].slice(28,-1);
-          if($scope.audio.ownerId === currentUser.id){
-          $scope.audio.url = url;
-          $scope.audio.title= innerTitle;
-          $scope.audio.content = innerContent;
-          $scope.audio.image = innerImage;
-          $scope.audio.embedUrl = innerEmbedUrl+'?autostart=false';
-          Audio.upsert($scope.audio, function() {
-            CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
-              gettextCatalog.getString('Your audio is safe with us!'));
-            $state.go('^.list');
-          }, function(err) {
-            console.log(err);
-          });
-            }
-          else{
-            CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-            $state.go('^.list');
-          }
-        })
-
     }
 
   });

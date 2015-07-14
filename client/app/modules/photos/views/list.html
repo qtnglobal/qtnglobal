@@ -18,14 +18,10 @@
       </span>
 
     </div>
-
-
   </div>
   <div class="box-body">
     <div class="row" style="margin-bottom: 0 !important;">
-      <div class="col-sm-9">
-        <a>{{item.content}}</a></div>
-
+      <div class="col-sm-9" style="white-space: pre;">{{item.content}}</div>
       <div class="col-sm-3">
         <img ng-src="{{item.url}}"/>
 
@@ -33,9 +29,7 @@
       </div>
     </div>
   </div>
-  <div class="show-tag box-body">
-    <p>Tag: {{tags}}</p>
-  </div>
+
   <div class="box-footer">
     <span class="text-muted">
       {{item.created | date:'medium'}}

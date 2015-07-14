@@ -9,7 +9,7 @@ angular.module('com.module.links')
       return Link.findById({
         id: id
       });
-    }
+    };
 
     if ($stateParams.id) {
       $scope.link = getLink($stateParams.id);
@@ -49,19 +49,18 @@ angular.module('com.module.links')
       });
     }
 
-    $scope.formFieldsUrl = [{
+    $scope.formFields = [{
       key: 'url',
       type: 'url',
       label: gettextCatalog.getString('URL'),
       required: true
-    }];
-
-    $scope.formFieldsDescription = [{
+    }, {
       key: 'description',
       type: 'textarea',
       label: gettextCatalog.getString('Description'),
       required: false
     }];
+
 
     $scope.formOptions = {
       uniqueFormId: true,
@@ -77,13 +76,10 @@ angular.module('com.module.links')
     }, function(err) {
       console.log(err);
     });
-    $scope.title123 = angular.element("title");
+
+
     $scope.onSubmit = function() {
       if($scope.link.ownerId === currentUser.id){
-        $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
-        $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
-        $scope.link.liveurlUrl = document.getElementById('liveurl-url').innerHTML;
-        $scope.link.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(39,-2);
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
             gettextCatalog.getString('Your link is safe with us!'));
@@ -96,6 +92,7 @@ angular.module('com.module.links')
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
+
     };
   });
 

@@ -1,6 +1,6 @@
 'use strict';
-var app = angular.module('com.module.photos')
-  app.controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
+angular.module('com.module.photos')
+  .controller('PhotosCtrl', function($scope, $state, $stateParams, CoreService,
     FormHelper, gettextCatalog, Photo, PhotosService,User) {
 
     $scope.delete = function(id) {
@@ -73,12 +73,12 @@ var app = angular.module('com.module.photos')
       key: 'title',
       type: 'text',
       label: gettextCatalog.getString('Title'),
-      required: false
+      required: true
     }, {
       key: 'content',
       type: 'textarea',
       label: gettextCatalog.getString('Content'),
-      required: false
+      required: true
     },{
       key: 'url1',
       type: 'text',
@@ -123,17 +123,9 @@ var app = angular.module('com.module.photos')
         //});
         item.upload();
       }
-      //else{
-      //  CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-      //  $state.go('^.list');
-      //}
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
     };
   });
-app.controller('TagCtrl', function($scope) {
-  $scope.tags = [
-    { text: 'DuyHung' },
-    { text: 'MinhSang' },
-    { text: 'TriVien' }
-  ];
-  $scope.tagsString = $scope.tags.map(function(tag) { return tag.text; });
-});

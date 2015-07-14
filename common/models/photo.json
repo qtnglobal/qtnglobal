@@ -9,11 +9,11 @@
   "properties": {
     "title": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "content": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "url": {
       "type": "string",
@@ -30,6 +30,12 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "ownerId"
+    },
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
     }
   },
   "acls": [
