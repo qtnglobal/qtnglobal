@@ -8,5 +8,5 @@ angular.module('com.module.audios')
       $rootScope.addDashboardBox(gettextCatalog.getString('Audios'),
         'bg-purple', 'ion-document-text', audios.length, 'app.audios.list');
     });
-
+    
   });

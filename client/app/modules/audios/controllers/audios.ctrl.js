@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.audios')
   .controller('AudiosCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Audio, AudiosService,User) {
+    FormHelper, gettextCatalog, Audio, AudiosService, User, $http) {
 
     var currentUser;
 
@@ -86,6 +86,13 @@ angular.module('com.module.audios')
       required: false
     }*/];
 
+    $scope.formFieldsUrl = [{
+      key: 'content',
+      type: 'textarea',
+      label: gettextCatalog.getString('Add a description, if you like'),
+      required: false
+    }]
+
     $scope.formOptions = {
       uniqueFormId: true,
       hideSubmit: false,
@@ -93,26 +100,10 @@ angular.module('com.module.audios')
     };
 
 
-    $scope.onSubmit = function() {
-      if($scope.audio.ownerId === currentUser.id){
-        Audio.upsert($scope.audio, function() {
-          CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
-            gettextCatalog.getString('Your audio is safe with us!'));
-          $state.go('^.list');
-        }, function(err) {
-          console.log(err);
-        });
-      }
-      else{
-        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-        $state.go('^.list');
-      }
-    };
-
     $scope.upload = function(item){
-
       if($scope.audio.ownerId === currentUser.id){
         $scope.audio.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        $scope.audio.cover = './images/mucsicIcon.png';
         console.log(item.file.name);
         Audio.upsert($scope.audio, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
@@ -129,4 +120,57 @@ angular.module('com.module.audios')
       }
     }
 
+    $scope.onSubmit = function(url) {
+          if($scope.audio.ownerId === currentUser.id){
+            if(url.match(/mp3.zing.vn/)){
+              var songID = url.substr(-13,8);
+              $http({
+                url: 'http://api.mp3.zing.vn/api/mobile/song/getsonginfo?keycode=fafd463e2131914934b73310aa34a23f&requestdata={"id":"'+songID+'"}',
+                method: 'GET',
+                dataType: 'jsonp'
+              })
+                .success(function(data) {
+                  console.log(data);
+                  $scope.title = data.title;
+                  $scope.audio.artist = data.artist;
+                  $scope.audio.genre = data.genre_name;
+                  $scope.audio.cover = 'http://image.mp3.zdn.vn/' + data.album_cover;
+                  $scope.audio.composer = data.composer;
+                  $scope.audio.link_mp3 = data.link_download[128];
+                  $scope.audio.title = $scope.title;
+                  $scope.audio.url = url;
+                  Audio.upsert($scope.audio, function() {
+                    CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+                     gettextCatalog.getString('Your audio is safe with us!'));
+                    $state.go('^.list');
+                  }, function(err) {
+                    console.log(err);
+                  });
+                })
+            } else if (url.match(/soundcloud/)) {
+              $http.get('http://api.soundcloud.com/resolve.json?url='+url+'&client_id=769247ada809c2e2640c6962c4017a9f')
+                .success(function(data){
+                  console.log(data);
+                  $scope.title = data.title;
+                  $scope.audio.artist = data.user.username;
+                  $scope.audio.cover = data.artwork_url;
+                  $scope.audio.link_mp3 = data.stream_url+'?client_id=769247ada809c2e2640c6962c4017a9f';
+                  $scope.audio.title = $scope.title;
+                  $scope.audio.url = url;
+                  Audio.upsert($scope.audio, function() {
+                    CoreService.toastSuccess(gettextCatalog.getString('Audio saved'),
+                      gettextCatalog.getString('Your audio is safe with us!'));
+                    $state.go('^.list');
+                  }, function(err) {
+                    console.log(err);
+                  });
+                })
+            }
+          }
+            else{
+              CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+              $state.go('^.list');
+            }
+
+      }
   });

@@ -1,17 +1,19 @@
+
 <div class="box" ng-repeat="item in audios">
-  <div class="box-header">
-    <h3 class="box-title">
-      <t href="" style="color: dodgerblue; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 30px" >{{item.title}}</t >
-    </h3>
+  <div class="box-header" style="border-bottom: 1px solid #f4f4f4;">
+    <div class="box-title">
+      <img class="pull-left" style="float: left; margin-right: 10px" width="90px" height="90px" src="{{item.cover}}">
+      <a href="{{item.url}}" target="_blank" style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 30px" >{{item.title}}</a>
+      <small ng-hide="!item.artist.length">- {{item.artist}}</small><br>
+      <p ng-hide="!item.composer.length || !item.genre.length" style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: italic; font-size: 15px">Composer: {{item.composer}}<br>Genre: {{item.genre}}</p>
+    </div>
 
     <div class="box-tools pull-right">
       <span class="pull-right btn-group" style="margin-top: 7px;">
-        <a href="" class="btn btn-xs btn-default"
-           ui-sref="^.edit({id: item.id})">
+        <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: item.id})">
           <i class="fa fa-pencil"></i>
         </a>
-        <a href="" class="btn btn-xs btn-default"
-           ng-click="delete({id: item.id})">
+        <a href="" class="btn btn-xs btn-default" ng-click="delete({id: item.id})">
           <i class="fa fa-trash-o"></i>
         </a>
       </span>
@@ -20,9 +22,12 @@
 
   <div class="box-body">
     <div class="row">
-      <div class="col-md-7" style="white-space: pre; word-wrap: break-word;">{{item.content}}</div>
+      <div class="col-md-7">
+        {{item.content}}
+      </div>
       <div class="col-md-5">
-        <audio controls src="{{item.url | trusted}}" preload="none"></audio>
+        <audio ng-hide="!item.link_mp3.length" controls src="{{item.link_mp3|trusted}}"></audio>
+        <audio ng-hide="item.link_mp3.length || item.mp3_uri.length" controls src="{{item.url|trusted}}"></audio>
       </div>
     </div>
   </div>
@@ -46,4 +51,5 @@
       to add a audio!</p>
   </div>
 </div>
+
 
