@@ -1,5 +1,6 @@
-<div class="container">
-  <div class="box" ng-repeat="item in links | limitTo: myLimit">
+<div class="father">
+<div isotope-container class="wrapper">
+  <div isotope-item class="box" ng-repeat="item in links | limitTo: myLimit">
     <div class="col-sm-3a">
       <div class="col-sm-3b hovergallery">
         <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
@@ -36,16 +37,22 @@
     <button class=" btn btn-default" ng-click="loadMore()">More</button>
   </div>
 </div>
-
+</div>
 
 
 <style>
+  .father{
+    padding: 0 50px 4%;
+    margin: 0 auto;
+  }
+  .father a,h3,p {
+    text-decoration: none;
+    font-size: 14px;
+  }
   .box{
     width: 250px;
-    margin-left: 5px;
-    margin-right: 5px;
-    float: left;
-    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .col-sm-3a .col-sm-3b{
     margin: 5px;
