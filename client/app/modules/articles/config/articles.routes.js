@@ -12,14 +12,7 @@ app.config(function($stateProvider) {
   }).state('app.articles.list', {
     url: '',
     templateUrl: 'modules/articles/views/list.html',
-    resolve: {
-      articles: ['ArticlesService', function(ArticlesService) {
-        return ArticlesService.getArticles();
-      }]
-    },
-    controller: function($scope, articles) {
-      $scope.articles = articles;
-    }
+    controller: 'ArticlesCtrl'
   }).state('app.articles.add', {
     url: '/add',
     templateUrl: 'modules/articles/views/form.html',
@@ -31,14 +24,6 @@ app.config(function($stateProvider) {
   }).state('app.articles.view', {
     url: '/:id',
     templateUrl: 'modules/articles/views/view.html',
-    resolve: {
-      article: ['$stateParams', 'ArticlesService', function($stateParams,
-        ArticlesService) {
-        return ArticlesService.getArticle($stateParams.id);
-      }]
-    },
-    controller: function($scope, article) {
-      $scope.article = article;
-    }
+    controller: 'ArticlesCtrl'
   });
 });

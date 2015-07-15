@@ -1,24 +1,37 @@
 <div class="father">
-  <div isotope-container class="wrapper">
-    <div isotope-item class="box" ng-repeat="item in articles" style="float: left; border-radius: 5px; height: 350px">
+  <div isotope-container class="mother">
+    <div isotope-item class="box" ng-repeat="item in articles" style="border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
-        <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
+        <div class="col-sm-3b" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
-            <img ng-src="{{item.image}}"/>
+            <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.image}}" />
           </div>
           <div class="User_name">
-            <a href="#">Username</a>
+            <a href="#">{{item.ownerName}}</a>
+          </div>
+          <div class="dropdown btn-group btn-group-xs" style="float: right">
+            <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
+            <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog"></i>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
+              <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
+              <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
+            </ul>
           </div>
         </div>
         <div class="contentt">
           <div class="box-header">
             <h3 class="box-title">
-              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
+              <a ng-bind-html="deliberatelyTrustDangerousTitle(item)"></a>
             </h3>
           </div>
           <div class="box-body">
 
-            <div style="white-space: pre">{{item.content}}</div>
+            <div ng-bind-html="deliberatelyTrustDangerousContent(item)"></div>
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
               <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
@@ -30,7 +43,7 @@
 
           <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
     <span class="text-muted" style="float: right">
-      {{item.created | date:'medium'}}
+      <p style="float:left">{{item.created | date:'medium'}}</p>
       &middot;
       <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
       <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
@@ -44,7 +57,6 @@
     </div>
   </div>
 </div>
-
 <style>
   .col-sm-3a img {
     width: 100% !important;
@@ -87,36 +99,7 @@
   .box {
     border-top: none !important;
   }
-
+  .popover-content{
+    padding: 0!important;
+  }
 </style>
-<style type="text/css">
-  .hovergallery img{ -webkit-transform:scale(0.8);
-    /*Webkit: Scale down image to 0.8x original size*/
-    /*-moz-transform:scale(0.8);*/
-    /*Mozilla scale version*/
-    -o-transform:scale(0.8);
-    /*Opera scale version*/
-    -webkit-transition-duration: 0.5s;
-    /*Webkit: Animation duration*/
-    -moz-transition-duration: 0.5s;
-    /*Mozilla duration version*/
-    -o-transition-duration: 0.5s;
-    /*Opera duration version*/
-    opacity: 0.7;
-    /*initial opacity of images*/
-    margin: 0 10px 5px 0;
-    /*margin between images*/ }
-  .hovergallery img:hover{
-    -webkit-transform:scale(1.1);
-    /*Webkit: Scale up image to 1.2x original size*/
-    -moz-transform:scale(1.5);
-    /*Mozilla scale version*/
-    -o-transform:scale(1.1);
-    /*Opera scale version*/
-    box-shadow:0px 0px 30px gray;
-    /*CSS3 shadow: 30px blurred shadow all around image*/
-    -webkit-box-shadow:0px 0px 30px gray;
-    /*Safari shadow version*/
-    -moz-box-shadow:0px 0px 30px gray;
-    /*Mozilla shadow version*/ opacity: 1;
-  } </style>

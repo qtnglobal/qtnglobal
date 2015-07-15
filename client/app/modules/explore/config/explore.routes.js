@@ -28,10 +28,49 @@ angular.module('com.module.explore')
               return ArticlesService.getArticles();
             }]
           },
-          controller: function($scope, articles) {
-            $scope.articles = articles;
-          }
+        controller: function($scope,$sce, articles, User) {
+          $scope.articles = articles;
+          $scope.deliberatelyTrustDangerousTitle = function(a) {
+            return $sce.trustAsHtml(a.title);
+          };
+          $scope.deliberatelyTrustDangerousContent = function(a) {
+            return $sce.trustAsHtml(a.content);
+          };
+          $scope.display = function(item){
+            User.findOne({
+              filter: {
+                where: {
+                  id: item.ownerId
+                },
+                include: ['roles', 'identities', 'credentials', 'accessTokens']
+              }
+            }, function(result) {
+              var user=result;
+              var id=item.id;
+              var get = 'img[rel="'+id+'"]';
+              $(get).popover({
+                html: true,
+                placement: 'right',
+                content: function(){return '<div class="popover-wrapper"><div class="popover-header" style="position: relative;overflow:hidden;height:158px">'
+                  + '<img src="'+user.cover+ '"/>' + '</div><div class="avatar circle" style="border-radius: 50%;box-shadow: 0 0 0 3px;position:relative;margin: 10px auto 0;height: 64px;width: 64px;margin-top: -40px">'
+                  + '<img style="height:100%;border-radius:50%;" src="'+user.avatar+'"/>'+'</div><div class="description" style=""></div></div>';}
+              }).popover('show').on('mouseleave',function(){
+                $(get).popover('hide');
+              });
+            });
+            // var a = $scope.user;
+            // alert(a.c);
+            // var cover = '<img src="'+user.cover+ '" />';
+            // var avatar = '<img src="'+user.avatar+'"/>';
+            // var content =
+            // '<div class="popover-wrapper"><div class="popover-header" style="">'
+            //     + cover +
+            //   '</div><div class="avatar circle" styel="">'
+            //     + avatar +
+            //   '</div><div class="description" style=""></div></div>';
 
+          }
+        }
         }).state('explore.photos', {
         url: '/photos',
         templateUrl: 'modules/explore/views/elements/photo.html',
