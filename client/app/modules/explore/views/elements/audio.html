@@ -1,49 +1,64 @@
 <div class="father" style="padding-bottom: 0">
   <div isotope-container class="wrapper">
-    <div isotope-item class="box" ng-repeat="item in audios| limitTo: myLimit" style="float: left; border-radius: 5px; height: auto">
+    <div isotope-item class="box" ng-repeat="item in audios" style="float: left; border-radius: 5px;position: relative; height: auto">
       <div class="col-sm-3a">
-        <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
-          <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
-            <img ng-src="{{item.image}}"/>
+        <div class="col-sm-3b" style=" width: 100%; ; border-bottom: 1px solid #F4F4F4">
+          <div class="avatar hovergallery" style="display: inline-block; font-size: 14px; width: 30px; height: 30px; margin: 4px">
+            <img src="images/avatar_default.png"/>
           </div>
-          <div class="User_name">
-            <a ui-sref="app.users.profile">{{item.ownerName}}</a>
+          <div class="post_info_qtnglobal User_name" style="font-size: 15px; margin-top: 3px">
+            <a>{{item.ownerName}}</a>
+          </div>
+          <div class="dropdown btn-group btn-group-xs" style="float: right;margin: 10px ">
+            <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
+            <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog"></i>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
+              <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
+              <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
+            </ul>
+
           </div>
         </div>
-        <div class="contentt">
-          <div class="box-header" style="border-bottom: 1px solid #f4f4f4">
-            <h3 class="box-title">
-              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
-            </h3>
-          </div>
-          <div class="box-body">
-            <div style="white-space: pre">{{item.content}}</div>
-            <hr>
-            <audio controls ng-src="{{item.url|trusted}}" style="width: 100%"></audio>
-
-          </div>
-
-          <div class="box-footer" style="position: relative;bottom: 0; width: 100%">
-            <span class="text-muted">
-              {{item.created | date:'medium'}}
-            </span>
-            <span class="text-muted" style="float: right">
-              <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
-              <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
-              <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
-
-            </span>
-          </div>
-
+      </div>
+      <div class="user_photo">
+        <a class="col-sm-3c" style="width: 100%">
+          <img width="250px" height="250px" src="{{item.cover}}" />
+        </a>
+      </div>
+      <div class="box-header">
+        <h3 class="box-title">
+          <a href="{{item.url}}" style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
+        </h3>
+      </div>
+      <div class="box-body" ng-hide="!item.content.length" style="border-top: 1px solid #f4f4f4;">
+        <div style="white-space: pre; word-wrap: break-word;" ng-bind="item.content|limitTo : limitText">
         </div>
+        <a id="readmore" href="" isotope-item style="position: relative" ng-click="limitText = item.content.length" ng-hide="item.content.length<=200||limitText == item.content.length">...Readmore</a>
+      </div>
+      <div class="box-footer" style="position: relative; width: 100%">
+        <small>
+          Created:
+          {{item.created | date:'medium'}}
+        </small>
+    <span class="text-muted" style="float: right">
+      <a href="#" data-toggle="tooltip" title="Like"><i class="fa fa-thumbs-o-up"></i> </a>
+      <a href="#" data-toggle="tooltip" title="Comment"><i class="fa fa-comments-o"></i></a>
+      <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
+    </span>
+        <script>
+          $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+          });
+        </script>
       </div>
     </div>
   </div>
-  <div class="footer" style="margin: auto; width: 58px">
-    <button class=" btn btn-default" ng-click="loadMore()">More</button>
-  </div>
 </div>
-
   <style>
     .col-sm-3a img {
       width: 100% !important;
@@ -60,7 +75,7 @@
       white-space: nowrap;
       vertical-align: top;
       color: cornsilk !important;
-      position: absolute;
+      position: relative;
       margin-left: 5px ;
     }
     .User_name{
@@ -72,7 +87,7 @@
       white-space: nowrap;
       vertical-align: top;
       color: cornsilk !important;
-      position: absolute;
+      position: relative;
       margin-left: 5px ;
     }
     .father{
@@ -84,6 +99,7 @@
       font-size: 14px;
     }
     .box{
+      position: relative;
       width: 250px;
       margin-left: 10px;
       margin-right: 10px;

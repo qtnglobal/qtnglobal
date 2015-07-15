@@ -124,11 +124,7 @@ angular.module('com.module.audios')
           if($scope.audio.ownerId === currentUser.id){
             if(url.match(/mp3.zing.vn/)){
               var songID = url.substr(-13,8);
-              $http({
-                url: 'http://api.mp3.zing.vn/api/mobile/song/getsonginfo?keycode=fafd463e2131914934b73310aa34a23f&requestdata={"id":"'+songID+'"}',
-                method: 'GET',
-                dataType: 'jsonp'
-              })
+              $http.get('http://api.mp3.zing.vn/api/mobile/song/getsonginfo?keycode=fafd463e2131914934b73310aa34a23f&requestdata={"id":"'+songID+'"}&jsonp=JSON_CALLBACK')
                 .success(function(data) {
                   console.log(data);
                   $scope.title = data.title;
@@ -153,7 +149,7 @@ angular.module('com.module.audios')
                   console.log(data);
                   $scope.title = data.title;
                   $scope.audio.artist = data.user.username;
-                  $scope.audio.cover = data.artwork_url;
+                  $scope.audio.cover = data.artwork_url.replace('large','t250x250');
                   $scope.audio.link_mp3 = data.stream_url+'?client_id=769247ada809c2e2640c6962c4017a9f';
                   $scope.audio.title = $scope.title;
                   $scope.audio.url = url;
@@ -173,4 +169,5 @@ angular.module('com.module.audios')
             }
 
       }
+
   });
