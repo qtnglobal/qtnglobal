@@ -10,14 +10,7 @@
  **/
 angular.module('com.module.explore')
   .controller('ExploreCtrl', function($scope, $routeParams, $location,User, $modal) {
-
-
-    $scope.myLimit = 4;
-
-    $scope.loadMore = function() {
-      $scope.myLimit += 4;
-    };
-
+    $scope.limitText = 200;
     $scope.getUserData = function (item) {
       $modal.open({
         templateUrl: 'myModalContent.html',
@@ -80,5 +73,7 @@ angular.module('com.module.explore')
       name: 'Project',
       sref: '.project'
     }];
+
+
 
   });
