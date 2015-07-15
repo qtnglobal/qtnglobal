@@ -73,7 +73,7 @@ angular.module('com.module.photos')
       key: 'title',
       type: 'text',
       label: gettextCatalog.getString('Title'),
-      required: true
+      required: true,
     }, {
       key: 'content',
       type: 'textarea',

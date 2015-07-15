@@ -3,9 +3,7 @@
     <h3 class="box-title">
       <a href="" >{{item.title}}</a>
     </h3>
-
     <div class="box-tools pull-right">
-
       <span class="pull-right btn-group" style="margin-top: 7px;">
         <a href="" class="btn btn-xs btn-default"
            ui-sref="^.edit({id: item.id})">
@@ -16,12 +14,12 @@
           <i class="fa fa-trash-o"></i>
         </a>
       </span>
-
     </div>
   </div>
   <div class="box-body">
     <div class="row" style="margin-bottom: 0 !important;">
-      <div class="col-sm-9" style="white-space: pre;">{{item.content}}</div>
+      <div class="col-sm-9">
+        <p>{{item.content}}</p></div>
       <div class="col-sm-3">
         <img ng-src="{{item.url}}"/>
 
@@ -38,6 +36,7 @@
 </div>
 
 
+
 <div class="box" ng-show="!photos.length">
   <div class="box-header">
     <h3 class="box-title">
@@ -49,8 +48,10 @@
       to add a photo!</p>
   </div>
 </div>
+
 <style>
   .col-sm-3 img {
     margin-bottom: 10px;
   }
 </style>
+
