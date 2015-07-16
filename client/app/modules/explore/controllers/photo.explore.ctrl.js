@@ -7,7 +7,6 @@ app.controller('modal_show_photo', function ($scope, $modal, $log) {
 
   $scope.open = function (photo) {
 
-
     var modalInstance = $modal.open({
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
