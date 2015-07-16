@@ -21,13 +21,9 @@ app.config(function($stateProvider) {
      $scope.videos = videos;
      }*/
     controller: 'VideosCtrl'
-  }).state('app.videos.frompc', {
-    url:'/frompc',
+  }).state('app.videos.add', {
+    url:'/add',
     templateUrl: 'modules/videos/views/form.html',
-    controller: 'VideosCtrl'
-  }).state('app.videos.fromweb', {
-    url: '/fromweb',
-    templateUrl: 'modules/videos/views/fromweb.html',
     controller: 'VideosCtrl'
   }).state('app.videos.edit', {
     url: '/:id/edit',

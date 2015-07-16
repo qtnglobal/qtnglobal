@@ -130,9 +130,8 @@ angular.module('com.module.videos')
 
     $scope.upload = function(item){
       if($scope.video.ownerId === currentUser.id){
-        $scope.video.upFrom = false;
         $scope.video.upChoose = true;
-        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name + '?autoplay=0';
         console.log(item.file.name);
         Video.upsert($scope.video, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
@@ -142,6 +141,8 @@ angular.module('com.module.videos')
           console.log(err);
         });
         item.upload();
+        $('.clearfix').removeClass('fromPC');
+        $('.clearfix').removeClass('fromWeb');
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
@@ -161,10 +162,29 @@ angular.module('com.module.videos')
     $scope.upVideoFromWeb = function(){
       $('.hidePCpost').toggleClass('fromWeb');
     };
+    $scope.yt = {
+      width: 300,
+      height: 150,
+      url: "https://www.youtube.com/watch?v=91NeXidzTtk",
+      videoid: "M7lc1UVf-VE",
+    };
+    $scope.posts = function(){
+      var num;
+      num = $scope.yt.url.indexOf("=");
+      $scope.yt.videoid =  $scope.yt.url.slice(num+1,num+12);
+      console.log('https://www.youtube.com/embed/'+$scope.yt.videoid);
+      if($scope.video.ownerId === currentUser.id){
+        $scope.video.url = 'https://www.youtube.com/embed/'+$scope.yt.videoid;
+        gettextCatalog.getString('Your video is safe with us!');
+      }
+      else{
+        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
+        $state.go('^.list');
+      }
+    };
     $scope.title123 = angular.element("title");
     $scope.upPost = function() {
       if($scope.video.ownerId === currentUser.id){
-        $scope.video.upFrom = true;
         $scope.video.upChoose = true;
         $scope.video.title = document.getElementById('liveurl-title').innerHTML;
         $scope.video.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
