@@ -25,7 +25,8 @@
       <div class="col-sm-6" style="white-space: pre;">{{item.content}}</div>
       <div class="col-sm-6">
         <div ng-hide="!item.upChoose" ng-disabled="!item.upChoose">
-          <iframe width="380px" height="200px" src="{{item.url}}"></iframe>
+          <iframe width="380px" height="200px" ng-src="{{item.url|trusted}}"></iframe>
+          <p>{{item.url}}</p>
         </div>
         <div ng-hide="item.upChoose" ng-disabled="item.upChoose">
           <a href="{{item.url|trusted}}" target="_blank">

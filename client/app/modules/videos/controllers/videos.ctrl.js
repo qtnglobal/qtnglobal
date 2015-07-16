@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.videos')
   .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
-                                     FormHelper, gettextCatalog, Video, VideosService, User) {
+                                     FormHelper, gettextCatalog, $location, Video, VideosService, User) {
 
     var currentUser;
 
@@ -131,7 +131,7 @@ angular.module('com.module.videos')
     $scope.upload = function(item){
       if($scope.video.ownerId === currentUser.id){
         $scope.video.upChoose = true;
-        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name + '?autoplay=0';
+        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name + '?autoplay=false';
         console.log(item.file.name);
         Video.upsert($scope.video, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
@@ -143,6 +143,7 @@ angular.module('com.module.videos')
         item.upload();
         $('.clearfix').removeClass('fromPC');
         $('.clearfix').removeClass('fromWeb');
+        $location.path('app/videos');
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');

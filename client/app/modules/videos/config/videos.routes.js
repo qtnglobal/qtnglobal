@@ -23,7 +23,7 @@ app.config(function($stateProvider) {
     controller: 'VideosCtrl'
   }).state('app.videos.add', {
     url:'/add',
-    templateUrl: 'modules/videos/views/form.html',
+    templateUrl: 'modules/videos/views/upvideo.html',
     controller: 'VideosCtrl'
   }).state('app.videos.edit', {
     url: '/:id/edit',

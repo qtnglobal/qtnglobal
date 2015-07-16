@@ -95,7 +95,7 @@
                 <span><button type="button" class="btn btn-success btn-xs PC" ng-click="upload(uploader.queue[0])"
                               ng-disabled="!uploader.getNotUploadedItems().length" data-dismiss="modal" ui-sref="^.videos">Post</button>
                 </span>
-                 <span><button type="button" class="btn btn-success btn-xs web" ng-click="posts()" >Post</button>
+                 <span><button type="button" class="btn btn-success btn-xs web" data-dismiss="modal" ng-click="upPost()" >Post</button>
                 </span>
           </div>
         </div>
@@ -170,11 +170,11 @@
   .fromPC .footer{
     display: block;
   }
-  .web{
+  .modal-footer .web{
     display: none;
   }
-  .fromweb .modal-footer .web{
-    display: block;
+  .fromWeb .modal-footer .web{
+    display: inherit;
   }
   .upfromweb{
     display: none;

@@ -65,7 +65,7 @@ angular.module('com.module.core')
       var $ = angular.element;
       if ($(window).width() <= 992) {
         $('.row-offcanvas').toggleClass('active');
-        $('.left-side').removeClass('collapse-left');
+        $('.left-side').toggleClass('collapse-left');
         $('body').toggleClass('sidebar-collapse');
         $('.row-offcanvas').toggleClass('relative');
       } else {
