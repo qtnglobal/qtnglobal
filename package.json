@@ -83,7 +83,8 @@
     "serve-favicon": "^2.2.0",
     "showdown": "^0.3.1",
     "simple-line-icons": "^1.0.0",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "gulp-nodemon": "^2.0.3"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.6.4"

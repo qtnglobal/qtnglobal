@@ -93,7 +93,6 @@ angular.module('com.module.photos')
     };
 
 
-
     $scope.onSubmit = function() {
       if($scope.photo.ownerId === currentUser.id){
         Photo.upsert($scope.photo, function() {

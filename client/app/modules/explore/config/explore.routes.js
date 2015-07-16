@@ -29,7 +29,28 @@ angular.module('com.module.explore')
             }]
           },
         controller: function($scope,$sce, articles, User) {
+
           $scope.articles = articles;
+
+          for(var i=0; i<$scope.articles.length; i++) {
+            $scope.$watch('articles['+i+']', function(changed) {
+              User.findOne({
+                filter: {
+                  where: {
+                    id: changed.ownerId
+                  },
+                  include: ['roles', 'identities', 'credentials', 'accessTokens']
+                }
+              },function(result){
+                var user = result;
+                var item = changed;
+                item.ava = result.avatar;
+                item.ownerName = result.username;
+                return item;
+              });
+            }, true);
+          }
+
           $scope.deliberatelyTrustDangerousTitle = function(a) {
             return $sce.trustAsHtml(a.title);
           };
@@ -58,16 +79,6 @@ angular.module('com.module.explore')
                 $(get).popover('hide');
               });
             });
-            // var a = $scope.user;
-            // alert(a.c);
-            // var cover = '<img src="'+user.cover+ '" />';
-            // var avatar = '<img src="'+user.avatar+'"/>';
-            // var content =
-            // '<div class="popover-wrapper"><div class="popover-header" style="">'
-            //     + cover +
-            //   '</div><div class="avatar circle" styel="">'
-            //     + avatar +
-            //   '</div><div class="description" style=""></div></div>';
 
           }
         }

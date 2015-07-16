@@ -28,9 +28,9 @@ angular.module('com.module.users')
               '/login') {
               /*console.log('401 while on router on login path');*/
             } else {
-              CoreService.toastWarning('Error 401 received',
+              /*CoreService.toastWarning('Error 401 received',
                 'We received a 401 error from the API!'
-              );
+              );*/
             }
           }
           if (rejection.status === 404) {

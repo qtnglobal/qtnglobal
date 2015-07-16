@@ -1,6 +1,4 @@
-/**
- * Created by tuanpham on 7/15/15.
- */
+'use strict';
 var app=angular.module('com.module.explore');
 
 app.controller('modal_show_photo', function ($scope, $modal, $log) {

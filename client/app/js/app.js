@@ -42,7 +42,6 @@ angular.module('loopbackApp', [
     'com.module.files',
     'com.module.settings',
     'com.module.users',
-    'com.module.intro',
     'com.module.explore',
     'com.module.articles',
     'permission'

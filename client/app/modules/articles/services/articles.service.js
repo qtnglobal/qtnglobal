@@ -2,7 +2,7 @@
 var app = angular.module('com.module.articles');
 
 app.service('ArticlesService', ['CoreService', 'gettextCatalog', 'Article', function(
-    CoreService, gettextCatalog, Article,User) {
+    CoreService, gettextCatalog, Article) {
 
   this.getArticles = function() {
     return Article.find({

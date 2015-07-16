@@ -30,8 +30,8 @@ angular.module('com.module.core')
         $scope.menuoptions.pop();
       }
       if(user.username == 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name != 'Users'){
-        $scope.menuoptions.push({ name: "Settings", sref: "app.settings.list", icon: "fa-cog", $$hashKey: "object:57" });
-        $scope.menuoptions.push({ name: "Users", sref: "app.users.list", icon: "fa-user", $$hashKey: "object:58" });
+        $scope.menuoptions.push({ name: 'Settings', sref: 'app.settings.list', icon: 'fa-cog', $$hashKey: 'object:57' });
+        $scope.menuoptions.push({ name: 'Users', sref: 'app.users.list', icon: 'fa-user', $$hashKey: 'object:58' });
       }
     });
 

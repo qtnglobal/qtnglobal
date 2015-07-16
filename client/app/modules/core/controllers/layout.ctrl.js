@@ -13,13 +13,13 @@ angular.module('com.module.core')
     gettextCatalog, $location, $window) {
 
     $scope.goToExplore = function(){
-      $window.location.reload();
       $location.path('/explore');
-    }
+      $window.location.reload();
+    };
 
     $scope.goToHome = function(){
       $location.path('/app');
-    }
+    };
 
     // angular translate
     $scope.locale = {
@@ -78,23 +78,23 @@ angular.module('com.module.core')
       var $ = angular.element;
       $('body').removeClass('sidebar-collapse');
       $('.left-side').removeClass('collapse-left');
-    }
+    };
 
     $scope.additional = function() {
       var $ = angular.element;
       $('.wrapper').toggleClass('additional');
-    }
+    };
+
     $scope.addAlerts =[];
     var i=-1;
     $scope.notification = function() {
       i++;
       var $ = angular.element;
-      //$scope.num = Math.floor(9 * Math.random());
-      $scope.namepage = ["alert-warning","alert-info","alert-mint","alert-pink","alert-dark","alert-danger","alert-primary","alert-purple","alert-success"];
+      $scope.namepage = ['alert-warning','alert-info','alert-mint','alert-pink','alert-dark','alert-danger','alert-primary','alert-purple','alert-success'];
       $scope.addAlerts.push($scope.namepage[i]);
       $timeout($scope.removeAdd(addAlerts[i]), 3000);
       $timeout($('.alert-wrap').removeClass('in'),5000);
-    }
+    };
 
     $scope.removeAdd = function(index){
       $scope.addAlerts.splice(index, 1);

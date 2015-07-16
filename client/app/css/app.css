@@ -198,7 +198,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
 
 .title-v1 h1,
 .title-v1 h2 {
-  color: #ffff;
+  color: #fff;
   font-size: 35px;
   position: relative;
   margin-bottom: 15px;
@@ -2679,7 +2679,6 @@ blockquote.hero.hero-default small {
   text-align: right;
   text-shadow: none;
   position: absolute;
-  filter: Alpha(opacity = 100); /*For IE*/
 }
 
 .testimonials .carousel-control.left {

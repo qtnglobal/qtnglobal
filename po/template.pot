@@ -4,6 +4,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: client/app/modules/videos/views/main.html:2
+msgid "<a ui-sref=\"^.add\">Add</a>"
+msgstr ""
+
 #: client/app/modules/pages/views/form.html:5
 #: client/app/modules/pages/views/view.html:4
 msgid "<i class=\"fa fa-arrow-left\"></i> Pages"
@@ -42,7 +46,6 @@ msgstr ""
 #: client/app/modules/projects/views/main.html:2
 #: client/app/modules/settings/views/main.html:2
 #: client/app/modules/users/views/main.html:3
-#: client/app/modules/videos/views/main.html:2
 msgid "Add"
 msgstr ""
 
@@ -50,11 +53,15 @@ msgstr ""
 msgid "Add Category"
 msgstr ""
 
+#: client/app/modules/audios/controllers/audios.ctrl.js:92
+msgid "Add a description, if you like"
+msgstr ""
+
 #: client/app/modules/articles/views/form.html:7
 msgid "Add a new article"
 msgstr ""
 
-#: client/app/modules/audios/views/form.html:7
+#: client/app/modules/audios/views/form.html:6
 msgid "Add a new audio"
 msgstr ""
 
@@ -66,7 +73,7 @@ msgstr ""
 msgid "Add a new event"
 msgstr ""
 
-#: client/app/modules/links/views/form.html:4
+#: client/app/modules/links/views/form.html:5
 msgid "Add a new link"
 msgstr ""
 
@@ -103,7 +110,7 @@ msgstr ""
 msgid "Add a new video"
 msgstr ""
 
-#: client/app/modules/photos/controllers/photos.ctrl.js:56
+#: client/app/modules/photos/controllers/photos.ctrl.js:85
 msgid "Add photo from web"
 msgstr ""
 
@@ -127,14 +134,14 @@ msgstr ""
 #: client/app/modules/photos/services/photos.service.js:22
 #: client/app/modules/posts/services/posts.service.js:22
 #: client/app/modules/products/controllers/products.ctrl.js:42
-#: client/app/modules/projects/controllers/projects.ctrl.js:56
+#: client/app/modules/projects/controllers/projects.ctrl.js:60
 #: client/app/modules/settings/controllers/settings.ctrl.js:28
 #: client/app/modules/users/controllers/users.ctrl.js:26
 #: client/app/modules/videos/services/videos.service.js:22
 msgid "Are you sure?"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:56
+#: client/app/modules/articles/controller/articles.ctrl.js:97
 msgid "Article saved"
 msgstr ""
 
@@ -143,9 +150,10 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:94
-#: client/app/modules/audios/controllers/audios.ctrl.js:78
-#: client/app/modules/audios/controllers/audios.ctrl.js:97
+#: client/app/modules/articles/controller/articles.ctrl.js:143
+#: client/app/modules/audios/controllers/audios.ctrl.js:109
+#: client/app/modules/audios/controllers/audios.ctrl.js:139
+#: client/app/modules/audios/controllers/audios.ctrl.js:157
 msgid "Audio saved"
 msgstr ""
 
@@ -161,7 +169,7 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:187
 #: client/app/modules/articles/views/form.html:339
 #: client/app/modules/articles/views/form.html:34
-#: client/app/modules/audios/views/form.html:25
+#: client/app/modules/audios/views/form.html:28
 #: client/app/modules/files/views/upload.html:14
 #: client/app/modules/photos/views/form.html:31
 #: client/app/modules/videos/views/form.html:30
@@ -173,8 +181,8 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:85
 #: client/app/modules/core/views/home.html:144
 #: client/app/modules/events/views/form.html:21
-#: client/app/modules/photos/views/form.html:59
-#: client/app/modules/videos/views/form.html:81
+#: client/app/modules/photos/views/form.html:66
+#: client/app/modules/videos/views/form.html:63
 msgid "Cancel"
 msgstr ""
 
@@ -182,7 +190,6 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:367
 #: client/app/modules/articles/views/form.html:62
 #: client/app/modules/files/views/upload.html:42
-#: client/app/modules/videos/views/form.html:58
 msgid "Cancel all"
 msgstr ""
 
@@ -202,29 +209,25 @@ msgstr ""
 msgid "Category saved"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:81
-msgid "Change it here!"
-msgstr ""
-
 #: client/app/modules/articles/views/list.html:59
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
 "      to add a article!"
 msgstr ""
 
-#: client/app/modules/audios/views/list.html:49
+#: client/app/modules/audios/views/list.html:50
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
 "      to add a audio!"
 msgstr ""
 
-#: client/app/modules/links/views/list.html:39
+#: client/app/modules/links/views/list.html:64
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
 "      to add a link!"
 msgstr ""
 
-#: client/app/modules/photos/views/list.html:58
+#: client/app/modules/photos/views/list.html:50
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
 "      to add a photo!"
@@ -236,7 +239,7 @@ msgid ""
 "      to add a post!"
 msgstr ""
 
-#: client/app/modules/videos/views/list.html:59
+#: client/app/modules/videos/views/list.html:57
 msgid ""
 "Click <a href=\"\" ui-sref=\"^.add\">here</a>\n"
 "      to add a video!"
@@ -274,12 +277,12 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:39
-#: client/app/modules/audios/controllers/audios.ctrl.js:52
+#: client/app/modules/articles/controller/articles.ctrl.js:78
+#: client/app/modules/audios/controllers/audios.ctrl.js:80
 #: client/app/modules/news/controllers/news.ctrl.js:45
-#: client/app/modules/photos/controllers/photos.ctrl.js:51
+#: client/app/modules/photos/controllers/photos.ctrl.js:80
 #: client/app/modules/posts/controllers/posts.ctrl.js:39
-#: client/app/modules/videos/controllers/videos.ctrl.js:46
+#: client/app/modules/videos/controllers/videos.ctrl.js:77
 msgid "Content"
 msgstr ""
 
@@ -287,7 +290,7 @@ msgstr ""
 msgid "Could not add article!"
 msgstr ""
 
-#: client/app/modules/audios/views/form.html:13
+#: client/app/modules/audios/views/form.html:11
 msgid "Could not add audio!"
 msgstr ""
 
@@ -341,6 +344,8 @@ msgid "Could not add user!"
 msgstr ""
 
 #: client/app/modules/videos/views/form.html:13
+#: client/app/modules/videos/views/main.html:41
+#: client/app/modules/videos/views/main.html:84
 msgid "Could not add video!"
 msgstr ""
 
@@ -373,7 +378,7 @@ msgstr ""
 #: client/app/modules/photos/services/photos.service.js:23
 #: client/app/modules/posts/services/posts.service.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:43
-#: client/app/modules/projects/controllers/projects.ctrl.js:57
+#: client/app/modules/projects/controllers/projects.ctrl.js:61
 #: client/app/modules/settings/controllers/settings.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:27
 #: client/app/modules/videos/services/videos.service.js:23
@@ -381,9 +386,10 @@ msgid "Deleting this cannot be undone"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:86
-#: client/app/modules/links/controllers/links.ctrl.js:71
+#: client/app/modules/links/controllers/links.ctrl.js:93
 #: client/app/modules/products/controllers/products.ctrl.js:92
-#: client/app/modules/projects/controllers/projects.ctrl.js:92
+#: client/app/modules/projects/controllers/projects.ctrl.js:96
+#: client/app/modules/videos/controllers/videos.ctrl.js:103
 msgid "Description"
 msgstr ""
 
@@ -392,7 +398,7 @@ msgid "Don't worry we won't spam your inbox"
 msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:20
-#: client/app/modules/users/controllers/users.ctrl.js:74
+#: client/app/modules/users/controllers/users.ctrl.js:76
 msgid "E-mail"
 msgstr ""
 
@@ -400,7 +406,7 @@ msgstr ""
 msgid "Edit article"
 msgstr ""
 
-#: client/app/modules/audios/views/form.html:8
+#: client/app/modules/audios/views/form.html:7
 msgid "Edit audio"
 msgstr ""
 
@@ -413,7 +419,7 @@ msgstr ""
 msgid "Edit event"
 msgstr ""
 
-#: client/app/modules/links/views/form.html:5
+#: client/app/modules/links/views/form.html:6
 msgid "Edit link"
 msgstr ""
 
@@ -460,7 +466,7 @@ msgid "Email address needs to be valid"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:106
-#: client/app/modules/projects/controllers/projects.ctrl.js:104
+#: client/app/modules/projects/controllers/projects.ctrl.js:108
 msgid "End"
 msgstr ""
 
@@ -470,7 +476,7 @@ msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:43
 #: client/app/modules/users/controllers/profile.ctrl.js:76
-#: client/app/modules/users/controllers/profile.ctrl.js:92
+#: client/app/modules/users/controllers/profile.ctrl.js:93
 msgid "Enjoy the new you!"
 msgstr ""
 
@@ -505,7 +511,7 @@ msgstr ""
 msgid "Error deleting product"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:67
+#: client/app/modules/projects/controllers/projects.ctrl.js:71
 msgid "Error deleting project"
 msgstr ""
 
@@ -527,11 +533,11 @@ msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:46
 #: client/app/modules/users/controllers/profile.ctrl.js:79
-#: client/app/modules/users/controllers/profile.ctrl.js:95
+#: client/app/modules/users/controllers/profile.ctrl.js:96
 msgid "Error saving profile"
 msgstr ""
 
-#: client/app/modules/users/controllers/users.ctrl.js:61
+#: client/app/modules/users/controllers/users.ctrl.js:63
 msgid "Error saving user:"
 msgstr ""
 
@@ -571,8 +577,12 @@ msgid "First Name"
 msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:25
-#: client/app/modules/users/controllers/users.ctrl.js:79
+#: client/app/modules/users/controllers/users.ctrl.js:81
 msgid "First name"
+msgstr ""
+
+#: client/app/modules/core/views/app.html:19
+msgid "Hello,"
 msgstr ""
 
 #: client/app/modules/core/views/home.html:23
@@ -599,11 +609,12 @@ msgid "Last Name"
 msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:30
-#: client/app/modules/users/controllers/users.ctrl.js:84
+#: client/app/modules/users/controllers/users.ctrl.js:86
 msgid "Last name"
 msgstr ""
 
-#: client/app/modules/links/controllers/links.ctrl.js:100
+#: client/app/modules/links/controllers/links.ctrl.js:121
+#: client/app/modules/videos/controllers/videos.ctrl.js:204
 msgid "Link saved"
 msgstr ""
 
@@ -611,11 +622,11 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:95
+#: client/app/modules/users/controllers/login.ctrl.js:104
 msgid "Logged in"
 msgstr ""
 
-#: client/app/modules/core/controllers/main.ctrl.js:44
+#: client/app/modules/core/controllers/main.ctrl.js:41
 msgid "Logged out"
 msgstr ""
 
@@ -678,14 +689,15 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:100
 #: client/app/modules/articles/views/form.html:253
 #: client/app/modules/articles/views/form.html:405
-#: client/app/modules/audios/views/form.html:35
+#: client/app/modules/audios/views/form.html:38
 #: client/app/modules/events/controllers/events.ctrl.js:80
 #: client/app/modules/files/views/upload.html:56
-#: client/app/modules/photos/views/form.html:74
+#: client/app/modules/photos/views/form.html:81
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
-#: client/app/modules/projects/controllers/projects.ctrl.js:86
-#: client/app/modules/videos/views/form.html:96
+#: client/app/modules/projects/controllers/projects.ctrl.js:90
+#: client/app/modules/videos/views/form.html:78
+#: client/app/modules/videos/views/main.html:49
 msgid "Name"
 msgstr ""
 
@@ -773,14 +785,13 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:72
-#: client/app/modules/photos/controllers/photos.ctrl.js:78
-#: client/app/modules/photos/controllers/photos.ctrl.js:96
+#: client/app/modules/articles/controller/articles.ctrl.js:116
+#: client/app/modules/photos/controllers/photos.ctrl.js:117
+#: client/app/modules/photos/controllers/photos.ctrl.js:99
 msgid "Photo saved"
 msgstr ""
 
-#: client/app/modules/photos/config/photos.config.js:4
-#: client/app/modules/photos/config/photos.config.js:8
+#: client/app/modules/photos/config/photos.config.js:5
 #: client/app/modules/photos/views/main.html:1
 msgid "Photos"
 msgstr ""
@@ -822,29 +833,30 @@ msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:42
 #: client/app/modules/users/controllers/profile.ctrl.js:75
-#: client/app/modules/users/controllers/profile.ctrl.js:91
+#: client/app/modules/users/controllers/profile.ctrl.js:92
 msgid "Profile saved"
 msgstr ""
 
 #: client/app/modules/articles/views/form.html:102
 #: client/app/modules/articles/views/form.html:255
 #: client/app/modules/articles/views/form.html:407
-#: client/app/modules/audios/views/form.html:37
+#: client/app/modules/audios/views/form.html:40
 #: client/app/modules/files/views/upload.html:58
-#: client/app/modules/photos/views/form.html:76
-#: client/app/modules/videos/views/form.html:98
+#: client/app/modules/photos/views/form.html:83
+#: client/app/modules/videos/views/form.html:80
+#: client/app/modules/videos/views/main.html:51
 msgid "Progress"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:60
+#: client/app/modules/projects/controllers/projects.ctrl.js:64
 msgid "Project deleted"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:148
+#: client/app/modules/projects/controllers/projects.ctrl.js:152
 msgid "Project not added"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:140
+#: client/app/modules/projects/controllers/projects.ctrl.js:144
 msgid "Project saved"
 msgstr ""
 
@@ -869,9 +881,8 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:242
 #: client/app/modules/articles/views/form.html:394
 #: client/app/modules/articles/views/form.html:89
-#: client/app/modules/audios/views/form.html:109
-#: client/app/modules/photos/views/form.html:63
-#: client/app/modules/videos/views/form.html:85
+#: client/app/modules/photos/views/form.html:70
+#: client/app/modules/videos/views/form.html:67
 msgid "Remove"
 msgstr ""
 
@@ -879,7 +890,6 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:371
 #: client/app/modules/articles/views/form.html:66
 #: client/app/modules/files/views/upload.html:46
-#: client/app/modules/videos/views/form.html:62
 msgid "Remove all"
 msgstr ""
 
@@ -887,19 +897,19 @@ msgstr ""
 msgid "Roles"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:51
-#: client/app/modules/audios/controllers/audios.ctrl.js:64
+#: client/app/modules/articles/controller/articles.ctrl.js:91
+#: client/app/modules/audios/controllers/audios.ctrl.js:99
 #: client/app/modules/events/controllers/events.ctrl.js:126
-#: client/app/modules/links/controllers/links.ctrl.js:84
+#: client/app/modules/links/controllers/links.ctrl.js:100
 #: client/app/modules/news/controllers/news.ctrl.js:58
-#: client/app/modules/photos/controllers/photos.ctrl.js:63
+#: client/app/modules/photos/controllers/photos.ctrl.js:92
 #: client/app/modules/posts/controllers/posts.ctrl.js:51
 #: client/app/modules/products/controllers/categories.ctrl.js:30
 #: client/app/modules/products/controllers/products.ctrl.js:106
-#: client/app/modules/projects/controllers/projects.ctrl.js:115
+#: client/app/modules/projects/controllers/projects.ctrl.js:119
 #: client/app/modules/users/controllers/profile.ctrl.js:37
-#: client/app/modules/users/controllers/users.ctrl.js:91
-#: client/app/modules/videos/controllers/videos.ctrl.js:58
+#: client/app/modules/users/controllers/users.ctrl.js:93
+#: client/app/modules/videos/controllers/videos.ctrl.js:91
 msgid "Save"
 msgstr ""
 
@@ -925,22 +935,23 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: client/app/modules/core/views/elements/navbar.html:256
+#: client/app/modules/core/views/elements/navbar.html:257
 msgid "Sign out"
 msgstr ""
 
 #: client/app/modules/articles/views/form.html:101
 #: client/app/modules/articles/views/form.html:254
 #: client/app/modules/articles/views/form.html:406
-#: client/app/modules/audios/views/form.html:36
+#: client/app/modules/audios/views/form.html:39
 #: client/app/modules/files/views/upload.html:57
-#: client/app/modules/photos/views/form.html:75
-#: client/app/modules/videos/views/form.html:97
+#: client/app/modules/photos/views/form.html:82
+#: client/app/modules/videos/views/form.html:79
+#: client/app/modules/videos/views/main.html:50
 msgid "Size"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:91
-#: client/app/modules/projects/controllers/projects.ctrl.js:97
+#: client/app/modules/projects/controllers/projects.ctrl.js:101
 msgid "Start Date"
 msgstr ""
 
@@ -952,8 +963,9 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:256
 #: client/app/modules/articles/views/form.html:408
 #: client/app/modules/files/views/upload.html:59
-#: client/app/modules/photos/views/form.html:77
-#: client/app/modules/videos/views/form.html:99
+#: client/app/modules/photos/views/form.html:84
+#: client/app/modules/videos/views/form.html:81
+#: client/app/modules/videos/views/main.html:52
 msgid "Status"
 msgstr ""
 
@@ -1015,17 +1027,17 @@ msgstr ""
 msgid "This note could no be saved:"
 msgstr ""
 
-#: client/app/modules/users/controllers/users.ctrl.js:58
+#: client/app/modules/users/controllers/users.ctrl.js:60
 msgid "This user is save!"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:34
-#: client/app/modules/audios/controllers/audios.ctrl.js:47
+#: client/app/modules/articles/controller/articles.ctrl.js:73
+#: client/app/modules/audios/controllers/audios.ctrl.js:75
 #: client/app/modules/news/controllers/news.ctrl.js:40
 #: client/app/modules/notes/controllers/notes.ctrl.js:10
-#: client/app/modules/photos/controllers/photos.ctrl.js:46
+#: client/app/modules/photos/controllers/photos.ctrl.js:75
 #: client/app/modules/posts/controllers/posts.ctrl.js:34
-#: client/app/modules/videos/controllers/videos.ctrl.js:41
+#: client/app/modules/videos/controllers/videos.ctrl.js:72
 msgid "Title"
 msgstr ""
 
@@ -1034,21 +1046,22 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: client/app/modules/links/controllers/links.ctrl.js:66
+#: client/app/modules/links/controllers/links.ctrl.js:86
+#: client/app/modules/videos/controllers/videos.ctrl.js:96
 msgid "URL"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:96
+#: client/app/modules/users/views/profile.html:82
 msgid "Update profile"
 msgstr ""
 
 #: client/app/modules/articles/views/form.html:234
 #: client/app/modules/articles/views/form.html:386
 #: client/app/modules/articles/views/form.html:81
-#: client/app/modules/audios/views/form.html:104
+#: client/app/modules/audios/views/form.html:74
 #: client/app/modules/files/views/main.html:2
-#: client/app/modules/photos/views/form.html:55
-#: client/app/modules/videos/views/form.html:77
+#: client/app/modules/photos/views/form.html:62
+#: client/app/modules/videos/views/form.html:59
 msgid "Upload"
 msgstr ""
 
@@ -1056,7 +1069,6 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:363
 #: client/app/modules/articles/views/form.html:58
 #: client/app/modules/files/views/upload.html:38
-#: client/app/modules/videos/views/form.html:54
 msgid "Upload all"
 msgstr ""
 
@@ -1071,13 +1083,12 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:51
 #: client/app/modules/articles/views/form.html:74
 #: client/app/modules/files/views/upload.html:31
-#: client/app/modules/photos/views/form.html:48
-#: client/app/modules/videos/views/form.html:47
-#: client/app/modules/videos/views/form.html:70
+#: client/app/modules/photos/views/form.html:55
+#: client/app/modules/videos/views/form.html:52
 msgid "Upload queue"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:44
+#: client/app/modules/articles/controller/articles.ctrl.js:84
 msgid "Url"
 msgstr ""
 
@@ -1085,12 +1096,12 @@ msgstr ""
 msgid "User deleted"
 msgstr ""
 
-#: client/app/modules/users/controllers/users.ctrl.js:57
+#: client/app/modules/users/controllers/users.ctrl.js:59
 msgid "User saved"
 msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:15
-#: client/app/modules/users/controllers/users.ctrl.js:69
+#: client/app/modules/users/controllers/users.ctrl.js:71
 msgid "Username"
 msgstr ""
 
@@ -1107,8 +1118,8 @@ msgstr ""
 msgid "Variables"
 msgstr ""
 
-#: client/app/modules/videos/controllers/videos.ctrl.js:72
-#: client/app/modules/videos/controllers/videos.ctrl.js:90
+#: client/app/modules/videos/controllers/videos.ctrl.js:118
+#: client/app/modules/videos/controllers/videos.ctrl.js:137
 msgid "Video saved"
 msgstr ""
 
@@ -1117,11 +1128,11 @@ msgstr ""
 msgid "Videos"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:96
+#: client/app/modules/users/controllers/login.ctrl.js:105
 msgid "You are logged in!"
 msgstr ""
 
-#: client/app/modules/core/controllers/main.ctrl.js:45
+#: client/app/modules/core/controllers/main.ctrl.js:42
 msgid "You are logged out!"
 msgstr ""
 
@@ -1133,22 +1144,29 @@ msgstr ""
 msgid "You can just drag them in this window!"
 msgstr ""
 
+#: client/app/modules/articles/controller/articles.ctrl.js:120
+#: client/app/modules/articles/controller/articles.ctrl.js:134
+#: client/app/modules/articles/controller/articles.ctrl.js:147
+msgid "You do not have permission to do this"
+msgstr ""
+
+#: client/app/modules/articles/controller/articles.ctrl.js:104
+msgid "You dont have permission to do this"
+msgstr ""
+
 #: client/app/modules/users/controllers/login.ctrl.js:37
 #: client/app/modules/users/controllers/register.ctrl.js:60
 msgid "You need an email address"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:80
-msgid "Your Gravatar"
-msgstr ""
-
-#: client/app/modules/articles/controller/articles.ctrl.js:57
+#: client/app/modules/articles/controller/articles.ctrl.js:98
 msgid "Your article is safe with us!"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:95
-#: client/app/modules/audios/controllers/audios.ctrl.js:79
-#: client/app/modules/audios/controllers/audios.ctrl.js:98
+#: client/app/modules/articles/controller/articles.ctrl.js:144
+#: client/app/modules/audios/controllers/audios.ctrl.js:110
+#: client/app/modules/audios/controllers/audios.ctrl.js:140
+#: client/app/modules/audios/controllers/audios.ctrl.js:158
 msgid "Your audio is safe with us!"
 msgstr ""
 
@@ -1191,7 +1209,8 @@ msgstr ""
 msgid "Your item has been deleted!"
 msgstr ""
 
-#: client/app/modules/links/controllers/links.ctrl.js:101
+#: client/app/modules/links/controllers/links.ctrl.js:122
+#: client/app/modules/videos/controllers/videos.ctrl.js:205
 msgid "Your link is safe with us!"
 msgstr ""
 
@@ -1227,9 +1246,9 @@ msgstr ""
 msgid "Your passwords need to match"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:73
-#: client/app/modules/photos/controllers/photos.ctrl.js:79
-#: client/app/modules/photos/controllers/photos.ctrl.js:97
+#: client/app/modules/articles/controller/articles.ctrl.js:117
+#: client/app/modules/photos/controllers/photos.ctrl.js:100
+#: client/app/modules/photos/controllers/photos.ctrl.js:118
 msgid "Your photo is safe with us!"
 msgstr ""
 
@@ -1249,25 +1268,25 @@ msgstr ""
 msgid "Your product is safe with us!"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:67
+#: client/app/modules/users/views/profile.html:69
 msgid "Your profile"
 msgstr ""
 
 #: client/app/modules/users/controllers/profile.ctrl.js:47
 #: client/app/modules/users/controllers/profile.ctrl.js:80
-#: client/app/modules/users/controllers/profile.ctrl.js:96
+#: client/app/modules/users/controllers/profile.ctrl.js:97
 msgid "Your profile is not saved:"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:61
+#: client/app/modules/projects/controllers/projects.ctrl.js:65
 msgid "Your project is deleted!"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:68
+#: client/app/modules/projects/controllers/projects.ctrl.js:72
 msgid "Your project is not deleted:"
 msgstr ""
 
-#: client/app/modules/projects/controllers/projects.ctrl.js:141
+#: client/app/modules/projects/controllers/projects.ctrl.js:145
 msgid "Your project is safe with us!"
 msgstr ""
 
@@ -1291,16 +1310,17 @@ msgstr ""
 msgid "Your user is not deleted:"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:84
-#: client/app/modules/videos/controllers/videos.ctrl.js:73
-#: client/app/modules/videos/controllers/videos.ctrl.js:91
+#: client/app/modules/articles/controller/articles.ctrl.js:130
+#: client/app/modules/videos/controllers/videos.ctrl.js:119
+#: client/app/modules/videos/controllers/videos.ctrl.js:138
+#: client/app/modules/videos/controllers/videos.ctrl.js:179
 msgid "Your video is safe with us!"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:108
 #: client/app/modules/events/controllers/events.ctrl.js:93
-#: client/app/modules/projects/controllers/projects.ctrl.js:106
-#: client/app/modules/projects/controllers/projects.ctrl.js:99
+#: client/app/modules/projects/controllers/projects.ctrl.js:103
+#: client/app/modules/projects/controllers/projects.ctrl.js:110
 msgid "dd/MM/yyyy"
 msgstr ""
 
@@ -1319,12 +1339,11 @@ msgstr ""
 #: client/app/modules/articles/views/form.html:52
 #: client/app/modules/articles/views/form.html:75
 #: client/app/modules/files/views/upload.html:32
-#: client/app/modules/photos/views/form.html:49
-#: client/app/modules/videos/views/form.html:48
-#: client/app/modules/videos/views/form.html:71
+#: client/app/modules/photos/views/form.html:56
+#: client/app/modules/videos/views/form.html:53
 msgid "in queue"
 msgstr ""
 
-#: client/app/modules/articles/controller/articles.ctrl.js:83
+#: client/app/modules/articles/controller/articles.ctrl.js:129
 msgid "video saved"
 msgstr ""

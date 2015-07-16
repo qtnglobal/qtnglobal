@@ -14,7 +14,7 @@ angular.module('com.module.audios')
 
 
     function loadItems(id) {
-      if(id==1){
+      if(id===1){
         $scope.audios = Audio.find(
           {
             filter: {
@@ -91,7 +91,7 @@ angular.module('com.module.audios')
       type: 'textarea',
       label: gettextCatalog.getString('Add a description, if you like'),
       required: false
-    }]
+    }];
 
     $scope.formOptions = {
       uniqueFormId: true,
@@ -118,7 +118,7 @@ angular.module('com.module.audios')
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
-    }
+    };
 
     $scope.onSubmit = function(url) {
           if($scope.audio.ownerId === currentUser.id){
@@ -142,7 +142,7 @@ angular.module('com.module.audios')
                   }, function(err) {
                     console.log(err);
                   });
-                })
+                });
             } else if (url.match(/soundcloud/)) {
               $http.get('http://api.soundcloud.com/resolve.json?url='+url+'&client_id=769247ada809c2e2640c6962c4017a9f')
                 .success(function(data){
@@ -160,7 +160,7 @@ angular.module('com.module.audios')
                   }, function(err) {
                     console.log(err);
                   });
-                })
+                });
             }
           }
             else{
@@ -168,6 +168,6 @@ angular.module('com.module.audios')
               $state.go('^.list');
             }
 
-      }
+      };
 
   });

@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('com.module.core');
-app.run(function($rootScope, Setting, gettextCatalog, User) {
+app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Left Sidemenu
   $rootScope.menu = [];

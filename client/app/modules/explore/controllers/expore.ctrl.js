@@ -11,6 +11,8 @@
 angular.module('com.module.explore')
   .controller('ExploreCtrl', function($scope, $routeParams, $location,User, $modal) {
     $scope.limitText = 200;
+
+
     $scope.getUserData = function (item) {
       $modal.open({
         templateUrl: 'myModalContent.html',
@@ -31,6 +33,7 @@ angular.module('com.module.explore')
         }
       });
     };
+
 
     $scope.goToNews = function(){
       $location.path('/links');

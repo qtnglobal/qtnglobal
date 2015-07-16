@@ -194,7 +194,6 @@ module.exports = function (grunt) {
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
-        node: true,
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
@@ -578,7 +577,7 @@ module.exports = function (grunt) {
       ]
     },
 
-    "jsbeautifier" : {
+    "jsbeautifier": {
       "default": {
         src: [
           "client/app/js/app.js",
@@ -591,9 +590,9 @@ module.exports = function (grunt) {
         }
       },
       "git-pre-commit": {
-        src : ["src/**/*.js"],
-        options : {
-          mode:"VERIFY_ONLY"
+        src: ["src/**/*.js"],
+        options: {
+          mode: "VERIFY_ONLY"
         }
       }
     }
@@ -612,6 +611,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'api',
       'includeSource:server',
       'ngconstant:development',
       'loopback_sdk_angular:development',
@@ -621,6 +621,15 @@ module.exports = function (grunt) {
       'connect:livereload',
       'watch'
     ]);
+  });
+
+  var nodemon = require('gulp-nodemon');
+
+  grunt.registerTask('api', function () {
+    nodemon({
+      script: 'server/server.js',
+      ext: 'js json'
+    })
   });
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
@@ -681,7 +690,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('gettext', [
     'nggettext_extract',
-    'nggettext_compile'
+    'nggettext_compile',
   ]);
 
   grunt.registerTask('includesource', [

@@ -2,9 +2,9 @@
   <div isotope-container class="mother">
     <div isotope-item class="box" ng-repeat="item in articles" style="border-radius: 5px; height: 350px">
       <div class="col-sm-3a">
-        <div class="col-sm-3b" style=" margin: 5px; width: 100%x; ; border-bottom: 1px solid #F4F4F4">
+        <div class="col-sm-3b" style=" margin: 5px; width: 100px; ; border-bottom: 1px solid #F4F4F4">
           <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
-            <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.image}}" />
+            <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
           <div class="User_name">
             <a href="#">{{item.ownerName}}</a>
@@ -35,7 +35,7 @@
             <div>
               <img ng-show="item.image" ng-src="{{item.image}}"/>
               <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
-              <video controls ng-show="item.video" src="{{item.video| trusted}}" style="width:100%"                                                                                     ></video>
+              <video controls ng-show="item.video" ng-src="{{item.video| trusted}}" style="width:100%"                                                                                     ></video>
             </div>
 
 
@@ -62,7 +62,6 @@
     width: 100% !important;
     text-align: center;
     margin: 0px;
-
   }
   .User_name{
     display: inline-block;
@@ -90,7 +89,6 @@
     margin-right: 10px;
   }
   .box-title {
-
   }
   .text-muted a {
     margin-left: 6px;
