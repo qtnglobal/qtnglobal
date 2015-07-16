@@ -1,9 +1,6 @@
-<section class="container" >
-  <div class="masonry-photo" ng-controller="modal_show_photo">
-    <div ng-view="">
-      <p> abc{{item.content}}</p>
-    </div>
-    <div class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+<div class="containerPhoto" >
+  <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
+    <div isotope-item class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="col-sm-3b" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -68,41 +65,40 @@
             <a href="#popupDemo" role="button" data-toggle="modal-popover" data-placement="right"><i  class="fa fa-comments-o"></i></a>
             <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
           </span>
+            <div id="popupDemo" class="popover" style="width: 300px">
+              <div class="arrow"></div>
+              <h3 class="popover-title">{{item.onwerName}}</h3>
+              <div class="popover-content">
+                <p>Comment content
+                <form>
+                  <div class="input-append">
+                    <input type="text" class="input-medium" placeholder="You say ...">
+                    <a href="#" class="btn helloWorld">subscribe</a>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
+
+
           <div style="text-align: center;width: 100%">
             <a href="" ng-click="showme=true">...</a>
           </div>
-          <div class="wrapper" ng-show="showme" style="background: lightblue; width: 100%" >
+          <div  ng-show="showme" style=" width: 100%" >
 
             <div class="comment-content" style="float: right">
 
             </div>
-            {{item.comment}}
             <p>Name: <input type="text" ng-model="commentPhoto"></p>
 
-            <button ng-click="showme=false" style="position:relative;float: right">Hide</button>
+            <a ng-click="showme=false" style="position:relative;float: right">Hide</a>
           </div>
         </div>
       </div>
     </div>
-</section>
-  <!-- Popup demo -->
-<div id="popupDemo" class="popover" style="width: 300px">
-  <div class="arrow"></div>
-  <h3 class="popover-title">{{item.onwerName}}</h3>
-
-  <div class="popover-content">
-    <p>Comment content
-
-    <form>
-      <div class="input-append">
-        <input type="text" class="input-medium" placeholder="You say ...">
-        <a href="#" class="btn helloWorld">subscribe</a>
-      </div>
-    </form>
-    </p>
-  </div>
 </div>
+  <!-- Popup demo -->
+
 <!-- End Popup demo -->
 <style>
   .text-muted a {
@@ -345,3 +341,4 @@
     }
   }
 </style>
+
