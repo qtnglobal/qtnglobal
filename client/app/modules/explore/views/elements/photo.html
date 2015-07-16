@@ -1,6 +1,6 @@
 <div class="containerPhoto" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="box grid-item alert" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+    <div isotope-item class="box" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="col-sm-3b" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -10,14 +10,14 @@
             <a href="#">{{item.ownerName}}</a>
           </div>
           <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
-            <button type="button" class="btn-mini "><i class="fa fa-user-plus"></i>  Add friend</button>
+            <button type="button" class="btn-mini " ><i class="fa fa-user-plus"></i>  Add friend</button>
             <button type="button" class="btn-mini " id="menuPhoto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-cog"></i>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu btn-mini" aria-labelledby="menuPhoto">
               <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
-              <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user"></i> User profile</a></li>
               <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
               <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
             </ul>
@@ -26,6 +26,7 @@
         <div class="top-box">
           <div class="item-photo"  style="width: 100% ">
             <img ng-src="{{item.url}}" ng-click="open(item)"  />
+            <a> <br></a>
             <img ng-src="{{item.url1}}" ng-click="open(item)"  />
             <script type="text/ng-template" id="myModalContent.html" >
               <div class="modal-header">
@@ -53,60 +54,37 @@
             <div>
               <p>{{item.content}}</p>
             </div>
-            <div class="comment">
-
-          </div>
-          <div class="TagPhoto">
-            <p>{{tags}}</p>
+            </div>
           <div class="box-footer" style="bottom: 0; width: 100%">
           <span class="text-muted" style="float: right;;margin-bottom: 7px">
             &middot;
-            <a href="#" data-toggle="tooltip" title="Like">{{rate}} <i class="fa fa-heart"></i> </a>
-            <a href="#popupDemo" role="button" data-toggle="modal-popover" data-placement="right"><i  class="fa fa-comments-o"></i></a>
-            <a href="#" data-toggle="tooltip" title="Share"><i class="fa fa-share"></i> </a>
+            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
+            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
+            <a href="#" title="Share"><i class="fa fa-share"></i> </a>
           </span>
-            <div id="popupDemo" class="popover" style="width: 300px">
-              <div class="arrow"></div>
-              <h3 class="popover-title">{{item.onwerName}}</h3>
-              <div class="popover-content">
-                <p>Comment content
-                <form>
-                  <div class="input-append">
-                    <input type="text" class="input-medium" placeholder="You say ...">
-                    <a href="#" class="btn helloWorld">subscribe</a>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
 
-
-          <div style="text-align: center;width: 100%">
             <a href="" ng-click="showme=true">...</a>
-          </div>
+
           <div  ng-show="showme" style=" width: 100%" >
-
             <div class="comment-content" style="float: right">
-
             </div>
-            <p>Name: <input type="text" ng-model="commentPhoto"></p>
-
+            <p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>
             <a ng-click="showme=false" style="position:relative;float: right">Hide</a>
           </div>
         </div>
       </div>
     </div>
 </div>
-  <!-- Popup demo -->
 
-<!-- End Popup demo -->
+
 <style>
+  .containerPhoto{
+    padding: 0 30px 4%;
+    margin: 0 auto;
+  }
   .text-muted a {
     color: black;
   }
-  /*.box-body :before {*/
-  /*content: '#';*/
-  /*}*/
   .post_info_qtnglobal a{
     color: white;
     font-size: 15px;
@@ -138,7 +116,7 @@
     color: blue !important;
     margin: 5px ;
   }
-  .grid-item {
+  .box {
     padding: 0 !important;
   }
   .item-photo img {
@@ -164,8 +142,6 @@
     width: 270px;
     margin-left: 5px;
     margin-right: 5px;
-  }
-  .box-title {
   }
   .text-muted a {
     margin-left: 6px;
@@ -198,12 +174,6 @@
     /*Mozilla scale version*/
     -o-transform: scale(1.1);
     /*Opera scale version*/
-    /*box-shadow:0px 0px 30px gray;*/
-    /*/!*CSS3 shadow: 30px blurred shadow all around image*!/*/
-    /*-webkit-box-shadow:0px 0px 30px gray;*/
-    /*/!*Safari shadow version*!/*/
-    /*-moz-box-shadow:0px 0px 30px gray;*/
-    /*/!*Mozilla shadow version*!/ opacity: 1;*/
   }
   li {
     list-style-type: none;
@@ -214,131 +184,4 @@
   }
   </style>
 
-<!--// <script>-->
-<!--//   $('.masonry-photo').freetile({-->
-<!--//     selector:'.box',-->
-<!--//     animate: true,-->
-<!--//     elementDelay: 20-->
-<!--//   })-->
-<!--// </script>-->
-<!--// <script>-->
-<!--//   $(document).ready(function(){-->
-<!--//     $('[data-toggle="tooltip"]').tooltip();-->
-<!--//   });-->
-<!--// </script>-->
-<style>
-  .modal-open {
-    overflow: hidden;
-  }
-  .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: auto;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
-  }
-  .modal.fade .modal-dialog {
-    -webkit-transition: -webkit-transform .3s ease-out;
-    -moz-transition:    -moz-transform .3s ease-out;
-    -o-transition:      -o-transform .3s ease-out;
-    transition:         transform .3s ease-out;
-    -webkit-transform: translate(0, -25%);
-    -ms-transform: translate(0, -25%);
-    transform: translate(0, -25%);
-  }
-  .modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    transform: translate(0, 0);
-  }
-  .modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 10px;
-  }
-  .modal-content {
-    position: relative;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #999;
-    border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 6px;
-    outline: none;
-    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-  }
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1040;
-    background-color: #000;
-  }
-  .modal-backdrop.fade {
-    filter: alpha(opacity=0);
-    opacity: 0;
-  }
-  .modal-backdrop.in {
-    filter: alpha(opacity=50);
-    opacity: .5;
-  }
-  .modal-header {
-    min-height: 16.42857143px;
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
-  }
-  .modal-header .close {
-    margin-top: -2px;
-  }
-  .modal-title {
-    margin: 0;
-    line-height: 1.42857143;
-  }
-  .modal-body {
-    position: relative;
-    padding: 20px;
-  }
-  .modal-footer {
-    padding: 19px 20px 20px;
-    margin-top: -15px;
-    text-align: right;
-    /*border-top: 1px solid #e5e5e5;*/
-  }
-  .modal-footer .btn + .btn {
-    margin-bottom: 0;
-    margin-left: 5px;
-  }
-  .modal-footer .btn-group .btn + .btn {
-    margin-left: -1px;
-  }
-  .modal-footer .btn-block + .btn-block {
-    margin-left: 0;
-  }
-  @media (min-width: 768px) {
-    .modal-dialog {
-      width: 600px;
-      margin: 30px auto;
-    }
-    .modal-content {
-      -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-    }
-    .modal-sm {
-      width: 300px;
-    }
-  }
-  @media (min-width: 992px) {
-    .modal-lg {
-      width: 900px;
-    }
-  }
-</style>
 

@@ -45,10 +45,3 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
     $modalInstance.dismiss('cancel');
   };
 });
-app.controller('PopoverDemoCtrl', function ($scope) {
-  $scope.dynamicPopover = {
-    content: 'Hello, World!',
-    templateUrl: 'myPopoverTemplate.html',
-    title: 'Title'
-  };
-});
