@@ -16,7 +16,7 @@
         <div ng-show="!uploader.getNotUploadedItems().length" style="padding: 15px">
           <label class="ng-binding">Type or paste a URL</label>
           <input type="text" ng-model="link" class="form-control">
-          <formly-form ng-show="link.length" result="audio" fields="formFieldsUrl" options="formOptions" ng-submit="onSubmit()"></formly-form>
+          <formly-form ng-show="link.length" result="audio" fields="formFieldsContent" options="formOptions" ng-submit="onSubmit()"></formly-form>
         </div>
         <div ng-show="!link">
           <div class="box-header">
@@ -67,7 +67,7 @@
           </div>
 
           <formly-form ng-hide="!uploader.getNotUploadedItems().length" style="padding: 15px" result="audio" fields="formFields" options="formOptions" ng-submit="upload()"></formly-form>
-
+          <formly-form ng-show="uploader.getNotUploadedItems().length" style="padding: 15px" result="audio" fields="formFieldsContent" options="formOptions" ng-submit="upload()"></formly-form>
         <div class="controls" style="padding: 15px">
             <button type="button" class="btn btn-success " ng-click="upload(uploader.queue[0])"
                     ng-disabled="!uploader.getNotUploadedItems().length">
@@ -83,4 +83,3 @@
       </div>
   </div>
 </div>
-

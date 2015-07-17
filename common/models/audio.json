@@ -9,7 +9,7 @@
   "properties": {
     "title": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "content": {
       "type": "string",
@@ -17,7 +17,19 @@
     },
     "url": {
       "type": "string",
-      "required": true
+      "required": false
+    },
+    "cover": {
+      "type": "string",
+      "require": false
+    },
+    "artist": {
+      "type": "string",
+      "require": false
+    },
+    "linkMp3": {
+      "type": "string",
+      "require": false
     }
   },
   "validations": [],
