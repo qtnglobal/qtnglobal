@@ -221,7 +221,7 @@
       <li class="page-scroll">
         <button type="button" class="btn btn-success" ng-click="goToExplore()" style="margin-top: 5px;  margin-right: 5px">Explore</button>
       </li>
-      <li class="dropdown user user-menu">
+      <li class="dropdown user user-menu" style="margin-top: -2px">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-flag flag-icon flag-icon-{{selectLocale.country.toLowerCase() }}"></i>
           {{ selectLocale.name | translate }} <i class="caret"></i> </span>
@@ -234,7 +234,7 @@
           </li>
         </ul>
       </li>
-      <li class="dropdown user user-menu">
+      <li class="dropdown user user-menu" style="margin-top: -2px">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <i class="glyphicon glyphicon-user"></i>
           <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
