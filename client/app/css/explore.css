@@ -149,6 +149,11 @@
     cursor: pointer;
   }
 }
+.top-box{
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
 .item-photo{
   width: 100%
 }
@@ -199,6 +204,9 @@
 .text-muted i{
   color: black;
 }
+.mid-box{
+  background-color: white;
+}
 .mid-box :after{
   content: '';
   position: absolute;
@@ -213,8 +221,8 @@
   background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
   background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
   background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-  background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+  background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%)!important;
+  background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%) !important;
   /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
 }
 .User_name{

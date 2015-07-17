@@ -2,7 +2,7 @@
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
     <div isotope-item class="boxEx" ng-repeat="item in photos">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
-        <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
+        <div class="top-box">
           <div class="avatarEx hovergallery" style="">
             <img src="images/avatar_default.png"/>
           </div>
@@ -26,7 +26,7 @@
         <div class="mid-box">
           <div class="item-photo">
             <img ng-src="{{item.url}}" ng-click="open(item)"  />
-              <div style="margin-top: 30px;">
+              <div style="margin-top: 20px;">
             <img style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
               </div>
             <script type="text/ng-template" id="myModalContent.html" >
@@ -71,5 +71,23 @@
       </div>
     </div>
 </div>
-
+<style>
+  .mid-box :after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    pointer-events: none;
+    background: 0 0;
+    background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%)!important;
+    background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%) !important;
+  /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
+</style>
 
