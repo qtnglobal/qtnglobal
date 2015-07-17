@@ -1,6 +1,6 @@
 <div class="containerPhoto" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="box w3-card-2" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+    <div isotope-item class="box" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -131,6 +131,7 @@ padding: 0 10px 4%;
     margin-left: 5px;
     margin-right: 5px;
     border-top: 0 !important;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 .item-photo img {
   width: 100% !important;
@@ -162,6 +163,7 @@ padding: 0 10px 4%;
   .w3-border-left {
     margin-left: 10px;
     padding: 0 !important;
+    border-left:1px solid #ccc !important;
   }
 .hovergallery img{
   -webkit-transform:scale(0.8);
