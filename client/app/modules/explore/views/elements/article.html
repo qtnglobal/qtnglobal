@@ -1,69 +1,134 @@
-<div class="father">
-  <div isotope-container class="mother">
-    <div isotope-item class="box" ng-repeat="item in articles" style="border-radius: 5px; height: 350px">
-      <div class="col-sm-3a">
-        <div class="col-sm-3b" style=" margin: 5px; width: 100px; ; border-bottom: 1px solid #F4F4F4">
-          <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
+<div class="containerArticle" >
+  <div isotope-container class="masonry-article">
+    <div isotope-item class="box" ng-repeat="item in articles" style="border-radius: 5px; margin-bottom: 10px" ng-controller='ArticlesCtrl1' >
+      <div ng-mouseenter="show = true" ng-mouseleave="show = false">
+        <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
+          <div class="avatar" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
             <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
-          <div class="User_name">
+          <div class="post_info_qtnglobal User_name " style="z-index: 1">
             <a href="#">{{item.ownerName}}</a>
           </div>
-          <div class="dropdown btn-group btn-group-xs" style="float: right">
-            <button type="button" class="btn btn-primary" ng-click="pop()"><i class="fa fa-user-plus"></i>  Add friend</button>
-            <button type="button" class="btn btn-primary" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
+            <button type="button" class="btn-mini " ><i class="fa fa-user-plus"></i>  Add friend</button>
+            <button type="button" class="btn-mini " id="menuArticle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-cog"></i>
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <ul class="dropdown-menu btn-mini" aria-labelledby="menuArticle">
               <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
-              <li><a href="#"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user"></i> User profile</a></li>
               <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
               <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
             </ul>
           </div>
         </div>
-        <div class="contentt">
-          <div class="box-header">
-            <h3 class="box-title">
-              <a ng-bind-html="deliberatelyTrustDangerousTitle(item)"></a>
+        <div class="mid-box">
+          <div class="item-article"  style="width: 100% ">
+            <img ng-src="{{item.image}}" ng-click="open(item)"/>
+            <a> <br></a>
+            <script type="text/ng-template" id="myModalContent.html" >
+              <div class="modal-header">
+                <a href="#">{{items.ownerName}}</a>
+              </div>
+              <img ng-src="{{items.image}}" />
+              <div class="modal-footer">
+                <button class="btn" ng-click="ok()">OK</button>
+                <button class="btn" ng-click="cancel()">Cancel</button>
+              </div>
+            </script>
+          </div>
+        </div>
+        <div class="box-header content-article">
+          <div class="box-header scroll">
+            <h3 class="box-body" >
+              {{item.title}}
             </h3>
-          </div>
-          <div class="box-body">
-
-            <div ng-bind-html="deliberatelyTrustDangerousContent(item)"></div>
-            <div>
-              <img ng-show="item.image" ng-src="{{item.image}}"/>
-              <audio controls ng-show="item.audio" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
-              <video controls ng-show="item.video" ng-src="{{item.video| trusted}}" style="width:100%"                                                                                     ></video>
+            <div class="date_update_aricle" style="float: left;width: 100%">
+              <p style="margin: 0 10px 0 10px;font-size: 12px">{{item.created | date:'fullDate'}}</p>
             </div>
-
-
           </div>
+          <div class="box-body" >
+            <div ng-bind-html='deliberatelyTrustDangerousContent(item)'>
+            </div>
+            </div>
+          <div class="box-footer" style="bottom: 0; width: 100%">
+            <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
+            <video controls ng-show="{{item.video}}" ng-src="{{item.video | trusted}}" style="width:100%" ></video>
+          <span class="text-muted" style="float: right;;margin-bottom: 7px">
+            &middot;
+            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
+            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
+            <a href="#" title="Share"><i class="fa fa-share"></i> </a>
+          </span>
 
-          <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
-    <span class="text-muted" style="float: right">
-      <p style="float:left">{{item.created | date:'medium'}}</p>
-      &middot;
-      <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
-      <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
-      <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
+            <a href="" ng-click="showme=true">...</a>
 
-    </span>
+          <div  ng-show="showme" style=" width: 100%" >
+            <div class="comment-content" style="float: right">
+            </div>
+            <p>{{item.ownerName}}: <input type="text" ng-model="commentArticle"></p>
+            <a ng-click="showme=false" style="position:relative;float: right">Hide</a>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
 </div>
+
+
 <style>
-  .col-sm-3a img {
-    width: 100% !important;
-    text-align: center;
-    margin: 0px;
+  .containerArticle{
+    padding: 0 30px 4%;
+    margin: 0 auto;
+  }
+  .text-muted a {
+    color: black;
+  }
+  .post_info_qtnglobal a{
+    color: white;
+    font-size: 15px;
+  }
+  .text-muted i{
+    color: black;
+  }
+  .mid-box :after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    pointer-events: none;
+    background: 0 0;
+    background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+    /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
   }
   .User_name{
+    font-size: 14px;
+    max-width: 160px;
+    color: blue !important;
+    margin: 5px ;
+  }
+  .box {
+    padding: 0 !important;
+    width: 370px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .item-article img {
+    width: 100% !important;
+    height: 100%;
+    text-align: center;
+    margin: 0 ;
+    border-radius: 5px 5px 0 0;
+  }
+  .post_info_qtnglobal{
     display: inline-block;
     font-size: 13px;
     max-width: 160px;
@@ -75,29 +140,16 @@
     position: absolute;
     margin-left: 5px ;
   }
-  .father{
-    padding: 0 50px 4%;
-    margin: 0 auto;
-  }
-  .father a,h3,p {
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .box{
-    width: 250px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .box-title {
-  }
   .text-muted a {
     margin-left: 6px;
     float: left;
   }
-  .box {
+  .box .box-footer {
     border-top: none !important;
   }
-  .popover-content{
-    padding: 0!important;
+  li {
+    list-style-type: none;
   }
 </style>
+
+
