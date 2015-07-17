@@ -1,15 +1,16 @@
 <div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
-	<label for="{{id}}">
-		{{options.label || 'Text'}}
-		{{options.required ? '*' : ''}}
-	</label>
+	<!--<label for="{{id}}">-->
+		<!--{{options.label || 'Text'}}-->
+		<!--{{options.required ? '*' : ''}}-->
+	<!--</label>-->
+  <!--{{options.placeholder}}-->
 	<textarea type="text"
 			  class="form-control msd-elastic"
 			  id="{{id}}"
               formly-dynamic-name="options.key"
               formly-custom-validation="options.validators"
 			  rows="{{options.lines}}"
-			  placeholder="{{options.placeholder}}"
+			  placeholder="Click on content here..."
 			  aria-describedby="{{id}}_description"
 			  ng-required="options.required"
 			  ng-disabled="options.disabled"

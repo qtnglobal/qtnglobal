@@ -77,7 +77,12 @@ angular.module('com.module.videos')
       label: gettextCatalog.getString('Content'),
       required: false
     }];
-
+    $scope.formContent = [{
+      key: 'content',
+      type: 'textarea',
+      label: gettextCatalog.getString('Content'),
+      required: false
+    }];
     //{
     //  key: 'url',
     //  type: 'text',
@@ -131,7 +136,9 @@ angular.module('com.module.videos')
     $scope.upload = function(item){
       if($scope.video.ownerId === currentUser.id){
         $scope.video.upChoose = true;
-        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name + '?autoplay=false';
+        $scope.video.upFrom = true;
+        $scope.video.urlweb = "#";
+        $scope.video.url = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
         console.log(item.file.name);
         Video.upsert($scope.video, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Video saved'),
@@ -141,9 +148,6 @@ angular.module('com.module.videos')
           console.log(err);
         });
         item.upload();
-        $('.clearfix').removeClass('fromPC');
-        $('.clearfix').removeClass('fromWeb');
-        $location.path('app/videos');
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
@@ -156,6 +160,7 @@ angular.module('com.module.videos')
     $scope.closeUpVideo = function(){
       $('.clearfix').removeClass('fromPC');
       $('.clearfix').removeClass('fromWeb');
+      $state.go('^.list');
     };
     $scope.upVideosFromWeb = function(){
       $('.clearfix').toggleClass('fromWeb');
@@ -163,39 +168,24 @@ angular.module('com.module.videos')
     $scope.upVideoFromWeb = function(){
       $('.hidePCpost').toggleClass('fromWeb');
     };
-    $scope.yt = {
-      width: 300,
-      height: 150,
-      url: "https://www.youtube.com/watch?v=91NeXidzTtk",
-      videoid: "M7lc1UVf-VE",
-    };
-    $scope.posts = function(){
-      var num;
-      num = $scope.yt.url.indexOf("=");
-      $scope.yt.videoid =  $scope.yt.url.slice(num+1,num+12);
-      console.log('https://www.youtube.com/embed/'+$scope.yt.videoid);
-      if($scope.video.ownerId === currentUser.id){
-        $scope.video.url = 'https://www.youtube.com/embed/'+$scope.yt.videoid;
-        gettextCatalog.getString('Your video is safe with us!');
-      }
-      else{
-        CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-        $state.go('^.list');
-      }
-    };
     $scope.title123 = angular.element("title");
     $scope.upPost = function() {
       if($scope.video.ownerId === currentUser.id){
         $scope.video.upChoose = true;
+        $scope.video.upFrom = false;
+        $scope.video.url = document.getElementById('liveurl-url').innerHTML;
         $scope.video.title = document.getElementById('liveurl-title').innerHTML;
         $scope.video.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
         if(document.getElementById("liveurl-url").innerHTML.indexOf("youtube")>=0){
           $scope.video.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(39,-2);
-          $scope.video.url =  document.getElementById('liveurl-url').innerHTML.replace("watch?v=","embed/");
+          $scope.video.urlweb =  document.getElementById('liveurl-url').innerHTML.replace("watch?v=","embed/");
         }else if(document.getElementById("liveurl-url").innerHTML.indexOf("vimeo")>=0){
           var numb = document.getElementById("liveurl-url").innerHTML.indexOf("video/");
-          $scope.video.url = "https://player.vimeo.com/video/" + document.getElementById("liveurl-url").innerHTML.slice(numb+6,9)
-        }else{
+          $scope.video.urlweb = "https://player.vimeo.com/video/" + document.getElementById("liveurl-url").innerHTML.slice(numb+6,9)
+        }else if(document.getElementById("liveurl-url").innerHTML.indexOf("embed/")>=0){
+          $scope.video.urlweb =  document.getElementById('liveurl-url').innerHTML;
+        }else {
+          $scope.video.urlweb = "#";
           $scope.video.upChoose = false;
           $scope.video.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(10,-30);
           $scope.video.url = document.getElementById('liveurl-url').innerHTML;

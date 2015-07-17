@@ -1,4 +1,4 @@
-<div class="form-group col-md-4" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group formurl col-md-4" ng-class="{'has-error': options.formField.$invalid}">
   <label for="{{id}}">
     {{options.label || 'Text'}}
     {{options.required ? '*' : ''}}
@@ -29,7 +29,6 @@
           <div class="title" id="liveurl-title"></div>
           <div class="description" id="liveurl-description"></div>
           <a href="#" class="url" id="liveurl-url" target="_blank"> </a>
-          <div class="url" id="liveurl-url"></div>
         </div>
         <div class="thumbnail">
           <div class="pictures">
@@ -56,6 +55,7 @@
     },
     loadEnd : function(){
       $('.liveurl-loader').hide();
+      $('.formurl').hide();
     },
     success : function(data)
     {
