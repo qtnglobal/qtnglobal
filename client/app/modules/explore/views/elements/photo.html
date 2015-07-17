@@ -1,6 +1,6 @@
 <div class="containerPhoto" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="box" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+    <div isotope-item class="box w3-card-2" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -17,7 +17,7 @@
             </button>
             <ul class="dropdown-menu btn-mini" aria-labelledby="menuPhoto">
               <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
-              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user "></i> User profile</a></li>
               <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
               <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
             </ul>
@@ -26,8 +26,9 @@
         <div class="mid-box">
           <div class="item-photo"  style="width: 100% ">
             <img ng-src="{{item.url}}" ng-click="open(item)"  />
-            <a> <br></a>
-            <img ng-src="{{item.url1}}" ng-click="open(item)"  />
+              <div style="margin-top: 30px;">
+            <img style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
+              </div>
             <script type="text/ng-template" id="myModalContent.html" >
               <div class="modal-header">
                 <a href="#">{{items.ownerName}}</a>
@@ -41,35 +42,33 @@
             </script>
           </div>
         </div>
-        <div class="box-header content-photo">
-          <div class="box-header scroll">
-            <h3 class="box-body" >
+        <div class="content-photo">
+          <div class="ct-pt-title">
+            <h3>
               {{item.title}}
             </h3>
-            <div class="date_update_photo" style="float: left;width: 100%">
-              <p style="margin: 0 10px 0 10px;font-size: 12px">{{item.created | date:'fullDate'}}</p>
-            </div>
           </div>
-          <div class="box-body" >
-            <div>
+          <div class="w3-border-left" >
+            <div class="ct-pt-content">
               <p>{{item.content}}</p>
             </div>
+
             </div>
           <div class="box-footer" style="bottom: 0; width: 100%">
+            <div class="date_update_photo" style="float: left">
+              <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
+            </div>
           <span class="text-muted" style="float: right;;margin-bottom: 7px">
             &middot;
             <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
-            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
+            <a href="#" ng-click="showme=true" title="Comment"><i  class="fa fa-comment"></i></a>
             <a href="#" title="Share"><i class="fa fa-share"></i> </a>
           </span>
-
-            <a href="" ng-click="showme=true">...</a>
-
-          <div  ng-show="showme" style=" width: 100%" >
-            <div class="comment-content" style="float: right">
-            </div>
-            <p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>
-            <a ng-click="showme=false" style="position:relative;float: right">Hide</a>
+          <div  ng-show="showme" style=" width: 100%; padding: 10px" >
+            <!--<div class="comment-content" style="float: right">-->
+            <!--</div>-->
+            <!--<p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>-->
+            <!--<a ng-click="showme=false" style="position:relative;float: right">Hide</a>-->
           </div>
         </div>
       </div>
@@ -78,9 +77,19 @@
 
 
 <style>
+  .ct-pt-content{
+    margin-left: 10px;
+    width: 88%;
+  }
+  .ct-pt-title {
+    margin-left: 10px;
+    width: 92%;
+  }
   .containerPhoto{
-    padding: 0 30px 4%;
-    margin: 0 auto;
+padding: 0 10px 4%;
+  }
+  .masonry-photo {
+
   }
   .text-muted a {
     color: black;
@@ -97,7 +106,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100px;
+    height: 60px;
     display: block;
     width: 100%;
     border-radius: 3px 3px 0 0;
@@ -118,39 +127,45 @@
   }
   .box {
     padding: 0 !important;
-    width: 270px;
+    width: 300px;
     margin-left: 5px;
     margin-right: 5px;
+    border-top: 0 !important;
+}
+.item-photo img {
+  width: 100% !important;
+  height: 100%;
+  text-align: center;
+  margin: 0 ;
+  border-radius: 5px 5px 0 0;
+}
+.post_info_qtnglobal{
+  display: inline-block;
+  font-size: 13px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+  color: cornsilk !important;
+  position: absolute;
+  margin-left: 5px ;
+}
+.text-muted a {
+  margin-left: 6px;
+  float: left;
+}
+.box .box-footer {
+  border-top: none !important;
+
+}
+  .w3-border-left {
+    margin-left: 10px;
+    padding: 0 !important;
   }
-  .item-photo img {
-    width: 100% !important;
-    height: 100%;
-    text-align: center;
-    margin: 0 ;
-    border-radius: 5px 5px 0 0;
-  }
-  .post_info_qtnglobal{
-    display: inline-block;
-    font-size: 13px;
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    vertical-align: top;
-    color: cornsilk !important;
-    position: absolute;
-    margin-left: 5px ;
-  }
-  .text-muted a {
-    margin-left: 6px;
-    float: left;
-  }
-  .box .box-footer {
-    border-top: none !important;
-  }
-  .hovergallery img{
-    -webkit-transform:scale(0.8);
-    /*Webkit: Scale down image to 0.8x original size*/
+.hovergallery img{
+  -webkit-transform:scale(0.8);
+  /*Webkit: Scale down image to 0.8x original size*/
     /*-moz-transform:scale(0.8);*/
     /*Mozilla scale version*/
     -o-transform:scale(0.8);
