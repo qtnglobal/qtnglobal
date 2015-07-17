@@ -1,0 +1,244 @@
+<div class="modal" id="ChooseAdd" >
+  <div class="modal-dialog" style="width: 50%; margin-top: 50px">
+    <div class="l-content clearfix">
+      <div ng-controller="UploadCtrl" nv-file-drop uploader="uploader" class="indash_blog" style="background-color: rgb(250, 250, 250);">
+        <div class="modal-header">
+          <div class="controls-left">
+            <a href="/" class="User_name">user {{videos.ownerName}}</a>
+          </div>
+        </div>
+        <div class="modal-body" style="padding:0">
+          <div class="media-dropzone split-dropzone">
+            <div class="split-cells">
+              <div class="split-cell media-upload-button" style="border-right: 1px solid black;">
+                <div class="v-center-inner">
+                  <div class="dropzone-icon dropzone-add-video-icon">
+                  </div>
+                  <button ng-click="uploadVideos()" style="margin-top: 5px; border: none; background-color: #f1f1f1;">
+                    <div class="fileUpload">
+                      <img src="../images/pc_add.png" style="height:50px; margin-top:15px"><p>Upload from pc</p>
+                      <input style="height: 110px; width:120px" type="file" class="upload" nv-file-select type="file" accept="video/*" uploader="uploader" multiple/>
+                    </div>
+
+                  </button>
+                </div>
+              </div>
+              <div class="split-cell media-url-button">
+                <div class="v-center-inner">
+                  <!--ui-sref=".add"-->
+                  <button ng-click="upVideosFromWeb()" style="margin-top: 5px; border: none;background-color: #f1f1f1;">
+                    <img src="../images/web_add.png" style="height:50px; margin-top:15px"><p>Upload from web</p>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            <div class="upfrompc" style=" margin: 0 !important;">
+              <div class="box1">
+                <div class="col-md-12">
+                  <div class="alert alert-danger" ng-if="addError" translate>Could not add video!</div>
+                  <formly-form result="video" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+                </div>
+                <div class="box-header">
+                  <!--<h3 class="box-title">-->
+                  <!--{{ 'Upload queue' | translate }}-->
+                  <!--<small> {{ uploader.queue.length }} {{ 'in queue' | translate }}</small>-->
+                  <!--</h3>-->
+                  <div class="box-tools">
+                    <div class="pull-right btn-group btn-group-xs">
+                      <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadAll()"
+                              ng-disabled="!uploader.getNotUploadedItems().length">
+                        <span class="glyphicon glyphicon-upload"></span> {{ 'Upload all' | translate }}
+                      </button>
+                      <button type="button" class="btn btn-warning btn-xs" ng-click="uploader.cancelAll()"
+                              ng-disabled="!uploader.isUploading">
+                        <span class="glyphicon glyphicon-ban-circle"></span> {{ 'Cancel all' | translate }}
+                      </button>
+                      <button type="button" class="btn btn-danger btn-xs" ng-click="uploader.clearQueue()"
+                              ng-disabled="!uploader.queue.length">
+                        <span class="glyphicon glyphicon-trash"></span> {{ 'Remove all' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th width="50%" translate>Name</th>
+                      <th ng-show="uploader.isHTML5" translate>Size</th>
+                      <th ng-show="uploader.isHTML5" translate>Progress</th>
+                      <th translate>Status</th>
+                      <!--<th translate>Actions</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                      <td><strong>{{ uploader.queue[0].file.name }}</strong>
+                      </td>
+                      <td ng-show="uploader.isHTML5" nowrap>{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB
+                      </td>
+                      <td ng-show="uploader.isHTML5">
+                        <div class="progress" style="margin-bottom: 0;">
+                          <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.queue[0].progress + '%' }"></div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span ng-show="uploader.queue[0].isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span ng-show="uploader.queue[0].isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span ng-show="uploader.queue[0].isError"><i class="glyphicon glyphicon-remove"></i></span>
+                      </td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="upfromweb">
+              <div class="box-body no-padding">
+                <div style="padding: 5px;  min-height: 200px;">
+                  <div class="alert alert-danger" ng-if="addError" translate>Could not add video!</div>
+                  <formly-form style="padding: 5px" result="link" fields="formFieldsUrl" options="formOptions" ng-submit="upPost()"></formly-form>
+                  <br>
+                  <hr>
+                  <formly-form result="video" fields="formContent" options="formOptions" ng-submit="onSubmit()"></formly-form>
+                </div>
+                <table class="table"></table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer footer" style="border: none; margin-top: 5px">
+            <button data-dismiss="modal" style="width: 50px;  height: 25px;" ui-sref="^.videos" ng-click="closeUpVideo()">Close</button>
+                <span><button type="button" style="width: 50px; height: 25px;" class="btn btn-success btn-xs PC" ng-click="upload(uploader.queue[0])"
+                              ng-disabled="!uploader.getNotUploadedItems().length" data-dismiss="modal">Post</button>
+                </span>
+                 <span><button type="button" class="btn btn-success btn-xs web" data-dismiss="modal" ng-click="upPost()" >Post</button>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section ui-view class="content"></section>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<scripta src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></scripta>
+<style>
+  .controls-container {
+    display: table;
+    width: 100%;
+    padding: 10px 15px 10px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .controls-left {
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .User_name{
+    font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .media-dropzone {
+    border-top: 2px dashed lightgrey;
+    border-bottom: 2px dashed lightgrey;
+    background-color: #f1f1f1;
+    color: #999;
+    /*height: 200px;*/
+  }
+  .media-dropzone.split-dropzone .split-cells {
+    display: table;
+    width: 100%;
+    height: 200px;
+    table-layout: fixed;
+  }
+  .media-dropzone.split-dropzone .split-cell {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+  }
+  .v-center-inner {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .media-dropzone .dropzone-add-video-icon, .media-preview .dropzone-add-video-icon {
+    text-align: left;
+    width: 56px;
+  }
+  .media-url-button {
+    position: relative;
+    background-color: rgba(241,241,241,0);
+  }
+  .fromPC .media-dropzone.split-dropzone .split-cells{
+    display: none;
+  }
+  .fromWeb .media-dropzone.split-dropzone .split-cells{
+    display: none;
+  }
+  .upfrompc{
+    display: none;
+  }
+  .fromPC .upfrompc{
+    display: block;
+  }
+  .fromPC .footer{
+    display: block;
+  }
+  .modal-footer .web{
+    display: none;
+  }
+  .fromWeb .modal-footer .web{
+    display: inherit;
+    width: 50px;
+    height: 25px;
+  }
+  .upfromweb{
+    display: none;
+  }
+  .fromWeb .upfromweb{
+    display: block;
+  }
+  .fromWeb .footer{
+    display: block;
+  }
+  .fromWeb .modal-footer .PC{
+    display: none;
+  }
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+  }
+  .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  .liveurl{
+    border-top: none;
+    border-bottom: 1px dashed #CCC;
+  }
+  .liveurl .image{
+    margin: auto;
+    width: 100%;
+  }
+  #liveurl-img img{
+    width: 100%
+  }
+  .liveurl .details{
+    margin-top: 15px
+  }
+  /**/
+</style>
