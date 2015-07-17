@@ -156,16 +156,17 @@
   float: right;
   margin: 8px
 }
-.avatar{
+.avatarEx {
   display: inline-block;
   width: 30px;
   height: 30px;
   margin: 4px;
   z-index: 1
 }
-.box-footer {
+.footer-bot-box {
   bottom: 0;
-  width: 100%
+  width: 100%;
+  padding: 10px;
 }
 .date_update_photo{
   float: left
@@ -222,7 +223,7 @@
   color: blue !important;
   margin: 5px ;
 }
-.box {
+.boxEx {
   padding: 0 !important;
   width: 300px;
   margin-left: 5px;

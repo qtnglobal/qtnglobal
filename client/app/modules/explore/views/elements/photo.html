@@ -1,9 +1,9 @@
 <div class="containerExplore" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="box" ng-repeat="item in photos">
+    <div isotope-item class="boxEx" ng-repeat="item in photos">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
-          <div class="avatar hovergallery" style="">
+          <div class="avatarEx hovergallery" style="">
             <img src="images/avatar_default.png"/>
           </div>
           <div class="post_info_qtnglobal User_name ">
@@ -42,7 +42,7 @@
             </script>
           </div>
         </div>
-        <div class="content-photo">
+        <div class="bot-box">
           <div class="ct-pt-title">
             <h3>
               {{item.title}}
@@ -51,7 +51,7 @@
             <div class="ct-pt-content">
               <p>{{item.content}}</p>
             </div>
-          <div class="box-footer">
+          <div class="footer-bot-box">
             <div class="date_update_photo">
               <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
             </div>
