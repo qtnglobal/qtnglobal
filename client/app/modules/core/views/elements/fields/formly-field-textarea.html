@@ -1,9 +1,9 @@
 <div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
-	<!--<label for="{{id}}">-->
-		<!--{{options.label || 'Text'}}-->
-		<!--{{options.required ? '*' : ''}}-->
-	<!--</label>-->
-  <!--{{options.placeholder}}-->
+	<label for="{{id}}">
+		{{options.label || 'Text'}}
+		{{options.required ? '*' : ''}}
+	</label>
+  {{options.placeholder}}
 	<textarea type="text"
 			  class="form-control msd-elastic"
 			  id="{{id}}"
