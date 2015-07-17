@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Link, LinksService, User) {
+                                    FormHelper, gettextCatalog, Link, LinksService, User) {
 
     var currentUser;
 
@@ -13,7 +13,7 @@ angular.module('com.module.links')
     });
 
     function loadItems(id) {
-      if(id==1){
+      if(id===1){
         $scope.links = Link.find({
           filter: {
             order: 'created DESC'
@@ -83,14 +83,14 @@ angular.module('com.module.links')
     $scope.formFieldsUrl = [{
       key: 'url',
       type: 'url',
-      label: gettextCatalog.getString('URL'),
-      required: true
+      label: gettextCatalog.getString(' '),
+      required: false
     }];
 
     $scope.formFieldsDescription = [{
       key: 'description',
       type: 'textarea',
-      label: gettextCatalog.getString('Description'),
+      label: gettextCatalog.getString(' '),
       required: false
     }];
 
@@ -100,22 +100,15 @@ angular.module('com.module.links')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-
-    var currentUser;
-
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
-    $scope.title123 = angular.element("title");
     $scope.onSubmit = function() {
       if($scope.link.ownerId === currentUser.id){
-        if(document.getElementById('liveurl-title').innerHTML.length != 0){
+        if(document.getElementById('liveurl-title').innerHTML.length !== 0 ){
           $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
           $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
           $scope.link.liveurlUrl = document.getElementById('liveurl-url').innerHTML;
-          $scope.link.liveurlImg = document.getElementById('imgLiveurl').getAttribute('src');
+          if (document.getElementById('saveImgLiveurl').innerHTML.length > 58){
+            $scope.link.liveurlImg = document.getElementById('imgLiveurl').getAttribute('src');
+          }
         }
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),

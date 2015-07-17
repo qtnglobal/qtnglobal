@@ -5,8 +5,7 @@
   "idInjection": true,
   "properties": {
     "url": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "description": {
       "type": "string"

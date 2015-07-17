@@ -5,8 +5,6 @@ angular.module('com.module.news')
       'fa-edit');
 
     News.find(function(news) {
-      $rootScope.addDashboardBox(gettextCatalog.getString('News'),
-        'bg-red', 'ion-document-text', news.length, 'app.news.list');
     });
 
   });

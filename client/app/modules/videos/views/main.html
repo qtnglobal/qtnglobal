@@ -1,7 +1,7 @@
 <section admin-header class="content-header" title="{{ 'Videos' | translate }}" sub-title="{{ 'Manage your videos here!' | translate }}">
   <div  data-toggle="modal" data-target="#ChooseAdd" class="btn btn-default btn-sm" translate><a ui-sref="^.add">Add</a></div>
   <div class="modal" id="ChooseAdd" >
-    <div class="modal-dialog" style="width: 50%">
+    <div class="modal-dialog" style="width: 50%; margin-top: 50px">
       <div class="l-content clearfix">
         <div ng-controller="UploadCtrl" nv-file-drop uploader="uploader" class="indash_blog" style="background-color: rgb(250, 250, 250);">
           <div class="modal-header">
@@ -36,67 +36,89 @@
                 </div>
               </div>
               <div class="upfrompc" style=" margin: 0 !important;">
-                <div class="box-body no-padding">
+                <div class="box1">
                   <div class="col-md-12">
                     <div class="alert alert-danger" ng-if="addError" translate>Could not add video!</div>
                     <formly-form result="video" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
                   </div>
+                  <div class="box-header">
+                    <!--<h3 class="box-title">-->
+                    <!--{{ 'Upload queue' | translate }}-->
+                    <!--<small> {{ uploader.queue.length }} {{ 'in queue' | translate }}</small>-->
+                    <!--</h3>-->
+                    <div class="box-tools">
+                      <div class="pull-right btn-group btn-group-xs">
+                        <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadAll()"
+                                ng-disabled="!uploader.getNotUploadedItems().length">
+                          <span class="glyphicon glyphicon-upload"></span> {{ 'Upload all' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-warning btn-xs" ng-click="uploader.cancelAll()"
+                                ng-disabled="!uploader.isUploading">
+                          <span class="glyphicon glyphicon-ban-circle"></span> {{ 'Cancel all' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="uploader.clearQueue()"
+                                ng-disabled="!uploader.queue.length">
+                          <span class="glyphicon glyphicon-trash"></span> {{ 'Remove all' | translate }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-body no-padding">
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th width="50%" translate>Name</th>
+                        <th ng-show="uploader.isHTML5" translate>Size</th>
+                        <th ng-show="uploader.isHTML5" translate>Progress</th>
+                        <th translate>Status</th>
+                        <!--<th translate>Actions</th>-->
+                      </tr>
+                      </thead>
+                      <tbody>
 
+                      <tr>
+                        <td><strong>{{ uploader.queue[0].file.name }}</strong>
+                        </td>
+                        <td ng-show="uploader.isHTML5" nowrap>{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB
+                        </td>
+                        <td ng-show="uploader.isHTML5">
+                          <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.queue[0].progress + '%' }"></div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <span ng-show="uploader.queue[0].isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                          <span ng-show="uploader.queue[0].isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                          <span ng-show="uploader.queue[0].isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
 
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th width="50%" translate>Name</th>
-                      <th ng-show="uploader.isHTML5" translate>Size</th>
-                      <th ng-show="uploader.isHTML5" translate>Progress</th>
-                      <th translate>Status</th>
-                      <!--<th translate>Actions</th>-->
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr>
-                      <td><strong>{{ uploader.queue[0].file.name }}</strong>
-                      </td>
-                      <td ng-show="uploader.isHTML5" nowrap>{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB
-                      </td>
-                      <td ng-show="uploader.isHTML5">
-                        <div class="progress" style="margin-bottom: 0;">
-                          <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.queue[0].progress + '%' }"></div>
-                        </div>
-                      </td>
-                      <td class="text-center">
-                        <span ng-show="uploader.queue[0].isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                        <span ng-show="uploader.queue[0].isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                        <span ng-show="uploader.queue[0].isError"><i class="glyphicon glyphicon-remove"></i></span>
-                      </td>
-
-                    </tr>
-                    </tbody>
-                  </table>
-
-
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <div class="upfromweb">
                 <div class="box-body no-padding">
-                  <div style="padding: 5px">
+                  <div style="padding: 5px;  min-height: 200px;">
                     <div class="alert alert-danger" ng-if="addError" translate>Could not add video!</div>
-                    <formly-form result="video" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+                    <formly-form style="padding: 5px" result="link" fields="formFieldsUrl" options="formOptions" ng-submit="upPost()"></formly-form>
+                    <br>
+                    <hr>
+                    <formly-form result="video" fields="formContent" options="formOptions" ng-submit="onSubmit()"></formly-form>
                   </div>
-                  <formly-form style="padding: 5px" result="link" fields="formFieldsUrl" options="formOptions" ng-submit="upPost()"></formly-form>
                   <table class="table"></table>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="modal-footer footer">
-            <button data-dismiss="modal" ng-click="closeUpVideo()">Close</button>
-                <span><button type="button" class="btn btn-success btn-xs PC" ng-click="upload(uploader.queue[0])"
-                              ng-disabled="!uploader.getNotUploadedItems().length" data-dismiss="modal" ui-sref="^.videos">Post</button>
+            <div class="modal-footer footer" style="border: none; margin-top: 5px">
+              <button data-dismiss="modal" style="width: 50px;  height: 25px;" ui-sref="^.videos" ng-click="closeUpVideo()">Close</button>
+                <span><button type="button" style="width: 50px; height: 25px;" class="btn btn-success btn-xs PC" ng-click="upload(uploader.queue[0])"
+                              ng-disabled="!uploader.getNotUploadedItems().length" data-dismiss="modal">Post</button>
                 </span>
-                 <span><button type="button" class="btn btn-success btn-xs web" data-dismiss="modal" ng-click="upPost()" >Post</button>
+                 <span><button type="button" class="btn btn-success btn-xs web" data-dismiss="modal" ng-click="upPost()">Post</button>
                 </span>
+            </div>
           </div>
         </div>
       </div>
@@ -104,8 +126,6 @@
   </div>
 </section>
 <section ui-view class="content"></section>
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<scripta src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></scripta>
 <style>
   .controls-container {
     display: table;
@@ -135,7 +155,7 @@
   .media-dropzone.split-dropzone .split-cells {
     display: table;
     width: 100%;
-    height: 100%;
+    height: 200px;
     table-layout: fixed;
   }
   .media-dropzone.split-dropzone .split-cell {
@@ -175,6 +195,8 @@
   }
   .fromWeb .modal-footer .web{
     display: inherit;
+    width: 50px;
+    height: 25px;
   }
   .upfromweb{
     display: none;
@@ -204,6 +226,19 @@
     opacity: 0;
     filter: alpha(opacity=0);
   }
+  .liveurl{
+    border-top: none;
+    border-bottom: 1px dashed #CCC;
+  }
+  .liveurl .image{
+    margin: auto;
+    width: 100%;
+  }
+  #liveurl-img img{
+    width: 100%
+  }
+  .liveurl .details{
+    margin-top: 15px
+  }
   /**/
 </style>
-

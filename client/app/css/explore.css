@@ -155,7 +155,8 @@
   z-index: 1;
 }
 .item-photo{
-  width: 100%
+  width: 100%;
+  min-height: 40px;
 }
 .dropdown {
   float: right;
@@ -184,10 +185,12 @@
 }
 .ct-pt-content p{
   margin-left: 10px;
+  word-wrap: break-word;
 }
 .ct-pt-title {
   margin-left: 10px;
   width: 92%;
+  word-wrap: break-word;
 }
 .containerExplore{
   padding: 0 10px 4%;

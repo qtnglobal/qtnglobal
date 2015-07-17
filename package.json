@@ -87,7 +87,7 @@
     "gulp-nodemon": "^2.0.3"
   },
   "optionalDependencies": {
-    "loopback-explorer": "^1.6.4"
+    "loopback-explorer": "^1.8.0"
   },
   "devDependencies": {
     "browserify": "^8.1.3",

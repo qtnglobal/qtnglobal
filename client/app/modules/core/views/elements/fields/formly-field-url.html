@@ -1,4 +1,4 @@
-<div class="form-group col-md-4" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group formurl col-md-4" ng-class="{'has-error': options.formField.$invalid}">
   <label for="{{id}}">
     {{options.label || 'Text'}}
     {{options.required ? '*' : ''}}
@@ -9,7 +9,7 @@
             formly-dynamic-name="options.key"
             formly-custom-validation="options.validators"
             rows="{{options.lines}}"
-            placeholder="{{options.placeholder}}"
+            placeholder="Type or paste a URL"
             aria-describedby="{{id}}_description"
             ng-required="options.required"
             ng-disabled="options.disabled"
@@ -23,13 +23,14 @@
   <div class="liveurl">
     <div class="close" title="Entfernen"></div>
     <div class="inner">
-      <div class="image" id="liveurl-img"></div>
+      <div id="saveImgLiveurl">
+        <div class="image" id="liveurl-img"></div>
+      </div>
       <div class="details">
         <div class="info">
           <div class="title" id="liveurl-title"></div>
           <div class="description" id="liveurl-description"></div>
           <a href="#" class="url" id="liveurl-url" target="_blank"> </a>
-          <div class="url" id="liveurl-url"></div>
         </div>
         <div class="thumbnail">
           <div class="pictures">
@@ -56,6 +57,7 @@
     },
     loadEnd : function(){
       $('.liveurl-loader').hide();
+      $('.formurl').hide();
     },
     success : function(data)
     {
@@ -68,6 +70,7 @@
       output.find('.close').one('click', function()
       {
         var liveUrl     = $(this).parent();
+        liveUrl.find('.title').html('');
         liveUrl.hide('fast');
         liveUrl.find('.video').html('').hide();
         liveUrl.find('.image').html('');
@@ -121,7 +124,7 @@
       output.find('.thumbnail .max').text(curImages.length);*/
     }
   });
-  $('.liveurl ').on('click', '.controls .button', function()
+  /*$('.liveurl ').on('click', '.controls .button', function()
   {
     var self        = $(this);
     var liveUrl     = $(this).parents('.liveurl');
@@ -151,5 +154,5 @@
         self.prev().addClass('inactive');
       else   self.next().addClass('inactive');
     }
-  });
+  });*/
 </script>
