@@ -1,15 +1,15 @@
-<div class="containerPhoto" >
+<div class="containerExplore" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="box" ng-repeat="item in photos" style="border-radius: 5px; margin-bottom: 10px">
+    <div isotope-item class="box" ng-repeat="item in photos">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
-          <div class="avatar hovergallery" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
+          <div class="avatar hovergallery" style="">
             <img src="images/avatar_default.png"/>
           </div>
-          <div class="post_info_qtnglobal User_name " style="z-index: 1">
+          <div class="post_info_qtnglobal User_name ">
             <a href="#">{{item.ownerName}}</a>
           </div>
-          <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
+          <div  class="dropdown" ng-show="show">
             <button type="button" class="btn-mini " ><i class="fa fa-user-plus"></i>  Add friend</button>
             <button type="button" class="btn-mini " id="menuPhoto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-cog"></i>
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="mid-box">
-          <div class="item-photo"  style="width: 100% ">
+          <div class="item-photo">
             <img ng-src="{{item.url}}" ng-click="open(item)"  />
               <div style="margin-top: 30px;">
             <img style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
@@ -48,151 +48,28 @@
               {{item.title}}
             </h3>
           </div>
-          <div class="w3-border-left" >
             <div class="ct-pt-content">
               <p>{{item.content}}</p>
             </div>
-
-            </div>
-          <div class="box-footer" style="bottom: 0; width: 100%">
-            <div class="date_update_photo" style="float: left">
+          <div class="box-footer">
+            <div class="date_update_photo">
               <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
             </div>
-          <span class="text-muted" style="float: right;;margin-bottom: 7px">
+          <span class="text-muted">
             &middot;
             <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
             <a href="#" ng-click="showme=true" title="Comment"><i  class="fa fa-comment"></i></a>
             <a href="#" title="Share"><i class="fa fa-share"></i> </a>
           </span>
-          <div  ng-show="showme" style=" width: 100%; padding: 10px" >
+          <!--<div  ng-show="showme" style=" width: 100%; padding: 10px" >-->
             <!--<div class="comment-content" style="float: right">-->
             <!--</div>-->
             <!--<p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>-->
             <!--<a ng-click="showme=false" style="position:relative;float: right">Hide</a>-->
-          </div>
+          <!--</div>-->
         </div>
       </div>
     </div>
 </div>
-
-
-<style>
-  .ct-pt-content{
-    margin-left: 10px;
-    width: 88%;
-  }
-  .ct-pt-title {
-    margin-left: 10px;
-    width: 92%;
-  }
-  .containerPhoto{
-padding: 0 10px 4%;
-  }
-  .masonry-photo {
-
-  }
-  .text-muted a {
-    color: black;
-  }
-  .post_info_qtnglobal a{
-    color: white;
-    font-size: 15px;
-  }
-  .text-muted i{
-    color: black;
-  }
-  .mid-box :after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 60px;
-    display: block;
-    width: 100%;
-    border-radius: 3px 3px 0 0;
-    pointer-events: none;
-    background: 0 0;
-    background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
-    background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
-  }
-  .User_name{
-    font-size: 14px;
-    max-width: 160px;
-    color: blue !important;
-    margin: 5px ;
-  }
-  .box {
-    padding: 0 !important;
-    width: 300px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-top: 0 !important;
-    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
-}
-.item-photo img {
-  width: 100% !important;
-  height: 100%;
-  text-align: center;
-  margin: 0 ;
-  border-radius: 5px 5px 0 0;
-}
-.post_info_qtnglobal{
-  display: inline-block;
-  font-size: 13px;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  vertical-align: top;
-  color: cornsilk !important;
-  position: absolute;
-  margin-left: 5px ;
-}
-.text-muted a {
-  margin-left: 6px;
-  float: left;
-}
-.box .box-footer {
-  border-top: none !important;
-
-}
-  .w3-border-left {
-    margin-left: 10px;
-    padding: 0 !important;
-    border-left:1px solid #ccc !important;
-  }
-.hovergallery img{
-  -webkit-transform:scale(0.8);
-  /*Webkit: Scale down image to 0.8x original size*/
-    /*-moz-transform:scale(0.8);*/
-    /*Mozilla scale version*/
-    -o-transform:scale(0.8);
-    /*Opera scale version*/
-    -webkit-transition-duration: 0.5s;
-    /*Webkit: Animation duration*/
-    -moz-transition-duration: 0.5s;
-    /*Mozilla duration version*/
-    -o-transition-duration: 0.5s;
-    /*Opera duration version*/
-    /*opacity: 0.7;*/
-    /*initial opacity of images*/
-    margin: 0 10px 5px 0;
-    /*margin between images*/ }
-  .hovergallery img:hover {
-    -webkit-transform: scale(1.1);
-    /*Webkit: Scale up image to 1.2x original size*/
-    -moz-transform: scale(1.5);
-    /*Mozilla scale version*/
-    -o-transform: scale(1.1);
-    /*Opera scale version*/
-  }
-  li {
-    list-style-type: none;
-  }
-</style>
 
 
