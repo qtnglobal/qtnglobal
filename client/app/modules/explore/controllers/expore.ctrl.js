@@ -50,7 +50,7 @@ angular.module('com.module.explore')
 
     $scope.goToRegister = function(){
       $location.path('/register');
-    }
+    };
 
     $scope.items = [{
       name: 'Trending',

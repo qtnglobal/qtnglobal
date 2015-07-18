@@ -1,180 +1,102 @@
-<div class="father" style="padding-bottom: 0">
-  <div isotope-container class="wrapper">
-    <div isotope-item class="box" ng-repeat="item in videos| limitTo: myLimit" style="float: left; border-radius: 5px; height: 350px">
-      <div class="col-sm-3a">
-        <div class="col-sm-3b hovergallery" style=" margin: 5px; width: 100%; ; border-bottom: 1px solid #F4F4F4">
-          <div class="avatar" style="display: inline-block; font-size: 14px; width: 30px">
-            <img ng-src="{{item.liveurlImg}}"/>
+<div class="containerExplore" >
+  <div isotope-container class="masonry-Explore" ng-controller="modal_show_photo">
+    <div isotope-item class="boxEx" ng-repeat="item in videos">
+      <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
+        <div class="top-box">
+          <div class="avatarEx hovergallery" style="">
+            <img ng-src="{{user.avatar}}/>
           </div>
-
-          <div>
-            <script type="text/ng-template" id="myModalContent.html">
-              <div class="modal-body">
-                <div class="header">
-                  <div class="indash_header_wrapper has_info tumblelog_name_solidblackdn" style="background-color:#FAFAFA; color:#444444">
-                    <div class="header_image_wrapper has_avatar" style="height: 380px">
-                      <div class="header_image" style="height: 380px;">
-                        <a href="" target="_blank">
-                          <img id="coverI" ng-src="{{user.cover}}" alt="cover_image"/>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="avatar square show1" style="color: rgb(250, 250, 250); text-align: center; background-color: rgb(250, 250, 250);">
-                      <a href="" target="_blank">
-                        <img id="avatarI" ng-src="{{user.avatar}}" target="_blank" alt="avatar_image">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </script>
-
-            <div ng-click="getUserData(item)"><a>{{item.ownerName}}</a></div>
+          <div class="post_info_qtnglobal User_name ">
+            <a href="#">{{item.ownerName}}</a>
           </div>
-
+          <div  class="dropdown" ng-show="show">
+            <button type="button" class="btn-mini " ><i class="fa fa-user-plus"></i>  Add friend</button>
+            <button type="button" class="btn-mini " id="menuPhoto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog"></i>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu btn-mini" aria-labelledby="menuPhoto">
+              <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
+              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user "></i> User profile</a></li>
+              <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
+              <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="contentt">
-          <div class="box-header">
-            <h3 class="box-title">
-              <a style="color: #000808; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-style: normal; font-size: 18px" >{{item.title}}</a>
-            </h3>
-          </div>
-          <div class="box-body">
-            <video controls ng-src="{{item.url|trusted}}" style="width: 100%"></video>
-            <div style="white-space: pre">{{item.content | limitTo: 40}}{{item.content.length > 40 ? '...' : ''}}</div>
-            <div class="readMore" style="margin: auto; width: 73px">
-              <a href="" ui-sref="app.videos.view({id: item.id})" type="button" class="btn btn-link btn-xs" ng-show="item.content.length < 40 ? false:true">Read more</a>
+        <div class="mid-box">
+          <div class="item-photo">
+            <div ng-hide="!item.upChoose" ng-disabled="!item.upChoose">
+              <video ng-hide="!item.upFrom" style="width:100%" ng-src="{{item.url|trusted}}" controls></video>
+              <iframe ng-hide="item.upFrom" width="100%" height="200px" ng-src="{{item.urlweb|trusted}}"></iframe>
             </div>
-          </div>
-
-          <div class="box-footer" style="position: absolute;bottom: 0; width: 100%">
-            <small>
-              Created:
-              {{item.created | date:'medium'}}
-            </small>
-            <span class="text-muted" style="float: right">
-
-              <a href="#/explore/articles">  <i class="fa fa-thumbs-o-up"></i> </a>
-              <a href="#/explore/articles">   <i class="fa fa-comments-o"></i></a>
-              <a href="#/explore/articles">  <i class="fa fa-share"></i></i> </a>
-
-            </span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer" style="margin: auto; width: 58px">
-    <button class=" btn btn-default" ng-click="loadMore()">More</button>
-  </div>
-</div>
-
-<div class="modal" id="create" >
-  <div class="modal-dialog">
-    <!--<div class="post-tab-switching finish-animating ">-->
-    <div class="l-content clearfix">
-      <div class="indash_blog" style="min-height: 306px; background-color: rgb(250, 250, 250);">
-        <div class="header">
-          <div class="indash_header_wrapper has_info tumblelog_name_solidblackdn" style="background-color:#FAFAFA; color:#444444">
-            <div class="header_image_wrapper has_avatar" style="height: 380px">
-              <div class="header_image" style="height: 380px;>
-              <a href=" target="_blank">
-                <img id="coverImage" ng-src="{{user.cover}}" alt="cover_image"/>
-                </a>
-              </div>
-            </div>
-
-
-            <div class="avatar square show1" style="color: rgb(250, 250, 250); text-align: center; background-color: rgb(250, 250, 250);">
-              <a href="" target="_blank">
-                <img id="avatarImage" ng-src="{{user.avatar}}" target="_blank" alt="avatar_image">
+            <div ng-hide="item.upChoose" ng-disabled="item.upChoose">
+              <a href="{{item.url|trusted}}" target="_blank">
+                <img src="{{item.liveurlImg|trusted}}" width="100%" height="auto">
+                <!--<p>{{item.liveurlImg|trusted}}</p>-->
               </a>
             </div>
+            <div style="margin-top: 20px;">
+              <img style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
+            </div>
+            <script type="text/ng-template" id="myModalContent.html" >
+              <div class="modal-header">
+                <a href="#">{{items.ownerName}}</a>
+              </div>
+              <img ng-src="{{items.url}}" />
+              <img ng-src="{{items.url1}}" />
+              <div class="modal-footer">
+                <button class="btn" ng-click="ok()">OK</button>
+                <button class="btn" ng-click="cancel()">Cancel</button>
+              </div>
+            </script>
+          </div>
+        </div>
+        <div class="bot-box">
+          <div class="ct-pt-title">
+            <h3>
+              {{item.title}}
+            </h3>
+          </div>
+          <div class="ct-pt-content">
+            <p>{{item.content}}</p>
+          </div>
+          <div class="footer-bot-box">
+            <div class="date_update_photo">
+              <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
+            </div>
+          <span class="text-muted">
+            &middot;
+            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
+            <a href="#" ng-click="showme=true" title="Comment"><i  class="fa fa-comment"></i></a>
+            <a href="#" title="Share"><i class="fa fa-share"></i> </a>
+          </span>
+            <!--<div  ng-show="showme" style=" width: 100%; padding: 10px" >-->
+            <!--<div class="comment-content" style="float: right">-->
+            <!--</div>-->
+            <!--<p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>-->
+            <!--<a ng-click="showme=false" style="position:relative;float: right">Hide</a>-->
+            <!--</div>-->
           </div>
         </div>
       </div>
     </div>
-    <!--</div>-->
-  </div>
-</div>
-
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-
-
-
-<style>
-  .col-sm-3a img {
-    width: 100% !important;
-    text-align: center;
-    margin: 0px;
-
-  }
-  .User_name{
-    display: inline-block;
-    font-size: 13px;
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    vertical-align: top;
-    color: cornsilk !important;
-    position: absolute;
-    margin-left: 5px ;
-  }
-  .father{
-    padding: 0 50px 4%;
-    margin: 0 auto;
-  }
-  .father a,h3,p {
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .box{
-    width: 250px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .text-muted a {
-    margin-left: 6px;
-    float: left;
-  }
-  .box {
-    border-top: none !important;
-  }
-
-</style>
-<style type="text/css">
-
-  .hovergallery img{ -webkit-transform:scale(0.8);
-    /*Webkit: Scale down image to 0.8x original size*/
-    /*-moz-transform:scale(0.8);*/
-    /*Mozilla scale version*/
-    -o-transform:scale(0.8);
-    /*Opera scale version*/
-    -webkit-transition-duration: 0.5s;
-    /*Webkit: Animation duration*/
-    -moz-transition-duration: 0.5s;
-    /*Mozilla duration version*/
-    -o-transition-duration: 0.5s;
-    /*Opera duration version*/
-    opacity: 0.7;
-    /*initial opacity of images*/
-    margin: 0 10px 5px 0;
-    /*margin between images*/ }
-  .hovergallery img:hover{
-    -webkit-transform:scale(1.1);
-    /*Webkit: Scale up image to 1.2x original size*/
-    -moz-transform:scale(1.5);
-    /*Mozilla scale version*/
-    -o-transform:scale(1.1);
-    /*Opera scale version*/
-    box-shadow:0px 0px 30px gray;
-    /*CSS3 shadow: 30px blurred shadow all around image*/
-    -webkit-box-shadow:0px 0px 30px gray;
-    /*Safari shadow version*/
-    -moz-box-shadow:0px 0px 30px gray;
-    /*Mozilla shadow version*/ opacity: 1;
-  } </style>
+    <style>
+      .mid-box :after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 60px;
+        display: block;
+        width: 100%;
+        border-radius: 3px 3px 0 0;
+        pointer-events: none;
+        background: 0 0;
+        background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
+        background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%)!important;
+        background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%) !important;
+      /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
+    </style>
 

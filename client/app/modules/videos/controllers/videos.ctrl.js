@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.videos')
-  .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService,
+  .controller('VideosCtrl', function($scope, $state, $stateParams, CoreService, $timeout,
                                      FormHelper, gettextCatalog, $location, Video, VideosService, User) {
 
     var currentUser;
@@ -55,6 +55,7 @@ angular.module('com.module.videos')
       }, function() {}, function(err) {
         console.log(err);
       });
+
     } else {
       $scope.video = {};
       User.getCurrent(function(user) {
@@ -80,7 +81,7 @@ angular.module('com.module.videos')
     $scope.formContent = [{
       key: 'content',
       type: 'textarea',
-      label: gettextCatalog.getString('Content'),
+      placeholder: gettextCatalog.getString('Add content here...'),
       required: false
     }];
     //{
@@ -148,6 +149,7 @@ angular.module('com.module.videos')
           console.log(err);
         });
         item.upload();
+        $timeout($state.reload(), 3000);
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
@@ -171,24 +173,25 @@ angular.module('com.module.videos')
     $scope.title123 = angular.element("title");
     $scope.upPost = function() {
       if($scope.video.ownerId === currentUser.id){
+        var url = document.getElementById('liveurl-url').innerHTML;
+        var img = document.getElementById('liveurl-img').innerHTML;
         $scope.video.upChoose = true;
         $scope.video.upFrom = false;
-        $scope.video.url = document.getElementById('liveurl-url').innerHTML;
+        $scope.video.url = url;
         $scope.video.title = document.getElementById('liveurl-title').innerHTML;
         $scope.video.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
-        if(document.getElementById("liveurl-url").innerHTML.indexOf("youtube")>=0){
-          $scope.video.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(39,-2);
-          $scope.video.urlweb =  document.getElementById('liveurl-url').innerHTML.replace("watch?v=","embed/");
-        }else if(document.getElementById("liveurl-url").innerHTML.indexOf("vimeo")>=0){
-          var numb = document.getElementById("liveurl-url").innerHTML.indexOf("video/");
-          $scope.video.urlweb = "https://player.vimeo.com/video/" + document.getElementById("liveurl-url").innerHTML.slice(numb+6,9)
-        }else if(document.getElementById("liveurl-url").innerHTML.indexOf("embed/")>=0){
-          $scope.video.urlweb =  document.getElementById('liveurl-url').innerHTML;
+        if(url.indexOf("youtube")>=0){
+          $scope.video.liveurlImg = img.slice(39,-2);
+          $scope.video.urlweb =  url.replace("watch?v=","embed/").slice(0,41);
+        }else if(url.indexOf("vimeo")>=0){
+          var urlweb = url + " ";
+          $scope.video.urlweb = "https://player.vimeo.com/video/" + urlweb.slice(-10,-1)
+        }else if(url.indexOf("embed/")>=0){
+          $scope.video.urlweb =  url;
         }else {
           $scope.video.urlweb = "#";
           $scope.video.upChoose = false;
-          $scope.video.liveurlImg = document.getElementById('liveurl-img').innerHTML.slice(10,-30);
-          $scope.video.url = document.getElementById('liveurl-url').innerHTML;
+          $scope.video.liveurlImg = img.slice(10,-30);
         }
         Video.upsert($scope.video, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
@@ -197,6 +200,7 @@ angular.module('com.module.videos')
         }, function(err) {
           console.log(err);
         });
+        $timeout($state.reload(), 3000);
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
