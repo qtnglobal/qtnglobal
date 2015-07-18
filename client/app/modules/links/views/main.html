@@ -1,4 +1,57 @@
 <section admin-header class="content-header" title="{{ 'Links' }}" sub-title="{{ 'Manage your links here!' }}">
-    <a ui-sref=".add" class="btn btn-default btn-sm" translate>Add</a>
+  <div  data-toggle="modal" data-target="#ChooseAddLink" class="btn btn-default btn-sm" translate><a>Add</a></div>
 </section>
 <section ui-view class="content"></section>
+
+<div class="modal fade" id="ChooseAddLink" style="opacity: 1">
+  <div class="modal-dialog" style="width: 55%; margin-top: 50px">
+    <div  class="" style="background-color: rgb(250, 250, 250)">
+      <div class="l-content clearfix formLinksModal">
+        <div class="modal-header">
+          <div class="controls-container-links">
+            <div class="control-links left">
+              <h4>Add a new link</h4>
+            </div>
+            <div class="control-links right"><span class="ion-android-settings"></span></div>
+          </div>
+        </div>
+        <div class="modal-body" style="padding:0">
+          <formly-form result="link" fields="formFieldsUrl" options="formOptions" ng-submit="onSubmit()"></formly-form>
+          <div style="clear: both"></div>
+          <div class="alert alert-danger" ng-if="addError" translate>Could not add link!</div>
+          <formly-form result="link" fields="formFieldsDescription"  ng-submit="onSubmit()"></formly-form>
+          <div style="clear: both"></div>
+        </div>
+        <div class="modal-footer">
+          <div class="controls">
+            <button class="btn btn-primary btn-success" data-dismiss="modal" ng-click="onSubmit()" style="margin-left: 15px" translate>Submit</button>
+            <!--<button class="btn btn-default" data-dismiss="modal" translate>Cancel</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .formLinksModal {
+    margin: 10px;
+  }
+  .controls-container-links {
+    display: table;
+    width: 100%;
+    /*padding: 10px 15px 10px 20px;*/
+    box-sizing: border-box;
+  }
+  .control-links {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .control-links.left {
+    text-align: left;
+  }
+  .control-links.right{
+    text-align: right;
+  }
+
+</style>

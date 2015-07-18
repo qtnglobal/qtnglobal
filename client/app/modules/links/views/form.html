@@ -5,10 +5,9 @@
     <span ng-show="!link.id" translate>Add a new link</span>
     <span ng-show="link.id" translate>Edit link</span>
   </h4>
-
-  <formly-form result="link" fields="formFieldsUrl" options="formOptions" ng-submit="onSubmit()"></formly-form>
-  <div style="clear: both"></div>
   <div class="col-md-4">
+    <formly-form result="link" fields="formFieldsUrl" options="formOptions" ng-submit="onSubmit()"></formly-form>
+    <div style="clear: both"></div>
     <div class="alert alert-danger" ng-if="addError" translate>Could not add link!</div>
     <formly-form result="link" fields="formFieldsDescription"  ng-submit="onSubmit()"></formly-form>
   </div>

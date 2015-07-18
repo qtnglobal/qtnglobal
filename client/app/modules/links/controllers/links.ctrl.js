@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.links')
   .controller('LinksCtrl', function($scope, $sce, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Link, LinksService, User) {
+                                    FormHelper, gettextCatalog, Link, LinksService, User) {
 
     var currentUser;
 
@@ -13,7 +13,7 @@ angular.module('com.module.links')
     });
 
     function loadItems(id) {
-      if(id==1){
+      if(id===1){
         $scope.links = Link.find({
           filter: {
             order: 'created DESC'
@@ -83,15 +83,17 @@ angular.module('com.module.links')
     $scope.formFieldsUrl = [{
       key: 'url',
       type: 'url',
-      label: gettextCatalog.getString('URL'),
-      required: true
+      label: gettextCatalog.getString(' '),
+      required: false,
+      placeholder: 'Type or paste a URL'
     }];
 
     $scope.formFieldsDescription = [{
       key: 'description',
       type: 'textarea',
-      label: gettextCatalog.getString('Description'),
-      required: false
+      label: gettextCatalog.getString(' '),
+      required: false,
+      placeholder:'Add a description, if you like'
     }];
 
     $scope.formOptions = {
@@ -100,35 +102,42 @@ angular.module('com.module.links')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-
-    var currentUser;
-
-    User.getCurrent(function(user) {
-      currentUser = user;
-    }, function(err) {
-      console.log(err);
-    });
-    $scope.title123 = angular.element("title");
     $scope.onSubmit = function() {
       if($scope.link.ownerId === currentUser.id){
-        if(document.getElementById('liveurl-title').innerHTML.length != 0){
-          $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
-          $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
-          $scope.link.liveurlUrl = document.getElementById('liveurl-url').innerHTML;
-          $scope.link.liveurlImg = document.getElementById('imgLiveurl').getAttribute('src');
-        }
+        saveLiveUrl();
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
             gettextCatalog.getString('Your link is safe with us!'));
-          $state.go('^.list');
         }, function(err) {
           console.log(err);
         });
+        fixSubmit();
       }
       else{
         CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
         $state.go('^.list');
       }
     };
+
+    function saveLiveUrl(){
+      if(document.getElementById('liveurl-title').innerHTML.length !== 0 ){
+        $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
+        $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
+        $scope.link.liveurlUrl = document.getElementById('liveurl-url').innerHTML;
+        if (document.getElementById('saveImgLiveurl').innerHTML.length > 58){
+          $scope.link.liveurlImg = document.getElementById('imgLiveurl').getAttribute('src');
+        }
+      }
+    }
+
+    function fixSubmit() {
+      if($stateParams.id){
+        $state.go('^.list');
+      }
+      else {
+        $state.reload();
+
+      }
+    }
   });
 

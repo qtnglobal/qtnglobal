@@ -1,4 +1,4 @@
-<div class="form-group formurl col-md-4" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group formurl" ng-class="{'has-error': options.formField.$invalid}">
   <label for="{{id}}">
     {{options.label || 'Text'}}
     {{options.required ? '*' : ''}}
@@ -18,7 +18,7 @@
   <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>
 
-<div class="col-md-12" style="">
+<div class="col-md-12">
   <div class="liveurl-loader"></div>
   <div class="liveurl">
     <div class="close" title="Entfernen"></div>
@@ -77,6 +77,7 @@
         liveUrl.find('.image').hide();
         $('.previewUrl').trigger('clear');
         curImages = new Array();
+        $('.formurl').show();
       });
       output.show('fast');
       if (data.video != null) {
