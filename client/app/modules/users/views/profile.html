@@ -20,9 +20,9 @@
                 <div class="hide2">
                   <h3>Edit appearance</h3>
                   <button class="chrome big black cancel_button" ng-click="changeCover()" type="button">Cancel</button>
-                  <button class="chrome big black " ng-click="uploadCover(uploader.queue[uploader.queue.length-1])" type="button">Update Cover</button>
+                  <button ng-hide="!uploader.queue[uploader.queue.length-1]" class="chrome big black " ng-click="uploadCover(uploader.queue[uploader.queue.length-1])" type="button">Submit</button>
                 </div>
-                <div class="input-group pull-right coverButtonUpload" style="margin-top: 10px">
+                <div ng-hide="uploader.queue[uploader.queue.length-1]"  class="input-group pull-right coverButtonUpload" style="margin-top: 10px">
                     <span class="file-input chrome big black btn btn-block btn-file">
                         <i class="fa fa-pencil"></i>Choose Photo<input nv-file-select class="coverImage" type="file" accept="image/*" uploader="uploader"/>
                     </span>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="avatarSolution" style="text-align: center">
-              <div class="input-group avatarButtonUpload" >
+              <div ng-hide="uploader.queue[uploader.queue.length-1]" class="input-group avatarButtonUpload" >
                     <span class="file-input chrome big black btn btn-block btn-file" style="width: 120px;margin: auto; margin-bottom: 10px">
                         <i class="fa fa-pencil"></i>Choose Photo<input nv-file-select class="avatarImage" type="file" accept="image/*" uploader="uploader"/>
                     </span>
@@ -57,7 +57,7 @@
               </div>
               <div class="show2">
                 <button class="chrome big black cancel_button" ng-click="changeAvatar()" type="button">Cancel</button>
-                <button class="chrome big black " ng-click="uploadAvatar(uploader.queue[uploader.queue.length-1])" type="button">Update Avatar</button>
+                <button ng-hide="!uploader.queue[uploader.queue.length-1]" class="chrome big black " ng-click="uploadAvatar(uploader.queue[uploader.queue.length-1])" type="button">Update Avatar</button>
               </div>
             </div>
           </div>

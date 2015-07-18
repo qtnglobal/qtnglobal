@@ -12,6 +12,7 @@ angular.module('com.module.explore')
   .controller('ExploreCtrl', function($scope, $routeParams, $location,User, $modal) {
     $scope.limitText = 200;
 
+    $scope.currentUser = User.getCurrent();
 
     $scope.getUserData = function (item) {
       $modal.open({

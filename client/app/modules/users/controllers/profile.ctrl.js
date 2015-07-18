@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.users')
-  .controller('ProfileCtrl', function($scope, $timeout, CoreService, User, gettextCatalog) {
+  .controller('ProfileCtrl', function($scope, $timeout, CoreService, User, gettextCatalog, $state) {
 
 
     $scope.user = User.getCurrent(function(user) {
@@ -8,7 +8,7 @@ angular.module('com.module.users')
     }, function(err) {
       console.log(err);
     });
-    
+
     $scope.formFields = [{
       key: 'username',
       type: 'text',
@@ -48,12 +48,6 @@ angular.module('com.module.users')
           'Your profile is not saved: ') + err);
       });
     };
-    //below Edit by Sang
-    /*$scope.changeImages = function(){
-      var $ = angular.element;
-      $('.indash_blog').toggleClass('customizing');
-      $scope.avaStyle={color:'rgb(250, 250, 250)', 'background-image':'url(https://secure.assets.tumblr.com/images/default_avatar/cube_closed_128.png)'};
-    }*/
 
     $scope.changeCover = function(){
       var $ = angular.element;
@@ -70,7 +64,6 @@ angular.module('com.module.users')
     $scope.uploadCover = function(item){
 
       $scope.user.cover = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log($scope.user);
       User.upsert($scope.user, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
           'Profile saved'), gettextCatalog.getString(
@@ -81,13 +74,13 @@ angular.module('com.module.users')
           'Your profile is not saved: ') + err);
       });
       item.upload();
-      $('.navigation').toggleClass('customizing');
+      $state.reload();
+
     }
 
     $scope.uploadAvatar = function(item){
 
       $scope.user.avatar = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
-      console.log($scope.user);
       User.upsert($scope.user, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
           'Profile saved'), gettextCatalog.getString(
@@ -98,7 +91,7 @@ angular.module('com.module.users')
           'Your profile is not saved: ') + err);
       });
       item.upload();
-      $('.avatarSolution').toggleClass('customizing1');
+      $state.reload();
     }
 
   });
