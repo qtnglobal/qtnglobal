@@ -10,10 +10,11 @@ angular.module('com.module.core')
    * @requires gettextCatalog
    **/
   .controller('LayoutCtrl', function($state, $scope, $rootScope, $timeout, $cookies, CoreService,
-    gettextCatalog, $location) {
+    gettextCatalog, $location, $window) {
 
     $scope.goToExplore = function(){
       $location.path('/explore');
+      $window.location.reload();
     };
 
     $scope.goToHome = function(){

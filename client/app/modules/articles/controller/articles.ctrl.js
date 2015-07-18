@@ -71,18 +71,13 @@ var app=angular.module('com.module.articles');
       $scope.formFields = [{
         key: 'title',
         label: gettextCatalog.getString('Title'),
-        type: 'editable-text',
+        type: 'text',
         required: true
       }, {
         key: 'content',
         label: gettextCatalog.getString('Content'),
         type: 'editable-text',
         required: true
-      }, {
-        key: 'url',
-        type: 'text',
-        label: gettextCatalog.getString('Url'),
-        required: false
       }];
 
       $scope.formOptions = {

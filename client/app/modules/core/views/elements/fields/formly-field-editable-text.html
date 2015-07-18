@@ -1,18 +1,19 @@
 <div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
-	<label for="{{id}}">
-		{{options.label || 'Text'}}
-		{{options.required ? '*' : ''}}
-	</label>
-	<div
+  <label for="{{id}}">
+    {{options.label || 'Text'}}
+    {{options.required ? '*' : ''}}
+  </label>
+  <div
     id="{{id}}"
     text-angular
-       formly-dynamic-name="options.key"
-       formly-custom-validation="options.validators"
-       aria-describedby="{{id}}_description"
-       ng-required="options.required"
-       ng-disabled="options.disabled"
-       ng-model="result[options.key || index]"
-       ng-model="content"></div>
+      ta-toolbar="[['h1','h2','h3','h4','h5','h6','p','pre','quote'],['undo','redo','clear'],['bold','italics','underline','strikeThrough','ul','ol'],['justifyLeft','justifyCenter','justifyRight','indent','outdent','insertLink']]"
+      formly-dynamic-name="options.key"
+      formly-custom-validation="options.validators"
+      aria-describedby="{{id}}_description"
+      ng-required="options.required"
+      ng-disabled="options.disabled"
+      ng-model="result[options.key || index]"
+      ng-model="content"></div>
 
    <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>
