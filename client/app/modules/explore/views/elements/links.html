@@ -1,6 +1,6 @@
 <div class="containerExplore" >
   <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="boxEx" ng-repeat="item in links">
+    <div isotope-item class="boxEx" ng-repeat="item in links" style="margin-bottom: 5px">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <div class="top-box">
           <div class="avatarEx hovergallery">
@@ -24,8 +24,8 @@
           </div>
         </div>
         <div class="mid-box">
-          <div class="item-photo">
-            <img ng-src="{{item.liveurlImg}}" ng-click="open(item)"  />
+          <div class="item-photo" style="min-height: 40px">
+            <img ng-src="{{item.liveurlImg}}" ng-click="open(item)"/>
             <script type="text/ng-template" id="myModalContent.html" >
               <div class="modal-header">
                 <a href="#">{{items.ownerName}}</a>

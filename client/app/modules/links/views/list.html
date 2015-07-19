@@ -23,7 +23,7 @@
     <div class="liveurl" style="display: block">
       <!--<div class="close" title="Entfernen"></div>-->
       <div class="inner">
-        <div class="image" style="display: block"><img style="display: block" ng-src="{{item.liveurlImg}}"></div>
+        <div class="image" ng-hide="!item.liveurlImg" style="display: block"><img style="display: block" ng-src="{{item.liveurlImg}}"></div>
         <div class="details">
           <div class="info">
             <div class="title">{{item.liveurlTitle}}</div>

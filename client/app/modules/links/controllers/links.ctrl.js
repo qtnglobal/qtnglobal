@@ -104,7 +104,7 @@ angular.module('com.module.links')
 
     $scope.onSubmit = function() {
       if($scope.link.ownerId === currentUser.id){
-        saveLiveUrl();
+        saveLiveurl();
         Link.upsert($scope.link, function() {
           CoreService.toastSuccess(gettextCatalog.getString('Link saved'),
             gettextCatalog.getString('Your link is safe with us!'));
@@ -119,7 +119,7 @@ angular.module('com.module.links')
       }
     };
 
-    function saveLiveUrl(){
+    function saveLiveurl() {
       if(document.getElementById('liveurl-title').innerHTML.length !== 0 ){
         $scope.link.liveurlTitle = document.getElementById('liveurl-title').innerHTML;
         $scope.link.liveurlDescription = document.getElementById('liveurl-description').innerHTML;
@@ -136,7 +136,6 @@ angular.module('com.module.links')
       }
       else {
         $state.reload();
-
       }
     }
   });
