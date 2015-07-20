@@ -8,9 +8,9 @@
     <navbar></navbar>
 </header>
 <div class="full-height">
-    <div class="wrapper row-offcanvas row-offcanvas-left full-height">
+    <div class="wrapper row-offcanvas row-offcanvas-left">
       <section class="test full-height">
-        <div class="row menuEx" style="position: fixed; z-index: 1; background: #003366!important;">
+        <div class="row menuEx" style="position: fixed; z-index: 10; background: #003366!important;">
           <!--<div class="col-md-2">-->
           <ul class="m-menuEx" style="display:inline">
             <li class="active" ng-repeat="item in items" ui-sref-active="active" style="float:left">
@@ -20,6 +20,5 @@
         </div>
         <div ui-view style="padding-top: 60px"></div>
       </section>
-
     </div>
 </div>

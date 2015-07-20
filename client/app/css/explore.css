@@ -152,7 +152,7 @@
 .top-box{
   width: 100%;
   position: absolute;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 .item-photo{
   width: 100%
@@ -166,7 +166,7 @@
   width: 30px;
   height: 30px;
   margin: 4px;
-  z-index: 1
+  /*z-index: 1*/
 }
 .footer-bot-box {
   bottom: 0;
