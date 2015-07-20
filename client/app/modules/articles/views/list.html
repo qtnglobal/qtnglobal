@@ -21,7 +21,7 @@
   </div>
   <div class="box-body">
     <div class="row" style="margin-bottom: 0 !important;">
-      <div class="col-sm-9" style="white-space: pre;" ng-bind-html="deliberatelyTrustDangerousContent(item)">
+      <div class="col-sm-9" ng-bind-html="deliberatelyTrustDangerousContent(item)">
       </div>
       <div ng-show="item.audio" class="col-sm-9"  >
               <audio controls ng-src="{{item.audio | trusted}}" ></audio>

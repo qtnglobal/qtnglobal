@@ -52,13 +52,15 @@ angular.module('com.module.explore')
       $location.path('/register');
     };
 
-    $scope.items = [{
-      name: 'Trending',
-      sref: '.trending'
-    }, {
-      name: 'Staff picks',
-      sref: '.staff-picks'
-    }, {
+    $scope.items = [
+    //  {
+    //  name: 'Trending',
+    //  sref: '.trending'
+    //}, {
+    //  name: 'Staff picks',
+    //  sref: '.staff-picks'
+    //},
+      {
       name: 'Article',
       sref: '.article'
     },{
@@ -73,10 +75,12 @@ angular.module('com.module.explore')
     },{
       name: 'Videos',
       sref: '.videos'
-    },{
-      name: 'Project',
-      sref: '.project'
-    }];
+    },
+    //  {
+    //  name: 'Project',
+    //  sref: '.project'
+    //}
+    ];
 
 
 

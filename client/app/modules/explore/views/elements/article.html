@@ -1,6 +1,6 @@
 <div class="containerArticle" >
   <div isotope-container class="masonry-article">
-    <div isotope-item class="box" ng-repeat="item in articles" style="border-radius: 5px; margin-bottom: 10px" ng-controller='ArticlesCtrl1' >
+    <div isotope-item class="box" ng-repeat="item in articles" style="border-top:none!important ;border-radius: 5px; margin-bottom: 10px" ng-controller='ArticlesCtrl1' >
       <div ng-mouseenter="show = true" ng-mouseleave="show = false">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -44,9 +44,7 @@
             <h3 class="box-body" >
               {{item.title}}
             </h3>
-            <div class="date_update_aricle" style="float: left;width: 100%">
-              <p style="margin: 0 10px 0 10px;font-size: 12px">{{item.created | date:'fullDate'}}</p>
-            </div>
+
           </div>
           <div class="box-body" >
             <div ng-bind-html='deliberatelyTrustDangerousContent(item)'>
@@ -55,21 +53,15 @@
           <div class="box-footer" style="bottom: 0; width: 100%">
             <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
             <video controls ng-show="{{item.video}}" ng-src="{{item.video | trusted}}" style="width:100%" ></video>
-          <span class="text-muted" style="float: right;;margin-bottom: 7px">
+            <div class="date_update_aricle" style="width: 100%">
+              <p style="margin: 0 10px 0 0;font-size: 12px;float: left">{{item.created | date:'fullDate'}}</p>
+            <span class="text-muted" style="float: right;;margin-bottom: 7px">
             &middot;
-            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
-            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
             <a href="#" title="Share"><i class="fa fa-share"></i> </a>
+            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
+            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
           </span>
-
-            <a href="" ng-click="showme=true">...</a>
-
-          <div  ng-show="showme" style=" width: 100%" >
-            <div class="comment-content" style="float: right">
             </div>
-            <p>{{item.ownerName}}: <input type="text" ng-model="commentArticle"></p>
-            <a ng-click="showme=false" style="position:relative;float: right">Hide</a>
-          </div>
         </div>
       </div>
     </div>
@@ -77,20 +69,6 @@
 
 
 <style>
-  .containerArticle{
-    padding: 0 30px 4%;
-    margin: 0 auto;
-  }
-  .text-muted a {
-    color: black;
-  }
-  .post_info_qtnglobal a{
-    color: white;
-    font-size: 15px;
-  }
-  .text-muted i{
-    color: black;
-  }
   .mid-box :after{
     content: '';
     position: absolute;
@@ -108,47 +86,6 @@
     background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
     background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
     /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
-  }
-  .User_name{
-    font-size: 14px;
-    max-width: 160px;
-    color: blue !important;
-    margin: 5px ;
-  }
-  .box {
-    padding: 0 !important;
-    width: 370px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .item-article img {
-    width: 100% !important;
-    height: 100%;
-    text-align: center;
-    margin: 0 ;
-    border-radius: 5px 5px 0 0;
-  }
-  .post_info_qtnglobal{
-    display: inline-block;
-    font-size: 13px;
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    vertical-align: top;
-    color: cornsilk !important;
-    position: absolute;
-    margin-left: 5px ;
-  }
-  .text-muted a {
-    margin-left: 6px;
-    float: left;
-  }
-  .box .box-footer {
-    border-top: none !important;
-  }
-  li {
-    list-style-type: none;
   }
 </style>
 

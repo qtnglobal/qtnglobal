@@ -1,12 +1,8 @@
-<div class="box" ng-repeat="item in photos">
-  <div class="box-header">
-    <h3 class="box-title">
-      <a href="" >{{item.title}}</a>
-    </h3>
-
-    <div class="box-tools pull-right">
-
-      <span class="pull-right btn-group" style="margin-top: 7px;">
+<div>
+<div isotope-container class="masonry-photo1" style="height: 5000px">
+<div isotope-item class="boxEx" ng-repeat="item in photos" style="width: 325px!important;" >
+  <div class="bot-box" >
+    <span class="pull-right btn-group" style="margin-top: 7px;">
         <a href="" class="btn btn-xs btn-default"
            ui-sref="^.edit({id: item.id})">
           <i class="fa fa-pencil"></i>
@@ -16,37 +12,34 @@
           <i class="fa fa-trash-o"></i>
         </a>
       </span>
-
+  <div class="ct-pt-title" style="padding: 5px">
+    <h3>
+      {{item.title}}
+    </h3>
+  </div>
+  <div class="ct-pt-content">
+    <p>{{item.content}}</p>
+  </div>
+    <div class="preview-photo">
+      <img ng-src="{{item.url}}"/>
+      <img ng-src="{{item.url1}}"/>
     </div>
-  </div>
-  <div class="box-body">
-    <div class="row" style="margin-bottom: 0 !important;">
-      <div class="col-sm-9">
-        <p>{{item.content}}</p>
-      </div>
-      <div class="col-sm-3">
-        <img ng-src="{{item.url}}"/>
-
-        <img ng-src="{{item.url1}}"/>
-      </div>
+  <div class="footer-bot-box">
+    <div class="date_update_photo">
+      <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
     </div>
-  </div>
+    </div>
 
-  <div class="box-footer">
-    <span class="text-muted">
-      {{item.created | date:'medium'}}
-    </span>
-  </div>
 </div>
-
-
-<div class="box" ng-show="!photos.length">
-  <div class="box-header">
-    <h3 class="box-title">
+</div>
+</div>
+<div class="box1" ng-show="!photos.length">
+  <div class="box-header1">
+    <h3 class="box-title1">
       There are no photos
     </h3>
   </div>
-  <div class="box-body">
+  <div class="box-body1">
     <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a>
       to add a photo!</p>
   </div>
