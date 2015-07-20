@@ -3177,11 +3177,11 @@ textarea.input-lg,textarea.form-group-lg .form-control,select[multiple].input-lg
 	background-color:#fff
 }
 
-.btn-success{
-	color:#fff;
-	background-color:#5cb85c;
-	border-color:#4cae4c
-}
+/*.btn-success{*/
+	/*color:#fff;*/
+	/*background-color:#5cb85c;*/
+	/*border-color:#4cae4c*/
+/*}*/
 
 .btn-success:hover,.btn-success:focus,.btn-success.focus,.btn-success:active,.btn-success.active,.open>.dropdown-toggle.btn-success{
 	color:#fff;

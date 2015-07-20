@@ -311,4 +311,11 @@ li {
 .m-menuEx a,li {
   color: #fff0ff!important;
   padding: 10px;
+  text-decoration: none
+}
+media="screen"{
+.m-menuEx{
+  color: #fff;
+  font-weight: 700;
+}
 }
