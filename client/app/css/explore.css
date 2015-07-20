@@ -290,12 +290,6 @@
 li {
   list-style-type: none;
 }
-.box {
-  padding: 0 !important;
-  width: 370px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 .item-article img {
   width: 100% !important;
   height: 100%;
