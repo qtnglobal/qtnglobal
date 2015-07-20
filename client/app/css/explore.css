@@ -313,8 +313,7 @@ li {
   padding: 10px;
   text-decoration: none
 }
-media="screen"{
-.m-menuEx{
+.m-menuEx :active{
   color: #fff;
   font-weight: 700;
 }
