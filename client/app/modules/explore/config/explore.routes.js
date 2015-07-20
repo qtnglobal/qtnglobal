@@ -50,37 +50,6 @@ angular.module('com.module.explore')
               });
             }, true);
           }
-
-          $scope.deliberatelyTrustDangerousTitle = function(a) {
-            return $sce.trustAsHtml(a.title);
-          };
-          $scope.deliberatelyTrustDangerousContent = function(a) {
-            return $sce.trustAsHtml(a.content);
-          };
-          $scope.display = function(item){
-            User.findOne({
-              filter: {
-                where: {
-                  id: item.ownerId
-                },
-                include: ['roles', 'identities', 'credentials', 'accessTokens']
-              }
-            }, function(result) {
-              var user=result;
-              var id=item.id;
-              var get = 'img[rel="'+id+'"]';
-              $(get).popover({
-                html: true,
-                placement: 'right',
-                content: function(){return '<div class="popover-wrapper"><div class="popover-header" style="position: relative;overflow:hidden;height:158px">'
-                  + '<img src="'+user.cover+ '"/>' + '</div><div class="avatar circle" style="border-radius: 50%;box-shadow: 0 0 0 3px;position:relative;margin: 10px auto 0;height: 64px;width: 64px;margin-top: -40px">'
-                  + '<img style="height:100%;border-radius:50%;" src="'+user.avatar+'"/>'+'</div><div class="description" style=""></div></div>';}
-              }).popover('show').on('mouseleave',function(){
-                $(get).popover('hide');
-              });
-            });
-
-          }
         }
         }).state('explore.photos', {
         url: '/photos',
@@ -91,8 +60,27 @@ angular.module('com.module.explore')
           }]
         },
 
-        controller: function($scope, photos) {
+        controller: function($scope, photos,User) {
           $scope.photos = photos;
+          for(var i=0; i<$scope.photos.length; i++) {
+            $scope.$watch('photos['+i+']', function(changed) {
+              User.findOne({
+                filter: {
+                  where: {
+                    id: changed.ownerId
+                  },
+                  include: ['roles', 'identities', 'credentials', 'accessTokens']
+                }
+              },function(result){
+                var user = result;
+                var item = changed;
+                item.ava = result.avatar;
+                item.ownerName = result.username;
+                return item;
+              });
+            }, true);
+          }
+
           $scope.myLimit = 4;
 
           $scope.loadMore = function() {
@@ -108,8 +96,27 @@ angular.module('com.module.explore')
             return LinksService.getLinks();
           }]
         },
-        controller: function($scope, links) {
+        controller: function($scope, links,User) {
           $scope.links = links;
+          for(var i=0; i<$scope.links.length; i++) {
+            $scope.$watch('links['+i+']', function(changed) {
+              User.findOne({
+                filter: {
+                  where: {
+                    id: changed.ownerId
+                  },
+                  include: ['roles', 'identities', 'credentials', 'accessTokens']
+                }
+              },function(result){
+                var user = result;
+                var item = changed;
+                item.ava = result.avatar;
+                item.ownerName = result.username;
+                return item;
+              });
+            }, true);
+          }
+
         }
       }).state('explore.audios', {
         url: '/audios',
@@ -119,8 +126,27 @@ angular.module('com.module.explore')
             return AudiosService.getAudios();
           }]
         },
-        controller: function($scope, audios) {
+        controller: function($scope, audios,User) {
           $scope.audios = audios;
+          for(var i=0; i<$scope.audios.length; i++) {
+            $scope.$watch('audios['+i+']', function(changed) {
+              User.findOne({
+                filter: {
+                  where: {
+                    id: changed.ownerId
+                  },
+                  include: ['roles', 'identities', 'credentials', 'accessTokens']
+                }
+              },function(result){
+                var user = result;
+                var item = changed;
+                item.ava = result.avatar;
+                item.ownerName = result.username;
+                return item;
+              });
+            }, true);
+          }
+
         }
       }).state('explore.videos', {
         url: '/videos',
@@ -130,8 +156,27 @@ angular.module('com.module.explore')
             return VideosService.getVideos();
           }]
         },
-        controller: function($scope, videos) {
+        controller: function($scope, videos,User) {
           $scope.videos = videos;
+          for(var i=0; i<$scope.videos.length; i++) {
+            $scope.$watch('videos['+i+']', function(changed) {
+              User.findOne({
+                filter: {
+                  where: {
+                    id: changed.ownerId
+                  },
+                  include: ['roles', 'identities', 'credentials', 'accessTokens']
+                }
+              },function(result){
+                var user = result;
+                var item = changed;
+                item.ava = result.avatar;
+                item.ownerName = result.username;
+                return item;
+              });
+            }, true);
+          }
+
         }
       }).state('explore.project', {
         url: '/project',
