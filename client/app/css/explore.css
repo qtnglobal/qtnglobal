@@ -204,9 +204,6 @@
 .text-muted i{
   color: black;
 }
-.mid-box{
-  background-color: white;
-}
 .mid-box :after{
   content: '';
   position: absolute;
@@ -253,7 +250,7 @@
   vertical-align: top;
   color: cornsilk !important;
   position: absolute;
-  margin-left: 5px ;
+  margin: 5px ;
 }
 .text-muted a {
   margin-left: 6px;
@@ -303,4 +300,15 @@ li {
 }
 .box .box-footer {
   border-top: none !important;
+}
+.menuEx {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,.13)!important;
+  border-bottom: 1px solid rgba(255,255,255,.13)!important;
+  margin-bottom: 0;
+  list-style: none;
+}
+.m-menuEx a,li {
+  color: #fff0ff!important;
+  padding: 10px;
 }
