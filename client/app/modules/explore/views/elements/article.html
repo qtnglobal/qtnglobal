@@ -1,6 +1,6 @@
 <div class="containerArticle" >
   <div isotope-container class="masonry-article">
-    <div isotope-item class="boxEx" ng-repeat="item in articles" ng-controller='ArticlesCtrl1' >
+    <div isotope-item class="boxEx3" ng-repeat="item in articles" ng-controller='ArticlesCtrl1' >
       <div ng-mouseenter="show = true" ng-mouseleave="show = false">
         <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
           <div class="avatar" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
@@ -37,22 +37,22 @@
                 <button class="btn" ng-click="cancel()">Cancel</button>
               </div>
             </script>
+            <video controls ng-show="{{item.video}}" ng-src="{{item.video | trusted}}" style="width:100%" ></video>
+            <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
           </div>
         </div>
-        <div class="box-header content-article">
-          <div class="box-header scroll">
-            <h3 class="box-body" >
+        <div class="content-article">
+          <div class="ct-pt-title scroll">
+            <h3>
               {{item.title}}
             </h3>
 
           </div>
-          <div class="box-body" >
-            <div ng-bind-html='deliberatelyTrustDangerousContent(item)'>
-            </div>
+          <div class="" >
+            <p ng-bind-html='deliberatelyTrustDangerousContent(item)'>
+            </p>
             </div>
           <div class="box-footer" style="bottom: 0; width: 100%">
-            <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
-            <video controls ng-show="{{item.video}}" ng-src="{{item.video | trusted}}" style="width:100%" ></video>
             <div class="date_update_aricle" style="width: 100%">
               <p style="margin: 0 10px 0 0;font-size: 12px;float: left">{{item.created | date:'fullDate'}}</p>
             <span class="text-muted" style="float: right;;margin-bottom: 7px">
