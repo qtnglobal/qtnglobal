@@ -159,7 +159,13 @@
 }
 .dropdown {
   float: right;
-  margin: 8px
+  margin-left: 9px;
+}
+.dropdown{
+  margin: 8px;
+}
+.dropdown-menu li{
+  padding: 0!important;
 }
 .avatarEx {
   display: inline-block;
