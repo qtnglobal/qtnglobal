@@ -14,35 +14,44 @@
 angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
-//if(!AppAuth.currentUser){
-//  $location.path('/login')
-//} else{
-    AppAuth.ensureHasCurrentUser(function(user)
-    {
-      $scope.currentUser = user;
-    });
+    var check;
+    if (AppAuth.currentUser) {
+      check=1;
+    }
 
-    $scope.currentUser = User.getCurrent();
+    if(check) {
 
-    $scope.menuoptions = $rootScope.menu;
-
-    User.getCurrent(function(user) {
-      if (user.username !== 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name == 'Users') {
-        $scope.menuoptions.pop();
-        $scope.menuoptions.pop();
-      }
-      if(user.username == 'admin' && $scope.menuoptions[$scope.menuoptions.length-1].name != 'Users'){
-        $scope.menuoptions.push({ name: 'Settings', sref: 'app.settings.list', icon: 'fa-cog', $$hashKey: 'object:57' });
-        $scope.menuoptions.push({ name: 'Users', sref: 'app.users.list', icon: 'fa-user', $$hashKey: 'object:58' });
-      }
-    });
-
-    $scope.logout = function() {
-      User.logout(function() {
-        $state.go('login');
-        CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
-          gettextCatalog.getString('You are logged out!'));
+      AppAuth.ensureHasCurrentUser(function (user) {
+        $scope.currentUser = user;
       });
-    };
-//}
+
+      $scope.currentUser = User.getCurrent();
+      $scope.menuoptions = $rootScope.menu;
+
+      User.getCurrent(function (user) {
+        if (user.username !== 'admin' && $scope.menuoptions[$scope.menuoptions.length - 1].name == 'Users') {
+          $scope.menuoptions.pop();
+          $scope.menuoptions.pop();
+        }
+        if (user.username == 'admin' && $scope.menuoptions[$scope.menuoptions.length - 1].name != 'Users') {
+          $scope.menuoptions.push({
+            name: 'Settings',
+            sref: 'app.settings.list',
+            icon: 'fa-cog',
+            $$hashKey: 'object:57'
+          });
+          $scope.menuoptions.push({name: 'Users', sref: 'app.users.list', icon: 'fa-user', $$hashKey: 'object:58'});
+        }
+      });
+
+      $scope.logout = function () {
+        User.logout(function () {
+          $state.go('login');
+          CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
+            gettextCatalog.getString('You are logged out!'));
+        });
+      };
+    }else{
+      $location.path('/login')
+    }
   });

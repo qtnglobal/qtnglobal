@@ -11,7 +11,11 @@
 angular.module('com.module.users')
   .controller('LoginCtrl', function($scope, $routeParams, $location,
                                     CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
-
+    var check;
+     if (AppAuth.currentUser) {
+       check=1;
+     }
+    if(!check){
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 
     $scope.credentials = {
@@ -77,7 +81,7 @@ angular.module('com.module.users')
     });
     $scope.login = function() {
 
-
+      $scope.check++;
       $scope.loginResult = User.login({
           include: 'user',
           rememberMe: $scope.credentials.rememberMe
@@ -114,7 +118,9 @@ angular.module('com.module.users')
         });
 
 
-    };
+    };}else{
+      $location.path('/app');
+    }
     /*$scope.goToLogin = function(){
       $location.path('/login');
     };*/

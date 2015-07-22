@@ -19,11 +19,7 @@ angular.module('com.module.core')
     } else {
       console.log('Redirect to app');
       $location.path('/app');
+      $scope.check=1;
     }
-    //if(!User.getCurrent){
-    //  $location.path('/app');
-    //} else  {
-    //  $location.path('/login');
-    //}
 
   });

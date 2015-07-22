@@ -66,7 +66,7 @@ angular.module('com.module.users')
         else {
           console.log('Do not have permission');
           CoreService.alertWarning('May be you do not have permission to do this stuff','Please ask admin for permission');
-          $location.path('/app')
+          $location.path('/app');
           return false;
         }
       }, function(err) {
