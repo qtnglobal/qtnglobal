@@ -13,7 +13,7 @@ app.directive('container',function($timeout){
     link:function(scope, element, attrs){
       $timeout(function () {
         var iso = new Isotope(element[0], {
-          itemSelector: '.boxEx3'
+          itemSelector: '.boxEx'
         });
       }, 200);
     }

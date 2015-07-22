@@ -14,9 +14,9 @@
 angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
-if(!AppAuth.currentUser){
-  $location.path('/login')
-} else{
+//if(!AppAuth.currentUser){
+//  $location.path('/login')
+//} else{
     AppAuth.ensureHasCurrentUser(function(user)
     {
       $scope.currentUser = user;
@@ -44,5 +44,5 @@ if(!AppAuth.currentUser){
           gettextCatalog.getString('You are logged out!'));
       });
     };
-}
+//}
   });

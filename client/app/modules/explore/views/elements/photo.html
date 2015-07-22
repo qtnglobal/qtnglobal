@@ -1,15 +1,15 @@
 <div class="containerExplore" >
   <div container class="masonry-photo" ng-controller="modal_show_photo">
-    <div class="boxEx3" ng-repeat="item in photos">
+    <div class="boxEx" ng-repeat="item in photos">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
         <header class="top-box">
-          <div class="avatarEx hover" style="">
+          <div class="avatarEx">
             <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
-          <div class="post_info_qtnglobal User_name ">
+          <div class="post_info_qtnglobal User_name " style="z-index: 2">
             <a href="#">{{item.ownerName}}</a>
           </div>
-          <div  class="dropdown" ng-show="show">
+          <div  class="dropdown" ng-show="show" style="z-index: 2">
             <a href="#" type="button" class="btn-mini " ><i class="fa fa-user-plus"style="color: white"></i></a>
             <a href="#" type="button" class="btn-mini " id="menuPhoto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-cog" style="color: white"></i>

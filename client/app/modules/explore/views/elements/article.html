@@ -1,30 +1,30 @@
 <div class="containerArticle" >
   <div container class="masonry-article">
-    <div class="boxEx3" ng-repeat="item in articles" ng-controller='ArticlesCtrl1' >
+    <div class="boxEx" ng-repeat="item in articles" ng-controller='ArticlesCtrl1' >
       <div ng-mouseenter="show = true" ng-mouseleave="show = false">
-        <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
-          <div class="avatar" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
+        <div class="top-box">
+          <div class="avatarEx" style="z-index: 3">
             <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
-          <div class="post_info_qtnglobal User_name " style="z-index: 1">
+          <div class="post_info_qtnglobal User_name" style="z-index: 2">
             <a href="#">{{item.ownerName}}</a>
           </div>
-          <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
-            <button type="button" class="btn-mini " ><i class="fa fa-user-plus"></i>  Add friend</button>
-            <button type="button" class="btn-mini " id="menuArticle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <i class="fa fa-cog"></i>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu btn-mini" aria-labelledby="menuArticle">
+          <div  class="dropdown" ng-show="show" style="z-index: 2">
+            <a href="#" type="button" class="btn-mini " ><i class="fa fa-user-plus"style="color: white"></i></a>
+            <a href="#" type="button" class="btn-mini " id="menuPhoto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog" style="color: white"></i>
+              <span class="caret" style="color: white"></span>
+            </a>
+            <ul class="dropdown-menu btn-mini" aria-labelledby="menuPhoto">
               <li><a href="#"><i class="fa fa-heartbeat"></i> Follow</a></li>
-              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user"></i> User profile</a></li>
+              <li><a href="http://localhost:3000/#/app/users/profile/"><i class="fa fa-user "></i> User profile</a></li>
               <li><a href="#"><i class="fa fa-weixin"></i>Message</a></li>
               <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
             </ul>
           </div>
         </div>
         <div class="mid-box">
-          <div class="item-article"  style="width: 100% ">
+          <div class="item-photo">
             <img ng-src="{{item.image}}" ng-click="open(item)"/>
             <a> <br></a>
             <script type="text/ng-template" id="myModalContent.html" >
@@ -41,27 +41,41 @@
             <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
           </div>
         </div>
-        <div class="content-article">
-          <div class="ct-pt-title scroll">
+        <div class="bot-box">
+          <div class="ct-pt-title">
             <h3>
               {{item.title}}
             </h3>
 
           </div>
-          <div class="" >
+          <div class="ct-pt-content" >
             <p ng-bind-html='deliberatelyTrustDangerousContent(item)'>
             </p>
           </div>
-          <div class="box-footer" style="bottom: 0; width: 100%">
-            <div class="date_update_aricle" style="width: 100%">
-              <p style="margin: 0 10px 0 0;font-size: 12px;float: left">{{item.created | date:'fullDate'}}</p>
-            <span class="text-muted" style="float: right;;margin-bottom: 7px">
-            &middot;
-              <a href="#" title="Share"><i class="fa fa-share"></i> </a>
-            <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
-            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
-          </span>
+          <div class="footer-bot-box">
+            <div class="date_update_photo">
+              <p style="font-size: 12px">{{item.created | date:'fullDate'}}</p>
             </div>
+          <span class="text-muted">
+            &middot;
+            <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
+            <a href="#" ng-click="showme=true" title="Comment"><i  class="fa fa-comment"></i></a>
+            <a href="#" title="Share"><i class="fa fa-share"></i> </a>
+          </span>
+            <!--<div  ng-show="showme" style=" width: 100%; padding: 10px" >-->
+            <!--<div class="comment-content" style="float: right">-->
+            <!--</div>-->
+            <!--<p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>-->
+            <!--<a ng-click="showme=false" style="position:relative;float: right">Hide</a>-->
+            <!--</div>-->
+            <form class="commentEx" ng-show="showme" style=" width: 100%">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-default">+1</button><button class="btn btn-default"><i ng-click="showme=false" class="fa fa-share-square-o"></i></button>
+                </div>
+                <input type="text" class="form-control" placeholder="Add a comment.." style="width: 200px">
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -70,6 +84,7 @@
 
     <style>
       .mid-box :after{
+        z-index: 1;
         content: '';
         position: absolute;
         top: 0;
