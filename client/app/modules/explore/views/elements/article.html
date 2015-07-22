@@ -1,12 +1,12 @@
-<div>
+<div class="containerArticle" >
   <div container class="masonry-article">
     <div class="boxEx3" ng-repeat="item in articles" ng-controller='ArticlesCtrl1' >
       <div ng-mouseenter="show = true" ng-mouseleave="show = false">
-        <div>
-          <div>
+        <div class="top-box" style=" width: 100%; position: absolute;z-index: 1">
+          <div class="avatar" style="display: inline-block; width: 30px; height: 30px; margin: 4px;z-index: 1">
             <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
-          <div>
+          <div class="post_info_qtnglobal User_name " style="z-index: 1">
             <a href="#">{{item.ownerName}}</a>
           </div>
           <div  class="dropdown" ng-show="show" style="float: right;margin: 8px ">
@@ -23,8 +23,8 @@
             </ul>
           </div>
         </div>
-        <div>
-          <div>
+        <div class="mid-box">
+          <div class="item-article"  style="width: 100% ">
             <img ng-src="{{item.image}}" ng-click="open(item)"/>
             <a> <br></a>
             <script type="text/ng-template" id="myModalContent.html" >
@@ -41,8 +41,8 @@
             <audio controls ng-show="{{item.audio}}" ng-src="{{item.audio | trusted}}" style="width:100%"></audio>
           </div>
         </div>
-        <div>
-          <div>
+        <div class="content-article">
+          <div class="ct-pt-title scroll">
             <h3>
               {{item.title}}
             </h3>
@@ -51,43 +51,40 @@
           <div class="" >
             <p ng-bind-html='deliberatelyTrustDangerousContent(item)'>
             </p>
-            </div>
-          <div>
-            <div>
+          </div>
+          <div class="box-footer" style="bottom: 0; width: 100%">
+            <div class="date_update_aricle" style="width: 100%">
               <p style="margin: 0 10px 0 0;font-size: 12px;float: left">{{item.created | date:'fullDate'}}</p>
             <span class="text-muted" style="float: right;;margin-bottom: 7px">
             &middot;
-            <a href="#" title="Share"><i class="fa fa-share"></i> </a>
+              <a href="#" title="Share"><i class="fa fa-share"></i> </a>
             <a href="#" title="Comment"><i  class="fa fa-comments-o"></i></a>
             <a href="#" title="Like"><i class="fa fa-heart"></i> </a>
           </span>
             </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
-  </div>
-</div>
-
-<style>
-  .mid-box :after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100px;
-    display: block;
-    width: 100%;
-    border-radius: 3px 3px 0 0;
-    pointer-events: none;
-    background: 0 0;
-    background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
-    background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
-    /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
-  }
-</style>
 
 
+    <style>
+      .mid-box :after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100px;
+        display: block;
+        width: 100%;
+        border-radius: 3px 3px 0 0;
+        pointer-events: none;
+        background: 0 0;
+        background: -moz-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.3)),color-stop(100%,rgba(0,0,0,0)));
+        background: -webkit-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        background: -o-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        background: -ms-linear-gradient(top,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%);
+        /*background: linear,to bottom,rgba(0,0,0,.3)0%,rgba(0,0,0,0)100%;*/
+      }
+    </style>
