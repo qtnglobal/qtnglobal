@@ -1,8 +1,8 @@
 <div class="containerExplore" >
-  <div isotope-container class="masonry-photo" ng-controller="modal_show_photo">
-    <div isotope-item class="boxEx" ng-repeat="item in photos">
+  <div container class="masonry-photo" ng-controller="modal_show_photo">
+    <div class="boxEx3" ng-repeat="item in photos">
       <div ng-mouseenter="show = true" ng-mouseleave="show = false"  ng-controller="hideMenu">
-        <div class="top-box">
+        <header class="top-box">
           <div class="avatarEx hover" style="">
             <img rel="{{item.id}}" ng-mouseenter="display(item)" ng-src="{{item.ava}}" />
           </div>
@@ -22,12 +22,12 @@
               <li><a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size: 14px !important; opacity: 1 !important; float: left !important;"><i class="fa fa-times-circle"></i>Hide Post</a></li>
             </ul>
           </div>
-        </div>
+        </header>
         <div class="mid-box">
           <div class="item-photo">
-            <img ng-src="{{item.url}}" ng-click="open(item)"  />
-              <div style="margin-top: 20px;">
-            <img style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
+            <img ng-show="{{item.url}}" ng-src="{{item.url}}" ng-click="open(item)"  />
+              <div>
+            <img ng-show="{{item.url1}}" style="border-radius: 0 !important" ng-src="{{item.url1}}" ng-click="open(item)"  />
               </div>
             <script type="text/ng-template" id="myModalContent.html" >
               <div class="modal-header">
@@ -67,6 +67,14 @@
             <!--<p>{{item.ownerName}}: <input type="text" ng-model="commentPhoto"></p>-->
             <!--<a ng-click="showme=false" style="position:relative;float: right">Hide</a>-->
           <!--</div>-->
+            <form class="commentEx" ng-show="showme" style=" width: 100%">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-default">+1</button><button class="btn btn-default"><i ng-click="showme=false" class="fa fa-share-square-o"></i></button>
+                </div>
+                <input type="text" class="form-control" placeholder="Add a comment.." style="width: 200px">
+              </div>
+            </form>
         </div>
       </div>
     </div>

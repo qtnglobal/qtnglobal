@@ -1,7 +1,7 @@
 <div class="box" ng-repeat="item in audios">
   <div class="box-header" style="border-bottom: 1px solid #f4f4f4;">
     <div class="box-title" style="display: inline-block">
-      <img class="pull-left" style="float: left; margin-right: 10px" width="100px" height="100px" src="{{item.cover}}">
+      <img ng-show="{{item.cover}}" class="pull-left" style="float: left; margin-right: 10px" width="100px" height="100px" src="{{item.cover}}">
       <a href="{{item.url}}" target="_blank" style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 30px" >{{item.title}}</a>
       <small ng-hide="!item.artist.length">- {{item.artist}}</small><br>
     </div>

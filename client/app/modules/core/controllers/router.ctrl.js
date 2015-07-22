@@ -20,4 +20,10 @@ angular.module('com.module.core')
       console.log('Redirect to app');
       $location.path('/app');
     }
+    //if(!User.getCurrent){
+    //  $location.path('/app');
+    //} else  {
+    //  $location.path('/login');
+    //}
+
   });
