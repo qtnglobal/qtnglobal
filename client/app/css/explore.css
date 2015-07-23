@@ -375,6 +375,15 @@ li {
     display: none !important;
   }
 }
+@media(min-width: 800px ){
+.menu-home {
+  margin-top: 10px;
+}
+  .logo-lg {
+    margin-left: -60px;
+    line-height: normal!important;
+    text-decoration: none;
+}
 @media(max-width: 550px ) {
   .logo-lg {
     display: none !important;
@@ -387,7 +396,7 @@ li {
   .reponsive-home {
     float: left!important;
     margin-top: -5px!important;
-    margin-left: 30px;!important;
+    margin-left: 30px!important;
   }
 }
 @media(max-width: 350px ) {
@@ -403,7 +412,7 @@ li {
   .reponsive-home {
     float: left!important;
     margin-top: -5px!important;
-    margin-left: 30px;!important;
+    margin-left: 30px!important;
   }
 }
 .menu-home a:hover {
