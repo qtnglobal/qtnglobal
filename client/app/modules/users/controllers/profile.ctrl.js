@@ -9,6 +9,14 @@ angular.module('com.module.users')
       console.log(err);
     });
 
+    if (typeof $scope.user.avatar == 'undefined'){
+      $scope.user.avatar = 'images/qtn.png';
+    }
+    console.log($scope.user.avatar);
+
+    if (typeof $scope.user.cover == 'undefined'){
+      $scope.user.cover = 'images/qtnglobal.png';
+    }
     $scope.formFields = [{
       key: 'username',
       type: 'text',
@@ -64,6 +72,10 @@ angular.module('com.module.users')
     $scope.uploadCover = function(item){
 
       $scope.user.cover = CoreService.env.apiUrl+ '/containers/files/download/'+item.file.name;
+      if(!$scope.user.cover){
+        $scope.user.cover = '/images/qtn.png';
+      }
+
       User.upsert($scope.user, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
           'Profile saved'), gettextCatalog.getString(
@@ -76,7 +88,7 @@ angular.module('com.module.users')
       item.upload();
       $state.reload();
 
-    }
+    };
 
     $scope.uploadAvatar = function(item){
 

@@ -51,8 +51,8 @@
           <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
         </a>
         <ul class="dropdown-menu">
-          <li class="user-header bg-light-blue">
-            <img rel="{{item.id}}" ng-src="{{item.ava}}"  class="img-circle" alt="User Image">
+          <li class="user-header bg-light-blue" ng-controller="UserCtrl">
+            <img rel="{{item.id}}" ng-src="{{user.avatar}}"  class="img-circle" alt="User Image">
 
             <p>
               {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
