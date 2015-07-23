@@ -46,6 +46,9 @@ angular.module('com.module.explore')
                 var item = changed;
                 item.ava = result.avatar;
                 item.ownerName = result.username;
+                if (typeof item.ava == 'undefined'){
+                  item.ava = 'images/qtn.png';
+                }
                 return item;
               });
             }, true);
@@ -76,6 +79,9 @@ angular.module('com.module.explore')
                 var item = changed;
                 item.ava = result.avatar;
                 item.ownerName = result.username;
+                if (typeof item.ava == 'undefined'){
+                  item.ava = 'images/qtn.png';
+                }
                 return item;
               });
             }, true);
@@ -108,10 +114,12 @@ angular.module('com.module.explore')
                   include: ['roles', 'identities', 'credentials', 'accessTokens']
                 }
               },function(result){
-                var user = result;
                 var item = changed;
                 item.ava = result.avatar;
                 item.ownerName = result.username;
+                if (typeof item.ava == 'undefined'){
+                  item.ava = 'images/qtn.png';
+                }
                 return item;
               });
             }, true);
@@ -142,6 +150,9 @@ angular.module('com.module.explore')
                 var item = changed;
                 item.ava = result.avatar;
                 item.ownerName = result.username;
+                if (typeof item.ava == 'undefined'){
+                  item.ava = 'images/qtn.png';
+                }
                 return item;
               });
             }, true);
@@ -172,6 +183,9 @@ angular.module('com.module.explore')
                 var item = changed;
                 item.ava = result.avatar;
                 item.ownerName = result.username;
+                if (typeof item.ava == 'undefined'){
+                  item.ava = 'images/qtn.png';
+                }
                 return item;
               });
             }, true);

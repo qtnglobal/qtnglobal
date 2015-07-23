@@ -95,6 +95,12 @@ angular.module('com.module.explore')
         }
       }, function(result) {
         var user=result;
+        if (typeof user.avatar == 'undefined'){
+          user.avatar = 'images/qtn.png';
+        }
+        if (typeof user.cover == 'undefined'){
+          user.cover = 'images/default-background.png';
+        }
         var id=item.id;
         var get = 'img[rel="'+id+'"]';
         $(get).popover({
