@@ -19,7 +19,6 @@ angular.module('com.module.core')
     } else {
       console.log('Redirect to app');
       $location.path('/app');
-      $scope.check=1;
     }
 
   });
