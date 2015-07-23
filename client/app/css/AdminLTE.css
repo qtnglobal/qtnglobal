@@ -3476,21 +3476,21 @@ fieldset[disabled] .btn-vk.active {
   }
 
   .sidebar-collapse header.header .logo {
-    width: 50px;
+    width: 80px;
     font-size: 15px;
   }
 
   .sidebar-collapse nav.navbar-static-top {
-    margin-left: 50px
+    margin-left: 60px
   }
 }
 
 @media(min-width: 992px) {
   .sidebar-collapse aside.right-side{
-    margin-left: 50px;
+    margin-left: 80px;
   }
   .left-side.collapse-left{
-    width: 50px;
+    width: 80px;
   }
   .sidebar-collapse ul.list-unstyled li{
     height: 40px;

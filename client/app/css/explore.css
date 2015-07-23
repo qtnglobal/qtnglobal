@@ -243,9 +243,9 @@
   background-color: white;
   margin-bottom: 10px
 }
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:600px) {
   .boxEx {
-    background-color: black;
+    background-color: #e9ff74;
   }
 }
 .boxEx3 {
@@ -376,27 +376,13 @@ li {
   }
 }
 @media(min-width: 800px ){
-.menu-home {
-  margin-top: 10px;
-}
-  .logo-lg {
-    margin-left: -60px;
-    line-height: normal!important;
-    text-decoration: none;
-}
-@media(max-width: 550px ) {
-  .logo-lg {
-    display: none !important;
+  .menu-home1 {
+    margin-top: 10px;
   }
+}
+@media(max-width: 550px ){
   .reponsiveSeach {
     display: none !important;
-  }
-}
-@media(max-width: 550px ) {
-  .reponsive-home {
-    float: left!important;
-    margin-top: -5px!important;
-    margin-left: 30px!important;
   }
 }
 @media(max-width: 350px ) {
