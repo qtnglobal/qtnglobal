@@ -99,7 +99,7 @@ angular.module('com.module.explore')
           user.avatar = 'images/qtn.png';
         }
         if (typeof user.cover == 'undefined'){
-          user.cover = 'images/default-background.png';
+          user.cover = 'images/default-background.jpg';
         }
         var id=item.id;
         var get = 'img[rel="'+id+'"]';

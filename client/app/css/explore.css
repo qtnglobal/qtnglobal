@@ -411,3 +411,9 @@ li {
 .btn-mini i:hover{
   font-size: 150%!important;
 }
+/*.ct-pt-title h3::first-letter {*/
+  /*font-size: 150%;*/
+/*}*/
+/*.ct-pt-content p::first-letter {*/
+  /*font-size: 150%;*/
+/*}*/
