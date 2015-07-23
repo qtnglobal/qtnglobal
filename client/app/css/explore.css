@@ -338,7 +338,28 @@ li {
   padding: 10px;
   text-decoration: none
 }
+.m-menuEx li:hover{
+  background: lightblue;
+
+}
+.m-menuEx a:hover{
+  color: #000066;
+}
 .m-menuEx :active{
   color: #fff;
   font-weight: 700;
 }
+@media only screen and (max-width: 1000px){
+  .reponsiveSeach { width: 250px!important}
+}
+@media only screen and (max-width: 880px){
+  .reponsiveSeach { width: 150px!important}
+  .navbar-seach {}
+
+}
+.navbar-seach{
+  margin-top: 8px;
+  margin-right: -15px;
+  margin-bottom: 8px;
+  margin-left: -15px;
+  padding: 0 0 0 15px}
