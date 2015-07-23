@@ -439,7 +439,7 @@ li {
   -moz-transition: all 400ms linear;
   -o-transition: all 400ms linear;
   -ms-transition: all 400ms linear;
-  transition: all 400ms linear;
+  transition: all 400ms linear
 }
 .ca-menu li:last-child{
   margin-right: 0px;
