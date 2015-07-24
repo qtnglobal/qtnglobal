@@ -3479,18 +3479,16 @@ fieldset[disabled] .btn-vk.active {
     width: 80px;
     font-size: 15px;
   }
-
   .sidebar-collapse nav.navbar-static-top {
-    margin-left: 60px
-  }
+    margin-left: 50px}
 }
 
 @media(min-width: 992px) {
   .sidebar-collapse aside.right-side{
-    margin-left: 80px;
+    margin-left: 50px;
   }
   .left-side.collapse-left{
-    width: 80px;
+    width: 50px;
   }
   .sidebar-collapse ul.list-unstyled li{
     height: 40px;
@@ -3506,6 +3504,9 @@ fieldset[disabled] .btn-vk.active {
   .collapse-left .nameitem{
     display: none;
   }
+}
+.sidebar-collapse > div > header > a {
+  margin-left:-10px;
 }
 .test {
   background-color:#E7EBEE !important;

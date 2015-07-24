@@ -14,6 +14,17 @@ angular.module('com.module.core')
 
     $scope.goToExplore = function(){
       $location.path('/explore');
+      var $ = angular.element;
+      if ($(window).width() <= 992) {
+        $('.row-offcanvas').toggleClass('active');
+        $('.left-side').toggleClass('collapse-left');
+        $('body').toggleClass('sidebar-collapse');
+        $('.row-offcanvas').toggleClass('relative');
+      } else {
+        // Else, enable content streching
+        $('.left-side').toggleClass('collapse-left');
+        $('body').toggleClass('sidebar-collapse');
+      }
     };
 
     $scope.goToHome = function(){
