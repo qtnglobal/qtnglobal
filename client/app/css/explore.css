@@ -357,10 +357,7 @@ li {
 
 }
 .navbar-seach{
-  margin-top: 8px;
-  margin-right: -15px;
-  margin-bottom: 8px;
-  margin-left: -15px;
+  margin:8px 15px 8px 15px;
   padding: 0 0 0 15px
 }
 @media(max-width: 880px ) {
@@ -501,4 +498,13 @@ li {
 }
 .bg-Ex {
   background-image: url("../images/03.jpg")!important;
+}
+.menu-explore > a:hover {
+  color: white!important;
+}
+.menu-home > a:hover {
+  color: white!important;
+}
+.input-group-btn >button {
+  color: white!important;
 }

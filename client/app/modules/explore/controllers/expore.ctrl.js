@@ -109,7 +109,7 @@ angular.module('com.module.explore')
           content: function(){return '<div class="popover-wrapper"><div class="popover-header" style="position: relative;overflow:hidden;height:158px">'
             + '<img src="'+user.cover+ '"/>' + '</div><div class="avatar circle" style="border-radius: 50%;box-shadow: white 0 0 0 3px;position:relative;margin: 10px auto 0;height: 64px;width: 64px;margin-top: -40px;;background: white">'
             + '<img style="height:100%;border-radius:50%;" src="'+user.avatar+'"/>'+'</div><div class="description" style=""></div></div>';}
-        }).popover('show').on('mouseleave',function(){
+        }).popover('show').on('click',function(){
           $(get).popover('hide');
         });
       });
