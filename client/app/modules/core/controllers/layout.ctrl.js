@@ -15,6 +15,7 @@ angular.module('com.module.core')
     $scope.goToExplore = function(){
       $location.path('/explore');
       var $ = angular.element;
+      if($('body').hasClass('sidebar-collapse')){
       if ($(window).width() <= 992) {
         $('.row-offcanvas').toggleClass('active');
         $('.left-side').toggleClass('collapse-left');
@@ -24,7 +25,7 @@ angular.module('com.module.core')
         // Else, enable content streching
         $('.left-side').toggleClass('collapse-left');
         $('body').toggleClass('sidebar-collapse');
-      }
+      }}
     };
 
     $scope.goToHome = function(){
