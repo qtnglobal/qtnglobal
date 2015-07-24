@@ -500,3 +500,6 @@ li {
   line-height: normal!important;
   text-decoration: none;
 }
+.bg-Ex {
+  background-image: url("../images/03.jpg")!important;
+}

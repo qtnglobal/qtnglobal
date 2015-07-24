@@ -1,5 +1,5 @@
 <header class="header">
-    <a class="logo" href="/">
+    <a class="logo" href="/" >
       <ul class="ca-menu logo-mini">
         <li class="ca-content">
           <img class="ca-main " src="images/qtn.png"/>
@@ -8,7 +8,75 @@
       </ul>
       <span class="logo-lg">QTN</span>
     </a>
-    <navbar></navbar>
+  <nav class="navbar navbar-static-top reposive-menu" style="">
+    <div class="seachEx" style=" margin-top: 2px; margin-left: 8px">
+      <form class="navbar-seach navbar-left ">
+        <div class="input-group input-group-sm reponsiveSeach" style="width:300px">
+          <input type="text" class="form-control" placeholder="QTN Global search" name="srch-term" id="srch-term" style="background: rgba(0,0,0,.13); color: white">
+          <div class="input-group-btn">
+            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="navbar-right reponsive-home" style="margin-top: -5px">
+      <ul ng-show="!currentUser.firstName" class="nav navbar-nav">
+        <li class=" menu-home1">
+          <button type="button" class="btn" ng-click="goToLogin()" style="margin-top: -10px">Login</button>
+        </li>
+        <li class=" menu-home1">
+          <button type="button" class="btn" ng-click="goToRegister()" style="margin-top: -10px">Sign up</button>
+        </li>
+      </ul>
+
+      <ul ng-hide="!currentUser.firstName" class="nav navbar-nav">
+        <li class="menu-home">
+          <a type="button" class="btn fa fa-home" ng-click="goToHome()" style="margin-top: -10px; color: rgba(255, 255, 255, 0.8); font-size: 30px"></a>
+        </li>
+        <li class="menu-explore">
+          <a type="button" class="btn fa fa-compass" ng-click="goToExplore()" style="margin-top: -10px; color: rgba(255, 255, 255, 0.8);font-size: 26px"></a>
+        </li>
+        <!--<li class="dropdown user user-menu" style="margin-top: 0!important">-->
+        <!--&lt;!&ndash;<a class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 6px!important;">&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="fa fa-flag flag-icon flag-icon-{{selectLocale.country.toLowerCase() }}"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;{{ selectLocale.name | translate }} <i class="caret"></i> </span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li ng-repeat="(index, locale) in locales" ng-show="locale != selectLocale">-->
+        <!--<a ng-click="setLocale(index)">-->
+        <!--<span class="flag-icon flag-icon-{{locale.country.toLowerCase() }}"></span> {{locale.name | translate }}-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <li class="dropdown user user-menu" style="margin-top: 0!important;">
+          <a class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 6px!important;">
+            <i class="glyphicon glyphicon-user"></i>
+            <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-header bg-light-blue" ng-controller="UserCtrl">
+              <img rel="{{item.id}}" ng-src="{{user.avatar}}"  class="img-circle" alt="User Image">
+
+              <p>
+                {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
+                <small>{{currentUser.email}}</small>
+              </p>
+            </li>
+            <li class="user-footer">
+              <div class="pull-left">
+                <a ui-sref="app.users.profile({username: currentUser.username})" class="btn btn-default btn-flat" translate>Profile</a>
+                <!--<a ui-sref="app.users.profile" class="btn btn-default btn-flat" translate>Profile</a>-->
+              </div>
+              <div class="pull-right">
+                <a ng-click="logout()" class="btn btn-default btn-flat" translate>Sign out</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
 <div>
     <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -21,15 +89,13 @@
             </li>
           </ul>
         </div>
-        <div ui-view style="padding-top: 60px; min-height: 600px;background: #003366!important" >
+        <div ui-view class="bg-Ex" style="padding-top: 60px; min-height: 600px" >
           <div class="newfeed" style="width: 300px;height: 400px; float: right;background: #003366"></div>
         </div>
-        <div class="footer" style="margin: auto; width: 58px">
-          <button class=" btn btn-default" ng-click="loadMore()">More</button>
-        </div>
+        <!--<div class="footer" style="margin: auto; width: 58px">-->
+          <!--<button class=" btn btn-default" ng-click="loadMore()">More</button>-->
+        <!--</div>-->
       </section>
     </div>
 </div>
-<style>
 
-</style>
