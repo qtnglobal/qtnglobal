@@ -1,0 +1,115 @@
+
+.controls-container {
+  display: table;
+  width: 100%;
+  padding: 10px 15px 10px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.controls-left {
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+}
+.User_name{
+  font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.media-dropzone {
+  border-top: 2px dashed lightgrey;
+  border-bottom: 2px dashed lightgrey;
+  background-color: #f1f1f1;
+  color: #999;
+  /*height: 200px;*/
+}
+.media-dropzone.split-dropzone .split-cells {
+  display: table;
+  width: 100%;
+  height: 200px;
+  table-layout: fixed;
+}
+.media-dropzone.split-dropzone .split-cell {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+.v-center-inner {
+  vertical-align: middle;
+  text-align: center;
+}
+.media-dropzone .dropzone-add-video-icon, .media-preview .dropzone-add-video-icon {
+  text-align: left;
+  width: 56px;
+}
+.media-url-button {
+  position: relative;
+  background-color: rgba(241,241,241,0);
+}
+.fromPC .media-dropzone.split-dropzone .split-cells{
+  display: none;
+}
+.fromWeb .media-dropzone.split-dropzone .split-cells{
+  display: none;
+}
+.upfrompc{
+  display: none;
+}
+.fromPC .upfrompc{
+  display: block;
+}
+.fromPC .footer{
+  display: block;
+}
+.modal-footer .web{
+  display: none;
+}
+.fromWeb .modal-footer .web{
+  display: inherit;
+  width: 50px;
+  height: 25px;
+}
+.upfromweb{
+  display: none;
+}
+.fromWeb .upfromweb{
+  display: block;
+}
+.fromWeb .footer{
+  display: block;
+}
+.fromWeb .modal-footer .PC{
+  display: none;
+}
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.liveurl{
+  border-top: none;
+  border-bottom: 1px dashed #CCC;
+}
+.liveurl .image{
+  margin: auto;
+  width: 100%;
+}
+#liveurl-img img{
+  width: 100%
+}
+.liveurl .details{
+  margin-top: 15px
+}
+
