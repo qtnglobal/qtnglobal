@@ -15,6 +15,8 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
+    if(AppAuth.currentUser){
+
       AppAuth.ensureHasCurrentUser(function (user) {
         $scope.currentUser = user;
       });
@@ -44,5 +46,8 @@ angular.module('com.module.core')
           CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
             gettextCatalog.getString('You are logged out!'));
         });
-      };
+      };}
+    else{
+      $location.path('/explore')
+    }
   });

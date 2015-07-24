@@ -2,13 +2,13 @@
 var app=angular.module('com.module.articles');
     app.controller('ArticlesCtrl', function($scope,$sce, $state, $stateParams, CoreService,
                                        FormHelper, gettextCatalog, Article, ArticlesService, User) {
-
+      var $ = angular.element;
       var  currentUser;
       User.getCurrent(function(user){
         currentUser= user;
         loadItems(currentUser.id);
-      });
 
+      });
       function loadItems(id) {
         if(id===1){
           $scope.articles = Article.find({
@@ -31,6 +31,7 @@ var app=angular.module('com.module.articles');
         }
       }
 
+
       $scope.delete = function(id) {
         ArticlesService.deleteArticle(id, function() {
           $state.reload();
@@ -46,35 +47,6 @@ var app=angular.module('com.module.articles');
 
       $scope.show = false;
 
-      $scope.display = function(item){
-        User.findOne({
-          filter: {
-            where: {
-              id: item.ownerId
-            },
-            include: ['roles', 'identities', 'credentials', 'accessTokens']
-          }
-        }, function(result) {
-          var user=result;
-          if (typeof user.avatar == 'undefined'){
-            user.avatar = 'images/qtn.png';
-          }
-          if (typeof user.cover == 'undefined'){
-            user.cover = 'images/default-background.jpg';
-          }
-          var id=item.id;
-          var get = 'img[rel="'+id+'"]';
-          $(get).popover({
-            html: true,
-            placement: 'right',
-            content: function(){return '<div class="popover-wrapper"><div class="popover-header" style="position: relative;overflow:hidden;height:158px">'
-              + '<img src="'+user.cover+ '"/>' + '</div><div class="avatar circle" style="border-radius: 50%;box-shadow: white 0 0 0 3px;position:relative;margin: 10px auto 0;height: 64px;width: 64px;margin-top: -40px;;background: white">'
-              + '<img style="height:100%;border-radius:50%;" src="'+user.avatar+'"/>'+'</div><div class="description" style=""></div></div>';}
-          }).popover('show').on('mouseleave',function(){
-            $(get).popover('hide');
-          });
-        });
-      };
 
       this.formHelper = new FormHelper(Article);
       $scope.cancel = function() {
@@ -99,6 +71,7 @@ var app=angular.module('com.module.articles');
           $scope.article.avatar = user.avatar;
         });
       }
+
 
       $scope.formFields = [{
         key: 'title',

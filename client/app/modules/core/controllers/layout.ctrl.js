@@ -103,7 +103,6 @@ angular.module('com.module.core')
       var $ = angular.element;
       $scope.namepage = ['alert-warning','alert-info','alert-mint','alert-pink','alert-dark','alert-danger','alert-primary','alert-purple','alert-success'];
       $scope.addAlerts.push($scope.namepage[i]);
-      $timeout($scope.removeAdd(addAlerts[i]), 3000);
       $timeout($('.alert-wrap').removeClass('in'),5000);
     };
 
