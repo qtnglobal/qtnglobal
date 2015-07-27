@@ -746,7 +746,7 @@ header.header .logo .icon {
     left: 220px !important;
     right: 0;
   }
-  body.fixed .row-offcanvas-left.active .sidebar-offcanvas {
+  body.fixed .row-offcanvas-left.active  {
     left: 0px;
   }
 }
@@ -3475,12 +3475,14 @@ fieldset[disabled] .btn-vk.active {
     display: none;
   }
 
+
   .sidebar-collapse header.header .logo {
     width: 80px;
     font-size: 15px;
   }
   .sidebar-collapse nav.navbar-static-top {
-    margin-left: 50px}
+    margin-left: 50px
+  }
 }
 
 @media(min-width: 992px) {

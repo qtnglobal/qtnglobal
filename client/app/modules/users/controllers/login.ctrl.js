@@ -12,10 +12,6 @@ angular.module('com.module.users')
   .controller('LoginCtrl', function($scope, $routeParams, $location,
                                     CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
 
-    if(AppAuth.currentUser){
-      $location.path('/app')
-    }
-    else {
       var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 
       $scope.credentials = {
@@ -122,5 +118,4 @@ angular.module('com.module.users')
       /*$scope.goToLogin = function(){
        $location.path('/login');
        };*/
-    }
   });
