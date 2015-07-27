@@ -467,9 +467,11 @@ header.header {
 header.header .navbar {
   height: 50px;
   margin-bottom: 0;
-  margin-left: 220px;
   transition-duration: .35s;
 }
+@media(min-width:880px) {
+  header.header .navbar{margin-left: 220px;  }}
+
 header.header .navbar .sidebar-toggle {
   float: left;
   padding: 9px 5px;
@@ -530,11 +532,15 @@ header.header .logo {
   /*line-height: 50px;*/
   text-align: center;
   padding: 0 10px;
-  width: 220px;
   font-family: 'Kaushan Script', cursive;
   font-weight: 500;
   height: 50px;
   display: block;
+}
+@media(min-width:880px){
+  .logo{
+    width:220px;}
+
 }
 header.header .logo .icon {
   margin-right: 10px;
@@ -610,14 +616,15 @@ header.header .logo .icon {
   header.header {
     position: relative;
   }
-  header.header .logo,
   header.header .navbar {
     width: 100%;
     /*float: none;*/
     position: relative!important;
   }
+  header.header .logo{
+    position: relative!important;
+  }
   header.header .navbar {
-    margin: 0;
   }
   body.fixed > header.header {
     position: fixed;
@@ -3475,14 +3482,12 @@ fieldset[disabled] .btn-vk.active {
     display: none;
   }
 
-
   .sidebar-collapse header.header .logo {
     width: 80px;
     font-size: 15px;
   }
   .sidebar-collapse nav.navbar-static-top {
-    margin-left: 50px
-  }
+    margin-left: 50px}
 }
 
 @media(min-width: 992px) {

@@ -75,11 +75,10 @@ angular.module('com.module.core')
     $scope.toggleSidebar = function() {
       var $ = angular.element;
       if ($(window).width() <= 992) {
-        if($(window).width()>=781){
         $('.row-offcanvas').toggleClass('active');
         $('.left-side').toggleClass('collapse-left');
         $('body').toggleClass('sidebar-collapse');
-        $('.row-offcanvas').toggleClass('relative');}
+        $('.row-offcanvas').toggleClass('relative');
       } else {
         // Else, enable content streching
         $('.left-side').toggleClass('collapse-left');

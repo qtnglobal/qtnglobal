@@ -1,47 +1,3 @@
-/*
- * Template Name: Unify - Responsive Bootstrap Template
- * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
- * Version: 1.7
- * Author: @htmlstream
- * Website: http://htmlstream.com
-*/
-
-/*Reset Styles
-------------------------------------*/
-
-
-/*Heading Sizes
-------------------------------------*/
-
-/*Devider
-------------------------------------*/
-
-
-/*Tables
-------------------------------------*/
-/*Basic Tables*/
-
-/*Forms
-------------------------------------*/
-
-/*Carousel v1
-------------------------------------*/
-
-/*Carousel v2
-------------------------------------*/
-
-/*Tabs
-------------------------------------*/
-/*Tabs v1*/
-
-
-/*Accordions
-------------------------------------*/
-/*Accordion v1*/
-
-
-/*Navigation
-------------------------------------*/
 /*Pegination*/
 .pagination li a {
   color: #777;
@@ -1374,6 +1330,11 @@ img.img-center,
   background-color: white;
   margin-bottom: 10px
 }
+@media only screen and (max-width:600px) {
+  .boxEx {
+    background-color: #e9ff74;
+  }
+}
 .boxEx3 {
   padding: 0 !important;
   width: 300px;
@@ -1383,12 +1344,6 @@ img.img-center,
   border-radius: 5px;
   background-color: white;
   margin-bottom: 10px
-}
-
-@media only screen and (max-width:600px) {
-  .boxEx,.boxEx3 {
-    background-color: #e9ff74;
-  }
 }
 .item-photo img {
   width: 100% !important;
@@ -1481,13 +1436,8 @@ li {
   color: #00193a;
   font-weight: 700;
 }
-@media only screen and (max-width: 1000px){
-  .reponsiveSeach { width: 250px!important}
-}
 @media only screen and (max-width: 880px){
   .reponsiveSeach { width: 150px!important}
-  .navbar-seach {}
-
 }
 .navbar-seach{
   margin:8px 15px 8px 15px;
@@ -1495,13 +1445,13 @@ li {
 }
 @media(max-width: 880px ) {
   .logo {
-    width: 100px!important;
+    width: 100px;
   }
   .reposive-menu {
-    margin-left: 100px!important;
+    margin-left: 100px;
   }
   .logo-lg {
-    display: none !important;
+    display: none;
   }
 }
 @media(min-width: 800px ){
@@ -1516,20 +1466,24 @@ li {
 }
 @media(max-width: 350px ) {
   .logo {
-    width: 60px!important;
+    width: 60px;
   }
   .user-menu {
     display: none !important;
   }
   .reposive-menu {
-    margin-left: 60px!important;
+    margin-left: 60px;
   }
   .reponsive-home {
-    float: left!important;
-    margin-top: -5px!important;
-    margin-left: 30px!important;
+    float: left;
+    margin-top: -5px;
+    margin-left: 30px;
   }
-
+}
+@media(max-width:781px){
+  .sidebar-collapse nav.navbar{
+    margin-left:50px;
+  }
 }
 .menu-home a:hover {
   color: #00193a;
@@ -1643,7 +1597,8 @@ li {
   color: white!important;
 }
 
-/* Links */
+/* link */
+
 /* Live URL */
 
 .liveurl {
@@ -1819,8 +1774,7 @@ li {
   font: 12px/1em Tahoma, Arial, Helvetica, Segoe, sans-serif;
 }
 
-
-/* user-profile */
+/* user */
 
 .l-content {
   min-height: 100%;
@@ -2386,9 +2340,7 @@ li {
   display: block;
 }
 
-
-
-/* form-modal */
+/* modal */
 
 .controls-container {
   display: table;
@@ -2503,4 +2455,6 @@ li {
 .liveurl .details{
   margin-top: 15px
 }
+
+
 
