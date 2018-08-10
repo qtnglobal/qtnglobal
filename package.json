@@ -1,0 +1,22 @@
+{
+  "name": "qtnglobal",
+  "version": "1.0.0",
+  "description": "QTN Global Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://thuanqh@github.com/qtnglobal/qtnglobal.git"
+  },
+  "keywords": [
+    "qtnglobal"
+  ],
+  "author": "Jason Quach (Huu Thuan)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qtnglobal/qtnglobal/issues"
+  },
+  "homepage": "https://github.com/qtnglobal/qtnglobal#readme"
+}
