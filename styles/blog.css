@@ -1,0 +1,61 @@
+.header-blog{position:relative;display:table;width:100%;height:100vh;text-align:center;background:#222 no-repeat center center;background-size:cover;overflow:hidden;margin-bottom:5rem;opacity:1;}.header-blog:before{top:0;left:0;width:100%;height:100%;content:" ";position:absolute;background:url(/images/gridtile.png) repeat;}.img-load{max-width:100%;height:auto;display:block;}.share-social h4{font-weight:600;color:#555;}.text-muted p{line-height:1.7;margin:0;font-size:18px;font-weight:200;}.text-muted h2{font-size:3.6rem;padding-top:10px;}.text-muted h3{color:#000000;font-weight:600;padding-bottom:10px;padding-top:10px;}.text-muted h4{font-style:italic;color:#555;}.text-muted a{font-size:14px;}.social{display:inline-block;width:30px;height:30px;line-height:30px;font-family:Entypo;font-size:22px;text-align:center;color:#555;border-radius:10px;background:#eee;overflow:hidden;cursor:pointer;}.post:after{display:block;content:"";width:7px;height:7px;border:#E7EEF2 1px solid;position:absolute;bottom:-5px;left:50%;margin-left:-5px;background:#FFF;border-radius:100%;box-shadow:#FFF 0 0 0 5px;}.post,.blogPage{padding-bottom:4rem;border-bottom:#EBF2F6 1px solid;word-wrap:break-word;width:90%;margin:35px auto 35px auto;position:relative;}.post{}.click-down:hover{transform:scale(1.4);}@keyframes example{20%{bottom:30px;}40%{bottom:70px;}60%{bottom:40px}80%{bottom:60px}}.click-down{text-align:center;bottom:50px;left:50%;display:block;position:absolute;transition:all .8s ease;}.click-down i{font-size:16px;}.click-down-style{animation-name:example;animation-duration:2s;}.click-down-style:before{bottom:-20px;}.blogTitle:hover{text-decoration:none;color:#CB2BA7;}.blogTitle{color:#CB2BA7;}.row h1{color:white;}.post-head{height:65vh;min-height:180px;}.img-load{display:block;max-width:100%;height:auto;margin-bottom:1.7rem;}.footer{color:#cccccc;background:#222222;padding:60px 0;position:relative;display:block;box-sizing:border-box;width:100%;z-index:1;}.title{position:relative;display:block;}.footer #contactform .form-control{margin-bottom:20px;background:transparent;border-color:white;height:45px;border-radius:0;color:white}.footer #contactform textarea.form-control{height:120px!important;}.footer #contactform .btn-primary{background:transparent;border-color:white!important;color:#9B9B9B;border-radius:0!important;font-size:14px!important;padding:7px 35px!important;}.btn:hover{background:#333333;color:#ffffff;}.contact_details{list-style:disc;margin:0 0 20px 17px;}.contact_details li{margin-bottom:18px;list-style:none;}.footer .title h3{color:#FFFFFF;font-size:24px!important;font-weight:bold;padding-bottom:20px;text-transform:inherit;}.contact_details li i{color:#FFFFFF;font-size:28px;padding-right:10px;text-align:center;vertical-align:top;width:35px;}.contact_details li span{padding-left:10px;}.bot-blog{color:#fff;position:relative;background:url(../images/footer.jpg) center fixed;background-size:cover;}.bot-blog:before{top:0;left:0;width:100%;height:100%;content:" ";position:absolute;background:url(../images/gridtile.png) repeat;}.contact_details a{color:white;}.contact_details a:hover{color:#CB2BA7;text-decoration:none;}.header-blog h2{color:white;width:200px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;visibility:visible;border-bottom:1px solid #FFF;}@media(max-width: 768px){
+	.header-blog h2{
+		margin: 5px auto;
+	}
+	{
+		font-size: 25px;
+		line-height: 0;
+	}
+
+}
+@media (min-width: 768px){
+	.header-blog h2{
+		margin: 10px auto;
+	}
+	.header-blog h2{
+		font-size: 25px;
+		line-height: 0;
+	}
+
+}
+@media (min-width: 992px) {
+	.header-blog h2 {
+		font-size: 33px;
+		margin: 40px auto 20px auto;
+		line-height: 49px;
+	}
+
+}
+.header-blog h1,.header-blog h2{
+	color:white;
+	position:relative
+}
+.post-head{
+	background-color: rgba(0, 0, 0, 0);
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.contact_widget {
+	margin-top: 0;margin-bottom: 0;
+}
+.share .icon-twitter:hover {
+	color: #55acee  !important
+}
+.share .icon-facebook:hover {
+	color: #3b5998  !important
+}
+.share .icon-google-plus:hover {
+	color: #dd4b39  !important
+}
+.share a {
+	height: 30px;
+	width: 30px;
+	margin-right: 5px;
+	background: 0 0;
+	color: #BBC7CC ;
+}
+.share .fa{
+	font: normal normal normal 30px/1 FontAwesome;
+}
+
