@@ -2,9 +2,11 @@ import React from "react";
 
 import Layout from "../components/Layout";
 import { Box, Heading } from "../components/AgonKit";
+import SEO from "../components/SEO";
 
 export default () => (
   <Layout>
+    <SEO title="Home" keywords={[`qtnglobal`, `application`, `react`]} />
     <Box
       color="white"
       height="100vh"

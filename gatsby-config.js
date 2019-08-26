@@ -5,6 +5,7 @@ module.exports = {
     author: `jason@qtnglobal.org`
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {}
