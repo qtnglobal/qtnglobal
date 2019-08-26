@@ -1,32 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import {
-  compose,
-  space,
-  color,
-  layout,
-  flexbox,
-  background,
-  position
-} from "styled-system";
 
-import GlobalStyles from "../utils/global-styles";
-
-const Box = styled.div(
-  compose(
-    space,
-    color,
-    layout,
-    flexbox,
-    background,
-    position
-  )
-);
+import Layout from "../components/Layout";
+import { Box, Heading } from "../components/AgonKit";
 
 export default () => (
-  <>
-    <GlobalStyles />
+  <Layout>
     <Box
+      color="white"
       height="100vh"
       backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random/1024x768)"
       backgroundSize="cover"
@@ -34,7 +14,15 @@ export default () => (
       backgroundRepeat="no-repeat"
       position="relative"
     >
-      <h1>Welcome to QTN Global!</h1>
+      <Box
+        position="absolute"
+        top="50%"
+        left="50%"
+        textAlign="center"
+        css={{ transform: "translate(-50%, -50%)" }}
+      >
+        <Heading>Welcome to QTN Global!</Heading>
+      </Box>
     </Box>
-  </>
+  </Layout>
 );
