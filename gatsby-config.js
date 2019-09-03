@@ -10,6 +10,12 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {}
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `${__dirname}/src/utils/typography`
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -28,7 +34,7 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#cb2ba7`,
         display: `standalone`,
-        icon: `src/assets/images/qtnglobal.png`
+        icon: `${__dirname}/src/assets/images/qtnglobal.png`
       }
     },
     `gatsby-plugin-offline`
