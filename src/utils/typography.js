@@ -19,8 +19,9 @@ const typography = new Typography({
     "Segoe UI",
     "Helvetica",
     "Arial",
+    "system-ui",
     "sans-serif"
   ],
-  bodyFontFamily: ["Roboto", "Georgia", "serif"]
+  bodyFontFamily: ["Roboto", "Georgia", "system-ui", "serif"]
 });
 export default typography;

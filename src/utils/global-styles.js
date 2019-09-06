@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
 
     html,
     body {
-        font-family: system-ui, sans-serif;
         height: 100%;
         min-height: 100%;
         min-width: 320px;
