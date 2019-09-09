@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "../components/Layout";
-import { Box, Heading } from "../components/AgonKit";
+import { Box, Heading, Navbar } from "../components/AgonKit";
 import SEO from "../components/SEO";
 
 export default () => (
@@ -16,6 +16,7 @@ export default () => (
       backgroundRepeat="no-repeat"
       position="relative"
     >
+      <Navbar />
       <Box
         position="absolute"
         top="50%"
