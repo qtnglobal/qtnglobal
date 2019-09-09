@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
+import { Box, theme } from "agonkit";
 
 import GlobalStyles from "../../utils/global-styles";
-import { Box, theme } from "../AgonKit";
 import Footer from "../Footer";
 
 const Layout = ({ children }) => (

@@ -1,8 +1,9 @@
 import React from "react";
+import { Box, Heading } from "agonkit";
 
 import Layout from "../components/Layout";
-import { Box, Heading, Navbar } from "../components/AgonKit";
 import SEO from "../components/SEO";
+import Navbar from "../components/Navbar";
 
 export default () => (
   <Layout>
