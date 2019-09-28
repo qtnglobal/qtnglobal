@@ -1,12 +1,11 @@
 import React from "react";
 import { Menu } from "styled-icons/boxicons-regular/Menu";
-import { Flex, Box, Heading, Spacer } from "agonkit";
+import { Flex, Box, Spacer } from "agonkit";
+import Brand from "./Brand";
 
 export const Navbar = ({ onClick, ...props }) => (
   <Flex {...props} as="nav">
-    <Box m={3} py={2}>
-      <Heading>QTN Global</Heading>
-    </Box>
+    <Brand m={3} py={2} />
     <Spacer m="auto" />
     <Box m={3} py={2} display={["none", "block"]}>
       Home
