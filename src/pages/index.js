@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading } from "agonkit";
+import { Box, Heading, Text } from "agonkit";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -72,6 +72,25 @@ export default () => {
         >
           <Heading>Welcome to QTN Global!</Heading>
         </Box>
+      </Box>
+      <Box>
+        <Heading textAlign="center">Vision & Mission</Heading>
+        <Text textAlign="center">
+          QTN Global aims at connecting global talents supporting each other to
+          reach success.
+        </Text>
+      </Box>
+      <Box>
+        <Heading textAlign="center">What We Do</Heading>
+      </Box>
+      <Box>
+        <Heading textAlign="center">Our Community</Heading>
+      </Box>
+      <Box>
+        <Heading textAlign="center">News</Heading>
+      </Box>
+      <Box>
+        <Heading textAlign="center">Contact Us</Heading>
       </Box>
     </Layout>
   );
