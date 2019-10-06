@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Heading, Text } from "agonkit";
 
+import Particles from "../components/Particles";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Navbar from "../components/Navbar";
@@ -31,67 +32,69 @@ export default () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`qtnglobal`, `application`, `react`]} />
-      <Box
-        color="white"
-        height="100vh"
-        backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random/1024x768)"
-        backgroundSize="cover"
-        backgroundPosition="center"
-        backgroundRepeat="no-repeat"
-        position="relative"
-      >
-        <Navbar
-          bg={color}
-          top="0"
-          left="0"
-          position="fixed"
-          zIndex="1"
-          width="100%"
-          alignItems="center"
-          onClick={() => setSidebarOpen(true)}
-        />
-        {sidebarOpen && (
-          <Sidebar
-            color="white"
-            bg="black"
+      <Particles>
+        <Box
+          color="white"
+          height="100vh"
+          backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random/1024x768)"
+          backgroundSize="cover"
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          position="relative"
+        >
+          <Navbar
+            bg={color}
             top="0"
-            right="0"
+            left="0"
             position="fixed"
             zIndex="1"
-            height="100%"
-            width={["100%", "50%", "25%"]}
-            onClose={() => setSidebarOpen(false)}
+            width="100%"
+            alignItems="center"
+            onClick={() => setSidebarOpen(true)}
           />
-        )}
-        <Box
-          position="absolute"
-          top="50%"
-          left="50%"
-          textAlign="center"
-          css={{ transform: "translate(-50%, -50%)" }}
-        >
-          <Heading>Welcome to QTN Global!</Heading>
+          {sidebarOpen && (
+            <Sidebar
+              color="white"
+              bg="black"
+              top="0"
+              right="0"
+              position="fixed"
+              zIndex="1"
+              height="100%"
+              width={["100%", "50%", "25%"]}
+              onClose={() => setSidebarOpen(false)}
+            />
+          )}
+          <Box
+            position="absolute"
+            top="50%"
+            left="50%"
+            textAlign="center"
+            css={{ transform: "translate(-50%, -50%)" }}
+          >
+            <Heading>Welcome to QTN Global!</Heading>
+          </Box>
         </Box>
-      </Box>
-      <Box>
-        <Heading textAlign="center">Vision & Mission</Heading>
-        <Text textAlign="center">
-          QTN Global aims at connecting global talents supporting each other to
-          reach success.
-        </Text>
-      </Box>
-      <Box>
-        <Heading textAlign="center">What We Do</Heading>
-      </Box>
-      <Box>
-        <Heading textAlign="center">Our Community</Heading>
-      </Box>
-      <Box>
-        <Heading textAlign="center">News</Heading>
-      </Box>
-      <Box>
-        <Heading textAlign="center">Contact Us</Heading>
-      </Box>
+        <Box>
+          <Heading textAlign="center">Vision & Mission</Heading>
+          <Text textAlign="center">
+            QTN Global aims at connecting global talents supporting each other
+            to reach success.
+          </Text>
+        </Box>
+        <Box>
+          <Heading textAlign="center">What We Do</Heading>
+        </Box>
+        <Box>
+          <Heading textAlign="center">Our Community</Heading>
+        </Box>
+        <Box>
+          <Heading textAlign="center">News</Heading>
+        </Box>
+        <Box>
+          <Heading textAlign="center">Contact Us</Heading>
+        </Box>
+      </Particles>
     </Layout>
   );
 };

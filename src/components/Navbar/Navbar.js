@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu } from "styled-icons/boxicons-regular/Menu";
 import { Flex, Box, Image, Heading, Spacer } from "agonkit";
+import { Link } from "gatsby";
 
 import logo from "../../assets/images/qtnglobal.png";
 
@@ -10,22 +11,22 @@ export const Navbar = ({ onClick, ...props }) => (
     <Heading py={2}>QTN Global</Heading>
     <Spacer m="auto" />
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      Home
+      <Link to="/">Home</Link>
     </Box>
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      Who We Are
+      <Link to="/about">Who We Are</Link>
     </Box>
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      What We Do
+      <Link to="/services">What We Do</Link>
     </Box>
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      Our Community
+      <Link to="/community">Our Community</Link>
     </Box>
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      News
+      <Link to="/blog">News</Link>
     </Box>
     <Box m={3} py={2} display={["none", "none", "block"]}>
-      Contact Us
+      <Link to="/contact">Contact Us</Link>
     </Box>
     <Box m={3} py={2} display={["block", "block", "none"]} onClick={onClick}>
       <Menu size="32" />
