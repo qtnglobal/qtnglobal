@@ -4,7 +4,7 @@
   "description": "QTN Global Landing Page",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf .cache node_modules public package-lock.json yarn.lock",
+    "clean": "rm -rf .cache node_modules public package-lock.json yarn.lock yarn-error.log",
     "sass": "node-sass -w scss/ -o dist/css/ --recursive",
     "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
@@ -44,6 +44,7 @@
     "gatsby-plugin-styled-components": "^3.1.8",
     "gatsby-plugin-typography": "^2.3.11",
     "gatsby-source-filesystem": "^2.1.29",
+    "gatsby-transformer-remark": "^2.6.27",
     "gatsby-transformer-sharp": "^2.2.20",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
