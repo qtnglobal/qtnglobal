@@ -73,6 +73,10 @@ export default () => {
             css={{ transform: "translate(-50%, -50%)" }}
           >
             <Heading>Welcome to QTN Global!</Heading>
+            <Text>
+              We make young talent think | action | giving like as a great
+              leader
+            </Text>
           </Box>
         </Box>
         <Box>

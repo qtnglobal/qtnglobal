@@ -33,6 +33,18 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/data/posts/`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {}
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: []
